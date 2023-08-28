@@ -11,5 +11,5 @@ dest_files=[ "res://.import/minecraft_villager.ogg-c4dd8709fd398d3a63198974f9b0a
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

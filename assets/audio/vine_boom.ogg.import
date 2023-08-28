@@ -11,5 +11,5 @@ dest_files=[ "res://.import/vine_boom.ogg-71de1b9ba5fc8ad1877d7c85951e8675.oggst
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
