@@ -21,7 +21,14 @@ _global_script_class_icons={
 [application]
 
 config/name="Thesis-game-project"
+run/main_scene="res://interfaces/title_screen_menus/title_screen_main.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/width=1366
+window/size/height=768
+window/size/resizable=false
 
 [editor]
 

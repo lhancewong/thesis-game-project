@@ -1,5 +1,119 @@
-[gd_scene format=2]
+[gd_scene load_steps=11 format=2]
 
-[node name="Control" type="Control"]
+[ext_resource path="res://assets/images/steve_harvey.png" type="Texture" id=1]
+[ext_resource path="res://assets/images/steveharvey.png" type="Texture" id=2]
+[ext_resource path="res://assets/images/steve.png" type="Texture" id=3]
+[ext_resource path="res://assets/images/harvey.png" type="Texture" id=4]
+[ext_resource path="res://assets/fonts/pixelated.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://assets/images/restaurant.png" type="Texture" id=6]
+
+[sub_resource type="DynamicFont" id=7]
+size = 166
+font_data = ExtResource( 5 )
+
+[sub_resource type="Theme" id=3]
+
+[sub_resource type="DynamicFont" id=8]
+size = 48
+font_data = ExtResource( 5 )
+
+[sub_resource type="Theme" id=5]
+
+[node name="TitleScreen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.937255, 0.937255, 0.937255, 1 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = -20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 20
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/HBoxContainer"]
+margin_right = 744.0
+margin_bottom = 728.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.57
+custom_constants/separation = 20
+
+[node name="GameTitle" type="Label" parent="Background/HBoxContainer/VBoxContainer"]
+margin_right = 744.0
+margin_bottom = 303.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.4
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 7 )
+text = "WASTE NOT"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Start" type="Button" parent="Background/HBoxContainer/VBoxContainer"]
+margin_top = 323.0
+margin_right = 744.0
+margin_bottom = 409.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.15
+theme = SubResource( 3 )
+custom_fonts/font = SubResource( 8 )
+text = "Start Game"
+icon = ExtResource( 1 )
+expand_icon = true
+
+[node name="Options" type="Button" parent="Background/HBoxContainer/VBoxContainer"]
+margin_top = 429.0
+margin_right = 744.0
+margin_bottom = 515.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.15
+custom_fonts/font = SubResource( 8 )
+text = "Options"
+icon = ExtResource( 2 )
+expand_icon = true
+
+[node name="About" type="Button" parent="Background/HBoxContainer/VBoxContainer"]
+margin_top = 535.0
+margin_right = 744.0
+margin_bottom = 621.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.15
+theme = SubResource( 5 )
+custom_fonts/font = SubResource( 8 )
+text = "About"
+icon = ExtResource( 3 )
+expand_icon = true
+
+[node name="Quit" type="Button" parent="Background/HBoxContainer/VBoxContainer"]
+margin_top = 641.0
+margin_right = 744.0
+margin_bottom = 728.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.15
+custom_fonts/font = SubResource( 8 )
+text = "Quit Game"
+icon = ExtResource( 4 )
+expand_icon = true
+
+[node name="RestaurantView" type="TextureRect" parent="Background/HBoxContainer"]
+margin_left = 764.0
+margin_right = 1326.0
+margin_bottom = 728.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.43
+texture = ExtResource( 6 )
+expand = true
