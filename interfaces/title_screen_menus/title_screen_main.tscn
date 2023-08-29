@@ -4,7 +4,7 @@
 [ext_resource path="res://assets/images/steveharvey.png" type="Texture" id=2]
 [ext_resource path="res://assets/images/steve.png" type="Texture" id=3]
 [ext_resource path="res://assets/images/harvey.png" type="Texture" id=4]
-[ext_resource path="res://interfaces/title_screen_menus/title_screen_main.gd" type="Script" id=5]
+[ext_resource path="res://interfaces/title_screen_menus/scripts/title_screen_main.gd" type="Script" id=5]
 [ext_resource path="res://assets/images/restaurant.png" type="Texture" id=6]
 [ext_resource path="res://assets/audio/vine_boom.ogg" type="AudioStream" id=7]
 [ext_resource path="res://assets/fonts/pixelated.ttf" type="DynamicFontData" id=8]
@@ -122,11 +122,11 @@ size_flags_stretch_ratio = 0.43
 texture = ExtResource( 6 )
 expand = true
 
-[node name="BGM" type="AudioStreamPlayer2D" parent="."]
+[node name="BGM" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
 volume_db = -7.0
 
-[node name="VineBoom" type="AudioStreamPlayer2D" parent="."]
+[node name="VineBoom" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 volume_db = -10.0
 
@@ -134,3 +134,4 @@ volume_db = -10.0
 [connection signal="pressed" from="Background/HBoxContainer/VBoxContainer/Options" to="." method="_on_Options_pressed"]
 [connection signal="pressed" from="Background/HBoxContainer/VBoxContainer/About" to="." method="_on_About_pressed"]
 [connection signal="pressed" from="Background/HBoxContainer/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]
+[connection signal="finished" from="VineBoom" to="." method="_on_VineBoom_finished"]

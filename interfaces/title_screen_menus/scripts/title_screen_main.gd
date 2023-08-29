@@ -16,11 +16,11 @@ func _ready():
 
 
 func _on_Start_pressed():
-	vine_boom.play()
+	get_tree().change_scene("res://interfaces/title_screen_menus/title_screen_save_selection.tscn")
 
 
 func _on_Options_pressed():
-	vine_boom.play()
+	get_tree().change_scene("res://interfaces/title_screen_menus/title_screen_options.tscn")
 
 
 func _on_About_pressed():
@@ -28,4 +28,4 @@ func _on_About_pressed():
 
 
 func _on_Quit_pressed():
-	vine_boom.play()
+	get_tree().quit()
