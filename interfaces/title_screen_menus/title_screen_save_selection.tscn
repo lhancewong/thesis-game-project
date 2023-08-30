@@ -163,4 +163,5 @@ size_flags_stretch_ratio = 0.43
 texture = ExtResource( 1 )
 expand = true
 
+[connection signal="pressed" from="Background/HBoxContainer/VBoxContainer/GridContainer/SaveFile1" to="." method="_on_SaveFile1_pressed"]
 [connection signal="pressed" from="Background/HBoxContainer/VBoxContainer/ToTitleScreen" to="." method="_on_ToTitleScreen_pressed"]

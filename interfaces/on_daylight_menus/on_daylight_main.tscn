@@ -1,5 +1,213 @@
-[gd_scene format=2]
+[gd_scene load_steps=9 format=2]
 
-[node name="Control" type="Control"]
+[ext_resource path="res://interfaces/on_daylight_menus/scripts/on_daylight_main.gd" type="Script" id=1]
+[ext_resource path="res://assets/fonts/pixelated.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/images/restaurant.png" type="Texture" id=3]
+[ext_resource path="res://assets/audio/minecraft_villager.ogg" type="AudioStream" id=4]
+[ext_resource path="res://assets/fonts/thin_pixelated.ttf" type="DynamicFontData" id=5]
+
+[sub_resource type="Theme" id=1]
+
+[sub_resource type="DynamicFont" id=3]
+size = 12
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 28
+font_data = ExtResource( 2 )
+
+[node name="OnDaylight" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.937255, 0.937255, 0.937255, 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = -20.0
+custom_constants/separation = 20
+
+[node name="topbar" type="ColorRect" parent="VBoxContainer"]
+margin_right = 1326.0
+margin_bottom = 64.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+color = Color( 0.517647, 0.517647, 0.517647, 1 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 84.0
+margin_right = 1326.0
+margin_bottom = 728.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 20
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+margin_right = 744.0
+margin_bottom = 644.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.57
+custom_constants/separation = 20
+
+[node name="menu icons" type="ColorRect" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_right = 744.0
+margin_bottom = 111.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.25
+color = Color( 0.517647, 0.517647, 0.517647, 1 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu icons"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+custom_constants/separation = 10
+
+[node name="OrderIngredients" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu icons/HBoxContainer"]
+margin_right = 100.0
+margin_bottom = 91.0
+rect_min_size = Vector2( 100, 91 )
+size_flags_stretch_ratio = 0.15
+theme = SubResource( 1 )
+clip_text = true
+icon_align = 1
+expand_icon = true
+
+[node name="ButtonLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu icons/HBoxContainer/OrderIngredients"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 3 )
+text = "Order Ingredients"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="PrepareIngredients" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu icons/HBoxContainer"]
+margin_left = 110.0
+margin_right = 210.0
+margin_bottom = 91.0
+rect_min_size = Vector2( 100, 91 )
+size_flags_stretch_ratio = 0.15
+theme = SubResource( 1 )
+clip_text = true
+icon_align = 1
+expand_icon = true
+
+[node name="ButtonLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu icons/HBoxContainer/PrepareIngredients"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 3 )
+text = "Prepare Ingredients"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="TechUpgrades" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu icons/HBoxContainer"]
+margin_left = 220.0
+margin_right = 320.0
+margin_bottom = 91.0
+rect_min_size = Vector2( 100, 91 )
+size_flags_stretch_ratio = 0.15
+theme = SubResource( 1 )
+clip_text = true
+icon_align = 1
+expand_icon = true
+
+[node name="ButtonLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu icons/HBoxContainer/TechUpgrades"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 3 )
+text = "Tech Upgrades"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Statistics" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu icons/HBoxContainer"]
+margin_left = 330.0
+margin_right = 430.0
+margin_bottom = 91.0
+rect_min_size = Vector2( 100, 91 )
+size_flags_stretch_ratio = 0.15
+theme = SubResource( 1 )
+clip_text = true
+icon_align = 1
+expand_icon = true
+
+[node name="ButtonLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu icons/HBoxContainer/Statistics"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 3 )
+text = "Statistics"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="middle" type="ColorRect" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 131.0
+margin_right = 744.0
+margin_bottom = 579.0
+size_flags_vertical = 3
+color = Color( 0.517647, 0.517647, 0.517647, 1 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 599.0
+margin_right = 744.0
+margin_bottom = 644.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+custom_constants/separation = 20
+alignment = 2
+
+[node name="ToTitleScreen" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+margin_right = 362.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.15
+theme = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
+text = "To Title Screen"
+expand_icon = true
+
+[node name="StartDay" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+margin_left = 382.0
+margin_right = 744.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.15
+theme = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Start Day"
+expand_icon = true
+
+[node name="RestaurantView" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+margin_left = 764.0
+margin_right = 1326.0
+margin_bottom = 644.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.43
+texture = ExtResource( 3 )
+expand = true
+
+[node name="VillagerSigh" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = 7.0
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/ToTitleScreen" to="." method="_on_ToTitleScreen_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/StartDay" to="." method="_on_StartDay_pressed"]
