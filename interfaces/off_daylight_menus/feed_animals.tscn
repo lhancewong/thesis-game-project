@@ -1,0 +1,197 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/fonts/thin_pixelated.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/fonts/pixelated.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=10]
+size = 87
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 64
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 50
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 30
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 50
+font_data = ExtResource( 2 )
+
+[node name="FeedAnimals" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_right = 1366.0
+margin_bottom = 80.0
+custom_fonts/font = SubResource( 10 )
+text = "Feeding Animals"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 84.0
+margin_right = 1366.0
+margin_bottom = 768.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 20
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+margin_right = 673.0
+margin_bottom = 684.0
+size_flags_horizontal = 3
+
+[node name="LeftColumn" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer2"]
+margin_right = 673.0
+margin_bottom = 684.0
+rect_pivot_offset = Vector2( -570, 58 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Top" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer2/LeftColumn"]
+margin_right = 673.0
+margin_bottom = 312.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer/MarginContainer2/LeftColumn/Top"]
+margin_top = 101.0
+margin_right = 673.0
+margin_bottom = 101.0
+
+[node name="EdibleWasteTag" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer2/LeftColumn/Top"]
+margin_top = 105.0
+margin_right = 673.0
+margin_bottom = 163.0
+custom_fonts/font = SubResource( 11 )
+text = "Edible Waste"
+align = 1
+
+[node name="WasteAmount" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer2/LeftColumn/Top"]
+margin_top = 167.0
+margin_right = 673.0
+margin_bottom = 211.0
+custom_fonts/font = SubResource( 12 )
+text = "Waste Amount"
+align = 1
+
+[node name="Top2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer2/LeftColumn"]
+margin_top = 316.0
+margin_right = 673.0
+margin_bottom = 628.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="WasteAmount" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer2/LeftColumn/Top2"]
+margin_top = 98.0
+margin_right = 673.0
+margin_bottom = 156.0
+custom_fonts/font = SubResource( 11 )
+text = "Feed Animals"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer2/LeftColumn/Top2"]
+margin_top = 160.0
+margin_right = 673.0
+margin_bottom = 214.0
+rect_pivot_offset = Vector2( -74, 24 )
+alignment = 1
+
+[node name="minus" type="Button" parent="VBoxContainer/HBoxContainer/MarginContainer2/LeftColumn/Top2/HBoxContainer"]
+margin_right = 133.0
+margin_bottom = 54.0
+size_flags_horizontal = 3
+text = "-"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer/MarginContainer2/LeftColumn/Top2/HBoxContainer"]
+margin_left = 137.0
+margin_right = 536.0
+margin_bottom = 54.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+custom_fonts/font = SubResource( 12 )
+align = 1
+placeholder_text = "Waste Amount"
+
+[node name="plus" type="Button" parent="VBoxContainer/HBoxContainer/MarginContainer2/LeftColumn/Top2/HBoxContainer"]
+margin_left = 540.0
+margin_right = 673.0
+margin_bottom = 54.0
+rect_pivot_offset = Vector2( -71, 20 )
+size_flags_horizontal = 3
+text = "+"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer2/LeftColumn"]
+margin_top = 632.0
+margin_right = 673.0
+margin_bottom = 684.0
+alignment = 1
+
+[node name="SendButton" type="Button" parent="VBoxContainer/HBoxContainer/MarginContainer2/LeftColumn/HBoxContainer"]
+margin_left = 270.0
+margin_right = 402.0
+margin_bottom = 52.0
+custom_fonts/font = SubResource( 8 )
+text = "Send"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+margin_left = 693.0
+margin_right = 1366.0
+margin_bottom = 684.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RightColumn" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer"]
+margin_right = 673.0
+margin_bottom = 684.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="FoodWasteInfo" type="ColorRect" parent="VBoxContainer/HBoxContainer/MarginContainer/RightColumn"]
+margin_right = 673.0
+margin_bottom = 628.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.235294, 0.227451, 0.266667, 1 )
+
+[node name="FoodWasteInfoText" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer/RightColumn/FoodWasteInfo"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 6 )
+text = "Text about how much food waste went to where "
+align = 1
+valign = 1
+autowrap = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer/RightColumn"]
+margin_top = 632.0
+margin_right = 673.0
+margin_bottom = 684.0
+alignment = 1
+
+[node name="SendButton" type="Button" parent="VBoxContainer/HBoxContainer/MarginContainer/RightColumn/HBoxContainer"]
+margin_left = 272.0
+margin_right = 400.0
+margin_bottom = 52.0
+custom_fonts/font = SubResource( 9 )
+text = "Exit"
