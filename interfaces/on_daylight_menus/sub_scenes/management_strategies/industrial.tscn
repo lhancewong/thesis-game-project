@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/fonts/thin_pixelated.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/fonts/pixelated.ttf" type="DynamicFontData" id=2]
@@ -7,28 +7,20 @@
 size = 51
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=6]
-size = 30
-font_data = ExtResource( 2 )
-
-[sub_resource type="DynamicFont" id=7]
-size = 20
-font_data = ExtResource( 1 )
-
 [sub_resource type="DynamicFont" id=2]
-size = 48
+size = 37
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 30
-font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=4]
 size = 20
 font_data = ExtResource( 1 )
 
+[sub_resource type="DynamicFont" id=4]
+size = 13
+font_data = ExtResource( 1 )
+
 [sub_resource type="DynamicFont" id=5]
-size = 65
+size = 38
 extra_spacing_top = 10
 extra_spacing_bottom = 10
 font_data = ExtResource( 2 )
@@ -54,7 +46,7 @@ align = 1
 valign = 1
 autowrap = true
 
-[node name="HSplitContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 57.0
 margin_right = 724.0
 margin_bottom = 428.0
@@ -62,115 +54,101 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 30
 
-[node name="Compost" type="VBoxContainer" parent="VBoxContainer/HSplitContainer"]
+[node name="Industrial" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
 margin_right = 347.0
 margin_bottom = 371.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_constants/separation = 50
+custom_constants/separation = 30
 
-[node name="Waste" type="VBoxContainer" parent="VBoxContainer/HSplitContainer/Compost"]
+[node name="Waste" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Industrial"]
 margin_right = 347.0
-margin_bottom = 106.0
+margin_bottom = 160.0
 rect_pivot_offset = Vector2( -345, -102 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 20
 
-[node name="Waste" type="ColorRect" parent="VBoxContainer/HSplitContainer/Compost/Waste"]
+[node name="Waste" type="ColorRect" parent="VBoxContainer/HBoxContainer/Industrial/Waste"]
 margin_right = 347.0
-margin_bottom = 43.0
+margin_bottom = 70.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color( 0.262745, 0.262745, 0.262745, 1 )
 
-[node name="Waste" type="Label" parent="VBoxContainer/HSplitContainer/Compost/Waste/Waste"]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Industrial/Waste/Waste"]
 anchor_right = 1.0
-anchor_bottom = 0.819
-margin_left = 1.0
-margin_top = 1.0
-margin_right = -2.0
-margin_bottom = 5.516
+anchor_bottom = 1.0
 custom_colors/font_color = Color( 0.996078, 0.972549, 0.972549, 1 )
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 2 )
 text = "Inedible Waste"
 align = 1
 valign = 1
 
-[node name="Amount" type="ColorRect" parent="VBoxContainer/HSplitContainer/Compost/Waste"]
-margin_top = 63.0
+[node name="Amount" type="ColorRect" parent="VBoxContainer/HBoxContainer/Industrial/Waste"]
+margin_top = 90.0
 margin_right = 347.0
-margin_bottom = 106.0
+margin_bottom = 160.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Amount" type="Label" parent="VBoxContainer/HSplitContainer/Compost/Waste/Amount"]
+[node name="WasteAmnt" type="Label" parent="VBoxContainer/HBoxContainer/Industrial/Waste/Amount"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 2.0
-margin_bottom = 1.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 3 )
 text = "Waste Amount"
 align = 1
 valign = 1
 
-[node name="Compost" type="VBoxContainer" parent="VBoxContainer/HSplitContainer/Compost"]
-margin_top = 156.0
+[node name="Strategy" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Industrial"]
+margin_top = 190.0
 margin_right = 347.0
-margin_bottom = 315.0
+margin_bottom = 371.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-size_flags_stretch_ratio = 1.5
+size_flags_stretch_ratio = 1.12
 custom_constants/separation = 20
 
-[node name="Compost" type="ColorRect" parent="VBoxContainer/HSplitContainer/Compost/Compost"]
+[node name="Industrial" type="ColorRect" parent="VBoxContainer/HBoxContainer/Industrial/Strategy"]
 margin_right = 347.0
-margin_bottom = 57.0
+margin_bottom = 69.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.25
 color = Color( 0.262745, 0.262745, 0.262745, 1 )
 
-[node name="Label" type="Label" parent="VBoxContainer/HSplitContainer/Compost/Compost/Compost"]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Industrial/Strategy/Industrial"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
 custom_fonts/font = SubResource( 2 )
-text = "industrial"
+text = "Industrial"
 align = 1
 valign = 1
 autowrap = true
 
-[node name="Amount" type="ColorRect" parent="VBoxContainer/HSplitContainer/Compost/Compost"]
-margin_top = 77.0
+[node name="Amount" type="ColorRect" parent="VBoxContainer/HBoxContainer/Industrial/Strategy"]
+margin_top = 89.0
 margin_right = 347.0
-margin_bottom = 123.0
+margin_bottom = 145.0
 size_flags_vertical = 3
 
-[node name="EdibleAmnt" type="Label" parent="VBoxContainer/HSplitContainer/Compost/Compost/Amount"]
+[node name="InedibleAmnt" type="Label" parent="VBoxContainer/HBoxContainer/Industrial/Strategy/Amount"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
-text = "Amount"
+text = "Industrial Amount"
 align = 1
 valign = 1
 
-[node name="HSlider" type="HSlider" parent="VBoxContainer/HSplitContainer/Compost/Compost"]
-margin_top = 143.0
+[node name="HSlider" type="HSlider" parent="VBoxContainer/HBoxContainer/Industrial/Strategy"]
+margin_top = 165.0
 margin_right = 347.0
-margin_bottom = 159.0
+margin_bottom = 181.0
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HSplitContainer/Compost"]
-margin_top = 365.0
-margin_right = 347.0
-margin_bottom = 371.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.05
-
-[node name="Text" type="VBoxContainer" parent="VBoxContainer/HSplitContainer"]
+[node name="Text" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
 margin_left = 377.0
 margin_right = 724.0
 margin_bottom = 371.0
@@ -178,28 +156,27 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 25
 
-[node name="Text Info" type="ColorRect" parent="VBoxContainer/HSplitContainer/Text"]
+[node name="Text Info" type="ColorRect" parent="VBoxContainer/HBoxContainer/Text"]
 margin_right = 347.0
-margin_bottom = 261.0
+margin_bottom = 285.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color( 0.054902, 0.0509804, 0.0509804, 1 )
+color = Color( 0.262745, 0.262745, 0.262745, 1 )
 
-[node name="Info" type="Label" parent="VBoxContainer/HSplitContainer/Text/Text Info"]
+[node name="Info" type="Label" parent="VBoxContainer/HBoxContainer/Text/Text Info"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 30.0
 margin_right = -30.0
 custom_fonts/font = SubResource( 4 )
 text = "TIP:
- Gay Wolves Bi Wolves Trans Wolves
-"
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
 align = 3
 valign = 1
 autowrap = true
 
-[node name="ManagementStrategy2" type="Button" parent="VBoxContainer/HSplitContainer/Text"]
-margin_top = 286.0
+[node name="ManagementStrategy2" type="Button" parent="VBoxContainer/HBoxContainer/Text"]
+margin_top = 310.0
 margin_right = 347.0
 margin_bottom = 371.0
 custom_fonts/font = SubResource( 5 )

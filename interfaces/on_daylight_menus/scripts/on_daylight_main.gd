@@ -9,7 +9,7 @@ onready var order_ingredients = $VBoxContainer/HBoxContainer/VBoxContainer/middl
 onready var prepare_ingredients = $VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/PrepareIngredients
 onready var tech_upgrades = $VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/TechUpgrades
 onready var statistics = $VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/Statistics
-onready var management = $VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/WasteManagement
+onready var management = $VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/ManagementHander
 onready var sub_scenes_list = [
 	live_updates,
 	order_ingredients,
@@ -61,6 +61,7 @@ func _on_Statistics_pressed():
 	_toggle_show_sub_scene(statistics)
 
 func _on_Management_pressed():
+	management.set_screen()
 	_toggle_show_sub_scene(management)
 
 

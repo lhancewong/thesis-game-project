@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://interfaces/on_daylight_menus/scripts/on_daylight_main.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/pixelated.ttf" type="DynamicFontData" id=2]
@@ -10,8 +10,7 @@
 [ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/order_ingredients.tscn" type="PackedScene" id=8]
 [ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/prepare_ingredients.tscn" type="PackedScene" id=9]
 [ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/tech_upgrades.tscn" type="PackedScene" id=10]
-[ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/management_strategies/waste_management.tscn" type="PackedScene" id=11]
-[ext_resource path="res://interfaces/on_daylight_menus/scripts/waste_management.gd" type="Script" id=12]
+[ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/management_strategies/management_handler.tscn" type="PackedScene" id=11]
 
 [sub_resource type="Theme" id=1]
 
@@ -231,8 +230,6 @@ margin_bottom = 428.0
 
 [node name="PrepareIngredients" parent="VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer" instance=ExtResource( 9 )]
 visible = false
-margin_right = 724.0
-margin_bottom = 428.0
 
 [node name="TechUpgrades" parent="VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer" instance=ExtResource( 10 )]
 visible = false
@@ -248,13 +245,11 @@ margin_bottom = 428.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="WasteManagement" parent="VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer" instance=ExtResource( 11 )]
-visible = false
+[node name="ManagementHander" parent="VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer" instance=ExtResource( 11 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 724.0
 margin_bottom = 428.0
-script = ExtResource( 12 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_top = 599.0
