@@ -4,15 +4,15 @@
 [ext_resource path="res://assets/fonts/pixelated.ttf" type="DynamicFontData" id=2]
 
 [sub_resource type="DynamicFont" id=1]
-size = 87
+size = 51
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=6]
-size = 45
+size = 30
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=7]
-size = 40
+size = 20
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
@@ -20,11 +20,11 @@ size = 48
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 40
+size = 30
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=4]
-size = 24
+size = 20
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=5]
@@ -36,15 +36,8 @@ font_data = ExtResource( 2 )
 [node name="Industrial" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-
-[node name="ColorRect" type="ColorRect" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -30.0
-margin_top = -22.0
-margin_right = 37.0
-margin_bottom = 25.0
-color = Color( 0.521569, 0.521569, 0.521569, 1 )
+margin_right = -642.0
+margin_bottom = -340.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0
@@ -52,8 +45,8 @@ anchor_bottom = 1.0
 custom_constants/separation = 10
 
 [node name="ManagementStrategy" type="Label" parent="VBoxContainer"]
-margin_right = 1366.0
-margin_bottom = 80.0
+margin_right = 724.0
+margin_bottom = 47.0
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 1 )
 text = "Industrial"
@@ -62,40 +55,42 @@ valign = 1
 autowrap = true
 
 [node name="HSplitContainer" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 90.0
-margin_right = 1366.0
-margin_bottom = 768.0
+margin_top = 57.0
+margin_right = 724.0
+margin_bottom = 428.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 30
 
 [node name="Compost" type="VBoxContainer" parent="VBoxContainer/HSplitContainer"]
-margin_right = 668.0
-margin_bottom = 678.0
+margin_right = 347.0
+margin_bottom = 371.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 50
 
 [node name="Waste" type="VBoxContainer" parent="VBoxContainer/HSplitContainer/Compost"]
-margin_right = 668.0
-margin_bottom = 226.0
+margin_right = 347.0
+margin_bottom = 106.0
 rect_pivot_offset = Vector2( -345, -102 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 20
 
 [node name="Waste" type="ColorRect" parent="VBoxContainer/HSplitContainer/Compost/Waste"]
-margin_right = 668.0
-margin_bottom = 103.0
+margin_right = 347.0
+margin_bottom = 43.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color( 0.109804, 0.0980392, 0.0980392, 1 )
+color = Color( 0.262745, 0.262745, 0.262745, 1 )
 
 [node name="Waste" type="Label" parent="VBoxContainer/HSplitContainer/Compost/Waste/Waste"]
-margin_left = 158.0
-margin_top = 22.0
-margin_right = 524.0
-margin_bottom = 87.0
+anchor_right = 1.0
+anchor_bottom = 0.819
+margin_left = 1.0
+margin_top = 1.0
+margin_right = -2.0
+margin_bottom = 5.516
 custom_colors/font_color = Color( 0.996078, 0.972549, 0.972549, 1 )
 custom_fonts/font = SubResource( 6 )
 text = "Inedible Waste"
@@ -103,17 +98,17 @@ align = 1
 valign = 1
 
 [node name="Amount" type="ColorRect" parent="VBoxContainer/HSplitContainer/Compost/Waste"]
-margin_top = 123.0
-margin_right = 668.0
-margin_bottom = 226.0
+margin_top = 63.0
+margin_right = 347.0
+margin_bottom = 106.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Amount" type="Label" parent="VBoxContainer/HSplitContainer/Compost/Waste/Amount"]
-margin_left = 165.0
-margin_top = 26.0
-margin_right = 515.0
-margin_bottom = 91.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_bottom = 1.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 7 )
 text = "Waste Amount"
@@ -121,17 +116,17 @@ align = 1
 valign = 1
 
 [node name="Compost" type="VBoxContainer" parent="VBoxContainer/HSplitContainer/Compost"]
-margin_top = 276.0
-margin_right = 668.0
-margin_bottom = 616.0
+margin_top = 156.0
+margin_right = 347.0
+margin_bottom = 315.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.5
 custom_constants/separation = 20
 
 [node name="Compost" type="ColorRect" parent="VBoxContainer/HSplitContainer/Compost/Compost"]
-margin_right = 668.0
-margin_bottom = 157.0
+margin_right = 347.0
+margin_bottom = 57.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.25
 color = Color( 0.262745, 0.262745, 0.262745, 1 )
@@ -148,9 +143,9 @@ valign = 1
 autowrap = true
 
 [node name="Amount" type="ColorRect" parent="VBoxContainer/HSplitContainer/Compost/Compost"]
-margin_top = 177.0
-margin_right = 668.0
-margin_bottom = 303.0
+margin_top = 77.0
+margin_right = 347.0
+margin_bottom = 123.0
 size_flags_vertical = 3
 
 [node name="EdibleAmnt" type="Label" parent="VBoxContainer/HSplitContainer/Compost/Compost/Amount"]
@@ -163,29 +158,29 @@ align = 1
 valign = 1
 
 [node name="HSlider" type="HSlider" parent="VBoxContainer/HSplitContainer/Compost/Compost"]
-margin_top = 323.0
-margin_right = 668.0
-margin_bottom = 339.0
+margin_top = 143.0
+margin_right = 347.0
+margin_bottom = 159.0
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HSplitContainer/Compost"]
-margin_top = 666.0
-margin_right = 668.0
-margin_bottom = 678.0
+margin_top = 365.0
+margin_right = 347.0
+margin_bottom = 371.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.05
 
 [node name="Text" type="VBoxContainer" parent="VBoxContainer/HSplitContainer"]
-margin_left = 698.0
-margin_right = 1366.0
-margin_bottom = 678.0
+margin_left = 377.0
+margin_right = 724.0
+margin_bottom = 371.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 25
 
 [node name="Text Info" type="ColorRect" parent="VBoxContainer/HSplitContainer/Text"]
-margin_right = 668.0
-margin_bottom = 568.0
+margin_right = 347.0
+margin_bottom = 261.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color( 0.054902, 0.0509804, 0.0509804, 1 )
@@ -204,8 +199,8 @@ valign = 1
 autowrap = true
 
 [node name="ManagementStrategy2" type="Button" parent="VBoxContainer/HSplitContainer/Text"]
-margin_top = 593.0
-margin_right = 668.0
-margin_bottom = 678.0
+margin_top = 286.0
+margin_right = 347.0
+margin_bottom = 371.0
 custom_fonts/font = SubResource( 5 )
 text = "Send"
