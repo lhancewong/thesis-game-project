@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/fonts/thin_pixelated.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/fonts/pixelated.ttf" type="DynamicFontData" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/management_strategies/feed_animals.tscn" type="PackedScene" id=5]
 [ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/management_strategies/landfill.tscn" type="PackedScene" id=6]
 [ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/management_strategies/compost.tscn" type="PackedScene" id=7]
+[ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/management_strategies/food_shelter.tscn" type="PackedScene" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 44
@@ -36,6 +37,7 @@ margin_bottom = 0.223969
 script = ExtResource( 3 )
 
 [node name="MainScreen" type="Control" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -44,7 +46,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="ManagementStrategy" type="Label" parent="MainScreen/VBoxContainer"]
-margin_right = 724.0
+margin_right = 723.0
 margin_bottom = 40.0
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 1 )
@@ -55,31 +57,31 @@ autowrap = true
 
 [node name="ContentFrame" type="HBoxContainer" parent="MainScreen/VBoxContainer"]
 margin_top = 44.0
-margin_right = 724.0
-margin_bottom = 428.0
+margin_right = 723.0
+margin_bottom = 427.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 20
 
 [node name="Inedible Waste" type="VBoxContainer" parent="MainScreen/VBoxContainer/ContentFrame"]
-margin_right = 228.0
-margin_bottom = 384.0
+margin_right = 227.0
+margin_bottom = 383.0
 rect_pivot_offset = Vector2( -451, 43 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 25
 
 [node name="Waste" type="VBoxContainer" parent="MainScreen/VBoxContainer/ContentFrame/Inedible Waste"]
-margin_right = 228.0
-margin_bottom = 143.0
+margin_right = 227.0
+margin_bottom = 142.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.5
 custom_constants/separation = 13
 
 [node name="Waste" type="ColorRect" parent="MainScreen/VBoxContainer/ContentFrame/Inedible Waste/Waste"]
-margin_right = 228.0
-margin_bottom = 65.0
+margin_right = 227.0
+margin_bottom = 64.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color( 0.262745, 0.262745, 0.262745, 1 )
@@ -94,9 +96,9 @@ align = 1
 valign = 1
 
 [node name="Amount" type="ColorRect" parent="MainScreen/VBoxContainer/ContentFrame/Inedible Waste/Waste"]
-margin_top = 78.0
-margin_right = 228.0
-margin_bottom = 143.0
+margin_top = 77.0
+margin_right = 227.0
+margin_bottom = 142.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -110,27 +112,27 @@ align = 1
 valign = 1
 
 [node name="Compost" type="Button" parent="MainScreen/VBoxContainer/ContentFrame/Inedible Waste"]
-margin_top = 168.0
-margin_right = 228.0
-margin_bottom = 263.0
+margin_top = 167.0
+margin_right = 227.0
+margin_bottom = 262.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 3 )
 text = "Compost"
 
 [node name="Industrial" type="Button" parent="MainScreen/VBoxContainer/ContentFrame/Inedible Waste"]
-margin_top = 288.0
-margin_right = 228.0
-margin_bottom = 384.0
+margin_top = 287.0
+margin_right = 227.0
+margin_bottom = 383.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 3 )
 text = "Industrial"
 
 [node name="Text" type="VBoxContainer" parent="MainScreen/VBoxContainer/ContentFrame"]
-margin_left = 248.0
-margin_right = 476.0
-margin_bottom = 384.0
+margin_left = 247.0
+margin_right = 475.0
+margin_bottom = 383.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 25
@@ -159,7 +161,7 @@ autowrap = true
 [node name="Landfill" type="Button" parent="MainScreen/VBoxContainer/ContentFrame/Text"]
 margin_top = 288.0
 margin_right = 228.0
-margin_bottom = 384.0
+margin_bottom = 383.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.18
@@ -167,16 +169,16 @@ custom_fonts/font = SubResource( 3 )
 text = "Landfill"
 
 [node name="Edible Waste" type="VBoxContainer" parent="MainScreen/VBoxContainer/ContentFrame"]
-margin_left = 496.0
-margin_right = 724.0
-margin_bottom = 384.0
+margin_left = 495.0
+margin_right = 723.0
+margin_bottom = 383.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 25
 
 [node name="Waste" type="VBoxContainer" parent="MainScreen/VBoxContainer/ContentFrame/Edible Waste"]
 margin_right = 228.0
-margin_bottom = 143.0
+margin_bottom = 142.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.5
@@ -184,7 +186,7 @@ custom_constants/separation = 13
 
 [node name="Waste" type="ColorRect" parent="MainScreen/VBoxContainer/ContentFrame/Edible Waste/Waste"]
 margin_right = 228.0
-margin_bottom = 65.0
+margin_bottom = 64.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color( 0.262745, 0.262745, 0.262745, 1 )
@@ -199,9 +201,9 @@ align = 1
 valign = 1
 
 [node name="Amount" type="ColorRect" parent="MainScreen/VBoxContainer/ContentFrame/Edible Waste/Waste"]
-margin_top = 78.0
+margin_top = 77.0
 margin_right = 228.0
-margin_bottom = 143.0
+margin_bottom = 142.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -215,29 +217,22 @@ align = 1
 valign = 1
 
 [node name="FeedAnimals" type="Button" parent="MainScreen/VBoxContainer/ContentFrame/Edible Waste"]
-margin_top = 168.0
+margin_top = 167.0
 margin_right = 228.0
-margin_bottom = 263.0
+margin_bottom = 262.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 3 )
 text = "Feed Animals"
 
 [node name="FoodShelter" type="Button" parent="MainScreen/VBoxContainer/ContentFrame/Edible Waste"]
-margin_top = 288.0
+margin_top = 287.0
 margin_right = 228.0
-margin_bottom = 384.0
+margin_bottom = 383.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 3 )
 text = "Food Shelter"
-
-[node name="FeedAnimals" parent="." instance=ExtResource( 5 )]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_right = 0.0
-margin_bottom = 0.0
 
 [node name="Compost" parent="." instance=ExtResource( 7 )]
 visible = false
@@ -248,6 +243,20 @@ margin_bottom = 0.0
 
 [node name="Industrial" parent="." instance=ExtResource( 4 )]
 visible = false
+margin_right = 0.0
+margin_bottom = 0.0
+
+[node name="FeedAnimals" parent="." instance=ExtResource( 5 )]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 0.0
+margin_bottom = 0.0
+
+[node name="FoodShelter" parent="." instance=ExtResource( 8 )]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
 margin_right = 0.0
 margin_bottom = 0.0
 

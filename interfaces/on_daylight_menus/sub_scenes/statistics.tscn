@@ -1,12 +1,27 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/fonts/thin_pixelated.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/images/graph.png" type="Texture" id=2]
 
 [sub_resource type="DynamicFont" id=1]
 size = 13
 font_data = ExtResource( 1 )
 
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 1 )
+
 [node name="Statistics" type="Control"]
+margin_right = 724.0
+margin_bottom = 428.0
 
 [node name="TabMenu" type="TabContainer" parent="."]
 anchor_right = 1.0
@@ -24,14 +39,78 @@ margin_top = 37.0
 margin_right = -4.0
 margin_bottom = -4.0
 
+[node name="HBoxContainer" type="HBoxContainer" parent="TabMenu/MainStats"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_right = -20.0
+
+[node name="Left" type="Label" parent="TabMenu/MainStats/HBoxContainer"]
+margin_top = 107.0
+margin_right = 336.0
+margin_bottom = 279.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 5 )
+text = "the price setting of each meals? 
+Production waste?
+Rotten waste?
+Leftover waste?
+Unavoidable waste?
+Ingredient amount purchased
+Food waste cost"
+
+[node name="Right" type="Label" parent="TabMenu/MainStats/HBoxContainer"]
+margin_left = 340.0
+margin_top = 145.0
+margin_right = 676.0
+margin_bottom = 242.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 5 )
+text = "(insert random game facts)
+you did 10% better today nice
+customers were happier
+chicken sold the most this week"
+align = 1
+
 [node name="Graphs" type="Tabs" parent="TabMenu"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
-margin_top = 32.0
+margin_top = 37.0
 margin_right = -4.0
 margin_bottom = -4.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabMenu/Graphs"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_right = -20.0
+
+[node name="Label" type="Label" parent="TabMenu/Graphs/HBoxContainer"]
+margin_right = 356.0
+margin_bottom = 387.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 2 )
+text = "(important info)
+
+legend/filter:
+revenue
+food waste
+customer satisfaction
+capital
+etc"
+valign = 1
+
+[node name="TextureRect" type="TextureRect" parent="TabMenu/Graphs/HBoxContainer"]
+margin_left = 360.0
+margin_right = 716.0
+margin_bottom = 387.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+stretch_mode = 4
 
 [node name="MoneyStats" type="Tabs" parent="TabMenu"]
 visible = false
@@ -42,11 +121,64 @@ margin_top = 32.0
 margin_right = -4.0
 margin_bottom = -4.0
 
+[node name="Label" type="Label" parent="TabMenu/MoneyStats"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 5.0
+margin_right = -20.0
+margin_bottom = 5.0
+custom_fonts/font = SubResource( 3 )
+text = "(in no particular order)
+revenue
+food assets
+capital
+profits
+ingredient cost
+food waste cost
+food waste management fees
+gross profit
+gross margin
+total expenses
+(etc no clue)"
+valign = 1
+
 [node name="Forecast" type="Tabs" parent="TabMenu"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
-margin_top = 32.0
+margin_top = 37.0
 margin_right = -4.0
 margin_bottom = -4.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabMenu/Forecast"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_right = -20.0
+
+[node name="Label" type="Label" parent="TabMenu/Forecast/HBoxContainer"]
+margin_top = 107.0
+margin_right = 336.0
+margin_bottom = 279.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 4 )
+text = "expected  outcomes/growth: (graphs)
+
+profits
+food waste production
+customer type/diversity..?
+expenses"
+valign = 1
+autowrap = true
+
+[node name="TextureRect" type="TextureRect" parent="TabMenu/Forecast/HBoxContainer"]
+margin_left = 340.0
+margin_right = 676.0
+margin_bottom = 387.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6

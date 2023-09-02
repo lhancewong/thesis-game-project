@@ -4,8 +4,9 @@ onready var main = $MainScreen
 onready var compost = $Compost
 onready var industrial = $Industrial
 onready var feed_animals = $FeedAnimals
+onready var food_shelter = $FoodShelter
 onready var landfill = $Landfill
-onready var sub_scenes_list = [main, compost, industrial, feed_animals, landfill]
+onready var sub_scenes_list = [main, compost, industrial, feed_animals, food_shelter, landfill]
 
 
 func set_screen():
@@ -33,16 +34,13 @@ func _on_Industrial_pressed():
 	_toggle_show_sub_scene(industrial)
 
 
-func _on_Landfill_pressed():
-	_toggle_show_sub_scene(landfill)
-
-
 func _on_FeedAnimals_pressed():
 	_toggle_show_sub_scene(feed_animals)
 
 
 func _on_FoodShelter_pressed():
-	pass
+	_toggle_show_sub_scene(food_shelter)
 
 
-
+func _on_Landfill_pressed():
+	_toggle_show_sub_scene(landfill)

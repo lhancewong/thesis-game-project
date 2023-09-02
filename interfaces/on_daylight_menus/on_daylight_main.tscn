@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://interfaces/on_daylight_menus/scripts/on_daylight_main.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/pixelated.ttf" type="DynamicFontData" id=2]
@@ -11,6 +11,10 @@
 [ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/prepare_ingredients.tscn" type="PackedScene" id=9]
 [ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/tech_upgrades.tscn" type="PackedScene" id=10]
 [ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/management_strategies/management_handler.tscn" type="PackedScene" id=11]
+
+[sub_resource type="DynamicFont" id=4]
+size = 18
+font_data = ExtResource( 5 )
 
 [sub_resource type="Theme" id=1]
 
@@ -49,6 +53,62 @@ margin_bottom = 64.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.1
 color = Color( 0.517647, 0.517647, 0.517647, 1 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/topbar"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_right = -20.0
+custom_constants/separation = 40
+
+[node name="Label" type="Label" parent="VBoxContainer/topbar/HBoxContainer"]
+margin_top = 19.0
+margin_right = 192.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 4 )
+text = "Lemon icon: 50 "
+valign = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer/topbar/HBoxContainer"]
+margin_left = 232.0
+margin_top = 19.0
+margin_right = 424.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 4 )
+text = "Chicken  icon: 30 "
+valign = 1
+
+[node name="Label3" type="Label" parent="VBoxContainer/topbar/HBoxContainer"]
+margin_left = 464.0
+margin_top = 19.0
+margin_right = 656.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 4 )
+text = "Cabbage icon: 25"
+valign = 1
+
+[node name="Label4" type="Label" parent="VBoxContainer/topbar/HBoxContainer"]
+margin_left = 696.0
+margin_top = 19.0
+margin_right = 982.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 4 )
+text = "Inedible Waste  icon: 50 kg"
+valign = 1
+
+[node name="Label5" type="Label" parent="VBoxContainer/topbar/HBoxContainer"]
+margin_left = 1022.0
+margin_top = 19.0
+margin_right = 1285.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 4 )
+text = "Edible Waste  icon: 20kg "
+valign = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 84.0
@@ -218,6 +278,9 @@ margin_right = -10.0
 margin_bottom = -10.0
 
 [node name="LiveUpdates" parent="VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer" instance=ExtResource( 7 )]
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_right = 724.0
 margin_bottom = 428.0
 
@@ -240,8 +303,6 @@ margin_bottom = 428.0
 
 [node name="Statistics" parent="VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer" instance=ExtResource( 6 )]
 visible = false
-margin_right = 724.0
-margin_bottom = 428.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
