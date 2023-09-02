@@ -2,7 +2,6 @@ extends Control
 
 
 onready var vine_boom = $VineBoom
-onready var BGM = $BGM
 
 
 func _on_Start_pressed():

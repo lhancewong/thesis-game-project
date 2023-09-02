@@ -2,19 +2,26 @@ extends Control
 
 # SFX
 onready var villager_sigh = $VillagerSigh
-onready var BGM = $BGM
 
 # Sub Scenes
-onready var live_update = $VBoxContainer/HBoxContainer/VBoxContainer/middle/LiveUpdate
-onready var order_ingredients = $VBoxContainer/HBoxContainer/VBoxContainer/middle/OrderIngredients
-onready var prepare_ingredients = $VBoxContainer/HBoxContainer/VBoxContainer/middle/PrepareIngredients
-onready var tech_upgrades = $VBoxContainer/HBoxContainer/VBoxContainer/middle/TechUpgrades
-onready var statistics = $VBoxContainer/HBoxContainer/VBoxContainer/middle/Statistics
-onready var sub_scenes_list = [live_update, order_ingredients, prepare_ingredients, tech_upgrades, statistics]
+onready var live_updates = $VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/LiveUpdates
+onready var order_ingredients = $VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/OrderIngredients
+onready var prepare_ingredients = $VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/PrepareIngredients
+onready var tech_upgrades = $VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/TechUpgrades
+onready var statistics = $VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/Statistics
+onready var management = $VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/WasteManagement
+onready var sub_scenes_list = [
+	live_updates,
+	order_ingredients,
+	prepare_ingredients,
+	tech_upgrades,
+	statistics,
+	management,
+]
 
 
 func _ready():
-	_toggle_show_sub_scene(live_update)
+	_toggle_show_sub_scene(live_updates)
 
 
 # Hides every sub_scene then shows the desired sub scene
@@ -39,7 +46,7 @@ func _on_StartDay_pressed():
 
 # Sub Scene Button Signals
 func _on_LiveUpdatingStats_pressed():
-	_toggle_show_sub_scene(live_update)
+	_toggle_show_sub_scene(live_updates)
 
 func _on_OrderIngredients_pressed():
 	_toggle_show_sub_scene(order_ingredients)
@@ -52,3 +59,18 @@ func _on_TechUpgrades_pressed():
 
 func _on_Statistics_pressed():
 	_toggle_show_sub_scene(statistics)
+
+func _on_Management_pressed():
+	_toggle_show_sub_scene(management)
+
+
+
+
+
+
+
+
+
+
+
+
