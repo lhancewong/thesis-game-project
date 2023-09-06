@@ -1,40 +1,40 @@
 [gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://assets/fonts/thin_pixelated.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://assets/fonts/pixelated.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://interfaces/on_daylight_menus/scripts/waste_management.gd" type="Script" id=3]
+[ext_resource path="res://interfaces/on_daylight_menus/scripts/waste_management.gd" type="Script" id=1]
+[ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/management_strategies/compost.tscn" type="PackedScene" id=2]
+[ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/management_strategies/food_shelter.tscn" type="PackedScene" id=3]
 [ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/management_strategies/industrial.tscn" type="PackedScene" id=4]
-[ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/management_strategies/feed_animals.tscn" type="PackedScene" id=5]
-[ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/management_strategies/landfill.tscn" type="PackedScene" id=6]
-[ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/management_strategies/compost.tscn" type="PackedScene" id=7]
-[ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/management_strategies/food_shelter.tscn" type="PackedScene" id=8]
+[ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/management_strategies/landfill.tscn" type="PackedScene" id=5]
+[ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/management_strategies/feed_animals.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/fonts/thin_pixelated.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://assets/fonts/pixelated.ttf" type="DynamicFontData" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 44
-font_data = ExtResource( 2 )
+font_data = ExtResource( 8 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 26
-font_data = ExtResource( 2 )
+font_data = ExtResource( 8 )
 
 [sub_resource type="DynamicFont" id=6]
 size = 18
-font_data = ExtResource( 1 )
+font_data = ExtResource( 7 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 28
-font_data = ExtResource( 2 )
+font_data = ExtResource( 8 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 12
-font_data = ExtResource( 1 )
+font_data = ExtResource( 7 )
 
 [node name="ManagementHander" type="Control"]
 anchor_right = 0.53
 anchor_bottom = 0.557
 margin_right = 0.0199585
 margin_bottom = 0.223969
-script = ExtResource( 3 )
+script = ExtResource( 1 )
 
 [node name="MainScreen" type="Control" parent="."]
 visible = false
@@ -234,7 +234,7 @@ size_flags_vertical = 3
 custom_fonts/font = SubResource( 3 )
 text = "Food Shelter"
 
-[node name="Compost" parent="." instance=ExtResource( 7 )]
+[node name="Compost" parent="." instance=ExtResource( 2 )]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -246,21 +246,21 @@ visible = false
 margin_right = 0.0
 margin_bottom = 0.0
 
-[node name="FeedAnimals" parent="." instance=ExtResource( 5 )]
+[node name="FeedAnimals" parent="." instance=ExtResource( 6 )]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = 0.0
 margin_bottom = 0.0
 
-[node name="FoodShelter" parent="." instance=ExtResource( 8 )]
+[node name="FoodShelter" parent="." instance=ExtResource( 3 )]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = 0.0
 margin_bottom = 0.0
 
-[node name="Landfill" parent="." instance=ExtResource( 6 )]
+[node name="Landfill" parent="." instance=ExtResource( 5 )]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
