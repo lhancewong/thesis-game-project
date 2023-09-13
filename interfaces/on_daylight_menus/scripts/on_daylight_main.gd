@@ -1,5 +1,8 @@
 extends Control
 
+# Resources
+export(Resource) var resto
+
 # SFX
 onready var villager_sigh = $VillagerSigh
 
@@ -18,7 +21,6 @@ onready var sub_scenes_list = [
 	statistics,
 	management,
 ]
-
 
 func _ready():
 	_toggle_show_sub_scene(live_updates)
@@ -43,7 +45,9 @@ func _on_ToTitleScreen_pressed():
 
 func _on_StartDay_pressed():
 	villager_sigh.play()
-
+	resto.money += 1
+	$VBoxContainer/topbar/HBoxContainer/Label.text = str(resto.money)
+	
 # Sub Scene Button Signals
 func _on_LiveUpdatingStats_pressed():
 	_toggle_show_sub_scene(live_updates)
