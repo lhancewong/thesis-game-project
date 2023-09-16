@@ -3,6 +3,8 @@ extends Control
 
 onready var vine_boom = $VineBoom
 
+func _ready():
+	randomize()
 
 func _on_Start_pressed():
 	get_tree().change_scene("res://interfaces/title_screen_menus/title_screen_save_selection.tscn")

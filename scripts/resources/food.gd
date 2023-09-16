@@ -1,4 +1,5 @@
-extends Node
+class_name Food
+extends Resource
 
 
 # Declare member variables here. Examples:

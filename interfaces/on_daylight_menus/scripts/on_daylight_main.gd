@@ -2,9 +2,11 @@ extends Control
 
 # Resources
 export(Resource) var resto
+export(Resource) var custo
 
 # SFX
 onready var villager_sigh = $VillagerSigh
+onready var vine_boom = $VineBoom
 
 # Sub Scenes
 onready var live_updates = $VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/LiveUpdates
@@ -25,6 +27,10 @@ onready var sub_scenes_list = [
 func _ready():
 	_toggle_show_sub_scene(live_updates)
 
+func _physics_process(delta):
+	$VBoxContainer/topbar/HBoxContainer/Label.text = "Money: " + resto.get_money()
+	$VBoxContainer/topbar/HBoxContainer/Label2.text = "Waste: " + resto.get_waste()
+	$VBoxContainer/topbar/HBoxContainer/Label3.text = "Satisfaction: " + resto.get_satisfaction()
 
 # Hides every sub_scene then shows the desired sub scene
 func _toggle_show_sub_scene(sub_scene_name):
@@ -38,6 +44,17 @@ func _toggle_show_sub_scene(sub_scene_name):
 	
 	desired_sub_scene.show()
 
+func _purchase_handler() -> void:
+	var day_length = rand_range(6,10)
+	var customer_amount = rand_range(5,10)
+	
+	for i in customer_amount:
+		var timer = rand_range(0.9, 1.1) * (day_length/customer_amount)
+		yield(get_tree().create_timer(timer),"timeout")
+		resto.add_purchase(custo.purchase_food())
+		vine_boom.play()
+	
+	emit_signal("completed")
 
 # Button Signals
 func _on_ToTitleScreen_pressed():
@@ -45,9 +62,10 @@ func _on_ToTitleScreen_pressed():
 
 func _on_StartDay_pressed():
 	villager_sigh.play()
-	resto.money += 1
-	$VBoxContainer/topbar/HBoxContainer/Label.text = str(resto.money)
+	_purchase_handler()
+	yield(_purchase_handler(), "completed")
 	
+
 # Sub Scene Button Signals
 func _on_LiveUpdatingStats_pressed():
 	_toggle_show_sub_scene(live_updates)
