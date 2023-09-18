@@ -1,9 +1,9 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://interfaces/on_daylight_menus/scripts/on_daylight_main.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/pixelated.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://assets/images/restaurant.png" type="Texture" id=3]
-[ext_resource path="res://assets/audio/minecraft_villager.ogg" type="AudioStream" id=4]
+[ext_resource path="res://interfaces/custom_gui/in_game_console.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/audio/vine_boom.ogg" type="AudioStream" id=4]
 [ext_resource path="res://assets/fonts/thin_pixelated.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/statistics.tscn" type="PackedScene" id=6]
 [ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/live_updates.tscn" type="PackedScene" id=7]
@@ -11,6 +11,8 @@
 [ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/prepare_ingredients.tscn" type="PackedScene" id=9]
 [ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/tech_upgrades.tscn" type="PackedScene" id=10]
 [ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/management_handler.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scripts/resources/tres/restaurant.tres" type="Resource" id=12]
+[ext_resource path="res://scripts/resources/tres/customer.tres" type="Resource" id=13]
 
 [sub_resource type="DynamicFont" id=4]
 size = 18
@@ -30,6 +32,8 @@ font_data = ExtResource( 2 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
+resto = ExtResource( 12 )
+custo = ExtResource( 13 )
 
 [node name="Background" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -63,7 +67,7 @@ custom_constants/separation = 40
 
 [node name="Label" type="Label" parent="VBoxContainer/topbar/HBoxContainer"]
 margin_top = 19.0
-margin_right = 192.0
+margin_right = 402.0
 margin_bottom = 45.0
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 4 )
@@ -71,9 +75,9 @@ text = "Lemon icon: 50 "
 valign = 1
 
 [node name="Label2" type="Label" parent="VBoxContainer/topbar/HBoxContainer"]
-margin_left = 232.0
+margin_left = 442.0
 margin_top = 19.0
-margin_right = 424.0
+margin_right = 844.0
 margin_bottom = 45.0
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 4 )
@@ -81,33 +85,13 @@ text = "Chicken  icon: 30 "
 valign = 1
 
 [node name="Label3" type="Label" parent="VBoxContainer/topbar/HBoxContainer"]
-margin_left = 464.0
+margin_left = 884.0
 margin_top = 19.0
-margin_right = 656.0
+margin_right = 1286.0
 margin_bottom = 45.0
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 4 )
 text = "Cabbage icon: 25"
-valign = 1
-
-[node name="Label4" type="Label" parent="VBoxContainer/topbar/HBoxContainer"]
-margin_left = 696.0
-margin_top = 19.0
-margin_right = 982.0
-margin_bottom = 45.0
-size_flags_horizontal = 3
-custom_fonts/font = SubResource( 4 )
-text = "Inedible Waste  icon: 50 kg"
-valign = 1
-
-[node name="Label5" type="Label" parent="VBoxContainer/topbar/HBoxContainer"]
-margin_left = 1022.0
-margin_top = 19.0
-margin_right = 1285.0
-margin_bottom = 45.0
-size_flags_horizontal = 3
-custom_fonts/font = SubResource( 4 )
-text = "Edible Waste  icon: 20kg "
 valign = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
@@ -344,19 +328,30 @@ custom_fonts/font = SubResource( 2 )
 text = "Start Day"
 expand_icon = true
 
-[node name="RestaurantView" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+[node name="GameConsole" parent="VBoxContainer/HBoxContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 764.0
 margin_right = 1326.0
 margin_bottom = 644.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.43
-texture = ExtResource( 3 )
-expand = true
 
 [node name="VillagerSigh" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 volume_db = 7.0
+
+[node name="VineBoom" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 4 )
+volume_db = -15.0
+
+[node name="PauseFrame" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.25098, 0.25098, 0.25098, 0.411765 )
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/menu icons/HBoxContainer/LiveUpdatingStats" to="." method="_on_LiveUpdatingStats_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/menu icons/HBoxContainer/OrderIngredients" to="." method="_on_OrderIngredients_pressed"]

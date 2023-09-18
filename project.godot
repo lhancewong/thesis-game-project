@@ -9,13 +9,25 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "",
-"class": "GitAPI",
-"language": "NativeScript",
-"path": "res://addons/godot-git-plugin/git_api.gdns"
+"base": "Resource",
+"class": "Customer",
+"language": "GDScript",
+"path": "res://scripts/resources/customer.gd"
+}, {
+"base": "Resource",
+"class": "Food",
+"language": "GDScript",
+"path": "res://scripts/resources/food.gd"
+}, {
+"base": "Resource",
+"class": "Restaurant",
+"language": "GDScript",
+"path": "res://scripts/resources/restaurant.gd"
 } ]
 _global_script_class_icons={
-"GitAPI": ""
+"Customer": "",
+"Food": "",
+"Restaurant": ""
 }
 
 [application]

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://scripts/resources/restaurant.gd" type="Script" id=1]
+
+[resource]
+resource_name = "Restaurant"
+script = ExtResource( 1 )
+money = 0.0
+waste = 0.0
+satisfaction = 0.0

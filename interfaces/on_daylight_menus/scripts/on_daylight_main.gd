@@ -1,7 +1,15 @@
 extends Control
 
+# Resources
+export(Resource) var resto
+export(Resource) var custo
+
+# Node
+onready var terminal = $VBoxContainer/HBoxContainer/GameConsole
+
 # SFX
 onready var villager_sigh = $VillagerSigh
+onready var vine_boom = $VineBoom
 
 # Sub Scenes
 onready var live_updates = $VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/LiveUpdates
@@ -19,10 +27,15 @@ onready var sub_scenes_list = [
 	management,
 ]
 
-
 func _ready():
 	_toggle_show_sub_scene(live_updates)
+	$PauseFrame.hide()
+	set_physics_process(true)
 
+func _physics_process(delta):
+	$VBoxContainer/topbar/HBoxContainer/Label.text = "Money: " + resto.get_money()
+	$VBoxContainer/topbar/HBoxContainer/Label2.text = "Waste: " + resto.get_waste()
+	$VBoxContainer/topbar/HBoxContainer/Label3.text = "Satisfaction: " + resto.get_satisfaction()
 
 # Hides every sub_scene then shows the desired sub scene
 func _toggle_show_sub_scene(sub_scene_name):
@@ -36,13 +49,44 @@ func _toggle_show_sub_scene(sub_scene_name):
 	
 	desired_sub_scene.show()
 
+# Handles a customer buying a food item
+func _purchase_handler() -> void:
+	var day_length = rand_range(6,10)
+	var customer_amount = rand_range(5,10)
+	
+	for i in customer_amount:
+		var timer = rand_range(0.9, 1.1) * (day_length/customer_amount)
+		yield(get_tree().create_timer(timer),"timeout")
+		var entry =  custo.purchase_food()
+		resto.add_purchase(entry)
+		terminal.add_entry(entry)
+		
+		vine_boom.play()
+	
+	emit_signal("completed")
 
 # Button Signals
 func _on_ToTitleScreen_pressed():
 	get_tree().change_scene("res://interfaces/title_screen_menus/title_screen_main.tscn")
 
+# Main update sequence handler for now
 func _on_StartDay_pressed():
 	villager_sigh.play()
+	_purchase_handler()
+	_on_pause_button_pressed()
+	yield(_purchase_handler(), "completed")
+	_on_pause_popup_close_pressed()
+
+# Greys out entire screen
+func _on_pause_button_pressed():
+	get_tree().paused = true
+	$PauseFrame.show()
+
+# Un-greys out entire screen
+func _on_pause_popup_close_pressed():
+	$PauseFrame.hide()
+	get_tree().paused = false
+
 
 # Sub Scene Button Signals
 func _on_LiveUpdatingStats_pressed():
@@ -63,15 +107,3 @@ func _on_Statistics_pressed():
 func _on_Management_pressed():
 	management.set_screen()
 	_toggle_show_sub_scene(management)
-
-
-
-
-
-
-
-
-
-
-
-
