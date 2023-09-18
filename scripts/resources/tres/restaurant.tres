@@ -8,3 +8,4 @@ script = ExtResource( 1 )
 money = 0.0
 waste = 0.0
 satisfaction = 0.0
+day = 0

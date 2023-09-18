@@ -13,4 +13,3 @@ func _physics_process(delta):
 	customer_satisfaction_label.text = "Customer Satisfaction: " + resto.get_satisfaction()
 	food_waste_label.text = "Food Waste: " + resto.get_waste()
 	
-	

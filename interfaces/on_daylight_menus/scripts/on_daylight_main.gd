@@ -33,9 +33,10 @@ func _ready():
 	set_physics_process(true)
 
 func _physics_process(delta):
-	$VBoxContainer/topbar/HBoxContainer/Label.text = "Money: " + resto.get_money()
-	$VBoxContainer/topbar/HBoxContainer/Label2.text = "Waste: " + resto.get_waste()
-	$VBoxContainer/topbar/HBoxContainer/Label3.text = "Satisfaction: " + resto.get_satisfaction()
+	$VBoxContainer/topbar/HBoxContainer/Day.text = "Day " + str(resto.day)
+	$VBoxContainer/topbar/HBoxContainer/Money.text = "Money: " + resto.get_money()
+	$VBoxContainer/topbar/HBoxContainer/Waste.text = "Waste: " + resto.get_waste()
+	$VBoxContainer/topbar/HBoxContainer/Satisfaction.text = "Satisfaction: " + resto.get_satisfaction()
 
 # Hides every sub_scene then shows the desired sub scene
 func _toggle_show_sub_scene(sub_scene_name):
@@ -71,11 +72,14 @@ func _on_ToTitleScreen_pressed():
 
 # Main update sequence handler for now
 func _on_StartDay_pressed():
-	villager_sigh.play()
 	_purchase_handler()
+	
 	_on_pause_button_pressed()
 	yield(_purchase_handler(), "completed")
 	_on_pause_popup_close_pressed()
+	
+	terminal.add_text("> Day Finished!")
+	resto.day += 1
 
 # Greys out entire screen
 func _on_pause_button_pressed():
