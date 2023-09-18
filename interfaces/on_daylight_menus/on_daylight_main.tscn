@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://interfaces/on_daylight_menus/scripts/on_daylight_main.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/pixelated.ttf" type="DynamicFontData" id=2]
@@ -26,6 +26,10 @@ font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 28
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 48
 font_data = ExtResource( 2 )
 
 [node name="OnDaylight" type="Control"]
@@ -59,39 +63,50 @@ size_flags_stretch_ratio = 0.1
 color = Color( 0.517647, 0.517647, 0.517647, 1 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/topbar"]
+pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 20.0
 margin_right = -20.0
 custom_constants/separation = 40
 
-[node name="Label" type="Label" parent="VBoxContainer/topbar/HBoxContainer"]
+[node name="Day" type="Label" parent="VBoxContainer/topbar/HBoxContainer"]
 margin_top = 19.0
-margin_right = 402.0
+margin_right = 291.0
 margin_bottom = 45.0
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 4 )
-text = "Lemon icon: 50 "
+text = "Day"
 valign = 1
 
-[node name="Label2" type="Label" parent="VBoxContainer/topbar/HBoxContainer"]
-margin_left = 442.0
+[node name="Money" type="Label" parent="VBoxContainer/topbar/HBoxContainer"]
+margin_left = 331.0
 margin_top = 19.0
-margin_right = 844.0
+margin_right = 623.0
 margin_bottom = 45.0
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 4 )
-text = "Chicken  icon: 30 "
+text = "Money"
 valign = 1
 
-[node name="Label3" type="Label" parent="VBoxContainer/topbar/HBoxContainer"]
-margin_left = 884.0
+[node name="Waste" type="Label" parent="VBoxContainer/topbar/HBoxContainer"]
+margin_left = 663.0
+margin_top = 19.0
+margin_right = 954.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 4 )
+text = "Waste"
+valign = 1
+
+[node name="Satisfaction" type="Label" parent="VBoxContainer/topbar/HBoxContainer"]
+margin_left = 994.0
 margin_top = 19.0
 margin_right = 1286.0
 margin_bottom = 45.0
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 4 )
-text = "Cabbage icon: 25"
+text = "Satisfaction"
 valign = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
@@ -345,13 +360,21 @@ volume_db = 7.0
 [node name="VineBoom" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
 stream = ExtResource( 4 )
-volume_db = -15.0
+volume_db = -5.0
 
 [node name="PauseFrame" type="ColorRect" parent="."]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.25098, 0.25098, 0.25098, 0.411765 )
+
+[node name="Title" type="Label" parent="PauseFrame"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 5 )
+text = "Serving Customers..."
+align = 1
+valign = 1
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/menu icons/HBoxContainer/LiveUpdatingStats" to="." method="_on_LiveUpdatingStats_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/menu icons/HBoxContainer/OrderIngredients" to="." method="_on_OrderIngredients_pressed"]
