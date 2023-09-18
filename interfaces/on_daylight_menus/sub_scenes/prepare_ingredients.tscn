@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/fonts/pixelated.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/fonts/thin_pixelated.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://interfaces/on_daylight_menus/scripts/prepare_ingredients.gd" type="Script" id=3]
+[ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/food2minus.gd" type="Script" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 45
@@ -186,6 +187,7 @@ margin_right = 70.0
 margin_bottom = 32.0
 size_flags_horizontal = 3
 text = "-"
+script = ExtResource( 4 )
 
 [node name="LineEdit" type="LineEdit" parent="MainContainer/MiddleLine/Middle2/HBoxContainer"]
 margin_left = 74.0
@@ -277,3 +279,5 @@ align = 1
 
 [connection signal="pressed" from="MainContainer/MiddleLine/Middle1/HBoxContainer/minus" to="." method="_on_food1minus_pressed"]
 [connection signal="pressed" from="MainContainer/MiddleLine/Middle1/HBoxContainer/plus" to="." method="_on_food1plus_pressed"]
+[connection signal="pressed" from="MainContainer/MiddleLine/Middle2/HBoxContainer/minus" to="." method="_on_food2minus_pressed"]
+[connection signal="pressed" from="MainContainer/MiddleLine/Middle2/HBoxContainer/plus" to="." method="_on_food2plus_pressed"]
