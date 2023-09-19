@@ -2,15 +2,17 @@ extends Control
 
 
 # Declare member variables here. Examples:
-export var waste_amount = 0
-export var compost_amount = 0
+export(Resource) var waste_handler
+var waste_amount = 0
+var compost_amount = 0
 
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$VBoxContainer/HBoxContainer/Compost/Waste/Amount/WasteAmnt.text = str(waste_amount)
-	$VBoxContainer/HBoxContainer/Compost/Strategy/Amount/InedibleAmnt.text = str(compost_amount)
+	waste_amount = waste_handler.returnInedibleWaste()
+	$VBoxContainer/HBoxContainer/Compost/Waste/Amount/InedibleWasteAmnt.text = str(waste_amount)
+	$VBoxContainer/HBoxContainer/Compost/Strategy/Amount/CompostAmnt.text = str(compost_amount)
 	$VBoxContainer/HBoxContainer/Compost/Strategy/HSlider.max_value = waste_amount
 
 

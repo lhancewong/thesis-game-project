@@ -23,11 +23,17 @@ _global_script_classes=[ {
 "class": "Restaurant",
 "language": "GDScript",
 "path": "res://scripts/resources/restaurant.gd"
+}, {
+"base": "Resource",
+"class": "Waste_Manager",
+"language": "GDScript",
+"path": "res://scripts/resources/waste_manager.gd"
 } ]
 _global_script_class_icons={
 "Customer": "",
 "Food": "",
-"Restaurant": ""
+"Restaurant": "",
+"Waste_Manager": ""
 }
 
 [application]

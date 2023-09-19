@@ -1,6 +1,6 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
-[ext_resource path="res://interfaces/on_daylight_menus/scripts/waste_management.gd" type="Script" id=1]
+[ext_resource path="res://interfaces/on_daylight_menus/scripts/management_main.gd" type="Script" id=1]
 [ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/management_strategies/compost.tscn" type="PackedScene" id=2]
 [ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/management_strategies/food_shelter.tscn" type="PackedScene" id=3]
 [ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/management_strategies/industrial.tscn" type="PackedScene" id=4]
@@ -8,6 +8,7 @@
 [ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/management_strategies/feed_animals.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/fonts/thin_pixelated.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://assets/fonts/pixelated.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://scripts/resources/tres/waste_manager.tres" type="Resource" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 44
@@ -35,9 +36,9 @@ anchor_bottom = 0.557
 margin_right = 0.0199585
 margin_bottom = 0.223969
 script = ExtResource( 1 )
+waste_handler = ExtResource( 9 )
 
 [node name="MainScreen" type="Control" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 

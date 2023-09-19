@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://scripts/resources/waste_manager.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+edible_waste = 100.0
+inedible_waste = 70.0
+waste_managed_entries = [  ]
+composting = {
+"id": 1,
+"type": "composting"
+}
+landfill = {
+"id": 2,
+"type": "landfill"
+}
