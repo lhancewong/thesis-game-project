@@ -16,6 +16,10 @@ func set_screen():
 	$"MainScreen/VBoxContainer/ContentFrame/Edible Waste/Waste/Amount/EdibleAmnt".text = str(waste_handler.returnEdibleWaste())
 
 
+func _physics_process(delta):
+	$"MainScreen/VBoxContainer/ContentFrame/Inedible Waste/Waste/Amount/InedibleAmnt".text = str(waste_handler.returnInedibleWaste())
+	$"MainScreen/VBoxContainer/ContentFrame/Edible Waste/Waste/Amount/EdibleAmnt".text = str(waste_handler.returnEdibleWaste())
+
 # Hides every sub_scene then shows the desired sub scene
 func _toggle_show_sub_scene(sub_scene_name):
 	var desired_sub_scene
@@ -47,3 +51,4 @@ func _on_FoodShelter_pressed():
 
 func _on_Landfill_pressed():
 	_toggle_show_sub_scene(landfill)
+
