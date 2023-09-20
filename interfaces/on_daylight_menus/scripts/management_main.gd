@@ -7,11 +7,18 @@ onready var feed_animals = $FeedAnimals
 onready var food_shelter = $FoodShelter
 onready var landfill = $Landfill
 onready var sub_scenes_list = [main, compost, industrial, feed_animals, food_shelter, landfill]
+export(Resource) var waste_handler 
 
 
 func set_screen():
 	_toggle_show_sub_scene(main)
+	$"MainScreen/VBoxContainer/ContentFrame/Inedible Waste/Waste/Amount/InedibleAmnt".text = str(waste_handler.returnInedibleWaste())
+	$"MainScreen/VBoxContainer/ContentFrame/Edible Waste/Waste/Amount/EdibleAmnt".text = str(waste_handler.returnEdibleWaste())
 
+
+func _physics_process(delta):
+	$"MainScreen/VBoxContainer/ContentFrame/Inedible Waste/Waste/Amount/InedibleAmnt".text = str(waste_handler.returnInedibleWaste())
+	$"MainScreen/VBoxContainer/ContentFrame/Edible Waste/Waste/Amount/EdibleAmnt".text = str(waste_handler.returnEdibleWaste())
 
 # Hides every sub_scene then shows the desired sub scene
 func _toggle_show_sub_scene(sub_scene_name):
@@ -44,3 +51,4 @@ func _on_FoodShelter_pressed():
 
 func _on_Landfill_pressed():
 	_toggle_show_sub_scene(landfill)
+

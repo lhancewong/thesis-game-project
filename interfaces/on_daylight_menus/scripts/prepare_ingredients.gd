@@ -17,7 +17,11 @@ onready var villager_sigh = $VillagerSigh
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$MainContainer/TopLine/Top1/StorageAmount.text = str(stock_ingredient1)
+	$MainContainer/TopLine/Top2/StorageAmount.text = str(stock_ingredient2)
+	
+	$MainContainer/BottomLine/Bottom1/StorageAmount.text = str(prepared_ingredient1)
+	$MainContainer/BottomLine/Bottom2/StorageAmount.text = str(prepared_ingredient2)
 
 
 func _on_food1plus_pressed():
