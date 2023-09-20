@@ -5,6 +5,7 @@ const BASE_WASTE = 10
 const BASE_SATISFACTION = 1
 const BASE_PAYMENT = 50
 
+
 var rng = RandomNumberGenerator.new()
 
 # Customer Types
@@ -45,7 +46,7 @@ func purchase_food() -> Dictionary:
 		3: stats = local
 	
 	# Randomizes values
-	var food_id = int(rand_range(1,2))
+	var food_id = int(rand_range(food))
 	var customer = stats.type
 	var payment = _noisefy(BASE_PAYMENT)
 	var waste = _noisefy(BASE_WASTE * stats.waste_factor)

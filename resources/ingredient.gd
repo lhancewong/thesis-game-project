@@ -1,16 +1,19 @@
 class_name Ingredient
 extends Resource
 
-enum INGREDIENT{
-	chicken,
-	beef,
-	pork,
-	potato,
-	spinach,
-	eggplant,
-	cheese,
-	lemon,
-	sugar,
+
+export(Dictionary) var list = {
+	0: chicken,
+	1: beef,
+	2: pork,
+	3: curry_powder,
+	4: potato,
+	5: spinach,
+	6: eggplant,
+	7: cheese,
+	8: lemon,
+	9: coffee_mix,
+	10: sugar,
 }
 
 export(Dictionary) var chicken = {
