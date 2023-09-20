@@ -4,7 +4,7 @@
 [ext_resource path="res://assets/fonts/thin_pixelated.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://assets/images/live_graphs.png" type="Texture" id=3]
 [ext_resource path="res://interfaces/on_daylight_menus/scripts/live_updates.gd" type="Script" id=4]
-[ext_resource path="res://scripts/resources/tres/restaurant.tres" type="Resource" id=5]
+[ext_resource path="res://resources/tres/restaurant.tres" type="Resource" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 51

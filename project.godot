@@ -12,21 +12,27 @@ _global_script_classes=[ {
 "base": "Resource",
 "class": "Customer",
 "language": "GDScript",
-"path": "res://scripts/resources/customer.gd"
+"path": "res://resources/customer.gd"
 }, {
 "base": "Resource",
 "class": "Food",
 "language": "GDScript",
-"path": "res://scripts/resources/food.gd"
+"path": "res://resources/food.gd"
+}, {
+"base": "Resource",
+"class": "Ingredient",
+"language": "GDScript",
+"path": "res://resources/ingredient.gd"
 }, {
 "base": "Resource",
 "class": "Restaurant",
 "language": "GDScript",
-"path": "res://scripts/resources/restaurant.gd"
+"path": "res://resources/restaurant.gd"
 } ]
 _global_script_class_icons={
 "Customer": "",
 "Food": "",
+"Ingredient": "",
 "Restaurant": ""
 }
 

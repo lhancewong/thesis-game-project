@@ -1,12 +1,13 @@
 class_name Customer
 extends Resource
 
-export(int) var BASE_WASTE = 10
-export(int) var BASE_SATISFACTION = 1
-export(int) var BASE_PAYMENT = 50
+const BASE_WASTE = 10
+const BASE_SATISFACTION = 1
+const BASE_PAYMENT = 50
 
 var rng = RandomNumberGenerator.new()
 
+# Customer Types
 export(Dictionary) var tourist = {
 	"id": 1,
 	"type": "tourist",
