@@ -30,15 +30,12 @@ func _make_pretty_numbers( num:float, precission:int=2  ) -> String:
 	return str("%."+str(precission)+"f"+unit) % [num]
 
 func add_purchase(entry: Dictionary) -> void:
-	money += entry["payment"]
+	money += entry["food_payment"]
 	waste += entry["waste"]
 	satisfaction += entry["satisfaction"]
 
 func get_money() -> String:
 	return "$" + _make_pretty_numbers(money)
-
-func get_waste() -> String:
-	return _make_pretty_numbers(waste) + " foods"
 
 func get_satisfaction() -> String:
 	return _make_pretty_numbers(satisfaction) + " happy"

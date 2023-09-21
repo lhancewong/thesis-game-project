@@ -3,6 +3,8 @@ extends Control
 # Resources
 export(Resource) var resto
 export(Resource) var custo
+export(Resource) var food
+export(Resource) var ingredient
 export(Resource) var waste_manager
 
 # Node
@@ -36,7 +38,7 @@ func _ready():
 func _physics_process(delta):
 	$VBoxContainer/topbar/HBoxContainer/Day.text = "Day " + str(resto.day)
 	$VBoxContainer/topbar/HBoxContainer/Money.text = "Money: " + resto.get_money()
-	$VBoxContainer/topbar/HBoxContainer/Waste.text = "Waste: " + str(waste_manager.returnEdibleWaste()+waste_manager.returnInedibleWaste())
+	$VBoxContainer/topbar/HBoxContainer/Waste.text = "Waste: " + str(waste_manager.get_waste())
 	$VBoxContainer/topbar/HBoxContainer/Satisfaction.text = "Satisfaction: " + resto.get_satisfaction()
 
 # Hides every sub_scene then shows the desired sub scene
@@ -59,8 +61,11 @@ func _purchase_handler() -> void:
 	for i in customer_amount:
 		var timer = rand_range(0.9, 1.1) * (day_length/customer_amount)
 		yield(get_tree().create_timer(timer),"timeout")
-		var entry =  custo.purchase_food()
+		
+		var food_item = food.get_rand_food()
+		var entry =  custo.purchase_food(food_item)
 		resto.add_purchase(entry)
+		
 		var waste_type = randi()%2
 		waste_manager.add_waste(waste_type, entry["waste"])
 		terminal.add_entry(entry)

@@ -7,9 +7,10 @@ onready var food_waste_label = $VBoxContainer/Performance/VBoxContainer/FoodWast
 
 # Resources
 export(Resource) var resto
+export(Resource) var management_handler
 
 func _physics_process(delta):
 	money_label.text = "Money: " + resto.get_money()
 	customer_satisfaction_label.text = "Customer Satisfaction: " + resto.get_satisfaction()
-	food_waste_label.text = "Food Waste: " + resto.get_waste()
+	food_waste_label.text = "Food Waste: " + management_handler.get_waste()
 	

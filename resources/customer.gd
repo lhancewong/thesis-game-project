@@ -3,8 +3,6 @@ extends Resource
 
 const BASE_WASTE = 10
 const BASE_SATISFACTION = 1
-const BASE_PAYMENT = 50
-
 
 var rng = RandomNumberGenerator.new()
 
@@ -33,29 +31,32 @@ export(Dictionary) var local = {
 # Purchase function to handle buying food
 #
 # Returns a list [payment, food_waste, satisfaction]
-func purchase_food() -> Dictionary:
+func purchase_food(food: Dictionary) -> Dictionary:
 	
 	# Chooses the customer number (for now they are all equally likely to appear)
-	var id = rand_range(1,3)
+	var id = rng.randi_range(1,3)
 	var stats
 	
 	# Basically a switch statement
-	match int(id):
+	match id:
 		1: stats = tourist
 		2: stats = regular
 		3: stats = local
 	
 	# Randomizes values
-	var food_id = int(rand_range(food))
+	var food_id = food["id"]
+	var food_type = food["type"]
+	var food_payment = food["base_price"]
+	
 	var customer = stats.type
-	var payment = _noisefy(BASE_PAYMENT)
 	var waste = _noisefy(BASE_WASTE * stats.waste_factor)
 	var satisfaction = _noisefy(BASE_SATISFACTION * stats.satisfaction_factor)
 	
 	return {
 		"food_id": food_id,
+		"food_type": food_type,
+		"food_payment": food_payment,
 		"customer": customer,
-		"payment": payment,
 		"waste": waste,
 		"satisfaction": satisfaction
 	} 

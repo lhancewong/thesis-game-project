@@ -28,7 +28,7 @@ func manage_waste( management_strategy:String, waste_type:int, waste_amount:floa
 	
 	var type
 	
-	match int(waste_type):
+	match waste_type:
 		0: type = "Inedible"
 		1: type = "Edible"
 	var waste_entry = [management_strategy, type, waste_amount, date] 
@@ -39,12 +39,11 @@ func manage_waste( management_strategy:String, waste_type:int, waste_amount:floa
 		edible_waste -= waste_amount
 	print(waste_managed_entries)
 
-func returnEdibleWaste():
-	return edible_waste
+func get_edible_waste():
+	return ("%.2f" % (inedible_waste))
 
-func returnInedibleWaste():
-	return inedible_waste
+func get_inedible_waste():
+	return ("%.2f" % (edible_waste))
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func get_waste():
+	return ("%.2f" % (edible_waste + inedible_waste))

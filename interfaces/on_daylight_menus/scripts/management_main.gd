@@ -12,13 +12,13 @@ export(Resource) var waste_handler
 
 func set_screen():
 	_toggle_show_sub_scene(main)
-	$"MainScreen/VBoxContainer/ContentFrame/Inedible Waste/Waste/Amount/InedibleAmnt".text = str(waste_handler.returnInedibleWaste())
-	$"MainScreen/VBoxContainer/ContentFrame/Edible Waste/Waste/Amount/EdibleAmnt".text = str(waste_handler.returnEdibleWaste())
+	$"MainScreen/VBoxContainer/ContentFrame/Inedible Waste/Waste/Amount/InedibleAmnt".text = str(waste_handler.get_inedible_waste())
+	$"MainScreen/VBoxContainer/ContentFrame/Edible Waste/Waste/Amount/EdibleAmnt".text = str(waste_handler.get_edible_waste())
 
 
 func _physics_process(delta):
-	$"MainScreen/VBoxContainer/ContentFrame/Inedible Waste/Waste/Amount/InedibleAmnt".text = str(waste_handler.returnInedibleWaste())
-	$"MainScreen/VBoxContainer/ContentFrame/Edible Waste/Waste/Amount/EdibleAmnt".text = str(waste_handler.returnEdibleWaste())
+	$"MainScreen/VBoxContainer/ContentFrame/Inedible Waste/Waste/Amount/InedibleAmnt".text = str(waste_handler.get_inedible_waste())
+	$"MainScreen/VBoxContainer/ContentFrame/Edible Waste/Waste/Amount/EdibleAmnt".text = str(waste_handler.get_edible_waste())
 
 # Hides every sub_scene then shows the desired sub scene
 func _toggle_show_sub_scene(sub_scene_name):
