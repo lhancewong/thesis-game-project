@@ -64,6 +64,7 @@ func _purchase_handler() -> void:
 		
 		var food_item = food.get_rand_food()
 		var entry =  custo.purchase_food(food_item)
+		ingredient.spend_ingredients(food_item)
 		resto.add_purchase(entry)
 		
 		var waste_type = randi()%2

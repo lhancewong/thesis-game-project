@@ -2,20 +2,6 @@ class_name Ingredient
 extends Resource
 
 
-export(Dictionary) var list = {
-	0: chicken,
-	1: beef,
-	2: pork,
-	3: curry_powder,
-	4: potato,
-	5: spinach,
-	6: eggplant,
-	7: cheese,
-	8: lemon,
-	9: coffee_mix,
-	10: sugar,
-}
-
 export(Dictionary) var chicken = {
 	"id": 0,
 	"type": "chicken",
@@ -81,6 +67,46 @@ export(Dictionary) var sugar = {
 	"type": "sugar",
 	"price": 0.69,
 }
+
+export(Array) var list = [
+	chicken, 
+	beef, 
+	pork, 
+	curry_powder, 
+	potato, 
+	spinach, 
+	eggplant, 
+	cheese, 
+	lemon, 
+	coffee_mix, 
+	sugar,
+]
+
+export(Dictionary) var stockpile = {
+	"chicken": 0, 
+	"beef": 0, 
+	"pork": 0, 
+	"curry_powder": 0, 
+	"potato": 0, 
+	"spinach": 0, 
+	"eggplant": 0, 
+	"cheese": 0, 
+	"lemon": 0, 
+	"coffee_mix": 0, 
+	"sugar": 0,
+}
+
+func get_stockpile() -> Dictionary:
+	return stockpile
+
+func spend_ingredients(food: Dictionary) -> void:
+	var ingredient_list = food["ingredients"]
+	
+	for i in (ingredient_list):
+		if i in stockpile:
+			stockpile[i] -= 1
+
+
 
 # Maybe prepare curry stock, chicken stock, beef stock, and the veggies
 

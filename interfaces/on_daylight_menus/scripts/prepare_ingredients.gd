@@ -28,7 +28,6 @@ func _on_food1plus_pressed():
 	food1 = int($MainContainer/MiddleLine/Middle1/HBoxContainer/LineEdit.text)
 	food1 += 1
 	$MainContainer/MiddleLine/Middle1/HBoxContainer/LineEdit.text = str(food1)
-	
 
 
 func _on_food1minus_pressed():

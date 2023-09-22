@@ -40,10 +40,10 @@ func manage_waste( management_strategy:String, waste_type:int, waste_amount:floa
 	print(waste_managed_entries)
 
 func get_edible_waste():
-	return ("%.2f" % (inedible_waste))
+	return ("%.2f" % (edible_waste))
 
 func get_inedible_waste():
-	return ("%.2f" % (edible_waste))
+	return ("%.2f" % (inedible_waste))
 
 func get_waste():
 	return ("%.2f" % (edible_waste + inedible_waste))

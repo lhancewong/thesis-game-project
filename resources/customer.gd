@@ -49,7 +49,7 @@ func purchase_food(food: Dictionary) -> Dictionary:
 	var food_payment = food["base_price"]
 	
 	var customer = stats.type
-	var waste = _noisefy(BASE_WASTE * stats.waste_factor)
+	var waste = int(_noisefy(BASE_WASTE * stats.waste_factor))
 	var satisfaction = _noisefy(BASE_SATISFACTION * stats.satisfaction_factor)
 	
 	return {
