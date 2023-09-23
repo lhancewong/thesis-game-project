@@ -2,7 +2,7 @@ class_name Restaurant
 extends Resource
 
 
-export(float) var money 
+export(float) var money = 100
 export(float) var waste
 export(float) var satisfaction
 export(int) var day

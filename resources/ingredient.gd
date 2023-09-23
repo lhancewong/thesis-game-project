@@ -68,20 +68,6 @@ export(Dictionary) var sugar = {
 	"price": 0.69,
 }
 
-export(Array) var list = [
-	chicken, 
-	beef, 
-	pork, 
-	curry_powder, 
-	potato, 
-	spinach, 
-	eggplant, 
-	cheese, 
-	lemon, 
-	coffee_mix, 
-	sugar,
-]
-
 export(Dictionary) var stockpile = {
 	"chicken": 0, 
 	"beef": 0, 
@@ -99,6 +85,7 @@ export(Dictionary) var stockpile = {
 func get_stockpile() -> Dictionary:
 	return stockpile
 
+
 func spend_ingredients(food: Dictionary) -> void:
 	var ingredient_list = food["ingredients"]
 	
@@ -106,6 +93,20 @@ func spend_ingredients(food: Dictionary) -> void:
 		if i in stockpile:
 			stockpile[i] -= 1
 
+
+func buy_ingredients(type: int, amount: int) -> float:
+	var ingredient
+	match (type):
+		0: ingredient = chicken
+		1: ingredient = beef
+		2: ingredient = pork
+		3: ingredient = curry_powder
+	
+	
+	var price = ingredient["price"] * amount
+	stockpile[ingredient["type"]] += amount
+	
+	return price
 
 
 # Maybe prepare curry stock, chicken stock, beef stock, and the veggies

@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/fonts/thin_pixelated.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/fonts/pixelated.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://interfaces/on_daylight_menus/scripts/order_ingredients.gd" type="Script" id=3]
 [ext_resource path="res://resources/tres/ingredient.tres" type="Resource" id=4]
+[ext_resource path="res://resources/tres/restaurant.tres" type="Resource" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 51
@@ -32,6 +33,7 @@ margin_right = 0.0199585
 margin_bottom = 0.223969
 script = ExtResource( 3 )
 ingredients = ExtResource( 4 )
+restaurant = ExtResource( 5 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0
@@ -97,12 +99,12 @@ text = "amnt for price"
 align = 1
 valign = 1
 
-[node name="HSlider" type="HSlider" parent="VBoxContainer/Order/Chicken"]
+[node name="ChickenSlider" type="HSlider" parent="VBoxContainer/Order/Chicken"]
 margin_top = 128.0
 margin_right = 150.0
 margin_bottom = 144.0
 
-[node name="Buy" type="Button" parent="VBoxContainer/Order/Chicken"]
+[node name="ChickenBuy" type="Button" parent="VBoxContainer/Order/Chicken"]
 margin_top = 157.0
 margin_right = 150.0
 margin_bottom = 191.0
@@ -153,12 +155,12 @@ text = "Amount"
 align = 1
 valign = 1
 
-[node name="HSlider" type="HSlider" parent="VBoxContainer/Order/Beef"]
+[node name="BeefSlider" type="HSlider" parent="VBoxContainer/Order/Beef"]
 margin_top = 128.0
 margin_right = 151.0
 margin_bottom = 144.0
 
-[node name="Buy" type="Button" parent="VBoxContainer/Order/Beef"]
+[node name="BeefBuy" type="Button" parent="VBoxContainer/Order/Beef"]
 margin_top = 157.0
 margin_right = 151.0
 margin_bottom = 191.0
@@ -209,12 +211,12 @@ text = "Amount"
 align = 1
 valign = 1
 
-[node name="HSlider" type="HSlider" parent="VBoxContainer/Order/Pork"]
+[node name="PorkSlider" type="HSlider" parent="VBoxContainer/Order/Pork"]
 margin_top = 128.0
 margin_right = 151.0
 margin_bottom = 144.0
 
-[node name="Buy" type="Button" parent="VBoxContainer/Order/Pork"]
+[node name="PorkBuy" type="Button" parent="VBoxContainer/Order/Pork"]
 margin_top = 157.0
 margin_right = 151.0
 margin_bottom = 191.0
@@ -265,12 +267,12 @@ text = "Amount"
 align = 1
 valign = 1
 
-[node name="HSlider" type="HSlider" parent="VBoxContainer/Order/CurryStock"]
+[node name="CurrySlider" type="HSlider" parent="VBoxContainer/Order/CurryStock"]
 margin_top = 128.0
 margin_right = 151.0
 margin_bottom = 144.0
 
-[node name="Buy" type="Button" parent="VBoxContainer/Order/CurryStock"]
+[node name="CurryBuy" type="Button" parent="VBoxContainer/Order/CurryStock"]
 margin_top = 157.0
 margin_right = 151.0
 margin_bottom = 191.0
@@ -462,3 +464,12 @@ custom_fonts/font = SubResource( 3 )
 text = "Amount"
 align = 1
 valign = 1
+
+[connection signal="value_changed" from="VBoxContainer/Order/Chicken/ChickenSlider" to="." method="_on_ChickenSlider_value_changed"]
+[connection signal="pressed" from="VBoxContainer/Order/Chicken/ChickenBuy" to="." method="_on_ChickenBuy_pressed"]
+[connection signal="value_changed" from="VBoxContainer/Order/Beef/BeefSlider" to="." method="_on_BeefSlider_value_changed"]
+[connection signal="pressed" from="VBoxContainer/Order/Beef/BeefBuy" to="." method="_on_BeefBuy_pressed"]
+[connection signal="value_changed" from="VBoxContainer/Order/Pork/PorkSlider" to="." method="_on_PorkSlider_value_changed"]
+[connection signal="pressed" from="VBoxContainer/Order/Pork/PorkBuy" to="." method="_on_PorkBuy_pressed"]
+[connection signal="value_changed" from="VBoxContainer/Order/CurryStock/CurrySlider" to="." method="_on_CurrySlider_value_changed"]
+[connection signal="pressed" from="VBoxContainer/Order/CurryStock/CurryBuy" to="." method="_on_CurryBuy_pressed"]

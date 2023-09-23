@@ -60,7 +60,6 @@ sugar = {
 "price": 0.69,
 "type": "sugar"
 }
-list = [  ]
 stockpile = {
 "beef": 0,
 "cheese": 0,

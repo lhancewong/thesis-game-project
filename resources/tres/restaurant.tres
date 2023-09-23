@@ -5,7 +5,7 @@
 [resource]
 resource_name = "Restaurant"
 script = ExtResource( 1 )
-money = 0.0
+money = 100.0
 waste = 0.0
 satisfaction = 0.0
 day = 0
