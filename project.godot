@@ -27,7 +27,12 @@ _global_script_classes=[ {
 "base": "Resource",
 "class": "Restaurant",
 "language": "GDScript",
-"path": "res://resources/restaurant.gd"
+"path": "res://resources/restaurant_manager.gd"
+}, {
+"base": "Object",
+"class": "SceneManagerConstants",
+"language": "GDScript",
+"path": "res://addons/scene_manager/SceneManagerConstants.gd"
 }, {
 "base": "Resource",
 "class": "Waste_Manager",
@@ -39,6 +44,7 @@ _global_script_class_icons={
 "Food": "",
 "Ingredient": "",
 "Restaurant": "",
+"SceneManagerConstants": "",
 "Waste_Manager": ""
 }
 

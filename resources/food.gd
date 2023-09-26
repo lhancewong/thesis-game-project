@@ -1,7 +1,6 @@
 class_name Food
 extends Resource
 
-
 export(Dictionary) var chicken_curry = {
 	"id": 1,
 	"base_price": 20,
@@ -40,9 +39,23 @@ export(Dictionary) var coffee = {
 	"ingredients": ["coffee_mix", "sugar"],
 }
 
-var list = [chicken_curry,beef_curry,pork_curry,lemonade,coffee]
+var dict = {
+	"Chicken Curry": chicken_curry,
+	"Beef Curry": beef_curry,
+	"Pork Curry": pork_curry,
+	"Lemonade": lemonade,
+	"Coffee": coffee,
+	}
 
 func get_rand_food() -> Dictionary:
+	var list = dict.values()
 	var food = list[randi() % list.size()]
 	
 	return food
+
+func get_food_list() -> Array:
+	return dict.values()
+
+func get_food(name: String) -> Dictionary:
+	return dict[name]
+	

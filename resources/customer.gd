@@ -28,6 +28,19 @@ export(Dictionary) var local = {
 	"satisfaction_factor": 0.50,
 }
 
+func get_rand_type() -> Dictionary:
+	# Chooses the customer number (for now they are all equally likely to appear)
+	var id = rng.randi_range(1,3)
+	var stats
+	
+	# Basically a switch statement
+	match id:
+		1: stats = tourist
+		2: stats = regular
+		3: stats = local
+	
+	return stats
+
 # Purchase function to handle buying food
 #
 # Returns a list [payment, food_waste, satisfaction]
