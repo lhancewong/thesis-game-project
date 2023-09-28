@@ -27,7 +27,7 @@ func _physics_process(delta):
 
 
 func _update_labels():
-	var stockpile = ingredients.get_stockpile()
+	var stockpile = restaurant.get_stockpile()
 	
 	stock_chicken.text = str(stockpile["chicken"]) + " batches"
 	stock_beef.text = str(stockpile["beef"]) + " batches"
@@ -52,17 +52,26 @@ func _on_CurrySlider_value_changed(value):
 
 
 func _on_ChickenBuy_pressed():
-	var price = ingredients.buy_ingredients(0, int(order_chicken.text))
-	restaurant.money -= price
+#	var price = ingredients.buy_ingredients(0, int(order_chicken.text))
+#	restaurant.money -= price
+	
+	restaurant.buy_ingredients('Chicken', int(order_chicken.text))
 
 func _on_BeefBuy_pressed():
-	var price = ingredients.buy_ingredients(1, int(order_beef.text))
-	restaurant.money -= price
+#	var price = ingredients.buy_ingredients(1, int(order_beef.text))
+#	restaurant.money -= price
+	
+	restaurant.buy_ingredients('Beef', int(order_beef.text))
 
 func _on_PorkBuy_pressed():
-	var price = ingredients.buy_ingredients(2, int(order_pork.text))
-	restaurant.money -= price
+#	var price = ingredients.buy_ingredients(2, int(order_pork.text))
+#	restaurant.money -= price
+	
+	restaurant.buy_ingredients('Pork', int(order_pork.text))
 
 func _on_CurryBuy_pressed():
-	var price = ingredients.buy_ingredients(3, int(order_curry.text))
-	restaurant.money -= price
+#	var price = ingredients.buy_ingredients(3, int(order_curry.text))
+#	restaurant.money -= price
+	
+	restaurant.buy_ingredients('Curry Powder', int(order_curry.text))
+

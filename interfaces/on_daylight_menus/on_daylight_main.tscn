@@ -352,7 +352,7 @@ expand_icon = true
 [node name="GameConsole" parent="VBoxContainer/HBoxContainer" instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 764.0
+margin_top = 0.0
 margin_right = 1326.0
 margin_bottom = 644.0
 size_flags_horizontal = 3
@@ -366,7 +366,7 @@ volume_db = 7.0
 [node name="VineBoom" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
 stream = ExtResource( 4 )
-volume_db = -5.0
+volume_db = -10.0
 
 [node name="PauseFrame" type="ColorRect" parent="."]
 visible = false

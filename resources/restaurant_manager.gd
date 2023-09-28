@@ -3,7 +3,7 @@ extends Resource
 
 export(Resource) var custo
 export(Resource) var food
-export(Resource) var ingredient
+export(Resource) var ingred
 
 export(float) var money = 100
 export(float) var waste = 0
@@ -11,6 +11,20 @@ export(float) var satisfaction = 0
 export(int) var day = 0
 
 export(Dictionary) var cookable_food
+
+export(Dictionary) var i_stockpile = {
+	"chicken": 0, 
+	"beef": 0, 
+	"pork": 0, 
+	"curry_powder": 0, 
+	"potato": 0, 
+	"spinach": 0, 
+	"eggplant": 0, 
+	"cheese": 0, 
+	"lemon": 0, 
+	"coffee_mix": 0, 
+	"sugar": 0,
+}
 
 
 # Turns numbers into a Tycoon compatible format
@@ -40,47 +54,47 @@ func update():
 
 ##### PURCHASE SHIZ #####
 
+
 func create_purchase() -> Dictionary:
-	var stats = custo.get_rand_type()
+	var customer = custo.get_rand_type()
 	var food = get_rand_cookable_food()
+	var entry
 	
+	# Checks if theres any cookable food
 	if food != {}: 
 		return {
-		"food_id": 0,
-		"food_type": 0,
-		"food_payment": 0,
-		"customer": 0,
-		"waste": 0,
-		"satisfaction": 0
+		"food_id": 0, "food_type": 0, "food_payment": 0,
+		"customer": 0, "waste": 0, "satisfaction": 0
 		}
-		
-	ingredient.spend_ingredients(food)
-		
 	
-	var food_id = food["id"]
-	var food_type = food["type"]
-	var food_payment = food["base_price"]
-	
-	var customer = stats.type
-	var waste = int(_noisefy(custo.BASE_WASTE * stats.waste_factor))
-	var satisfaction = _noisefy(custo.BASE_SATISFACTION * stats.satisfaction_factor)
-	
-	var entry = {
-		"food_id": food_id,
-		"food_type": food_type,
-		"food_payment": food_payment,
-		"customer": customer,
-		"waste": waste,
-		"satisfaction": satisfaction
-	} 
-	
+	spend_ingredients(food)
+	entry = create_entry(food, customer)
 	add_purchase(entry)
+	
 	return entry
 
 func add_purchase(entry: Dictionary) -> void:
-	money += entry["food_payment"]
-	waste += entry["waste"]
-	satisfaction += entry["satisfaction"]
+	money += entry.food_payment
+	waste += entry.waste
+	satisfaction += entry.satisfaction
+
+func create_entry(food: Dictionary, customer: Dictionary) -> Dictionary:
+	var food_id = food.id
+	var food_type = food.type
+	var food_payment = food.base_price
+	
+	var customer_type = customer.type
+	var waste = int(_noisefy(custo.BASE_WASTE * customer.waste_factor))
+	var satisfaction = _noisefy(custo.BASE_SATISFACTION * customer.satisfaction_factor)
+	
+	return {
+		"food_id": food_id,
+		"food_type": food_type,
+		"food_payment": food_payment,
+		"customer": customer_type,
+		"waste": waste,
+		"satisfaction": satisfaction
+	} 
 
 
 ##### FOOD SHIZ #####
@@ -88,14 +102,13 @@ func add_purchase(entry: Dictionary) -> void:
 # Calculates possible food items that can be cooked given 
 # the current ingredient stockpile
 func update_cookable_food() -> String:
-	var ingredient_stockpile = ingredient.get_stockpile()
 	var food_list = food.get_food_list()
 
 	for food in food_list:
 		var cookable = true
 		var temp_igdt_list = []
 		for i_name in food["ingredients"]:
-			var i_stock = ingredient_stockpile[str(i_name)]
+			var i_stock = i_stockpile[str(i_name)]
 			if i_stock < 1:
 				cookable = false
 				break
@@ -119,6 +132,38 @@ func get_rand_cookable_food() -> Dictionary:
 		return {"type": "No Food!"}
 
 
+##### INGREDIENT SHIZZ #####
+
+func buy_ingredients(type: String, amount: int) -> void:
+	var ingredient
+	var price
+	var debug_msg
+	
+	match (type):
+		'Chicken': ingredient = ingred.get_dict('c')
+		'Beef': ingredient = ingred.get_dict('b')
+		'Pork': ingredient = ingred.get_dict('p')
+		'Curry Powder': ingredient = ingred.get_dict('cp')
+	
+	price = ingredient.price * amount
+	
+	if money >= price:
+		i_stockpile[ingredient.type] += amount
+		money -= price
+		
+		debug_msg = "Bought %d dollars of %s"
+	else:
+		debug_msg = "You broke ass bitch you can't afford %d dollars of %s"
+	
+	print(debug_msg % [price, type])
+
+func spend_ingredients(food: Dictionary) -> void:
+	var ingredient_list = food.ingredients
+	
+	for i in (ingredient_list):
+		if i in i_stockpile:
+			i_stockpile[i] -= 1
+
 
 ##### GETTERS #####
 
@@ -127,3 +172,6 @@ func get_money() -> String:
 
 func get_satisfaction() -> String:
 	return _make_pretty_numbers(satisfaction) + " happy"
+
+func get_stockpile() -> Dictionary:
+	return i_stockpile

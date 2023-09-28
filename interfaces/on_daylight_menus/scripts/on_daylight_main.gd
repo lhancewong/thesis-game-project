@@ -77,7 +77,8 @@ func _purchase_handler() -> void:
 # Button Signals
 func _on_ToTitleScreen_pressed():
 	terminal.add_text(resto.update_cookable_food())
-	terminal.add_text(resto.get_rand_cookable_food()["type"])
+	terminal.add_text(resto.get_rand_cookable_food().type)
+	
 	# get_tree().change_scene("res://interfaces/title_screen_menus/title_screen_main.tscn")
 
 # Main update sequence handler for now

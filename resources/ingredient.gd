@@ -108,6 +108,21 @@ func buy_ingredients(type: int, amount: int) -> float:
 	
 	return price
 
+func get_dict(food: String) -> Dictionary:
+	match(food):
+		'c' : return chicken
+		'b' : return beef
+		'p' : return pork
+		'cp': return curry_powder
+		'po': return potato
+		'sp': return spinach
+		'eg': return eggplant
+		'ch': return cheese
+		'le': return lemon
+		'cm': return coffee_mix
+		'su': return sugar 
+		_   : return {}
+
 
 # Maybe prepare curry stock, chicken stock, beef stock, and the veggies
 

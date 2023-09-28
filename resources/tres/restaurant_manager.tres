@@ -10,10 +10,23 @@ resource_name = "Restaurant"
 script = ExtResource( 1 )
 custo = ExtResource( 4 )
 food = ExtResource( 2 )
-ingredient = ExtResource( 3 )
+ingred = ExtResource( 3 )
 money = 100.0
 waste = 0.0
 satisfaction = 0.0
 day = 0
 cookable_food = {
+}
+i_stockpile = {
+"beef": 0,
+"cheese": 0,
+"chicken": 0,
+"coffee_mix": 0,
+"curry_powder": 0,
+"eggplant": 0,
+"lemon": 0,
+"pork": 0,
+"potato": 0,
+"spinach": 0,
+"sugar": 0
 }
