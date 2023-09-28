@@ -95,7 +95,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
-text = "amnt for price"
+text = "Amount"
 align = 1
 valign = 1
 
@@ -103,6 +103,8 @@ valign = 1
 margin_top = 128.0
 margin_right = 150.0
 margin_bottom = 144.0
+min_value = 1.0
+value = 1.0
 
 [node name="ChickenBuy" type="Button" parent="VBoxContainer/Order/Chicken"]
 margin_top = 157.0
@@ -159,6 +161,8 @@ valign = 1
 margin_top = 128.0
 margin_right = 151.0
 margin_bottom = 144.0
+min_value = 1.0
+value = 1.0
 
 [node name="BeefBuy" type="Button" parent="VBoxContainer/Order/Beef"]
 margin_top = 157.0
@@ -215,6 +219,8 @@ valign = 1
 margin_top = 128.0
 margin_right = 151.0
 margin_bottom = 144.0
+min_value = 1.0
+value = 1.0
 
 [node name="PorkBuy" type="Button" parent="VBoxContainer/Order/Pork"]
 margin_top = 157.0
@@ -271,6 +277,8 @@ valign = 1
 margin_top = 128.0
 margin_right = 151.0
 margin_bottom = 144.0
+min_value = 1.0
+value = 1.0
 
 [node name="CurryBuy" type="Button" parent="VBoxContainer/Order/CurryStock"]
 margin_top = 157.0

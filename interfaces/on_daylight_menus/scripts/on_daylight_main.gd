@@ -59,18 +59,22 @@ func _purchase_handler() -> void:
 	var customer_amount = rand_range(5,10)
 	
 	for i in customer_amount:
-		var timer = rand_range(0.9, 1.1) * (day_length/customer_amount)
-		yield(get_tree().create_timer(timer),"timeout")
 		
-		var food_item = food.get_rand_food()
-		var entry =  custo.purchase_food(food_item)
-		ingredient.spend_ingredients(food_item)
-		resto.add_purchase(entry)
+		var entry =  resto.create_purchase()
 		
-		var waste_type = randi()%2
-		waste_manager.add_waste(waste_type, entry["waste"])
-		terminal.add_entry(entry)
+		if str(entry.food_id) == "No Food!":
+			terminal.add_text(entry.food_id)
+		else:
+			var waste_type = randi()%2
+			waste_manager.add_waste(waste_type, entry["waste"])
+			terminal.add_entry(entry)
+		
 		vine_boom.play()
+		
+		var wait = rand_range(0.9, 1.1) * (day_length/customer_amount)
+		yield(get_tree().create_timer(wait), "timeout")
+		
+		
 	
 	emit_signal("completed")
 

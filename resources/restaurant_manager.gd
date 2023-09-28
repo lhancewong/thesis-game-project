@@ -56,20 +56,21 @@ func update():
 
 
 func create_purchase() -> Dictionary:
+	update_cookable_food()
+	
 	var customer = custo.get_rand_type()
 	var food = get_rand_cookable_food()
 	var entry
 	
 	# Checks if theres any cookable food
-	if food != {}: 
-		return {
-		"food_id": 0, "food_type": 0, "food_payment": 0,
-		"customer": 0, "waste": 0, "satisfaction": 0
-		}
+	if str(food.type) == "No Food!": 
+		return {"food_id": "No Food!"}
 	
 	spend_ingredients(food)
 	entry = create_entry(food, customer)
 	add_purchase(entry)
+	
+	update_cookable_food()
 	
 	return entry
 
