@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/images/restaurant.png" type="Texture" id=1]
 [ext_resource path="res://assets/fonts/pixelated.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://interfaces/title_screen_menus/scripts/title_screen_save_selection.gd" type="Script" id=3]
+[ext_resource path="res://resources/curry/curry.tres" type="Theme" id=4]
+[ext_resource path="res://resources/curry/red.tres" type="Theme" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 128
@@ -25,7 +27,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color( 0.937255, 0.937255, 0.937255, 1 )
+color = Color( 0.933333, 0.92549, 0.847059, 1 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Background"]
 anchor_right = 1.0
@@ -65,6 +67,7 @@ margin_right = 744.0
 margin_bottom = 614.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.55
+theme = ExtResource( 4 )
 custom_constants/vseparation = 20
 custom_constants/hseparation = 20
 columns = 2
@@ -148,7 +151,7 @@ margin_right = 744.0
 margin_bottom = 728.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.15
-theme = SubResource( 2 )
+theme = ExtResource( 5 )
 custom_fonts/font = SubResource( 3 )
 text = "TO TITLE SCREEN"
 expand_icon = true

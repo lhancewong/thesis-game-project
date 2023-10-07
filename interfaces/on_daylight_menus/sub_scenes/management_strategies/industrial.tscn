@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/fonts/thin_pixelated.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/fonts/pixelated.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://resources/curry/curry.tres" type="Theme" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 51
@@ -14,6 +15,18 @@ font_data = ExtResource( 2 )
 [sub_resource type="DynamicFont" id=3]
 size = 20
 font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 30
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 21
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 30
+font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 13
@@ -30,6 +43,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = -642.0
 margin_bottom = -340.0
+theme = ExtResource( 3 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0
@@ -41,7 +55,7 @@ margin_right = 724.0
 margin_bottom = 47.0
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 1 )
-text = "Industrial"
+text = "Industrial Use"
 align = 1
 valign = 1
 autowrap = true
@@ -63,36 +77,37 @@ custom_constants/separation = 30
 
 [node name="Waste" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Industrial"]
 margin_right = 347.0
-margin_bottom = 160.0
+margin_bottom = 176.0
 rect_pivot_offset = Vector2( -345, -102 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
+size_flags_stretch_ratio = 0.75
 custom_constants/separation = 20
 
 [node name="Waste" type="ColorRect" parent="VBoxContainer/HBoxContainer/Industrial/Waste"]
 margin_right = 347.0
-margin_bottom = 70.0
+margin_bottom = 78.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color( 0.262745, 0.262745, 0.262745, 1 )
+color = Color( 0.980392, 0.854902, 0.368627, 1 )
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Industrial/Waste/Waste"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_colors/font_color = Color( 0.996078, 0.972549, 0.972549, 1 )
+custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
 custom_fonts/font = SubResource( 2 )
 text = "Inedible Waste"
 align = 1
 valign = 1
 
 [node name="Amount" type="ColorRect" parent="VBoxContainer/HBoxContainer/Industrial/Waste"]
-margin_top = 90.0
+margin_top = 98.0
 margin_right = 347.0
-margin_bottom = 160.0
+margin_bottom = 176.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="WasteAmnt" type="Label" parent="VBoxContainer/HBoxContainer/Industrial/Waste/Amount"]
+[node name="InedibleWasteAmnt" type="Label" parent="VBoxContainer/HBoxContainer/Industrial/Waste/Amount"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -102,51 +117,65 @@ align = 1
 valign = 1
 
 [node name="Strategy" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Industrial"]
-margin_top = 190.0
+margin_top = 206.0
 margin_right = 347.0
 margin_bottom = 371.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-size_flags_stretch_ratio = 1.12
+size_flags_stretch_ratio = 0.7
 custom_constants/separation = 20
 
 [node name="Industrial" type="ColorRect" parent="VBoxContainer/HBoxContainer/Industrial/Strategy"]
 margin_right = 347.0
-margin_bottom = 69.0
+margin_bottom = 93.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.25
-color = Color( 0.262745, 0.262745, 0.262745, 1 )
+color = Color( 0.980392, 0.854902, 0.368627, 1 )
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Industrial/Strategy/Industrial"]
+[node name="IndustrialAmnt" type="Label" parent="VBoxContainer/HBoxContainer/Industrial/Strategy/Industrial"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
+custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
 custom_fonts/font = SubResource( 2 )
-text = "Industrial"
+text = "industrial"
 align = 1
 valign = 1
 autowrap = true
 
-[node name="Amount" type="ColorRect" parent="VBoxContainer/HBoxContainer/Industrial/Strategy"]
-margin_top = 89.0
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Industrial/Strategy"]
+margin_top = 113.0
 margin_right = 347.0
-margin_bottom = 145.0
-size_flags_vertical = 3
+margin_bottom = 165.0
+rect_pivot_offset = Vector2( -74, 24 )
+alignment = 1
 
-[node name="InedibleAmnt" type="Label" parent="VBoxContainer/HBoxContainer/Industrial/Strategy/Amount"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 3 )
-text = "Industrial Amount"
+[node name="minus" type="Button" parent="VBoxContainer/HBoxContainer/Industrial/Strategy/HBoxContainer"]
+margin_right = 67.0
+margin_bottom = 52.251
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 6 )
+text = "-"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer/Industrial/Strategy/HBoxContainer"]
+margin_left = 71.0
+margin_right = 275.0
+margin_bottom = 52.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+custom_fonts/font = SubResource( 7 )
 align = 1
-valign = 1
+placeholder_text = "Waste Amount"
 
-[node name="HSlider" type="HSlider" parent="VBoxContainer/HBoxContainer/Industrial/Strategy"]
-margin_top = 165.0
+[node name="plus" type="Button" parent="VBoxContainer/HBoxContainer/Industrial/Strategy/HBoxContainer"]
+margin_left = 279.0
 margin_right = 347.0
-margin_bottom = 181.0
+margin_bottom = 52.251
+rect_pivot_offset = Vector2( -71, 20 )
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 8 )
+text = "+"
 
 [node name="Text" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
 margin_left = 377.0
@@ -158,16 +187,16 @@ custom_constants/separation = 25
 
 [node name="Text Info" type="ColorRect" parent="VBoxContainer/HBoxContainer/Text"]
 margin_right = 347.0
-margin_bottom = 285.0
+margin_bottom = 267.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color( 0.262745, 0.262745, 0.262745, 1 )
 
 [node name="Info" type="Label" parent="VBoxContainer/HBoxContainer/Text/Text Info"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 30.0
 margin_right = -30.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 4 )
 text = "TIP:
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
@@ -176,8 +205,8 @@ valign = 1
 autowrap = true
 
 [node name="ManagementStrategy2" type="Button" parent="VBoxContainer/HBoxContainer/Text"]
-margin_top = 310.0
+margin_top = 292.0
 margin_right = 347.0
-margin_bottom = 371.0
+margin_bottom = 371.251
 custom_fonts/font = SubResource( 5 )
 text = "Send"

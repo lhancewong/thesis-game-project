@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/fonts/pixelated.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/fonts/thin_pixelated.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://interfaces/on_daylight_menus/scripts/subscenes/landfill.gd" type="Script" id=3]
 [ext_resource path="res://resources/tres/waste_manager.tres" type="Resource" id=4]
+[ext_resource path="res://resources/curry/curry.tres" type="Theme" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 51
@@ -16,23 +17,36 @@ font_data = ExtResource( 1 )
 [sub_resource type="DynamicFont" id=3]
 font_data = ExtResource( 2 )
 
+[sub_resource type="DynamicFont" id=9]
+size = 30
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 21
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 30
+font_data = ExtResource( 1 )
+
 [sub_resource type="DynamicFont" id=5]
-size = 18
+size = 22
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 12
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=6]
 size = 32
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=4]
-size = 12
-font_data = ExtResource( 2 )
-
 [node name="Landfill" type="Control"]
 anchor_right = 0.53
 anchor_bottom = 0.557
 margin_right = 0.0199585
 margin_bottom = 0.223969
+theme = ExtResource( 5 )
 script = ExtResource( 3 )
 waste_handler = ExtResource( 4 )
 
@@ -61,43 +75,47 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+[node name="Landfill" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
 margin_right = 351.0
 margin_bottom = 372.0
 size_flags_horizontal = 3
-custom_constants/separation = 20
+size_flags_stretch_ratio = 0.5
+custom_constants/separation = 10
 
-[node name="InedibleWaste" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="InedibleWaste" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Landfill"]
 margin_right = 351.0
-margin_bottom = 122.0
+margin_bottom = 148.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+size_flags_stretch_ratio = 1.5
 
-[node name="Waste" type="ColorRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/InedibleWaste"]
+[node name="Waste" type="ColorRect" parent="VBoxContainer/HBoxContainer/Landfill/InedibleWaste"]
 margin_right = 351.0
-margin_bottom = 65.0
+margin_bottom = 44.0
 size_flags_vertical = 3
-color = Color( 0.262745, 0.262745, 0.262745, 1 )
+size_flags_stretch_ratio = 1.2
+color = Color( 0.980392, 0.854902, 0.368627, 1 )
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/InedibleWaste/Waste"]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Landfill/InedibleWaste/Waste"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
+custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
 custom_fonts/font = SubResource( 2 )
 text = "INEDIBLE WASTE"
 align = 1
 valign = 1
 autowrap = true
 
-[node name="Amount" type="ColorRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/InedibleWaste"]
-margin_top = 69.0
+[node name="Amount" type="ColorRect" parent="VBoxContainer/HBoxContainer/Landfill/InedibleWaste"]
+margin_top = 48.0
 margin_right = 351.0
-margin_bottom = 102.0
+margin_bottom = 92.0
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.5
+size_flags_stretch_ratio = 1.2
 
-[node name="InedibleAmnt" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/InedibleWaste/Amount"]
+[node name="InedibleAmnt" type="Label" parent="VBoxContainer/HBoxContainer/Landfill/InedibleWaste/Amount"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -106,43 +124,76 @@ text = "Waste Amount"
 align = 1
 valign = 1
 
-[node name="HSlider" type="HSlider" parent="VBoxContainer/HBoxContainer/VBoxContainer/InedibleWaste"]
-margin_top = 106.0
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Landfill/InedibleWaste"]
+margin_top = 96.0
 margin_right = 351.0
-margin_bottom = 122.0
+margin_bottom = 148.0
+rect_pivot_offset = Vector2( -74, 24 )
+alignment = 1
 
-[node name="Edible Waste" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_top = 142.0
+[node name="minus" type="Button" parent="VBoxContainer/HBoxContainer/Landfill/InedibleWaste/HBoxContainer"]
+margin_right = 68.0
+margin_bottom = 52.251
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 9 )
+text = "-"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer/Landfill/InedibleWaste/HBoxContainer"]
+margin_left = 72.0
+margin_right = 278.0
+margin_bottom = 52.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+custom_fonts/font = SubResource( 7 )
+align = 1
+placeholder_text = "Waste Amount"
+
+[node name="plus" type="Button" parent="VBoxContainer/HBoxContainer/Landfill/InedibleWaste/HBoxContainer"]
+margin_left = 282.0
 margin_right = 351.0
-margin_bottom = 265.0
+margin_bottom = 52.251
+rect_pivot_offset = Vector2( -71, 20 )
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 8 )
+text = "+"
+
+[node name="EdibleWaste" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Landfill"]
+margin_top = 158.0
+margin_right = 351.0
+margin_bottom = 307.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+size_flags_stretch_ratio = 1.5
 
-[node name="Waste" type="ColorRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/Edible Waste"]
+[node name="Waste" type="ColorRect" parent="VBoxContainer/HBoxContainer/Landfill/EdibleWaste"]
 margin_right = 351.0
-margin_bottom = 66.0
+margin_bottom = 44.0
+size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color( 0.262745, 0.262745, 0.262745, 1 )
+size_flags_stretch_ratio = 1.2
+color = Color( 0.980392, 0.854902, 0.368627, 1 )
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/Edible Waste/Waste"]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Landfill/EdibleWaste/Waste"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
+custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
 custom_fonts/font = SubResource( 2 )
 text = "EDIBLE WASTE"
 align = 1
 valign = 1
 autowrap = true
 
-[node name="Amount" type="ColorRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/Edible Waste"]
-margin_top = 70.0
+[node name="Amount" type="ColorRect" parent="VBoxContainer/HBoxContainer/Landfill/EdibleWaste"]
+margin_top = 48.0
 margin_right = 351.0
-margin_bottom = 103.0
+margin_bottom = 93.0
+size_flags_horizontal = 3
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.5
+size_flags_stretch_ratio = 1.2
 
-[node name="EdibleAmnt" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/Edible Waste/Amount"]
+[node name="EdibleAmnt" type="Label" parent="VBoxContainer/HBoxContainer/Landfill/EdibleWaste/Amount"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -151,50 +202,86 @@ text = "Waste Amount"
 align = 1
 valign = 1
 
-[node name="HSlider" type="HSlider" parent="VBoxContainer/HBoxContainer/VBoxContainer/Edible Waste"]
-margin_top = 107.0
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Landfill/EdibleWaste"]
+margin_top = 97.0
 margin_right = 351.0
-margin_bottom = 123.0
+margin_bottom = 149.0
+rect_pivot_offset = Vector2( -74, 24 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
 
-[node name="TotalWaste" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_top = 285.0
+[node name="minus" type="Button" parent="VBoxContainer/HBoxContainer/Landfill/EdibleWaste/HBoxContainer"]
+margin_right = 68.0
+margin_bottom = 52.251
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 9 )
+text = "-"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer/Landfill/EdibleWaste/HBoxContainer"]
+margin_left = 72.0
+margin_right = 278.0
+margin_bottom = 52.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+custom_fonts/font = SubResource( 7 )
+align = 1
+placeholder_text = "Waste Amount"
+
+[node name="plus" type="Button" parent="VBoxContainer/HBoxContainer/Landfill/EdibleWaste/HBoxContainer"]
+margin_left = 282.0
+margin_right = 351.0
+margin_bottom = 52.251
+rect_pivot_offset = Vector2( -71, 20 )
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 8 )
+text = "+"
+
+[node name="TotalWaste" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Landfill"]
+margin_top = 317.0
 margin_right = 351.0
 margin_bottom = 372.0
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.7
+size_flags_stretch_ratio = 0.55
 
-[node name="MgmtLabel2" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/TotalWaste"]
+[node name="Amount" type="ColorRect" parent="VBoxContainer/HBoxContainer/Landfill/TotalWaste"]
 margin_right = 351.0
-margin_bottom = 41.0
-size_flags_horizontal = 3
+margin_bottom = 55.0
 size_flags_vertical = 3
+
+[node name="MgmtLabel2" type="Label" parent="VBoxContainer/HBoxContainer/Landfill/TotalWaste/Amount"]
+margin_left = 1.0
+margin_top = 11.0
+margin_right = 352.0
+margin_bottom = 45.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 5 )
 text = "Total Waste Amount"
 align = 1
 valign = 2
 autowrap = true
 
-[node name="ManagementStrategy2" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/TotalWaste"]
-margin_top = 45.0
-margin_right = 351.0
-margin_bottom = 87.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_fonts/font = SubResource( 6 )
-text = "TRASH"
-
-[node name="Text Info" type="ColorRect" parent="VBoxContainer/HBoxContainer"]
+[node name="Text" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
 margin_left = 371.0
 margin_right = 723.0
 margin_bottom = 372.0
 size_flags_horizontal = 3
-color = Color( 0.262745, 0.262745, 0.262745, 1 )
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+custom_constants/separation = 20
 
-[node name="Info" type="Label" parent="VBoxContainer/HBoxContainer/Text Info"]
+[node name="Text Info" type="ColorRect" parent="VBoxContainer/HBoxContainer/Text"]
+margin_right = 352.0
+margin_bottom = 299.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Info" type="Label" parent="VBoxContainer/HBoxContainer/Text/Text Info"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 20.0
 margin_right = -20.0
+custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
 custom_fonts/font = SubResource( 4 )
 text = "TIP:
 Landfills suck, bro. Think about the turtles. Without turtles, who will eat the jellyfish in the sea? Who will take Nemo into the fast under-sea expressway current? Or was it Melvin? I don't even know the name of the damn daddy fish. Also, landfilling garbage is freaking expensive. Just compost your garbage Just go donate yourself to charity right NOW!"
@@ -202,6 +289,12 @@ align = 3
 valign = 1
 autowrap = true
 
-[connection signal="value_changed" from="VBoxContainer/HBoxContainer/VBoxContainer/InedibleWaste/HSlider" to="." method="_on_InedibleSlider_value_changed"]
-[connection signal="value_changed" from="VBoxContainer/HBoxContainer/VBoxContainer/Edible Waste/HSlider" to="." method="_on_EdibleSlider_value_changed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/TotalWaste/ManagementStrategy2" to="." method="_on_TrashButton_pressed"]
+[node name="ManagementStrategy2" type="Button" parent="VBoxContainer/HBoxContainer/Text"]
+margin_top = 319.0
+margin_right = 352.0
+margin_bottom = 372.251
+size_flags_stretch_ratio = 0.0
+custom_fonts/font = SubResource( 6 )
+text = "TRASH"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Text/ManagementStrategy2" to="." method="_on_TrashButton_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://interfaces/on_daylight_menus/scripts/management_main.gd" type="Script" id=1]
 [ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/management_strategies/compost.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://assets/fonts/thin_pixelated.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://assets/fonts/pixelated.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://resources/tres/waste_manager.tres" type="Resource" id=9]
+[ext_resource path="res://resources/curry/curry.tres" type="Theme" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 size = 44
@@ -35,6 +36,7 @@ anchor_right = 0.53
 anchor_bottom = 0.557
 margin_right = 0.0199585
 margin_bottom = 0.223969
+theme = ExtResource( 10 )
 script = ExtResource( 1 )
 waste_handler = ExtResource( 9 )
 
@@ -50,6 +52,7 @@ anchor_bottom = 1.0
 margin_right = 723.0
 margin_bottom = 40.0
 size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "Waste Management Strategies"
 align = 1
@@ -85,12 +88,12 @@ margin_right = 227.0
 margin_bottom = 64.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color( 0.262745, 0.262745, 0.262745, 1 )
+color = Color( 0.980392, 0.854902, 0.368627, 1 )
 
 [node name="Label" type="Label" parent="MainScreen/VBoxContainer/ContentFrame/Inedible Waste/Waste/Waste"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_colors/font_color = Color( 0.996078, 0.972549, 0.972549, 1 )
+custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
 custom_fonts/font = SubResource( 2 )
 text = "Inedible Waste"
 align = 1
@@ -144,13 +147,13 @@ margin_bottom = 263.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
-color = Color( 0.262745, 0.262745, 0.262745, 1 )
 
 [node name="Info" type="Label" parent="MainScreen/VBoxContainer/ContentFrame/Text/Text Info"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 20.0
 margin_right = -20.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 4 )
 text = "TIP:
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
@@ -190,12 +193,12 @@ margin_right = 228.0
 margin_bottom = 64.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color( 0.262745, 0.262745, 0.262745, 1 )
+color = Color( 0.980392, 0.854902, 0.368627, 1 )
 
 [node name="Label" type="Label" parent="MainScreen/VBoxContainer/ContentFrame/Edible Waste/Waste/Waste"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_colors/font_color = Color( 0.996078, 0.972549, 0.972549, 1 )
+custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
 custom_fonts/font = SubResource( 2 )
 text = "Edible Waste"
 align = 1
