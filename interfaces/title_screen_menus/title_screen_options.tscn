@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://interfaces/title_screen_menus/scripts/title_screen_options.gd" type="Script" id=1]
-[ext_resource path="res://resources/curry/curry.tres" type="Theme" id=2]
-[ext_resource path="res://resources/curry/red.tres" type="Theme" id=3]
-[ext_resource path="res://assets/images/restaurant.png" type="Texture" id=5]
+[ext_resource path="res://resources/themes/curry/curry.tres" type="Theme" id=2]
+[ext_resource path="res://resources/themes/curry/red.tres" type="Theme" id=3]
+[ext_resource path="res://assets/images/resto_view.png" type="Texture" id=4]
 [ext_resource path="res://assets/fonts/pixelated.ttf" type="DynamicFontData" id=6]
 
 [sub_resource type="DynamicFont" id=1]
@@ -121,7 +121,7 @@ margin_bottom = 728.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.43
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 expand = true
 
 [connection signal="pressed" from="Background/HBoxContainer/VBoxContainer/ToTitleScreen" to="." method="_on_ToTitleScreen_pressed"]

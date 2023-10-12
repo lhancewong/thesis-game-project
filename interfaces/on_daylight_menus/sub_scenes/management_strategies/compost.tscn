@@ -3,8 +3,8 @@
 [ext_resource path="res://assets/fonts/thin_pixelated.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/fonts/pixelated.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://interfaces/on_daylight_menus/scripts/subscenes/compost.gd" type="Script" id=3]
-[ext_resource path="res://resources/tres/waste_manager.tres" type="Resource" id=4]
-[ext_resource path="res://resources/curry/curry.tres" type="Theme" id=5]
+[ext_resource path="res://resources/handlers/waste_manager.tres" type="Resource" id=4]
+[ext_resource path="res://resources/themes/curry/curry.tres" type="Theme" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 51

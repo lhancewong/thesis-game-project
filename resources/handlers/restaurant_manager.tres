@@ -1,9 +1,9 @@
 [gd_resource type="Resource" load_steps=5 format=2]
 
-[ext_resource path="res://resources/restaurant_manager.gd" type="Script" id=1]
-[ext_resource path="res://resources/tres/food.tres" type="Resource" id=2]
-[ext_resource path="res://resources/tres/ingredient.tres" type="Resource" id=3]
-[ext_resource path="res://resources/tres/customer.tres" type="Resource" id=4]
+[ext_resource path="res://resources/handlers/restaurant_manager.gd" type="Script" id=1]
+[ext_resource path="res://resources/entities/food.tres" type="Resource" id=2]
+[ext_resource path="res://resources/entities/ingredient.tres" type="Resource" id=3]
+[ext_resource path="res://resources/entities/customer.tres" type="Resource" id=4]
 
 [resource]
 resource_name = "Restaurant"
