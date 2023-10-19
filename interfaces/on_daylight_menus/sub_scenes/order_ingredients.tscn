@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/fonts/thin_pixelated.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/fonts/pixelated.ttf" type="DynamicFontData" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://resources/entities/ingredient.tres" type="Resource" id=4]
 [ext_resource path="res://resources/handlers/restaurant_manager.tres" type="Resource" id=5]
 [ext_resource path="res://resources/themes/curry/curry.tres" type="Theme" id=6]
+[ext_resource path="res://resources/handlers/order_manager.tres" type="Resource" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 51
@@ -48,6 +49,7 @@ theme = ExtResource( 6 )
 script = ExtResource( 3 )
 ingredients = ExtResource( 4 )
 restaurant = ExtResource( 5 )
+order_manager = ExtResource( 7 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0
@@ -209,7 +211,7 @@ margin_bottom = 175.0
 rect_pivot_offset = Vector2( -74, 24 )
 alignment = 1
 
-[node name="minus" type="Button" parent="VBoxContainer/Order/Beef/HBoxContainer"]
+[node name="Minus" type="Button" parent="VBoxContainer/Order/Beef/HBoxContainer"]
 margin_right = 39.3241
 margin_bottom = 52.251
 size_flags_horizontal = 3
@@ -226,7 +228,7 @@ custom_fonts/font = SubResource( 7 )
 align = 1
 placeholder_text = "Waste Amount"
 
-[node name="plus" type="Button" parent="VBoxContainer/Order/Beef/HBoxContainer"]
+[node name="Plus" type="Button" parent="VBoxContainer/Order/Beef/HBoxContainer"]
 margin_left = 138.0
 margin_right = 177.324
 margin_bottom = 52.251
@@ -294,7 +296,7 @@ margin_bottom = 175.0
 rect_pivot_offset = Vector2( -74, 24 )
 alignment = 1
 
-[node name="minus" type="Button" parent="VBoxContainer/Order/Pork/HBoxContainer"]
+[node name="Minus" type="Button" parent="VBoxContainer/Order/Pork/HBoxContainer"]
 margin_right = 39.3241
 margin_bottom = 52.251
 size_flags_horizontal = 3
@@ -311,7 +313,7 @@ custom_fonts/font = SubResource( 7 )
 align = 1
 placeholder_text = "Waste Amount"
 
-[node name="plus" type="Button" parent="VBoxContainer/Order/Pork/HBoxContainer"]
+[node name="Plus" type="Button" parent="VBoxContainer/Order/Pork/HBoxContainer"]
 margin_left = 138.0
 margin_right = 177.324
 margin_bottom = 52.251
@@ -379,7 +381,7 @@ margin_bottom = 175.0
 rect_pivot_offset = Vector2( -74, 24 )
 alignment = 1
 
-[node name="minus" type="Button" parent="VBoxContainer/Order/CurryStock/HBoxContainer"]
+[node name="Minus" type="Button" parent="VBoxContainer/Order/CurryStock/HBoxContainer"]
 margin_right = 39.3241
 margin_bottom = 52.251
 size_flags_horizontal = 3
@@ -396,7 +398,7 @@ custom_fonts/font = SubResource( 7 )
 align = 1
 placeholder_text = "Waste Amount"
 
-[node name="plus" type="Button" parent="VBoxContainer/Order/CurryStock/HBoxContainer"]
+[node name="Plus" type="Button" parent="VBoxContainer/Order/CurryStock/HBoxContainer"]
 margin_left = 138.0
 margin_right = 177.324
 margin_bottom = 52.251
@@ -632,9 +634,21 @@ margin_bottom = 250.0
 min_value = 1.0
 value = 1.0
 
+[connection signal="pressed" from="VBoxContainer/Order/Chicken/HBoxContainer/minus" to="." method="_on_Chicken_minus_pressed"]
+[connection signal="text_changed" from="VBoxContainer/Order/Chicken/HBoxContainer/LineEdit" to="." method="_on_ChickenLine_text_changed"]
+[connection signal="pressed" from="VBoxContainer/Order/Chicken/HBoxContainer/plus" to="." method="_on_Chicken_plus_pressed"]
 [connection signal="pressed" from="VBoxContainer/Order/Chicken/ChickenBuy" to="." method="_on_ChickenBuy_pressed"]
+[connection signal="pressed" from="VBoxContainer/Order/Beef/HBoxContainer/Minus" to="." method="_on_Beef_minus_pressed"]
+[connection signal="text_changed" from="VBoxContainer/Order/Beef/HBoxContainer/LineEdit" to="." method="_on_BeefLine_text_changed"]
+[connection signal="pressed" from="VBoxContainer/Order/Beef/HBoxContainer/Plus" to="." method="_on_Beef_plus_pressed"]
 [connection signal="pressed" from="VBoxContainer/Order/Beef/BeefBuy" to="." method="_on_BeefBuy_pressed"]
+[connection signal="pressed" from="VBoxContainer/Order/Pork/HBoxContainer/Minus" to="." method="_on_Pork_minus_pressed"]
+[connection signal="text_changed" from="VBoxContainer/Order/Pork/HBoxContainer/LineEdit" to="." method="_on_PorkLine_text_changed"]
+[connection signal="pressed" from="VBoxContainer/Order/Pork/HBoxContainer/Plus" to="." method="_on_Pork_plus_pressed"]
 [connection signal="pressed" from="VBoxContainer/Order/Pork/PorkBuy" to="." method="_on_PorkBuy_pressed"]
+[connection signal="pressed" from="VBoxContainer/Order/CurryStock/HBoxContainer/Minus" to="." method="_on_Curry_minus_pressed"]
+[connection signal="text_changed" from="VBoxContainer/Order/CurryStock/HBoxContainer/LineEdit" to="." method="_on_CurryLine_text_changed"]
+[connection signal="pressed" from="VBoxContainer/Order/CurryStock/HBoxContainer/Plus" to="." method="_on_Curry_plus_pressed"]
 [connection signal="pressed" from="VBoxContainer/Order/CurryStock/CurryBuy" to="." method="_on_CurryBuy_pressed"]
 [connection signal="value_changed" from="ChickenSlider" to="." method="_on_ChickenSlider_value_changed"]
 [connection signal="value_changed" from="BeefSlider" to="." method="_on_BeefSlider_value_changed"]
