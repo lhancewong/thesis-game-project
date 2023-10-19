@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/fonts/pixelated.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/fonts/thin_pixelated.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://interfaces/on_daylight_menus/scripts/prepare_ingredients.gd" type="Script" id=3]
 
 [sub_resource type="DynamicFont" id=1]
-size = 51
+size = 45
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
@@ -22,6 +23,7 @@ font_data = ExtResource( 1 )
 [node name="PrepareIngredients" type="Control"]
 margin_right = 724.0
 margin_bottom = 428.0
+script = ExtResource( 3 )
 
 [node name="MainContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0
@@ -29,41 +31,41 @@ anchor_bottom = 1.0
 
 [node name="Title" type="Label" parent="MainContainer"]
 margin_right = 724.0
-margin_bottom = 47.0
+margin_bottom = 41.0
 custom_fonts/font = SubResource( 1 )
-text = "Prepare Today's Food"
+text = "Prepare Today's Ingredients"
 align = 1
 
 [node name="TopLine" type="HBoxContainer" parent="MainContainer"]
-margin_top = 51.0
+margin_top = 45.0
 margin_right = 724.0
-margin_bottom = 174.0
+margin_bottom = 170.0
 size_flags_vertical = 3
 
 [node name="Top1" type="VBoxContainer" parent="MainContainer/TopLine"]
 margin_right = 360.0
-margin_bottom = 123.0
+margin_bottom = 125.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
 
 [node name="ColorRect" type="ColorRect" parent="MainContainer/TopLine/Top1"]
-margin_top = 32.0
+margin_top = 33.0
 margin_right = 360.0
-margin_bottom = 32.0
+margin_bottom = 33.0
 
 [node name="IngredientTag" type="Label" parent="MainContainer/TopLine/Top1"]
-margin_top = 36.0
+margin_top = 37.0
 margin_right = 360.0
-margin_bottom = 65.0
+margin_bottom = 66.0
 custom_fonts/font = SubResource( 2 )
 text = "Ingredient"
 align = 1
 
 [node name="StorageAmount" type="Label" parent="MainContainer/TopLine/Top1"]
-margin_top = 69.0
+margin_top = 70.0
 margin_right = 360.0
-margin_bottom = 91.0
+margin_bottom = 92.0
 custom_fonts/font = SubResource( 3 )
 text = "Storage Amount"
 align = 1
@@ -71,57 +73,57 @@ align = 1
 [node name="Top2" type="VBoxContainer" parent="MainContainer/TopLine"]
 margin_left = 364.0
 margin_right = 724.0
-margin_bottom = 123.0
+margin_bottom = 125.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
 
 [node name="ColorRect" type="ColorRect" parent="MainContainer/TopLine/Top2"]
-margin_top = 32.0
+margin_top = 33.0
 margin_right = 360.0
-margin_bottom = 32.0
+margin_bottom = 33.0
 
 [node name="IngredientTag" type="Label" parent="MainContainer/TopLine/Top2"]
-margin_top = 36.0
+margin_top = 37.0
 margin_right = 360.0
-margin_bottom = 65.0
+margin_bottom = 66.0
 custom_fonts/font = SubResource( 2 )
 text = "Ingredient"
 align = 1
 
 [node name="StorageAmount" type="Label" parent="MainContainer/TopLine/Top2"]
-margin_top = 69.0
+margin_top = 70.0
 margin_right = 360.0
-margin_bottom = 91.0
+margin_bottom = 92.0
 custom_fonts/font = SubResource( 3 )
 text = "Storage Amount"
 align = 1
 
 [node name="MiddleLine" type="HBoxContainer" parent="MainContainer"]
-margin_top = 178.0
+margin_top = 174.0
 margin_right = 724.0
-margin_bottom = 301.0
+margin_bottom = 299.0
 size_flags_vertical = 3
 
 [node name="Middle1" type="VBoxContainer" parent="MainContainer/MiddleLine"]
 margin_right = 360.0
-margin_bottom = 123.0
+margin_bottom = 125.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
 
 [node name="FoodTag" type="Label" parent="MainContainer/MiddleLine/Middle1"]
-margin_top = 9.0
+margin_top = 10.0
 margin_right = 360.0
-margin_bottom = 38.0
+margin_bottom = 39.0
 custom_fonts/font = SubResource( 2 )
 text = "Food Name"
 align = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MainContainer/MiddleLine/Middle1"]
-margin_top = 42.0
+margin_top = 43.0
 margin_right = 360.0
-margin_bottom = 74.0
+margin_bottom = 75.0
 rect_pivot_offset = Vector2( -74, 24 )
 alignment = 1
 
@@ -150,32 +152,32 @@ size_flags_horizontal = 3
 text = "+"
 
 [node name="BuyButton" type="Button" parent="MainContainer/MiddleLine/Middle1"]
-margin_top = 78.0
+margin_top = 79.0
 margin_right = 360.0
-margin_bottom = 113.0
+margin_bottom = 114.0
 custom_fonts/font = SubResource( 4 )
-text = "Buy"
+text = "Prepare"
 
 [node name="Middle2" type="VBoxContainer" parent="MainContainer/MiddleLine"]
 margin_left = 364.0
 margin_right = 724.0
-margin_bottom = 123.0
+margin_bottom = 125.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
 
 [node name="FoodTag" type="Label" parent="MainContainer/MiddleLine/Middle2"]
-margin_top = 9.0
+margin_top = 10.0
 margin_right = 360.0
-margin_bottom = 38.0
+margin_bottom = 39.0
 custom_fonts/font = SubResource( 2 )
 text = "Food Name"
 align = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MainContainer/MiddleLine/Middle2"]
-margin_top = 42.0
+margin_top = 43.0
 margin_right = 360.0
-margin_bottom = 74.0
+margin_bottom = 75.0
 rect_pivot_offset = Vector2( -74, 24 )
 alignment = 1
 
@@ -204,42 +206,42 @@ size_flags_horizontal = 3
 text = "+"
 
 [node name="BuyButton" type="Button" parent="MainContainer/MiddleLine/Middle2"]
-margin_top = 78.0
+margin_top = 79.0
 margin_right = 360.0
-margin_bottom = 113.0
+margin_bottom = 114.0
 custom_fonts/font = SubResource( 4 )
-text = "Buy"
+text = "Prepare"
 
 [node name="BottomLine" type="HBoxContainer" parent="MainContainer"]
-margin_top = 305.0
+margin_top = 303.0
 margin_right = 724.0
 margin_bottom = 428.0
 size_flags_vertical = 3
 
 [node name="Bottom1" type="VBoxContainer" parent="MainContainer/BottomLine"]
 margin_right = 360.0
-margin_bottom = 123.0
+margin_bottom = 125.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
 
 [node name="ColorRect" type="ColorRect" parent="MainContainer/BottomLine/Bottom1"]
-margin_top = 32.0
+margin_top = 33.0
 margin_right = 360.0
-margin_bottom = 32.0
+margin_bottom = 33.0
 
 [node name="FoodTag" type="Label" parent="MainContainer/BottomLine/Bottom1"]
-margin_top = 36.0
+margin_top = 37.0
 margin_right = 360.0
-margin_bottom = 65.0
+margin_bottom = 66.0
 custom_fonts/font = SubResource( 2 )
 text = "Ingredient"
 align = 1
 
 [node name="StorageAmount" type="Label" parent="MainContainer/BottomLine/Bottom1"]
-margin_top = 69.0
+margin_top = 70.0
 margin_right = 360.0
-margin_bottom = 91.0
+margin_bottom = 92.0
 custom_fonts/font = SubResource( 3 )
 text = "Storage Amount"
 align = 1
@@ -247,28 +249,33 @@ align = 1
 [node name="Bottom2" type="VBoxContainer" parent="MainContainer/BottomLine"]
 margin_left = 364.0
 margin_right = 724.0
-margin_bottom = 123.0
+margin_bottom = 125.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
 
 [node name="ColorRect" type="ColorRect" parent="MainContainer/BottomLine/Bottom2"]
-margin_top = 32.0
+margin_top = 33.0
 margin_right = 360.0
-margin_bottom = 32.0
+margin_bottom = 33.0
 
 [node name="FoodTag" type="Label" parent="MainContainer/BottomLine/Bottom2"]
-margin_top = 36.0
+margin_top = 37.0
 margin_right = 360.0
-margin_bottom = 65.0
+margin_bottom = 66.0
 custom_fonts/font = SubResource( 2 )
 text = "Ingredient"
 align = 1
 
 [node name="StorageAmount" type="Label" parent="MainContainer/BottomLine/Bottom2"]
-margin_top = 69.0
+margin_top = 70.0
 margin_right = 360.0
-margin_bottom = 91.0
+margin_bottom = 92.0
 custom_fonts/font = SubResource( 3 )
 text = "Storage Amount"
 align = 1
+
+[connection signal="pressed" from="MainContainer/MiddleLine/Middle1/HBoxContainer/minus" to="." method="_on_food1minus_pressed"]
+[connection signal="pressed" from="MainContainer/MiddleLine/Middle1/HBoxContainer/plus" to="." method="_on_food1plus_pressed"]
+[connection signal="pressed" from="MainContainer/MiddleLine/Middle2/HBoxContainer/minus" to="." method="_on_food2minus_pressed"]
+[connection signal="pressed" from="MainContainer/MiddleLine/Middle2/HBoxContainer/plus" to="." method="_on_food2plus_pressed"]

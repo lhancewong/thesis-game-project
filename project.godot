@@ -9,13 +9,43 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "",
-"class": "GitAPI",
-"language": "NativeScript",
-"path": "res://addons/godot-git-plugin/git_api.gdns"
+"base": "Resource",
+"class": "Customer",
+"language": "GDScript",
+"path": "res://resources/entities/customer.gd"
+}, {
+"base": "Resource",
+"class": "Food",
+"language": "GDScript",
+"path": "res://resources/entities/meal.gd"
+}, {
+"base": "Resource",
+"class": "Ingredient",
+"language": "GDScript",
+"path": "res://resources/entities/ingredient.gd"
+}, {
+"base": "Resource",
+"class": "Order_Manager",
+"language": "GDScript",
+"path": "res://resources/handlers/order_manager.gd"
+}, {
+"base": "Resource",
+"class": "Restaurant",
+"language": "GDScript",
+"path": "res://resources/handlers/restaurant_manager.gd"
+}, {
+"base": "Resource",
+"class": "Waste_Manager",
+"language": "GDScript",
+"path": "res://resources/handlers/waste_manager.gd"
 } ]
 _global_script_class_icons={
-"GitAPI": ""
+"Customer": "",
+"Food": "",
+"Ingredient": "",
+"Order_Manager": "",
+"Restaurant": "",
+"Waste_Manager": ""
 }
 
 [application]

@@ -1,0 +1,25 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://resources/entities/customer.gd" type="Script" id=1]
+
+[resource]
+resource_name = "Customer"
+script = ExtResource( 1 )
+tourist = {
+"id": 1,
+"satisfaction_factor": 0.6,
+"type": "tourist",
+"waste_factor": 1.25
+}
+regular = {
+"id": 2,
+"satisfaction_factor": 1.5,
+"type": "regular",
+"waste_factor": 1
+}
+local = {
+"id": 3,
+"satisfaction_factor": 0.5,
+"type": "local",
+"waste_factor": 0.25
+}

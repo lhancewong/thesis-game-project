@@ -1,0 +1,75 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://resources/entities/ingredient.gd" type="Script" id=1]
+
+[resource]
+resource_name = "Ingredient"
+script = ExtResource( 1 )
+chicken = {
+"id": 0,
+"price": 2.99,
+"type": "chicken"
+}
+beef = {
+"id": 1,
+"price": 4.99,
+"type": "beef"
+}
+pork = {
+"id": 2,
+"price": 3.49,
+"type": "pork"
+}
+curry_powder = {
+"id": 3,
+"price": 6.99,
+"type": "curry_powder"
+}
+potato = {
+"id": 4,
+"price": 0.79,
+"type": "potato"
+}
+spinach = {
+"id": 5,
+"price": 2.49,
+"type": "spinach"
+}
+eggplant = {
+"id": 6,
+"price": 1.99,
+"type": "eggplant"
+}
+cheese = {
+"id": 7,
+"price": 5.49,
+"type": "cheese"
+}
+lemon = {
+"id": 8,
+"price": 1,
+"type": "lemon"
+}
+coffee_mix = {
+"id": 9,
+"price": 5.99,
+"type": "coffee_mix"
+}
+sugar = {
+"id": 10,
+"price": 0.69,
+"type": "sugar"
+}
+stockpile = {
+"beef": 0,
+"cheese": 0,
+"chicken": 0,
+"coffee_mix": 0,
+"curry_powder": 0,
+"eggplant": 0,
+"lemon": 0,
+"pork": 0,
+"potato": 0,
+"spinach": 0,
+"sugar": 0
+}

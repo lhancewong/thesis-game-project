@@ -1,16 +1,24 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://interfaces/on_daylight_menus/scripts/on_daylight_main.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/pixelated.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://assets/images/restaurant.png" type="Texture" id=3]
-[ext_resource path="res://assets/audio/minecraft_villager.ogg" type="AudioStream" id=4]
+[ext_resource path="res://interfaces/custom_gui/in_game_console.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/audio/vine_boom.ogg" type="AudioStream" id=4]
 [ext_resource path="res://assets/fonts/thin_pixelated.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/statistics.tscn" type="PackedScene" id=6]
 [ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/live_updates.tscn" type="PackedScene" id=7]
 [ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/order_ingredients.tscn" type="PackedScene" id=8]
 [ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/prepare_ingredients.tscn" type="PackedScene" id=9]
 [ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/tech_upgrades.tscn" type="PackedScene" id=10]
-[ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/management_handler.tscn" type="PackedScene" id=11]
+[ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/management_main.tscn" type="PackedScene" id=11]
+[ext_resource path="res://resources/handlers/restaurant_manager.tres" type="Resource" id=12]
+[ext_resource path="res://resources/entities/customer.tres" type="Resource" id=13]
+[ext_resource path="res://resources/handlers/waste_manager.tres" type="Resource" id=14]
+[ext_resource path="res://resources/entities/meal.tres" type="Resource" id=15]
+[ext_resource path="res://resources/entities/ingredient.tres" type="Resource" id=16]
+[ext_resource path="res://resources/themes/curry/curry.tres" type="Theme" id=17]
+[ext_resource path="res://resources/themes/curry/green.tres" type="Theme" id=18]
+[ext_resource path="res://resources/themes/curry/red.tres" type="Theme" id=19]
 
 [sub_resource type="DynamicFont" id=4]
 size = 18
@@ -26,17 +34,26 @@ font_data = ExtResource( 5 )
 size = 28
 font_data = ExtResource( 2 )
 
+[sub_resource type="DynamicFont" id=5]
+size = 48
+font_data = ExtResource( 2 )
+
 [node name="OnDaylight" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
+resto = ExtResource( 12 )
+custo = ExtResource( 13 )
+food = ExtResource( 15 )
+ingredient = ExtResource( 16 )
+waste_manager = ExtResource( 14 )
 
 [node name="Background" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color( 0.937255, 0.937255, 0.937255, 1 )
+color = Color( 0.933333, 0.92549, 0.847059, 1 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0
@@ -52,62 +69,57 @@ margin_right = 1326.0
 margin_bottom = 64.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.1
-color = Color( 0.517647, 0.517647, 0.517647, 1 )
+color = Color( 0.980392, 0.980392, 0.823529, 1 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/topbar"]
+pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 20.0
 margin_right = -20.0
 custom_constants/separation = 40
 
-[node name="Label" type="Label" parent="VBoxContainer/topbar/HBoxContainer"]
+[node name="Day" type="Label" parent="VBoxContainer/topbar/HBoxContainer"]
 margin_top = 19.0
-margin_right = 192.0
+margin_right = 291.0
 margin_bottom = 45.0
 size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 4 )
-text = "Lemon icon: 50 "
+text = "Day"
 valign = 1
 
-[node name="Label2" type="Label" parent="VBoxContainer/topbar/HBoxContainer"]
-margin_left = 232.0
+[node name="Money" type="Label" parent="VBoxContainer/topbar/HBoxContainer"]
+margin_left = 331.0
 margin_top = 19.0
-margin_right = 424.0
+margin_right = 623.0
 margin_bottom = 45.0
 size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 4 )
-text = "Chicken  icon: 30 "
+text = "Money"
 valign = 1
 
-[node name="Label3" type="Label" parent="VBoxContainer/topbar/HBoxContainer"]
-margin_left = 464.0
+[node name="Waste" type="Label" parent="VBoxContainer/topbar/HBoxContainer"]
+margin_left = 663.0
 margin_top = 19.0
-margin_right = 656.0
+margin_right = 954.0
 margin_bottom = 45.0
 size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 4 )
-text = "Cabbage icon: 25"
+text = "Waste"
 valign = 1
 
-[node name="Label4" type="Label" parent="VBoxContainer/topbar/HBoxContainer"]
-margin_left = 696.0
+[node name="Satisfaction" type="Label" parent="VBoxContainer/topbar/HBoxContainer"]
+margin_left = 994.0
 margin_top = 19.0
-margin_right = 982.0
+margin_right = 1286.0
 margin_bottom = 45.0
 size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 4 )
-text = "Inedible Waste  icon: 50 kg"
-valign = 1
-
-[node name="Label5" type="Label" parent="VBoxContainer/topbar/HBoxContainer"]
-margin_left = 1022.0
-margin_top = 19.0
-margin_right = 1285.0
-margin_bottom = 45.0
-size_flags_horizontal = 3
-custom_fonts/font = SubResource( 4 )
-text = "Edible Waste  icon: 20kg "
+text = "Satisfaction"
 valign = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
@@ -129,10 +141,10 @@ custom_constants/separation = 20
 
 [node name="menu icons" type="ColorRect" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_right = 744.0
-margin_bottom = 111.0
+margin_bottom = 110.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.25
-color = Color( 0.517647, 0.517647, 0.517647, 1 )
+color = Color( 0.980392, 0.980392, 0.823529, 1 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu icons"]
 anchor_right = 1.0
@@ -141,6 +153,7 @@ margin_left = 10.0
 margin_top = 10.0
 margin_right = -10.0
 margin_bottom = -10.0
+theme = ExtResource( 17 )
 custom_constants/separation = 10
 
 [node name="LiveUpdatingStats" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu icons/HBoxContainer"]
@@ -156,8 +169,9 @@ expand_icon = true
 [node name="ButtonLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu icons/HBoxContainer/LiveUpdatingStats"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
-text = "Live Updating Statistics"
+text = "Live Statistics"
 align = 1
 valign = 1
 autowrap = true
@@ -176,6 +190,7 @@ expand_icon = true
 [node name="ButtonLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu icons/HBoxContainer/OrderIngredients"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
 text = "Order Ingredients"
 align = 1
@@ -196,6 +211,7 @@ expand_icon = true
 [node name="ButtonLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu icons/HBoxContainer/PrepareIngredients"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
 text = "Prepare Ingredients"
 align = 1
@@ -216,6 +232,7 @@ expand_icon = true
 [node name="ButtonLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu icons/HBoxContainer/TechUpgrades"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
 text = "Tech Upgrades"
 align = 1
@@ -236,6 +253,7 @@ expand_icon = true
 [node name="ButtonLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu icons/HBoxContainer/Statistics"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
 text = "Statistics"
 align = 1
@@ -256,6 +274,7 @@ expand_icon = true
 [node name="ButtonLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu icons/HBoxContainer/Management"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
 text = "Waste Management"
 align = 1
@@ -263,11 +282,11 @@ valign = 1
 autowrap = true
 
 [node name="middle" type="ColorRect" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_top = 131.0
+margin_top = 130.0
 margin_right = 744.0
-margin_bottom = 579.0
+margin_bottom = 574.0
 size_flags_vertical = 3
-color = Color( 0.517647, 0.517647, 0.517647, 1 )
+color = Color( 0.980392, 0.980392, 0.823529, 1 )
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/middle"]
 anchor_right = 1.0
@@ -282,27 +301,29 @@ visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 724.0
-margin_bottom = 428.0
+margin_bottom = 424.0
 
 [node name="OrderIngredients" parent="VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer" instance=ExtResource( 8 )]
 visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 724.0
-margin_bottom = 428.0
+margin_bottom = 424.0
 
 [node name="PrepareIngredients" parent="VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer" instance=ExtResource( 9 )]
 visible = false
+margin_bottom = 424.0
 
 [node name="TechUpgrades" parent="VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer" instance=ExtResource( 10 )]
 visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 724.0
-margin_bottom = 428.0
+margin_bottom = 424.0
 
 [node name="Statistics" parent="VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer" instance=ExtResource( 6 )]
 visible = false
+margin_bottom = 424.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -310,10 +331,10 @@ size_flags_vertical = 3
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 724.0
-margin_bottom = 428.0
+margin_bottom = 424.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_top = 599.0
+margin_top = 594.0
 margin_right = 744.0
 margin_bottom = 644.0
 size_flags_vertical = 3
@@ -323,11 +344,11 @@ alignment = 2
 
 [node name="ToTitleScreen" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
 margin_right = 362.0
-margin_bottom = 45.0
+margin_bottom = 50.251
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.15
-theme = SubResource( 1 )
+theme = ExtResource( 19 )
 custom_fonts/font = SubResource( 2 )
 text = "To Title Screen"
 expand_icon = true
@@ -335,28 +356,47 @@ expand_icon = true
 [node name="StartDay" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
 margin_left = 382.0
 margin_right = 744.0
-margin_bottom = 45.0
+margin_bottom = 50.251
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.15
-theme = SubResource( 1 )
+theme = ExtResource( 18 )
 custom_fonts/font = SubResource( 2 )
 text = "Start Day"
 expand_icon = true
 
-[node name="RestaurantView" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
-margin_left = 764.0
+[node name="GameConsole" parent="VBoxContainer/HBoxContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 0.0
 margin_right = 1326.0
 margin_bottom = 644.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.43
-texture = ExtResource( 3 )
-expand = true
 
 [node name="VillagerSigh" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 volume_db = 7.0
+
+[node name="VineBoom" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 4 )
+volume_db = -10.0
+
+[node name="PauseFrame" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.25098, 0.25098, 0.25098, 0.411765 )
+
+[node name="Title" type="Label" parent="PauseFrame"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 5 )
+text = "Serving Customers..."
+align = 1
+valign = 1
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/menu icons/HBoxContainer/LiveUpdatingStats" to="." method="_on_LiveUpdatingStats_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/menu icons/HBoxContainer/OrderIngredients" to="." method="_on_OrderIngredients_pressed"]

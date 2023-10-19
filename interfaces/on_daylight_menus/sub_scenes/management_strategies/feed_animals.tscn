@@ -1,40 +1,56 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/fonts/thin_pixelated.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/fonts/pixelated.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://resources/themes/curry/curry.tres" type="Theme" id=3]
 
 [sub_resource type="DynamicFont" id=10]
 size = 51
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=11]
-size = 39
+size = 37
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=12]
+size = 20
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=13]
+size = 30
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=14]
 size = 21
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=8]
-size = 42
+[sub_resource type="DynamicFont" id=15]
+size = 30
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=6]
-size = 12
+[sub_resource type="DynamicFont" id=16]
+size = 13
 font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=17]
+size = 38
+extra_spacing_top = 10
+extra_spacing_bottom = 10
+font_data = ExtResource( 2 )
 
 [node name="FeedAnimals" type="Control"]
 anchor_right = 0.53
 anchor_bottom = 0.557
 margin_right = 0.0199585
 margin_bottom = 0.223969
+theme = ExtResource( 3 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="MgmtLabel" type="Label" parent="VBoxContainer"]
-margin_right = 724.0
+margin_right = 723.0
 margin_bottom = 47.0
 custom_fonts/font = SubResource( 10 )
 text = "Feeding Animals"
@@ -42,124 +58,151 @@ align = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 51.0
-margin_right = 724.0
-margin_bottom = 428.0
+margin_right = 723.0
+margin_bottom = 427.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_constants/separation = 30
+
+[node name="Compost" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+margin_right = 346.0
+margin_bottom = 376.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 30
+
+[node name="Waste" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Compost"]
+margin_right = 346.0
+margin_bottom = 178.0
+rect_pivot_offset = Vector2( -345, -102 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.75
 custom_constants/separation = 20
 
-[node name="LeftColumn" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
-margin_right = 414.0
-margin_bottom = 377.0
-rect_pivot_offset = Vector2( -570, 58 )
+[node name="Waste" type="ColorRect" parent="VBoxContainer/HBoxContainer/Compost/Waste"]
+margin_right = 346.0
+margin_bottom = 79.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-alignment = 1
+color = Color( 0.980392, 0.854902, 0.368627, 1 )
 
-[node name="Waste" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/LeftColumn"]
-margin_right = 414.0
-margin_bottom = 144.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.8
-alignment = 1
-
-[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer/LeftColumn/Waste"]
-margin_top = 35.0
-margin_right = 414.0
-margin_bottom = 35.0
-
-[node name="EdibleWasteTag" type="Label" parent="VBoxContainer/HBoxContainer/LeftColumn/Waste"]
-margin_top = 39.0
-margin_right = 414.0
-margin_bottom = 75.0
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Compost/Waste/Waste"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
 custom_fonts/font = SubResource( 11 )
 text = "Edible Waste"
 align = 1
+valign = 1
 
-[node name="WasteAmount" type="Label" parent="VBoxContainer/HBoxContainer/LeftColumn/Waste"]
-margin_top = 79.0
-margin_right = 414.0
-margin_bottom = 109.0
+[node name="Amount" type="ColorRect" parent="VBoxContainer/HBoxContainer/Compost/Waste"]
+margin_top = 99.0
+margin_right = 346.0
+margin_bottom = 178.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="InedibleWasteAmnt" type="Label" parent="VBoxContainer/HBoxContainer/Compost/Waste/Amount"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 12 )
 text = "Waste Amount"
 align = 1
+valign = 1
 
-[node name="Mgmt" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/LeftColumn"]
-margin_top = 148.0
-margin_right = 414.0
-margin_bottom = 328.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-alignment = 1
-
-[node name="WasteAmount" type="Label" parent="VBoxContainer/HBoxContainer/LeftColumn/Mgmt"]
-margin_top = 50.0
-margin_right = 414.0
-margin_bottom = 86.0
-custom_fonts/font = SubResource( 11 )
-text = "Feed Animals"
-align = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/LeftColumn/Mgmt"]
-margin_top = 90.0
-margin_right = 414.0
-margin_bottom = 130.0
-rect_pivot_offset = Vector2( -74, 24 )
-alignment = 1
-
-[node name="minus" type="Button" parent="VBoxContainer/HBoxContainer/LeftColumn/Mgmt/HBoxContainer"]
-margin_right = 81.0
-margin_bottom = 40.0
-size_flags_horizontal = 3
-text = "-"
-
-[node name="LineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer/LeftColumn/Mgmt/HBoxContainer"]
-margin_left = 85.0
-margin_right = 328.0
-margin_bottom = 40.0
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 3.0
-custom_fonts/font = SubResource( 12 )
-align = 1
-placeholder_text = "Waste Amount"
-
-[node name="plus" type="Button" parent="VBoxContainer/HBoxContainer/LeftColumn/Mgmt/HBoxContainer"]
-margin_left = 332.0
-margin_right = 414.0
-margin_bottom = 40.0
-rect_pivot_offset = Vector2( -71, 20 )
-size_flags_horizontal = 3
-text = "+"
-
-[node name="SendButton" type="Button" parent="VBoxContainer/HBoxContainer/LeftColumn"]
-margin_left = 107.0
-margin_top = 332.0
-margin_right = 307.0
-margin_bottom = 377.0
-rect_min_size = Vector2( 200, 0 )
-size_flags_horizontal = 4
-custom_fonts/font = SubResource( 8 )
-text = "Send"
-
-[node name="FoodWasteInfo" type="ColorRect" parent="VBoxContainer/HBoxContainer"]
-margin_left = 434.0
-margin_right = 724.0
-margin_bottom = 377.0
+[node name="Strategy" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Compost"]
+margin_top = 208.0
+margin_right = 346.0
+margin_bottom = 376.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.7
-color = Color( 0.235294, 0.227451, 0.266667, 1 )
+custom_constants/separation = 20
 
-[node name="FoodWasteInfoText" type="Label" parent="VBoxContainer/HBoxContainer/FoodWasteInfo"]
+[node name="Compost" type="ColorRect" parent="VBoxContainer/HBoxContainer/Compost/Strategy"]
+margin_right = 346.0
+margin_bottom = 96.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.25
+color = Color( 0.980392, 0.854902, 0.368627, 1 )
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Compost/Strategy/Compost"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 20.0
-margin_right = -20.0
 size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_fonts/font = SubResource( 6 )
-text = "Tip:
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+size_flags_vertical = 1
+custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
+custom_fonts/font = SubResource( 11 )
+text = "Feed Animals"
+align = 1
 valign = 1
 autowrap = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Compost/Strategy"]
+margin_top = 116.0
+margin_right = 346.0
+margin_bottom = 168.0
+rect_pivot_offset = Vector2( -74, 24 )
+alignment = 1
+
+[node name="minus" type="Button" parent="VBoxContainer/HBoxContainer/Compost/Strategy/HBoxContainer2"]
+margin_right = 67.0
+margin_bottom = 52.251
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 13 )
+text = "-"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer/Compost/Strategy/HBoxContainer2"]
+margin_left = 71.0
+margin_right = 274.0
+margin_bottom = 52.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+custom_fonts/font = SubResource( 14 )
+align = 1
+placeholder_text = "Waste Amount"
+
+[node name="plus" type="Button" parent="VBoxContainer/HBoxContainer/Compost/Strategy/HBoxContainer2"]
+margin_left = 278.0
+margin_right = 346.0
+margin_bottom = 52.251
+rect_pivot_offset = Vector2( -71, 20 )
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 15 )
+text = "+"
+
+[node name="Text" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+margin_left = 376.0
+margin_right = 723.0
+margin_bottom = 376.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 25
+
+[node name="Text Info" type="ColorRect" parent="VBoxContainer/HBoxContainer/Text"]
+margin_right = 347.0
+margin_bottom = 272.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Info" type="Label" parent="VBoxContainer/HBoxContainer/Text/Text Info"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 30.0
+margin_right = -30.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 16 )
+text = "TIP:
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
+align = 3
+valign = 1
+autowrap = true
+
+[node name="ManagementStrategy2" type="Button" parent="VBoxContainer/HBoxContainer/Text"]
+margin_top = 297.0
+margin_right = 347.0
+margin_bottom = 376.251
+custom_fonts/font = SubResource( 17 )
+text = "Send"
