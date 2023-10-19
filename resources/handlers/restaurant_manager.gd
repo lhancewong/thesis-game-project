@@ -1,17 +1,19 @@
 class_name Restaurant
 extends Resource
 
-export(Resource) var custo
-export(Resource) var food
-export(Resource) var ingred
+export(Resource) var CUSTO
+export(Resource) var MEAL
+export(Resource) var INGRED
 
-export(float) var money = 100
-export(float) var waste = 0
-export(float) var satisfaction = 0
+export(float) var money = 100.0
+export(float) var waste = 0.0
+export(float) var satisfaction = 0.0
 export(int) var day = 0
 
+# Stores a temporary list of currently cookable food (aka what can be sold)
 export(Dictionary) var cookable_food
 
+# Stores ingredients current in stock
 export(Dictionary) var i_stockpile = {
 	"chicken": 0, 
 	"beef": 0, 
@@ -26,6 +28,9 @@ export(Dictionary) var i_stockpile = {
 	"sugar": 0,
 }
 
+"""
+Helper Methods
+"""
 
 # Turns numbers into a Tycoon compatible format
 func _make_pretty_numbers( num:float, precission:int=2  ) -> String:
@@ -48,17 +53,33 @@ func _make_pretty_numbers( num:float, precission:int=2  ) -> String:
 func _noisefy(num: float):
 	return rand_range(0.95, 1.05) * num
 
-func update():
-	update_cookable_food()
+
+"""
+Customer Methods
+"""
+
+func get_rand_customer() -> Dictionary:
+	# Chooses the customer number (for now they are all equally likely to appear)
+	var id = randi() % 3
+	var stats
+	
+	# Basically a switch statement
+	match id:
+		0: stats = CUSTO.tourist
+		1: stats = CUSTO.regular
+		2: stats = CUSTO.local
+	
+	return stats
 
 
-##### PURCHASE SHIZ #####
-
+"""
+Purchase Methods
+"""
 
 func create_purchase() -> Dictionary:
 	update_cookable_food()
 	
-	var customer = custo.get_rand_type()
+	var customer = get_rand_customer()
 	var food = get_rand_cookable_food()
 	var entry
 	
@@ -85,25 +106,27 @@ func create_entry(food: Dictionary, customer: Dictionary) -> Dictionary:
 	var food_payment = food.base_price
 	
 	var customer_type = customer.type
-	var waste = int(_noisefy(custo.BASE_WASTE * customer.waste_factor))
-	var satisfaction = _noisefy(custo.BASE_SATISFACTION * customer.satisfaction_factor)
+	var waste_amnt = int(_noisefy(CUSTO.BASE_WASTE * customer.waste_factor))
+	var satisfaction_amnt = _noisefy(CUSTO.BASE_SATISFACTION * customer.satisfaction_factor)
 	
 	return {
 		"food_id": food_id,
 		"food_type": food_type,
 		"food_payment": food_payment,
 		"customer": customer_type,
-		"waste": waste,
-		"satisfaction": satisfaction
+		"waste": waste_amnt,
+		"satisfaction": satisfaction_amnt,
 	} 
 
 
-##### FOOD SHIZ #####
+"""
+Food Methods
+"""
 
 # Calculates possible food items that can be cooked given 
 # the current ingredient stockpile
-func update_cookable_food() -> String:
-	var food_list = food.get_food_list()
+func update_cookable_food():
+	var food_list = MEAL.list
 
 	for food in food_list:
 		var cookable = true
@@ -121,19 +144,27 @@ func update_cookable_food() -> String:
 			cookable_food[food["type"]] = cookable_amnt
 		else:
 			cookable_food.erase(food["type"])
-	
-	return str(cookable_food)
 
 func get_rand_cookable_food() -> Dictionary:
 	var c_food_keys = cookable_food.keys()
 	if c_food_keys:
 		var food_name = c_food_keys[randi() % c_food_keys.size()]
-		return food.get_food(food_name)
+		return get_food(food_name)
 	else:
 		return {"type": "No Food!"}
 
+func get_food(name: String) -> Dictionary:
+	match (name):
+		"Chicken Curry": return MEAL.chicken_curry
+		"Beef Curry": return MEAL.beef_curry
+		"Pork Curry": return MEAL.pork_curry
+		"Lemonade": return MEAL.lemonade
+		"Coffee": return MEAL.coffee
+		_: return MEAL.spinach
 
-##### INGREDIENT SHIZZ #####
+"""
+Ingredient Methods
+"""
 
 func buy_ingredients(type: String, amount: int) -> void:
 	var ingredient
@@ -141,10 +172,10 @@ func buy_ingredients(type: String, amount: int) -> void:
 	var debug_msg
 	
 	match (type):
-		'Chicken': ingredient = ingred.get_dict('c')
-		'Beef': ingredient = ingred.get_dict('b')
-		'Pork': ingredient = ingred.get_dict('p')
-		'Curry Powder': ingredient = ingred.get_dict('cp')
+		'Chicken': ingredient = INGRED.chicken
+		'Beef': ingredient = INGRED.beef
+		'Pork': ingredient = INGRED.pork
+		'Curry Powder': ingredient = INGRED.curry_powder
 	
 	price = ingredient.price * amount
 	
@@ -165,8 +196,9 @@ func spend_ingredients(food: Dictionary) -> void:
 		if i in i_stockpile:
 			i_stockpile[i] -= 1
 
-
-##### GETTERS #####
+"""
+Getter Methods
+"""
 
 func get_money() -> String:
 	return "$" + _make_pretty_numbers(money)

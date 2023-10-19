@@ -2,8 +2,8 @@ class_name Waste_Manager
 extends Resource
 
 # Declare member variables here. Examples:
-export(float) var edible_waste = 0
-export(float) var inedible_waste = 0
+export(float) var edible_waste = 0.0
+export(float) var inedible_waste = 0.0
 export(Array) var waste_managed_entries
 
 enum {edible, inedible}

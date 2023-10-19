@@ -39,23 +39,10 @@ export(Dictionary) var coffee = {
 	"ingredients": ["coffee_mix", "sugar"],
 }
 
-var dict = {
+export(Dictionary) var list = {
 	"Chicken Curry": chicken_curry,
 	"Beef Curry": beef_curry,
 	"Pork Curry": pork_curry,
 	"Lemonade": lemonade,
 	"Coffee": coffee,
-	}
-
-func get_rand_food() -> Dictionary:
-	var list = dict.values()
-	var food = list[randi() % list.size()]
-	
-	return food
-
-func get_food_list() -> Array:
-	return dict.values()
-
-func get_food(name: String) -> Dictionary:
-	return dict[name]
-	
+}

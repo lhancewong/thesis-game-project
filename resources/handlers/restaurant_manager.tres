@@ -1,16 +1,16 @@
 [gd_resource type="Resource" load_steps=5 format=2]
 
 [ext_resource path="res://resources/handlers/restaurant_manager.gd" type="Script" id=1]
-[ext_resource path="res://resources/entities/food.tres" type="Resource" id=2]
+[ext_resource path="res://resources/entities/meal.tres" type="Resource" id=2]
 [ext_resource path="res://resources/entities/ingredient.tres" type="Resource" id=3]
 [ext_resource path="res://resources/entities/customer.tres" type="Resource" id=4]
 
 [resource]
 resource_name = "Restaurant"
 script = ExtResource( 1 )
-custo = ExtResource( 4 )
-food = ExtResource( 2 )
-ingred = ExtResource( 3 )
+CUSTO = ExtResource( 4 )
+MEAL = ExtResource( 2 )
+INGRED = ExtResource( 3 )
 money = 100.0
 waste = 0.0
 satisfaction = 0.0
