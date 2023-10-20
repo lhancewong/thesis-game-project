@@ -12,16 +12,16 @@ export(Resource) var restaurant
 export(Resource) var order_manager
 
 # Labels
-onready var order_chicken_amount = 0
+onready var order_chicken_amount = 1
 onready var order_chicken_label = $VBoxContainer/Order/Chicken/HBoxContainer/LineEdit
 
-onready var order_beef_amount = 0
+onready var order_beef_amount = 1
 onready var order_beef_label = $VBoxContainer/Order/Beef/HBoxContainer/LineEdit
 
-onready var order_pork_amount = 0
+onready var order_pork_amount = 1
 onready var order_pork_label = $VBoxContainer/Order/Pork/HBoxContainer/LineEdit
 
-onready var order_curry_amount = 0
+onready var order_curry_amount = 1
 onready var order_curry_label = $VBoxContainer/Order/CurryStock/HBoxContainer/LineEdit
 
 onready var stock_chicken = $VBoxContainer/Storage/Chicken/Amount/Amount

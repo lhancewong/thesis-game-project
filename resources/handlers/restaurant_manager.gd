@@ -53,7 +53,6 @@ func _make_pretty_numbers( num:float, precission:int=2  ) -> String:
 func _noisefy(num: float):
 	return rand_range(0.95, 1.05) * num
 
-
 """
 Customer Methods
 """
@@ -126,7 +125,7 @@ Food Methods
 # Calculates possible food items that can be cooked given 
 # the current ingredient stockpile
 func update_cookable_food():
-	var food_list = MEAL.list
+	var food_list = MEAL.menu.values()
 
 	for food in food_list:
 		var cookable = true
@@ -155,12 +154,12 @@ func get_rand_cookable_food() -> Dictionary:
 
 func get_food(name: String) -> Dictionary:
 	match (name):
-		"Chicken Curry": return MEAL.chicken_curry
-		"Beef Curry": return MEAL.beef_curry
-		"Pork Curry": return MEAL.pork_curry
-		"Lemonade": return MEAL.lemonade
-		"Coffee": return MEAL.coffee
-		_: return MEAL.spinach
+		"Chicken Curry": return MEAL.menu.chicken_curry
+		"Beef Curry": return MEAL.menu.beef_curry
+		"Pork Curry": return MEAL.menu.pork_curry
+		"Lemonade": return MEAL.menu.lemonade
+		"Coffee": return MEAL.menu.coffee
+		_: return MEAL.menu.spinach
 
 """
 Ingredient Methods
@@ -183,9 +182,9 @@ func buy_ingredients(type: String, amount: int) -> void:
 		i_stockpile[ingredient.type] += amount
 		money -= price
 		
-		debug_msg = "Bought %d dollars of %s"
+		debug_msg = "Bought %.2f dollars of %s"
 	else:
-		debug_msg = "You broke ass bitch you can't afford %d dollars of %s"
+		debug_msg = "You broke ass bitch you can't afford %.2f dollars of %s"
 	
 	print(debug_msg % [price, type])
 

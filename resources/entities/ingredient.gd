@@ -68,62 +68,6 @@ export(Dictionary) var sugar = {
 	"price": 0.69,
 }
 
-export(Dictionary) var stockpile = {
-	"chicken": 0, 
-	"beef": 0, 
-	"pork": 0, 
-	"curry_powder": 0, 
-	"potato": 0, 
-	"spinach": 0, 
-	"eggplant": 0, 
-	"cheese": 0, 
-	"lemon": 0, 
-	"coffee_mix": 0, 
-	"sugar": 0,
-}
-
-func get_stockpile() -> Dictionary:
-	return stockpile
-
-
-func spend_ingredients(food: Dictionary) -> void:
-	var ingredient_list = food["ingredients"]
-	
-	for i in (ingredient_list):
-		if i in stockpile:
-			stockpile[i] -= 1
-
-
-func buy_ingredients(type: int, amount: int) -> float:
-	var ingredient
-	match (type):
-		0: ingredient = chicken
-		1: ingredient = beef
-		2: ingredient = pork
-		3: ingredient = curry_powder
-	
-	
-	var price = ingredient["price"] * amount
-	stockpile[ingredient["type"]] += amount
-	
-	return price
-
-func get_dict(food: String) -> Dictionary:
-	match(food):
-		'c' : return chicken
-		'b' : return beef
-		'p' : return pork
-		'cp': return curry_powder
-		'po': return potato
-		'sp': return spinach
-		'eg': return eggplant
-		'ch': return cheese
-		'le': return lemon
-		'cm': return coffee_mix
-		'su': return sugar 
-		_   : return {}
-
-
 # Maybe prepare curry stock, chicken stock, beef stock, and the veggies
 
 # If the ingredients are this granulated, maybe ordering ingredients can either

@@ -3,7 +3,7 @@ extends Control
 # Resources
 export(Resource) var resto
 export(Resource) var custo
-export(Resource) var food
+export(Resource) var meal
 export(Resource) var ingredient
 export(Resource) var waste_manager
 
@@ -80,7 +80,8 @@ func _purchase_handler() -> void:
 
 # Button Signals
 func _on_ToTitleScreen_pressed():
-	terminal.add_text(resto.update_cookable_food())
+	resto.update_cookable_food()
+	terminal.add_text(str(resto.cookable_food))
 	terminal.add_text(resto.get_rand_cookable_food().type)
 	
 	# get_tree().change_scene("res://interfaces/title_screen_menus/title_screen_main.tscn")
