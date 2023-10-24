@@ -47,3 +47,11 @@ func get_inedible_waste():
 
 func get_waste():
 	return ("%.2f" % (edible_waste + inedible_waste))
+
+func save():
+	var save_dict = {
+		"edible": edible_waste,
+		"inedible": inedible_waste,
+		"entries": waste_managed_entries,
+	}
+	return save_dict

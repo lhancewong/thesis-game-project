@@ -28,6 +28,7 @@ export(Dictionary) var i_stockpile = {
 	"sugar": 0,
 }
 
+
 """
 Helper Methods
 """
@@ -207,3 +208,12 @@ func get_satisfaction() -> String:
 
 func get_stockpile() -> Dictionary:
 	return i_stockpile
+
+func save():
+	var save_dict = {
+		"day": day,
+		"money": money,
+		"satisfaction": satisfaction,
+		"i_stockpile": i_stockpile,
+	}
+	return save_dict
