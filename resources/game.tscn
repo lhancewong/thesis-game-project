@@ -12,11 +12,11 @@ script = ExtResource( 2 )
 [node name="Waste" type="Node" parent="." groups=["GameObject"]]
 script = ExtResource( 3 )
 
-[node name="OrderIngredient" type="Node" parent="." groups=["GameObject"]]
+[node name="Ingredient" type="Node" parent="." groups=["GameObject"]]
 script = ExtResource( 1 )
 
 [node name="Purchase" type="Node" parent="."]
 
 [node name="Customer" type="Node" parent="."]
 
-[node name="Node3" type="Node" parent="."]
+[node name="Food" type="Node" parent="."]

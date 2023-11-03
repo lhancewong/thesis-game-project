@@ -7,22 +7,19 @@ var pork_old_text = ""
 var curry_old_text = ""
 
 # Resources
-export(Resource) var ingredients
 export(Resource) var restaurant
-export(Resource) var order_manager
 
-# Labels
-onready var order_chicken_amount = 1
-onready var order_chicken_label = $VBoxContainer/Order/Chicken/HBoxContainer/LineEdit
+onready var chicken_amount = 1
+onready var chicken_line_edit = $VBoxContainer/Order/Chicken/HBoxContainer/LineEdit
 
-onready var order_beef_amount = 1
-onready var order_beef_label = $VBoxContainer/Order/Beef/HBoxContainer/LineEdit
+onready var beef_amount = 1
+onready var beef_line_edit = $VBoxContainer/Order/Beef/HBoxContainer/LineEdit
 
-onready var order_pork_amount = 1
-onready var order_pork_label = $VBoxContainer/Order/Pork/HBoxContainer/LineEdit
+onready var pork_amount = 1
+onready var pork_line_edit = $VBoxContainer/Order/Pork/HBoxContainer/LineEdit
 
-onready var order_curry_amount = 1
-onready var order_curry_label = $VBoxContainer/Order/CurryStock/HBoxContainer/LineEdit
+onready var curry_amount = 1
+onready var curry_line_edit = $VBoxContainer/Order/Curry/HBoxContainer/LineEdit
 
 onready var stock_chicken = $VBoxContainer/Storage/Chicken/Amount/Amount
 onready var stock_beef = $VBoxContainer/Storage/Beef/Amount/Amount
@@ -32,101 +29,111 @@ onready var stock_curry = $VBoxContainer/Storage/CurryStock/Amount/Amount
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	_update_labels()
-	regex.compile("^[0-9]*$")
+    _update_labels()
+    regex.compile("^[0-9]*$")
 
+func _physics_process(delta): # change to signals
+    _update_labels()
 
-func _physics_process(delta):
-	_update_labels()
+func _update_labels(): 
+    var stockpile = restaurant.i_stockpile
+    
+    stock_chicken.text = str(stockpile["chicken"]) + " batches"
+    stock_beef.text = str(stockpile["beef"]) + " batches"
+    stock_pork.text = str(stockpile["pork"]) + " batches"
+    stock_curry.text = str(stockpile["curry_powder"]) + " batches"
 
+    chicken_line_edit.text = str(chicken_amount)
+    beef_line_edit.text = str(beef_amount)
+    pork_line_edit.text = str(pork_amount)
+    curry_line_edit.text = str(curry_amount)
 
-func _update_labels():
-	var stockpile = restaurant.get_stockpile()
-	
-	stock_chicken.text = str(stockpile["chicken"]) + " batches"
-	stock_beef.text = str(stockpile["beef"]) + " batches"
-	stock_pork.text = str(stockpile["pork"]) + " batches"
-	stock_curry.text = str(stockpile["curry_powder"]) + " batches"
+func amnt_minus(amnt):
+    if amnt == 0:
+        return "0"
+    amnt -= 1
+    return amnt
+
 
 
 func _on_ChickenBuy_pressed():
-	order_manager.chicken_buy()
-
+    restaurant.buy_ingredients('Chicken', chicken_amount)
 
 func _on_Chicken_minus_pressed():
-	$VBoxContainer/Order/Chicken/HBoxContainer/LineEdit.text = order_manager.chicken_minus()
-
+    chicken_amount -= 1
+    if chicken_amount < 0:
+        chicken_amount = 0
 
 func _on_Chicken_plus_pressed():
-	$VBoxContainer/Order/Chicken/HBoxContainer/LineEdit.text = order_manager.chicken_plus()
-
+    chicken_amount += 1
 
 func _on_ChickenLine_text_changed(new_text):
-	if regex.search(new_text):
-		chicken_old_text = str(new_text)
-		order_manager.chicken_setAmount(int(new_text))
-	else:
-		$VBoxContainer/Order/Chicken/HBoxContainer/LineEdit.text = str(chicken_old_text)
-		$VBoxContainer/Order/Chicken/HBoxContainer/LineEdit.set_cursor_position($VBoxContainer/Order/Chicken/HBoxContainer/LineEdit.text.length())
+    if regex.search(new_text):
+        chicken_old_text = str(new_text)
+        chicken_amount = int(new_text)
+    else:
+        chicken_line_edit.text = str(chicken_old_text)
+        chicken_line_edit.set_cursor_position(chicken_line_edit.text.length())
 
 
 
 func _on_BeefBuy_pressed():
-	order_manager.beef_buy()
-
+    restaurant.buy_ingredients('Beef', beef_amount)
 
 func _on_Beef_minus_pressed():
-	$VBoxContainer/Order/Beef/HBoxContainer/LineEdit.text = order_manager.beef_minus()
-
+    beef_amount -= 1
+    if beef_amount < 0:
+        beef_amount = 0
 
 func _on_Beef_plus_pressed():
-	$VBoxContainer/Order/Beef/HBoxContainer/LineEdit.text = order_manager.beef_plus()
-
+    beef_amount += 1 
 
 func _on_BeefLine_text_changed(new_text):
-	if regex.search(new_text):
-		beef_old_text = str(new_text)
-		order_manager.beef_setAmount(int(new_text))
-	else:
-		$VBoxContainer/Order/Beef/HBoxContainer/LineEdit.text = beef_old_text
-		$VBoxContainer/Order/Beef/HBoxContainer/LineEdit.set_cursor_position($VBoxContainer/Order/Beef/HBoxContainer/LineEdit.text.length())
+    if regex.search(new_text):
+        beef_old_text = str(new_text)
+        beef_amount = int(new_text)
+    else:
+        beef_line_edit.text = beef_old_text
+        beef_line_edit.set_cursor_position(beef_line_edit.text.length())
+
 
 
 func _on_PorkBuy_pressed():
-	order_manager.pork_buy()
-
+    restaurant.buy_ingredients('Pork', pork_amount)
 
 func _on_Pork_minus_pressed():
-	$VBoxContainer/Order/Pork/HBoxContainer/LineEdit.text = order_manager.pork_minus()
-
+    pork_amount -= 1
+    if pork_amount < 0:
+        pork_amount = 0
 
 func _on_Pork_plus_pressed():
-	$VBoxContainer/Order/Pork/HBoxContainer/LineEdit.text = order_manager.pork_plus()
-
+    pork_amount += 1
 
 func _on_PorkLine_text_changed(new_text):
-	if regex.search(new_text):
-		pork_old_text = str(new_text)
-		order_manager.pork_setAmount(int(new_text))
-	else:
-		$VBoxContainer/Order/Pork/HBoxContainer/LineEdit.text = pork_old_text
-		$VBoxContainer/Order/Pork/HBoxContainer/LineEdit.set_cursor_position($VBoxContainer/Order/Pork/HBoxContainer/LineEdit.text.length())
+    if regex.search(new_text):
+        pork_old_text = str(new_text)
+        pork_amount = int(new_text)
+    else:
+        pork_line_edit.text = pork_old_text
+        pork_line_edit.set_cursor_position(pork_line_edit.text.length())
+
 
 
 func _on_CurryBuy_pressed():
-	order_manager.curry_buy()
+    restaurant.buy_ingredients('Curry Powder', curry_amount)
 
 func _on_Curry_minus_pressed():
-	$VBoxContainer/Order/CurryStock/HBoxContainer/LineEdit.text = order_manager.curry_minus()
+    curry_amount -= 1
+    if curry_amount < 0:
+        curry_amount = 0
 
 func _on_Curry_plus_pressed():
-	$VBoxContainer/Order/CurryStock/HBoxContainer/LineEdit.text = order_manager.curry_plus()
-
+    curry_amount += 1
 
 func _on_CurryLine_text_changed(new_text):
-	if regex.search(new_text):
-		curry_old_text = str(new_text)
-		order_manager.curry_setAmount(int(new_text))
-	else:
-		$VBoxContainer/Order/CurryStock/HBoxContainer/LineEdit.text = curry_old_text
-		$VBoxContainer/Order/CurryStock/HBoxContainer/LineEdit.set_cursor_position($VBoxContainer/Order/CurryStock/HBoxContainer/LineEdit.text.length())
+    if regex.search(new_text):
+        curry_old_text = str(new_text)
+        curry_amount = int(new_text)
+    else:
+        curry_line_edit.text = curry_old_text
+        curry_line_edit.set_cursor_position(curry_line_edit.text.length())

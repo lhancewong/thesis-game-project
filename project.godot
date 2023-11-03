@@ -15,19 +15,14 @@ _global_script_classes=[ {
 "path": "res://resources/entities/customer.gd"
 }, {
 "base": "Resource",
-"class": "Ingredient",
-"language": "GDScript",
-"path": "res://resources/entities/ingredient.gd"
-}, {
-"base": "Resource",
-"class": "Meal",
+"class": "Food",
 "language": "GDScript",
 "path": "res://resources/entities/meal.gd"
 }, {
 "base": "Resource",
-"class": "Order_Manager",
+"class": "Ingredient",
 "language": "GDScript",
-"path": "res://resources/handlers/order_manager.gd"
+"path": "res://resources/entities/ingredient.gd"
 }, {
 "base": "Resource",
 "class": "Restaurant",
@@ -41,9 +36,8 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Customer": "",
+"Food": "",
 "Ingredient": "",
-"Meal": "",
-"Order_Manager": "",
 "Restaurant": "",
 "Waste_Manager": ""
 }
@@ -52,6 +46,7 @@ _global_script_class_icons={
 
 config/name="Thesis-game-project"
 run/main_scene="res://interfaces/title_screen_menus/title_screen_main.tscn"
+config/icon="res://icon.png"
 
 [autoload]
 

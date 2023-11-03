@@ -1,12 +1,10 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/fonts/thin_pixelated.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/fonts/pixelated.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://interfaces/on_daylight_menus/scripts/order_ingredients.gd" type="Script" id=3]
-[ext_resource path="res://resources/entities/ingredient.tres" type="Resource" id=4]
 [ext_resource path="res://resources/handlers/restaurant_manager.tres" type="Resource" id=5]
 [ext_resource path="res://resources/themes/curry/curry.tres" type="Theme" id=6]
-[ext_resource path="res://resources/handlers/order_manager.tres" type="Resource" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 51
@@ -47,9 +45,7 @@ margin_right = 0.0199585
 margin_bottom = 0.223969
 theme = ExtResource( 6 )
 script = ExtResource( 3 )
-ingredients = ExtResource( 4 )
 restaurant = ExtResource( 5 )
-order_manager = ExtResource( 7 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0
@@ -333,7 +329,7 @@ theme = ExtResource( 6 )
 custom_fonts/font = SubResource( 4 )
 text = "Buy"
 
-[node name="CurryStock" type="VBoxContainer" parent="VBoxContainer/Order"]
+[node name="Curry" type="VBoxContainer" parent="VBoxContainer/Order"]
 margin_left = 546.0
 margin_right = 723.0
 margin_bottom = 236.0
@@ -341,14 +337,14 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 10
 
-[node name="Ingredient" type="ColorRect" parent="VBoxContainer/Order/CurryStock"]
+[node name="Ingredient" type="ColorRect" parent="VBoxContainer/Order/Curry"]
 margin_right = 177.0
 margin_bottom = 57.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.25
 color = Color( 0.262745, 0.262745, 0.262745, 1 )
 
-[node name="Label" type="Label" parent="VBoxContainer/Order/CurryStock/Ingredient"]
+[node name="Label" type="Label" parent="VBoxContainer/Order/Curry/Ingredient"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
@@ -359,13 +355,13 @@ align = 1
 valign = 1
 autowrap = true
 
-[node name="Amount" type="ColorRect" parent="VBoxContainer/Order/CurryStock"]
+[node name="Amount" type="ColorRect" parent="VBoxContainer/Order/Curry"]
 margin_top = 67.0
 margin_right = 177.0
 margin_bottom = 113.0
 size_flags_vertical = 3
 
-[node name="Amount" type="Label" parent="VBoxContainer/Order/CurryStock/Amount"]
+[node name="Amount" type="Label" parent="VBoxContainer/Order/Curry/Amount"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -374,21 +370,21 @@ text = "Amount"
 align = 1
 valign = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Order/CurryStock"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Order/Curry"]
 margin_top = 123.0
 margin_right = 177.0
 margin_bottom = 175.0
 rect_pivot_offset = Vector2( -74, 24 )
 alignment = 1
 
-[node name="Minus" type="Button" parent="VBoxContainer/Order/CurryStock/HBoxContainer"]
+[node name="Minus" type="Button" parent="VBoxContainer/Order/Curry/HBoxContainer"]
 margin_right = 39.3241
 margin_bottom = 52.251
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 6 )
 text = "-"
 
-[node name="LineEdit" type="LineEdit" parent="VBoxContainer/Order/CurryStock/HBoxContainer"]
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/Order/Curry/HBoxContainer"]
 margin_left = 43.0
 margin_right = 134.0
 margin_bottom = 52.0
@@ -398,7 +394,7 @@ custom_fonts/font = SubResource( 7 )
 align = 1
 placeholder_text = "Waste Amount"
 
-[node name="Plus" type="Button" parent="VBoxContainer/Order/CurryStock/HBoxContainer"]
+[node name="Plus" type="Button" parent="VBoxContainer/Order/Curry/HBoxContainer"]
 margin_left = 138.0
 margin_right = 177.324
 margin_bottom = 52.251
@@ -407,7 +403,7 @@ size_flags_horizontal = 3
 custom_fonts/font = SubResource( 8 )
 text = "+"
 
-[node name="CurryBuy" type="Button" parent="VBoxContainer/Order/CurryStock"]
+[node name="CurryBuy" type="Button" parent="VBoxContainer/Order/Curry"]
 margin_top = 185.0
 margin_right = 177.0
 margin_bottom = 236.251
@@ -646,10 +642,10 @@ value = 1.0
 [connection signal="text_changed" from="VBoxContainer/Order/Pork/HBoxContainer/LineEdit" to="." method="_on_PorkLine_text_changed"]
 [connection signal="pressed" from="VBoxContainer/Order/Pork/HBoxContainer/Plus" to="." method="_on_Pork_plus_pressed"]
 [connection signal="pressed" from="VBoxContainer/Order/Pork/PorkBuy" to="." method="_on_PorkBuy_pressed"]
-[connection signal="pressed" from="VBoxContainer/Order/CurryStock/HBoxContainer/Minus" to="." method="_on_Curry_minus_pressed"]
-[connection signal="text_changed" from="VBoxContainer/Order/CurryStock/HBoxContainer/LineEdit" to="." method="_on_CurryLine_text_changed"]
-[connection signal="pressed" from="VBoxContainer/Order/CurryStock/HBoxContainer/Plus" to="." method="_on_Curry_plus_pressed"]
-[connection signal="pressed" from="VBoxContainer/Order/CurryStock/CurryBuy" to="." method="_on_CurryBuy_pressed"]
+[connection signal="pressed" from="VBoxContainer/Order/Curry/HBoxContainer/Minus" to="." method="_on_Curry_minus_pressed"]
+[connection signal="text_changed" from="VBoxContainer/Order/Curry/HBoxContainer/LineEdit" to="." method="_on_CurryLine_text_changed"]
+[connection signal="pressed" from="VBoxContainer/Order/Curry/HBoxContainer/Plus" to="." method="_on_Curry_plus_pressed"]
+[connection signal="pressed" from="VBoxContainer/Order/Curry/CurryBuy" to="." method="_on_CurryBuy_pressed"]
 [connection signal="value_changed" from="ChickenSlider" to="." method="_on_ChickenSlider_value_changed"]
 [connection signal="value_changed" from="BeefSlider" to="." method="_on_BeefSlider_value_changed"]
 [connection signal="value_changed" from="PorkSlider" to="." method="_on_PorkSlider_value_changed"]
