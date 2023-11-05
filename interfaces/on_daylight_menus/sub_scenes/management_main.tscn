@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://interfaces/on_daylight_menus/scripts/management_main.gd" type="Script" id=1]
 [ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/management_strategies/compost.tscn" type="PackedScene" id=2]
@@ -8,7 +8,6 @@
 [ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/management_strategies/feed_animals.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/fonts/thin_pixelated.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://assets/fonts/pixelated.ttf" type="DynamicFontData" id=8]
-[ext_resource path="res://resources/handlers/waste_manager.tres" type="Resource" id=9]
 [ext_resource path="res://resources/themes/curry/curry.tres" type="Theme" id=10]
 
 [sub_resource type="DynamicFont" id=1]
@@ -38,7 +37,6 @@ margin_right = 0.0199585
 margin_bottom = 0.223969
 theme = ExtResource( 10 )
 script = ExtResource( 1 )
-waste_handler = ExtResource( 9 )
 
 [node name="MainScreen" type="Control" parent="."]
 anchor_right = 1.0

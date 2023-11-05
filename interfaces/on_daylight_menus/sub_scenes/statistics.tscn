@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/fonts/thin_pixelated.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/images/graph.png" type="Texture" id=2]
 [ext_resource path="res://interfaces/on_daylight_menus/scripts/statistics.gd" type="Script" id=3]
-[ext_resource path="res://resources/handlers/restaurant_manager.tres" type="Resource" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 13
@@ -28,7 +27,6 @@ font_data = ExtResource( 1 )
 margin_right = 724.0
 margin_bottom = 428.0
 script = ExtResource( 3 )
-resto = ExtResource( 4 )
 
 [node name="TabMenu" type="TabContainer" parent="."]
 anchor_right = 1.0

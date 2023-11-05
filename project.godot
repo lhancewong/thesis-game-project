@@ -15,31 +15,25 @@ _global_script_classes=[ {
 "path": "res://resources/entities/customer.gd"
 }, {
 "base": "Resource",
-"class": "Food",
-"language": "GDScript",
-"path": "res://resources/entities/meal.gd"
-}, {
-"base": "Resource",
 "class": "Ingredient",
 "language": "GDScript",
 "path": "res://resources/entities/ingredient.gd"
 }, {
 "base": "Resource",
+"class": "Meal",
+"language": "GDScript",
+"path": "res://resources/entities/meal.gd"
+}, {
+"base": "Resource",
 "class": "Restaurant",
 "language": "GDScript",
 "path": "res://resources/handlers/restaurant_manager.gd"
-}, {
-"base": "Resource",
-"class": "Waste_Manager",
-"language": "GDScript",
-"path": "res://resources/handlers/waste_manager.gd"
 } ]
 _global_script_class_icons={
 "Customer": "",
-"Food": "",
 "Ingredient": "",
-"Restaurant": "",
-"Waste_Manager": ""
+"Meal": "",
+"Restaurant": ""
 }
 
 [application]
@@ -50,7 +44,8 @@ config/icon="res://icon.png"
 
 [autoload]
 
-BackgroundMusic="*res://global/background_music.tscn"
+SoundHandler="*res://global/sound_handler.tscn"
+Game="*res://global/game.tscn"
 
 [display]
 

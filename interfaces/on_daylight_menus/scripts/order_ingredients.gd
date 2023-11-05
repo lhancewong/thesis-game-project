@@ -6,9 +6,6 @@ var beef_old_text = ""
 var pork_old_text = ""
 var curry_old_text = ""
 
-# Resources
-export(Resource) var restaurant
-
 onready var chicken_amount = 1
 onready var chicken_line_edit = $VBoxContainer/Order/Chicken/HBoxContainer/LineEdit
 
@@ -36,7 +33,7 @@ func _physics_process(delta): # change to signals
     _update_labels()
 
 func _update_labels(): 
-    var stockpile = restaurant.i_stockpile
+    var stockpile = Game.i_stockpile
     
     stock_chicken.text = str(stockpile["chicken"]) + " batches"
     stock_beef.text = str(stockpile["beef"]) + " batches"
@@ -57,7 +54,7 @@ func amnt_minus(amnt):
 
 
 func _on_ChickenBuy_pressed():
-    restaurant.buy_ingredients('Chicken', chicken_amount)
+    Game.ingred_hndlr.buy_ingredients('Chicken', chicken_amount)
 
 func _on_Chicken_minus_pressed():
     chicken_amount -= 1
@@ -78,7 +75,7 @@ func _on_ChickenLine_text_changed(new_text):
 
 
 func _on_BeefBuy_pressed():
-    restaurant.buy_ingredients('Beef', beef_amount)
+    Game.ingred_hndlr.buy_ingredients('Beef', beef_amount)
 
 func _on_Beef_minus_pressed():
     beef_amount -= 1
@@ -99,7 +96,7 @@ func _on_BeefLine_text_changed(new_text):
 
 
 func _on_PorkBuy_pressed():
-    restaurant.buy_ingredients('Pork', pork_amount)
+    Game.ingred_hndlr.buy_ingredients('Pork', pork_amount)
 
 func _on_Pork_minus_pressed():
     pork_amount -= 1
@@ -120,7 +117,7 @@ func _on_PorkLine_text_changed(new_text):
 
 
 func _on_CurryBuy_pressed():
-    restaurant.buy_ingredients('Curry Powder', curry_amount)
+    Game.ingred_hndlr.buy_ingredients('Curry Powder', curry_amount)
 
 func _on_Curry_minus_pressed():
     curry_amount -= 1
