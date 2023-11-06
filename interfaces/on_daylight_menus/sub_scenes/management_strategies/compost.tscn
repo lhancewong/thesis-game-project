@@ -1,9 +1,11 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/fonts/thin_pixelated.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/fonts/pixelated.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://interfaces/on_daylight_menus/scripts/subscenes/compost.gd" type="Script" id=3]
 [ext_resource path="res://resources/themes/curry/curry.tres" type="Theme" id=5]
+
+[sub_resource type="Theme" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 size = 51
@@ -56,6 +58,7 @@ custom_constants/separation = 10
 margin_right = 723.0
 margin_bottom = 47.0
 size_flags_horizontal = 3
+theme = SubResource( 11 )
 custom_fonts/font = SubResource( 1 )
 text = "Composting"
 align = 1
@@ -213,4 +216,7 @@ margin_bottom = 370.251
 custom_fonts/font = SubResource( 5 )
 text = "Send"
 
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Compost/Strategy/HBoxContainer2/minus" to="." method="_on_minus_pressed"]
+[connection signal="text_changed" from="VBoxContainer/HBoxContainer/Compost/Strategy/HBoxContainer2/LineEdit" to="." method="_on_LineEdit_text_changed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Compost/Strategy/HBoxContainer2/plus" to="." method="_on_plus_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Text/ManagementStrategy2" to="." method="_on_sendButton_pressed"]
