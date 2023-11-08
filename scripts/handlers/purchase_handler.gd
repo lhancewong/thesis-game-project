@@ -17,22 +17,23 @@ func _noisefy(num: float):
 func start_day() -> void:
     var day_length = rand_range(Game.min_day,Game.max_day)
     var customer_amount = rand_range(Game.min_custo,Game.max_custo)
-    
+    var steve_harvey
+    var terminal
+    if get_tree().current_scene.name == "OnDaylight":
+        steve_harvey = get_node("/root/OnDaylight/PauseFrame/SteveHarvey")
+        terminal = get_node("/root/OnDaylight/VBoxContainer/HBoxContainer/GameConsole")
     for i in customer_amount:
         var entry =  create_purchase()
-        
-        if get_tree().current_scene.name == "OnDaylight":
-            var terminal = get_node("/root/OnDaylight/VBoxContainer/HBoxContainer/GameConsole")
-            if entry.empty():
-                terminal.add_text("No Food!")
-            elif get_tree().current_scene.name == "OnDaylight":
-                terminal.add_entry(entry)
+        if entry.empty():
+            terminal.add_text("No Food!")
+        elif get_tree().current_scene.name == "OnDaylight":
+            terminal.add_entry(entry)
         
         SoundHandler.get_node("VineBoom").play()
-        
+        steve_harvey.visible = !steve_harvey.visible
+         
         var wait = rand_range(0.7, 1.3) * (day_length/customer_amount)
         yield(get_tree().create_timer(wait), "timeout")
-    
     emit_signal("completed")
 
 func create_purchase() -> Dictionary:

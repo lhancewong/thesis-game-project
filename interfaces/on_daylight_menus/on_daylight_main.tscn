@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
-[ext_resource path="res://interfaces/on_daylight_menus/scripts/on_daylight_main.gd" type="Script" id=1]
+[ext_resource path="res://scripts/guis/on_daylight_main.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/pixelated.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://interfaces/custom_gui/in_game_console.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/images/steve.png" type="Texture" id=4]
 [ext_resource path="res://assets/fonts/thin_pixelated.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/statistics.tscn" type="PackedScene" id=6]
 [ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/live_updates.tscn" type="PackedScene" id=7]
@@ -10,6 +11,7 @@
 [ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/prepare_ingredients.tscn" type="PackedScene" id=9]
 [ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/tech_upgrades.tscn" type="PackedScene" id=10]
 [ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/management_main.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/images/harvey.png" type="Texture" id=12]
 [ext_resource path="res://resources/themes/curry/curry.tres" type="Theme" id=17]
 [ext_resource path="res://resources/themes/curry/green.tres" type="Theme" id=18]
 [ext_resource path="res://resources/themes/curry/red.tres" type="Theme" id=19]
@@ -375,10 +377,28 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.43
 
 [node name="PauseFrame" type="ColorRect" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.25098, 0.25098, 0.25098, 0.411765 )
+
+[node name="SteveHarvey" type="Panel" parent="PauseFrame"]
+margin_top = 776.0
+margin_right = 1366.0
+margin_bottom = 776.0
+
+[node name="Top" type="TextureRect" parent="PauseFrame/SteveHarvey"]
+margin_top = -776.0
+margin_right = 1366.0
+margin_bottom = -392.0
+texture = ExtResource( 4 )
+stretch_mode = 6
+
+[node name="Bottom" type="TextureRect" parent="PauseFrame/SteveHarvey"]
+margin_top = -388.0
+margin_right = 1366.0
+margin_bottom = -4.0
+texture = ExtResource( 12 )
+stretch_mode = 6
 
 [node name="Title" type="Label" parent="PauseFrame"]
 anchor_right = 1.0
