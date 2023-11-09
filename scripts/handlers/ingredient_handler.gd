@@ -2,7 +2,6 @@ extends Node
 
 export(Resource) var INGRED
 
-
 func buy_ingredients(type: String, amount: int) -> void:
     var ingredient
     var price

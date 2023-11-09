@@ -31,5 +31,3 @@ CUSTO = ExtResource( 9 )
 [node name="Food" type="Node" parent="."]
 script = ExtResource( 6 )
 MEAL = ExtResource( 3 )
-
-[node name="Save" type="Node" parent="."]

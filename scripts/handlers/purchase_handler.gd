@@ -1,6 +1,5 @@
 extends Node
 
-
 export(Resource) var CUSTO 
 
 # Sibling Nodes

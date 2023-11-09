@@ -51,6 +51,7 @@ func _on_Debug_pressed():
     terminal.add_text(Game.food_hndlr.get_rand_cookable_food())
 
 func _on_ToTitleScreen_pressed():
+    Game.save_game(0)
     get_tree().change_scene("res://interfaces/title_screen_menus/title_screen_main.tscn")
 
 # Main update sequence handler for now
