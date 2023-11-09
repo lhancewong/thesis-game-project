@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://interfaces/on_daylight_menus/scripts/on_daylight_main.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/pixelated.ttf" type="DynamicFontData" id=2]
@@ -19,6 +19,23 @@
 [ext_resource path="res://resources/themes/curry/curry.tres" type="Theme" id=17]
 [ext_resource path="res://resources/themes/curry/green.tres" type="Theme" id=18]
 [ext_resource path="res://resources/themes/curry/red.tres" type="Theme" id=19]
+[ext_resource path="res://assets/images/resto_view.png" type="Texture" id=20]
+[ext_resource path="res://interfaces/on_daylight_menus/NPCs/Spawner.gd" type="Script" id=21]
+[ext_resource path="res://interfaces/on_daylight_menus/NPCs/Tyrone.tscn" type="PackedScene" id=22]
+[ext_resource path="res://interfaces/on_daylight_menus/NPCs/Jerome.tscn" type="PackedScene" id=23]
+[ext_resource path="res://interfaces/on_daylight_menus/NPCs/Matt.tscn" type="PackedScene" id=24]
+[ext_resource path="res://interfaces/on_daylight_menus/NPCs/Hugh.tscn" type="PackedScene" id=25]
+[ext_resource path="res://interfaces/on_daylight_menus/NPCs/Tessa.tscn" type="PackedScene" id=26]
+[ext_resource path="res://interfaces/on_daylight_menus/NPCs/Harry.tscn" type="PackedScene" id=27]
+[ext_resource path="res://interfaces/on_daylight_menus/NPCs/Layla.tscn" type="PackedScene" id=28]
+[ext_resource path="res://interfaces/on_daylight_menus/NPCs/Ted.tscn" type="PackedScene" id=29]
+[ext_resource path="res://interfaces/on_daylight_menus/NPCs/James.tscn" type="PackedScene" id=30]
+[ext_resource path="res://interfaces/on_daylight_menus/NPCs/John.tscn" type="PackedScene" id=31]
+[ext_resource path="res://interfaces/on_daylight_menus/NPCs/Mona.tscn" type="PackedScene" id=32]
+[ext_resource path="res://interfaces/on_daylight_menus/NPCs/Lisa.tscn" type="PackedScene" id=33]
+[ext_resource path="res://interfaces/on_daylight_menus/NPCs/Chris.tscn" type="PackedScene" id=34]
+[ext_resource path="res://interfaces/on_daylight_menus/NPCs/Jared.tscn" type="PackedScene" id=35]
+[ext_resource path="res://interfaces/on_daylight_menus/NPCs/Steve.tscn" type="PackedScene" id=36]
 
 [sub_resource type="DynamicFont" id=4]
 size = 18
@@ -37,6 +54,11 @@ font_data = ExtResource( 2 )
 [sub_resource type="DynamicFont" id=5]
 size = 48
 font_data = ExtResource( 2 )
+
+[sub_resource type="Curve2D" id=6]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 813, 597, 0, 0, 0, 0, 1078, 492, 0, 0, 0, 0, 1334, 593 )
+}
 
 [node name="OnDaylight" type="Control"]
 anchor_right = 1.0
@@ -397,6 +419,98 @@ custom_fonts/font = SubResource( 5 )
 text = "Serving Customers..."
 align = 1
 valign = 1
+
+[node name="RestaurantView" type="TextureRect" parent="."]
+margin_left = 784.0
+margin_top = 105.0
+margin_right = 1346.0
+margin_bottom = 749.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.43
+texture = ExtResource( 20 )
+expand = true
+
+[node name="NPCs" type="Node2D" parent="."]
+
+[node name="Spawner" type="Path2D" parent="NPCs"]
+curve = SubResource( 6 )
+script = ExtResource( 21 )
+
+[node name="Tyrone" parent="NPCs/Spawner" instance=ExtResource( 22 )]
+visible = false
+position = Vector2( 813, 597 )
+rotation = -0.377259
+
+[node name="Jerome" parent="NPCs/Spawner" instance=ExtResource( 23 )]
+visible = false
+position = Vector2( 813, 597 )
+rotation = -0.377259
+
+[node name="Matt" parent="NPCs/Spawner" instance=ExtResource( 24 )]
+visible = false
+position = Vector2( 813, 597 )
+rotation = -0.377259
+
+[node name="Layla" parent="NPCs/Spawner" instance=ExtResource( 28 )]
+visible = false
+position = Vector2( 813, 597 )
+rotation = -0.377259
+
+[node name="Harry" parent="NPCs/Spawner" instance=ExtResource( 27 )]
+visible = false
+position = Vector2( 813, 597 )
+rotation = -0.377259
+
+[node name="Tessa" parent="NPCs/Spawner" instance=ExtResource( 26 )]
+visible = false
+position = Vector2( 813, 597 )
+rotation = -0.377259
+
+[node name="Hugh" parent="NPCs/Spawner" instance=ExtResource( 25 )]
+visible = false
+position = Vector2( 813, 597 )
+rotation = -0.377259
+
+[node name="John" parent="NPCs/Spawner" instance=ExtResource( 31 )]
+visible = false
+position = Vector2( 813, 597 )
+rotation = -0.377259
+
+[node name="Chris" parent="NPCs/Spawner" instance=ExtResource( 34 )]
+visible = false
+position = Vector2( 813, 597 )
+rotation = -0.377259
+
+[node name="James" parent="NPCs/Spawner" instance=ExtResource( 30 )]
+visible = false
+position = Vector2( 813, 597 )
+rotation = -0.377259
+
+[node name="Jared" parent="NPCs/Spawner" instance=ExtResource( 35 )]
+visible = false
+position = Vector2( 813, 597 )
+rotation = -0.377259
+
+[node name="Ted" parent="NPCs/Spawner" instance=ExtResource( 29 )]
+visible = false
+position = Vector2( 813, 597 )
+rotation = -0.377259
+
+[node name="Steve" parent="NPCs/Spawner" instance=ExtResource( 36 )]
+visible = false
+position = Vector2( 813, 597 )
+rotation = -0.377259
+
+[node name="Mona" parent="NPCs/Spawner" instance=ExtResource( 32 )]
+visible = false
+position = Vector2( 813, 597 )
+rotation = -0.377259
+
+[node name="Lisa" parent="NPCs/Spawner" instance=ExtResource( 33 )]
+visible = false
+position = Vector2( 813, 597 )
+rotation = -0.377259
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/menu icons/HBoxContainer/LiveUpdatingStats" to="." method="_on_LiveUpdatingStats_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/menu icons/HBoxContainer/OrderIngredients" to="." method="_on_OrderIngredients_pressed"]

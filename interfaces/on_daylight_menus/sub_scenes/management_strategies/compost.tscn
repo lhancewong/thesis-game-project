@@ -58,6 +58,7 @@ custom_constants/separation = 10
 margin_right = 723.0
 margin_bottom = 47.0
 size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "Composting"
 align = 1

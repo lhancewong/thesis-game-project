@@ -70,6 +70,7 @@ func _purchase_handler() -> void:
 			terminal.add_entry(entry)
 		
 		vine_boom.play()
+		$NPCs/Spawner._spawnNPC()
 		
 		var wait = rand_range(0.9, 1.1) * (day_length/customer_amount)
 		yield(get_tree().create_timer(wait), "timeout")
@@ -90,9 +91,9 @@ func _on_ToTitleScreen_pressed():
 func _on_StartDay_pressed():
 	_purchase_handler()
 	
-	_on_pause_button_pressed()
+#	_on_pause_button_pressed()
 	yield(_purchase_handler(), "completed")
-	_on_pause_popup_close_pressed()
+#	_on_pause_popup_close_pressed()
 	
 	terminal.add_text("> Day Finished!")
 	resto.day += 1

@@ -93,7 +93,7 @@ color = Color( 0.980392, 0.854902, 0.368627, 1 )
 [node name="Label" type="Label" parent="MainScreen/VBoxContainer/ContentFrame/Inedible Waste/Waste/Waste"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 2 )
 text = "Inedible Waste"
 align = 1

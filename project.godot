@@ -50,7 +50,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Thesis-game-project"
+config/name="Thesis Game"
 run/main_scene="res://interfaces/title_screen_menus/title_screen_main.tscn"
 
 [autoload]

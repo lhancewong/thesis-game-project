@@ -37,8 +37,8 @@ size = 29
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=5]
-size = 22
-font_data = ExtResource( 1 )
+size = 30
+font_data = ExtResource( 2 )
 
 [node name="OrderIngredient" type="Control"]
 anchor_right = 0.53
@@ -70,7 +70,7 @@ autowrap = true
 [node name="Order" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 52.0
 margin_right = 723.0
-margin_bottom = 288.0
+margin_bottom = 290.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.7
@@ -78,36 +78,34 @@ custom_constants/separation = 5
 
 [node name="Chicken" type="VBoxContainer" parent="VBoxContainer/Order"]
 margin_right = 177.0
-margin_bottom = 236.0
+margin_bottom = 238.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 10
 
 [node name="Ingredient" type="ColorRect" parent="VBoxContainer/Order/Chicken"]
 margin_right = 177.0
-margin_bottom = 57.0
+margin_bottom = 58.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.25
-color = Color( 0.262745, 0.262745, 0.262745, 1 )
+color = Color( 0.980392, 0.854902, 0.368627, 1 )
 
 [node name="Label" type="Label" parent="VBoxContainer/Order/Chicken/Ingredient"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
+custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
 custom_fonts/font = SubResource( 2 )
 text = "Chicken"
 align = 1
 valign = 1
 autowrap = true
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="Amount" type="ColorRect" parent="VBoxContainer/Order/Chicken"]
-margin_top = 67.0
+margin_top = 68.0
 margin_right = 177.0
-margin_bottom = 113.0
+margin_bottom = 115.0
 size_flags_vertical = 3
 
 [node name="Amount" type="Label" parent="VBoxContainer/Order/Chicken/Amount"]
@@ -120,9 +118,9 @@ align = 1
 valign = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Order/Chicken"]
-margin_top = 123.0
+margin_top = 125.0
 margin_right = 177.0
-margin_bottom = 175.0
+margin_bottom = 177.0
 rect_pivot_offset = Vector2( -74, 24 )
 alignment = 1
 
@@ -153,9 +151,9 @@ custom_fonts/font = SubResource( 8 )
 text = "+"
 
 [node name="ChickenBuy" type="Button" parent="VBoxContainer/Order/Chicken"]
-margin_top = 185.0
+margin_top = 187.0
 margin_right = 177.0
-margin_bottom = 236.251
+margin_bottom = 238.251
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
@@ -166,23 +164,24 @@ text = "Buy"
 [node name="Beef" type="VBoxContainer" parent="VBoxContainer/Order"]
 margin_left = 182.0
 margin_right = 359.0
-margin_bottom = 236.0
+margin_bottom = 238.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 10
 
 [node name="Ingredient" type="ColorRect" parent="VBoxContainer/Order/Beef"]
 margin_right = 177.0
-margin_bottom = 57.0
+margin_bottom = 58.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.25
-color = Color( 0.262745, 0.262745, 0.262745, 1 )
+color = Color( 0.980392, 0.854902, 0.368627, 1 )
 
 [node name="Label" type="Label" parent="VBoxContainer/Order/Beef/Ingredient"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
+custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
 custom_fonts/font = SubResource( 2 )
 text = "Beef"
 align = 1
@@ -190,9 +189,9 @@ valign = 1
 autowrap = true
 
 [node name="Amount" type="ColorRect" parent="VBoxContainer/Order/Beef"]
-margin_top = 67.0
+margin_top = 68.0
 margin_right = 177.0
-margin_bottom = 113.0
+margin_bottom = 115.0
 size_flags_vertical = 3
 
 [node name="Amount" type="Label" parent="VBoxContainer/Order/Beef/Amount"]
@@ -205,9 +204,9 @@ align = 1
 valign = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Order/Beef"]
-margin_top = 123.0
+margin_top = 125.0
 margin_right = 177.0
-margin_bottom = 175.0
+margin_bottom = 177.0
 rect_pivot_offset = Vector2( -74, 24 )
 alignment = 1
 
@@ -238,9 +237,9 @@ custom_fonts/font = SubResource( 8 )
 text = "+"
 
 [node name="BeefBuy" type="Button" parent="VBoxContainer/Order/Beef"]
-margin_top = 185.0
+margin_top = 187.0
 margin_right = 177.0
-margin_bottom = 236.251
+margin_bottom = 238.251
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
@@ -251,23 +250,24 @@ text = "Buy"
 [node name="Pork" type="VBoxContainer" parent="VBoxContainer/Order"]
 margin_left = 364.0
 margin_right = 541.0
-margin_bottom = 236.0
+margin_bottom = 238.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 10
 
 [node name="Ingredient" type="ColorRect" parent="VBoxContainer/Order/Pork"]
 margin_right = 177.0
-margin_bottom = 57.0
+margin_bottom = 58.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.25
-color = Color( 0.262745, 0.262745, 0.262745, 1 )
+color = Color( 0.980392, 0.854902, 0.368627, 1 )
 
 [node name="Label" type="Label" parent="VBoxContainer/Order/Pork/Ingredient"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
+custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
 custom_fonts/font = SubResource( 2 )
 text = "Pork"
 align = 1
@@ -275,9 +275,9 @@ valign = 1
 autowrap = true
 
 [node name="Amount" type="ColorRect" parent="VBoxContainer/Order/Pork"]
-margin_top = 67.0
+margin_top = 68.0
 margin_right = 177.0
-margin_bottom = 113.0
+margin_bottom = 115.0
 size_flags_vertical = 3
 
 [node name="Amount" type="Label" parent="VBoxContainer/Order/Pork/Amount"]
@@ -290,9 +290,9 @@ align = 1
 valign = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Order/Pork"]
-margin_top = 123.0
+margin_top = 125.0
 margin_right = 177.0
-margin_bottom = 175.0
+margin_bottom = 177.0
 rect_pivot_offset = Vector2( -74, 24 )
 alignment = 1
 
@@ -323,9 +323,9 @@ custom_fonts/font = SubResource( 8 )
 text = "+"
 
 [node name="PorkBuy" type="Button" parent="VBoxContainer/Order/Pork"]
-margin_top = 185.0
+margin_top = 187.0
 margin_right = 177.0
-margin_bottom = 236.251
+margin_bottom = 238.251
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
@@ -336,33 +336,34 @@ text = "Buy"
 [node name="CurryStock" type="VBoxContainer" parent="VBoxContainer/Order"]
 margin_left = 546.0
 margin_right = 723.0
-margin_bottom = 236.0
+margin_bottom = 238.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 10
 
 [node name="Ingredient" type="ColorRect" parent="VBoxContainer/Order/CurryStock"]
 margin_right = 177.0
-margin_bottom = 57.0
+margin_bottom = 58.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.25
-color = Color( 0.262745, 0.262745, 0.262745, 1 )
+color = Color( 0.980392, 0.854902, 0.368627, 1 )
 
 [node name="Label" type="Label" parent="VBoxContainer/Order/CurryStock/Ingredient"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
+custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
 custom_fonts/font = SubResource( 2 )
-text = "Curry Stock"
+text = "Curry stock"
 align = 1
 valign = 1
 autowrap = true
 
 [node name="Amount" type="ColorRect" parent="VBoxContainer/Order/CurryStock"]
-margin_top = 67.0
+margin_top = 68.0
 margin_right = 177.0
-margin_bottom = 113.0
+margin_bottom = 115.0
 size_flags_vertical = 3
 
 [node name="Amount" type="Label" parent="VBoxContainer/Order/CurryStock/Amount"]
@@ -375,9 +376,9 @@ align = 1
 valign = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Order/CurryStock"]
-margin_top = 123.0
+margin_top = 125.0
 margin_right = 177.0
-margin_bottom = 175.0
+margin_bottom = 177.0
 rect_pivot_offset = Vector2( -74, 24 )
 alignment = 1
 
@@ -408,9 +409,9 @@ custom_fonts/font = SubResource( 8 )
 text = "+"
 
 [node name="CurryBuy" type="Button" parent="VBoxContainer/Order/CurryStock"]
-margin_top = 185.0
+margin_top = 187.0
 margin_right = 177.0
-margin_bottom = 236.251
+margin_bottom = 238.251
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
@@ -419,11 +420,12 @@ custom_fonts/font = SubResource( 4 )
 text = "Buy"
 
 [node name="StorageLabel" type="Label" parent="VBoxContainer"]
-margin_top = 293.0
+margin_top = 295.0
 margin_right = 723.0
-margin_bottom = 324.0
+margin_bottom = 323.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 5 )
 text = "Stock Ingredients"
 align = 1
@@ -431,7 +433,7 @@ valign = 1
 autowrap = true
 
 [node name="Storage" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 329.0
+margin_top = 328.0
 margin_right = 723.0
 margin_bottom = 427.0
 size_flags_horizontal = 3
@@ -441,23 +443,24 @@ custom_constants/separation = 24
 
 [node name="Chicken" type="VBoxContainer" parent="VBoxContainer/Storage"]
 margin_right = 162.0
-margin_bottom = 98.0
+margin_bottom = 99.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 10
 
 [node name="Ingredient" type="ColorRect" parent="VBoxContainer/Storage/Chicken"]
 margin_right = 162.0
-margin_bottom = 48.0
+margin_bottom = 49.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.25
-color = Color( 0.262745, 0.262745, 0.262745, 1 )
+color = Color( 0.980392, 0.854902, 0.368627, 1 )
 
 [node name="Label" type="Label" parent="VBoxContainer/Storage/Chicken/Ingredient"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
+custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
 custom_fonts/font = SubResource( 2 )
 text = "Chicken "
 align = 1
@@ -465,9 +468,9 @@ valign = 1
 autowrap = true
 
 [node name="Amount" type="ColorRect" parent="VBoxContainer/Storage/Chicken"]
-margin_top = 58.0
+margin_top = 59.0
 margin_right = 162.0
-margin_bottom = 98.0
+margin_bottom = 99.0
 size_flags_vertical = 3
 
 [node name="Amount" type="Label" parent="VBoxContainer/Storage/Chicken/Amount"]
@@ -482,23 +485,24 @@ valign = 1
 [node name="Beef" type="VBoxContainer" parent="VBoxContainer/Storage"]
 margin_left = 186.0
 margin_right = 349.0
-margin_bottom = 98.0
+margin_bottom = 99.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 10
 
 [node name="Ingredient" type="ColorRect" parent="VBoxContainer/Storage/Beef"]
 margin_right = 163.0
-margin_bottom = 48.0
+margin_bottom = 49.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.25
-color = Color( 0.262745, 0.262745, 0.262745, 1 )
+color = Color( 0.980392, 0.854902, 0.368627, 1 )
 
 [node name="Label" type="Label" parent="VBoxContainer/Storage/Beef/Ingredient"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
+custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
 custom_fonts/font = SubResource( 2 )
 text = "Beef"
 align = 1
@@ -506,9 +510,9 @@ valign = 1
 autowrap = true
 
 [node name="Amount" type="ColorRect" parent="VBoxContainer/Storage/Beef"]
-margin_top = 58.0
+margin_top = 59.0
 margin_right = 163.0
-margin_bottom = 98.0
+margin_bottom = 99.0
 size_flags_vertical = 3
 
 [node name="Amount" type="Label" parent="VBoxContainer/Storage/Beef/Amount"]
@@ -523,23 +527,24 @@ valign = 1
 [node name="Pork" type="VBoxContainer" parent="VBoxContainer/Storage"]
 margin_left = 373.0
 margin_right = 536.0
-margin_bottom = 98.0
+margin_bottom = 99.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 10
 
 [node name="Ingredient" type="ColorRect" parent="VBoxContainer/Storage/Pork"]
 margin_right = 163.0
-margin_bottom = 48.0
+margin_bottom = 49.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.25
-color = Color( 0.262745, 0.262745, 0.262745, 1 )
+color = Color( 0.980392, 0.854902, 0.368627, 1 )
 
 [node name="Label" type="Label" parent="VBoxContainer/Storage/Pork/Ingredient"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
+custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
 custom_fonts/font = SubResource( 2 )
 text = "Pork"
 align = 1
@@ -547,9 +552,9 @@ valign = 1
 autowrap = true
 
 [node name="Amount" type="ColorRect" parent="VBoxContainer/Storage/Pork"]
-margin_top = 58.0
+margin_top = 59.0
 margin_right = 163.0
-margin_bottom = 98.0
+margin_bottom = 99.0
 size_flags_vertical = 3
 
 [node name="Amount" type="Label" parent="VBoxContainer/Storage/Pork/Amount"]
@@ -564,23 +569,24 @@ valign = 1
 [node name="CurryStock" type="VBoxContainer" parent="VBoxContainer/Storage"]
 margin_left = 560.0
 margin_right = 723.0
-margin_bottom = 98.0
+margin_bottom = 99.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 10
 
 [node name="Ingredient" type="ColorRect" parent="VBoxContainer/Storage/CurryStock"]
 margin_right = 163.0
-margin_bottom = 48.0
+margin_bottom = 49.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.25
-color = Color( 0.262745, 0.262745, 0.262745, 1 )
+color = Color( 0.980392, 0.854902, 0.368627, 1 )
 
 [node name="Label" type="Label" parent="VBoxContainer/Storage/CurryStock/Ingredient"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
+custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
 custom_fonts/font = SubResource( 2 )
 text = "Curry Stock"
 align = 1
@@ -588,9 +594,9 @@ valign = 1
 autowrap = true
 
 [node name="Amount" type="ColorRect" parent="VBoxContainer/Storage/CurryStock"]
-margin_top = 58.0
+margin_top = 59.0
 margin_right = 163.0
-margin_bottom = 98.0
+margin_bottom = 99.0
 size_flags_vertical = 3
 
 [node name="Amount" type="Label" parent="VBoxContainer/Storage/CurryStock/Amount"]
