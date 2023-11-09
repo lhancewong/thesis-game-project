@@ -54,7 +54,6 @@ func amnt_minus(amnt):
 
 func _on_ChickenBuy_pressed():
 	Game.ingred_hndlr.buy_ingredients('Chicken', chicken_amount)
-	chicken_amount = 0
 	chicken_line_edit.text = str(chicken_amount)
 
 func _on_Chicken_minus_pressed():
@@ -79,7 +78,6 @@ func _on_ChickenLine_text_changed(new_text):
 
 func _on_BeefBuy_pressed():
 	Game.ingred_hndlr.buy_ingredients('Beef', beef_amount)
-	beef_amount = 0
 	beef_line_edit.text = str(beef_amount)
 
 func _on_Beef_minus_pressed():
@@ -104,7 +102,6 @@ func _on_BeefLine_text_changed(new_text):
 
 func _on_PorkBuy_pressed():
 	Game.ingred_hndlr.buy_ingredients('Pork', pork_amount)
-	pork_amount = 0
 	pork_line_edit.text = str(pork_amount)
 
 func _on_Pork_minus_pressed():
@@ -129,7 +126,6 @@ func _on_PorkLine_text_changed(new_text):
 
 func _on_CurryBuy_pressed():
 	Game.ingred_hndlr.buy_ingredients('Curry Powder', curry_amount)
-	curry_amount = 0
 	curry_line_edit.text = str(curry_amount)
 
 func _on_Curry_minus_pressed():

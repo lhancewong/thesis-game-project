@@ -295,4 +295,10 @@ size_flags_stretch_ratio = 0.0
 custom_fonts/font = SubResource( 6 )
 text = "TRASH"
 
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Landfill/InedibleWaste/HBoxContainer/minus" to="." method="_on_inedible_minus_pressed"]
+[connection signal="text_changed" from="VBoxContainer/HBoxContainer/Landfill/InedibleWaste/HBoxContainer/LineEdit" to="." method="_on_inedibleLineEdit_text_changed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Landfill/InedibleWaste/HBoxContainer/plus" to="." method="_on_inedible_plus_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Landfill/EdibleWaste/HBoxContainer/minus" to="." method="_on_edible_minus_pressed"]
+[connection signal="text_changed" from="VBoxContainer/HBoxContainer/Landfill/EdibleWaste/HBoxContainer/LineEdit" to="." method="_on_edibleLineEdit_text_changed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Landfill/EdibleWaste/HBoxContainer/plus" to="." method="_on_edible_plus_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Text/ManagementStrategy2" to="." method="_on_TrashButton_pressed"]
