@@ -18,9 +18,11 @@ func start_day() -> void:
     var customer_amount = rand_range(Game.min_custo,Game.max_custo)
     var steve_harvey
     var terminal
+    var npc_spawner
     if get_tree().current_scene.name == "OnDaylight":
         steve_harvey = get_node("/root/OnDaylight/PauseFrame/SteveHarvey")
         terminal = get_node("/root/OnDaylight/VBoxContainer/HBoxContainer/GameConsole")
+        npc_spawner = get_node("/root/OnDaylight/NPCs/Spawner")
     for i in customer_amount:
         var entry =  create_purchase()
         if entry.empty():
@@ -29,6 +31,7 @@ func start_day() -> void:
             terminal.add_entry(entry)
         
         SoundHandler.get_node("VineBoom").play()
+        npc_spawner.spawnNPC()
         steve_harvey.visible = !steve_harvey.visible
          
         var wait = rand_range(0.7, 1.3) * (day_length/customer_amount)

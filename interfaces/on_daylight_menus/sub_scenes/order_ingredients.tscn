@@ -3,7 +3,7 @@
 [ext_resource path="res://assets/fonts/thin_pixelated.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/fonts/pixelated.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://scripts/guis/order_ingredients.gd" type="Script" id=3]
-[ext_resource path="res://resources/themes/curry/curry.tres" type="Theme" id=6]
+[ext_resource path="res://themes/curry/curry.tres" type="Theme" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 51
@@ -354,13 +354,8 @@ align = 1
 valign = 1
 autowrap = true
 
-<<<<<<< HEAD
-[node name="Amount" type="ColorRect" parent="VBoxContainer/Order/CurryStock"]
-margin_top = 68.0
-=======
 [node name="Amount" type="ColorRect" parent="VBoxContainer/Order/Curry"]
-margin_top = 67.0
->>>>>>> game-scene-RND
+margin_top = 68.0
 margin_right = 177.0
 margin_bottom = 115.0
 size_flags_vertical = 3
@@ -374,13 +369,8 @@ text = "Amount"
 align = 1
 valign = 1
 
-<<<<<<< HEAD
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Order/CurryStock"]
-margin_top = 125.0
-=======
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Order/Curry"]
-margin_top = 123.0
->>>>>>> game-scene-RND
+margin_top = 125.0
 margin_right = 177.0
 margin_bottom = 177.0
 rect_pivot_offset = Vector2( -74, 24 )
@@ -412,13 +402,8 @@ size_flags_horizontal = 3
 custom_fonts/font = SubResource( 8 )
 text = "+"
 
-<<<<<<< HEAD
-[node name="CurryBuy" type="Button" parent="VBoxContainer/Order/CurryStock"]
-margin_top = 187.0
-=======
 [node name="CurryBuy" type="Button" parent="VBoxContainer/Order/Curry"]
-margin_top = 185.0
->>>>>>> game-scene-RND
+margin_top = 187.0
 margin_right = 177.0
 margin_bottom = 238.251
 size_flags_horizontal = 3
@@ -617,38 +602,6 @@ text = "Amount"
 align = 1
 valign = 1
 
-[node name="ChickenSlider" type="HSlider" parent="."]
-margin_left = -272.0
-margin_top = 65.0
-margin_right = -80.0
-margin_bottom = 107.0
-min_value = 1.0
-value = 1.0
-
-[node name="BeefSlider" type="HSlider" parent="."]
-margin_left = -272.0
-margin_top = 110.0
-margin_right = -80.0
-margin_bottom = 152.0
-min_value = 1.0
-value = 1.0
-
-[node name="PorkSlider" type="HSlider" parent="."]
-margin_left = -274.0
-margin_top = 157.0
-margin_right = -82.0
-margin_bottom = 199.0
-min_value = 1.0
-value = 1.0
-
-[node name="CurrySlider" type="HSlider" parent="."]
-margin_left = -274.0
-margin_top = 208.0
-margin_right = -82.0
-margin_bottom = 250.0
-min_value = 1.0
-value = 1.0
-
 [connection signal="pressed" from="VBoxContainer/Order/Chicken/HBoxContainer/minus" to="." method="_on_Chicken_minus_pressed"]
 [connection signal="text_changed" from="VBoxContainer/Order/Chicken/HBoxContainer/LineEdit" to="." method="_on_ChickenLine_text_changed"]
 [connection signal="pressed" from="VBoxContainer/Order/Chicken/HBoxContainer/plus" to="." method="_on_Chicken_plus_pressed"]
@@ -665,7 +618,3 @@ value = 1.0
 [connection signal="text_changed" from="VBoxContainer/Order/Curry/HBoxContainer/LineEdit" to="." method="_on_CurryLine_text_changed"]
 [connection signal="pressed" from="VBoxContainer/Order/Curry/HBoxContainer/Plus" to="." method="_on_Curry_plus_pressed"]
 [connection signal="pressed" from="VBoxContainer/Order/Curry/CurryBuy" to="." method="_on_CurryBuy_pressed"]
-[connection signal="value_changed" from="ChickenSlider" to="." method="_on_ChickenSlider_value_changed"]
-[connection signal="value_changed" from="BeefSlider" to="." method="_on_BeefSlider_value_changed"]
-[connection signal="value_changed" from="PorkSlider" to="." method="_on_PorkSlider_value_changed"]
-[connection signal="value_changed" from="CurrySlider" to="." method="_on_CurrySlider_value_changed"]

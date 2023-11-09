@@ -1,0 +1,65 @@
+extends Node
+
+
+func save():
+    var save_dict = {
+        "money": Game.money,
+        "edible_waste": Game.edible_waste,
+        "inedible_waste": Game.inedible_waste,
+        "satisfaction": Game.satisfaction,
+        "day": Game.day,
+        "min_day": Game.min_day,
+        "max_day": Game.max_day,
+        "min_custo": Game.min_custo,
+        "max_custo": Game.max_custo,
+        "i_stockpile": Game.i_stockpile,
+        "sold_food": Game.sold_food,
+        "waste_managed": Game.waste_managed,
+    }
+    return save_dict
+
+func save_game(num):
+    print('game save')
+    var save_path = "user://savegame%s.save" % num
+    var save_game = File.new()
+    save_game.open(save_path, File.WRITE)
+    # Store the save dictionary as a new line in the save file.
+    save_game.store_line(to_json(save()))
+    save_game.close()
+
+
+func load_game(num):
+    print('game load')
+    var save_path = "user://savegame%s.save" % num
+    var save_game = File.new()
+    if not save_game.file_exists(save_path):
+        return # Error! We don't have a save to load.
+    # Load the file line by line and process that dictionary to restore
+    # the object it represents.
+    save_game.open(save_path, File.READ)
+    while save_game.get_position() < save_game.get_len():
+        # Get the saved dictionary from the next line in the save file
+        var save_data = parse_json(save_game.get_line())
+        # Now we set the remaining variables.
+        for i in save_data.keys():
+            var data = save_data[i]
+            match i:
+                "money" : Game.money = data
+                "edible_waste" : Game.edible_waste = data
+                "inedible_waste" : Game.inedible_waste = data
+                "satisfaction" : Game.satisfaction = data
+                "day" : Game.day = data
+                "min_day" : Game.min_day = data
+                "max_day" : Game.max_day = data
+                "min_custo" : Game.min_custo = data
+                "max_custo" : Game.max_custo = data
+                "i_stockpile" : Game.i_stockpile = data
+                "sold_food" : Game.sold_food = data
+                "waste_managed" : Game.waste_managed = data
+    save_game.close()
+
+
+func delete_save(num):
+    var dir = Directory.new()
+    var save_path = "user://savegame%s.save" % num
+    dir.remove(save_path)

@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://interfaces/on_daylight_menus/NPCs/NPC.gd" type="Script" id=1]
-[ext_resource path="res://assets/images/c11.png" type="Texture" id=2]
+[ext_resource path="res://assets/images/c11.png" type="Texture" id=1]
+[ext_resource path="res://scripts/entities/NPC.gd" type="Script" id=2]
 
 [node name="James" type="PathFollow2D"]
 loop = false
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 
 [node name="C11" type="Sprite" parent="."]
 position = Vector2( -0.141457, 0.222524 )
 scale = Vector2( 0.898663, 0.64095 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )

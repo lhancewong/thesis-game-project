@@ -8,7 +8,7 @@
 [ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/management_strategies/feed_animals.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/fonts/thin_pixelated.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://assets/fonts/pixelated.ttf" type="DynamicFontData" id=8]
-[ext_resource path="res://resources/themes/curry/curry.tres" type="Theme" id=10]
+[ext_resource path="res://themes/curry/curry.tres" type="Theme" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 size = 44

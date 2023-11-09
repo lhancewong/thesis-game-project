@@ -24,7 +24,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/entities/meal.gd"
 }, {
-"base": "Reference",
+"base": "Resource",
 "class": "Restaurant",
 "language": "GDScript",
 "path": "res://scripts/handlers/restaurant_manager.gd"

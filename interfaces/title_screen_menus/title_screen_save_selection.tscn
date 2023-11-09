@@ -3,10 +3,10 @@
 [ext_resource path="res://assets/images/resto_view.png" type="Texture" id=1]
 [ext_resource path="res://assets/fonts/pixelated.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://scripts/guis/title_screen_save_selection.gd" type="Script" id=3]
-[ext_resource path="res://resources/themes/curry/curry.tres" type="Theme" id=4]
-[ext_resource path="res://resources/themes/curry/red.tres" type="Theme" id=5]
+[ext_resource path="res://themes/curry/curry.tres" type="Theme" id=4]
+[ext_resource path="res://themes/curry/red.tres" type="Theme" id=5]
 [ext_resource path="res://assets/images/steve_harvey_naur.png" type="Texture" id=6]
-[ext_resource path="res://resources/themes/curry/blue.tres" type="Theme" id=7]
+[ext_resource path="res://themes/curry/blue.tres" type="Theme" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 128

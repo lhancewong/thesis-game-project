@@ -7,6 +7,7 @@ func _ready():
         save_buttons.append(i.get_node('Save'))
     check_saves()
 
+
 func check_saves():
     for num in 6:
         var save_path = "user://savegame%s.save" % num
@@ -18,16 +19,19 @@ func check_saves():
             button_label = "Load File %s" % (num+1)
         save_buttons[num].text = button_label
 
+
 func save_button_pressed(button_label, num):
     if button_label.begins_with("Save"):
-        Game.save_game(num)
+        Game.save_hndlr.save_game(num)
     elif button_label.begins_with("Load"):
-        Game.load_game(num)
+        Game.save_hndlr.load_game(num)
     get_tree().change_scene("res://interfaces/on_daylight_menus/on_daylight_main.tscn")
+
 
 func _on_ToTitleScreen_pressed():
     if get_tree().change_scene("res://interfaces/title_screen_menus/title_screen_main.tscn") != OK:
         print("An unexpected error occured when trying to switch to the Title Screen scene")
+
 
 func _on_Save1_pressed():
     var button_label = $Background/HBoxContainer/VBoxContainer/GridContainer/File1/Save.text
@@ -54,25 +58,25 @@ func _on_Save6_pressed():
     save_button_pressed(button_label, 5)
 
 func _on_Delete1_pressed():
-    Game.delete_save(0)
+    Game.save_hndlr.delete_save(0)
     check_saves()
 
 func _on_Delete2_pressed():
-    Game.delete_save(1)
+    Game.save_hndlr.delete_save(1)
     check_saves()
 
 func _on_Delete3_pressed():
-    Game.delete_save(2)
+    Game.save_hndlr.delete_save(2)
     check_saves()
 
 func _on_Delete4_pressed():
-    Game.delete_save(3)
+    Game.save_hndlr.delete_save(3)
     check_saves()
 
 func _on_Delete5_pressed():
-    Game.delete_save(4)
+    Game.save_hndlr.delete_save(4)
     check_saves()
 
 func _on_Delete6_pressed():
-    Game.delete_save(5)
+    Game.save_hndlr.delete_save(5)
     check_saves()
