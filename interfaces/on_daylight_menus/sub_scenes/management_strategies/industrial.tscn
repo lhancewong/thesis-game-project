@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/fonts/thin_pixelated.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/fonts/pixelated.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://resources/themes/curry/curry.tres" type="Theme" id=3]
+[ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/management_strategies/industrial.gd" type="Script" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 51
@@ -44,6 +45,7 @@ anchor_bottom = 1.0
 margin_right = -642.0
 margin_bottom = -340.0
 theme = ExtResource( 3 )
+script = ExtResource( 4 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0
@@ -211,3 +213,8 @@ margin_right = 347.0
 margin_bottom = 371.251
 custom_fonts/font = SubResource( 5 )
 text = "Send"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Industrial/Strategy/HBoxContainer/minus" to="." method="_on_minus_pressed"]
+[connection signal="text_changed" from="VBoxContainer/HBoxContainer/Industrial/Strategy/HBoxContainer/LineEdit" to="." method="_on_LineEdit_text_changed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Industrial/Strategy/HBoxContainer/plus" to="." method="_on_plus_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Text/ManagementStrategy2" to="." method="_on_sendButton_pressed"]

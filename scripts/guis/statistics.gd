@@ -20,8 +20,5 @@ onready var waste_cost_label2 = $TabMenu/MoneyStats/VBoxContainer/WasteCost
 onready var management_fee_label = $TabMenu/MoneyStats/VBoxContainer/ManagementFees
 onready var total_expenses_label = $TabMenu/MoneyStats/VBoxContainer/TotalExpenses
 
-# Resources
-export(Resource) var resto
-
 func _physics_process(delta):
-	pass
+    pass

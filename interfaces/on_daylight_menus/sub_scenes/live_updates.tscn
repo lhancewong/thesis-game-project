@@ -1,11 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/fonts/pixelated.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/fonts/thin_pixelated.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://assets/images/live_graphs.png" type="Texture" id=3]
-[ext_resource path="res://interfaces/on_daylight_menus/scripts/live_updates.gd" type="Script" id=4]
-[ext_resource path="res://resources/handlers/restaurant_manager.tres" type="Resource" id=5]
-[ext_resource path="res://resources/handlers/waste_manager.tres" type="Resource" id=6]
+[ext_resource path="res://scripts/guis/live_updates.gd" type="Script" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -22,8 +20,6 @@ anchor_bottom = 0.557
 margin_right = 0.0199585
 margin_bottom = 0.223969
 script = ExtResource( 4 )
-resto = ExtResource( 5 )
-management_handler = ExtResource( 6 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0

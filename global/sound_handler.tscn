@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/audio/stars.ogg" type="AudioStream" id=1]
+[ext_resource path="res://assets/audio/vine_boom.ogg" type="AudioStream" id=2]
+
+[node name="SoundEngine" type="Node"]
+
+[node name="VineBoom" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 2 )
+volume_db = -7.0
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 1 )
+volume_db = -15.0
+autoplay = true

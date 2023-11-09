@@ -1,9 +1,8 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/fonts/pixelated.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/fonts/thin_pixelated.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://interfaces/on_daylight_menus/scripts/subscenes/landfill.gd" type="Script" id=3]
-[ext_resource path="res://resources/handlers/waste_manager.tres" type="Resource" id=4]
+[ext_resource path="res://scripts/guis/landfill.gd" type="Script" id=3]
 [ext_resource path="res://resources/themes/curry/curry.tres" type="Theme" id=5]
 
 [sub_resource type="DynamicFont" id=1]
@@ -48,7 +47,6 @@ margin_right = 0.0199585
 margin_bottom = 0.223969
 theme = ExtResource( 5 )
 script = ExtResource( 3 )
-waste_handler = ExtResource( 4 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0
@@ -298,4 +296,10 @@ size_flags_stretch_ratio = 0.0
 custom_fonts/font = SubResource( 6 )
 text = "TRASH"
 
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Landfill/InedibleWaste/HBoxContainer/minus" to="." method="_on_inedible_minus_pressed"]
+[connection signal="text_changed" from="VBoxContainer/HBoxContainer/Landfill/InedibleWaste/HBoxContainer/LineEdit" to="." method="_on_inedibleLineEdit_text_changed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Landfill/InedibleWaste/HBoxContainer/plus" to="." method="_on_inedible_plus_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Landfill/EdibleWaste/HBoxContainer/minus" to="." method="_on_edible_minus_pressed"]
+[connection signal="text_changed" from="VBoxContainer/HBoxContainer/Landfill/EdibleWaste/HBoxContainer/LineEdit" to="." method="_on_edibleLineEdit_text_changed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Landfill/EdibleWaste/HBoxContainer/plus" to="." method="_on_edible_plus_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Text/ManagementStrategy2" to="." method="_on_TrashButton_pressed"]
