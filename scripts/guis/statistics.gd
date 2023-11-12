@@ -20,5 +20,35 @@ onready var waste_cost_label2 = $TabMenu/MoneyStats/VBoxContainer/WasteCost
 onready var management_fee_label = $TabMenu/MoneyStats/VBoxContainer/ManagementFees
 onready var total_expenses_label = $TabMenu/MoneyStats/VBoxContainer/TotalExpenses
 
+# Sold Food Tab
+onready var sold_food_label = $TabMenu/SoldFood/SoldFoodTable
+onready var managed_waste_label = $TabMenu/ManagedWaste/ManagedWasteTable
+
 func _physics_process(delta):
     pass
+
+func _ready():
+    set_sold_food_table()
+    set_managed_waste_table()
+
+func set_sold_food_table():
+    sold_food_label.append_bbcode("[table=8]")
+    for entry in Game.sold_food:
+        for j in entry.values():
+            sold_food_label.append_bbcode("[cell] %s [/cell]" % j)
+    sold_food_label.append_bbcode("[/table]")
+
+func set_managed_waste_table():
+    managed_waste_label.append_bbcode("[table=4]")
+    for entry in Game.waste_managed:
+        for j in entry:
+            managed_waste_label.append_bbcode("[cell] %s [/cell]" % j)
+    managed_waste_label.append_bbcode("[/table]")
+
+func add_sold_food(entry):
+    for j in entry.values():
+        sold_food_label.append_bbcode("[cell] %s [/cell]" % j)
+
+func add_managed_waste(entry):
+    for j in entry:
+            managed_waste_label.append_bbcode("[cell] %s [/cell]" % j)

@@ -8,8 +8,8 @@ func save():
         "inedible_waste": Game.inedible_waste,
         "satisfaction": Game.satisfaction,
         "day": Game.day,
-        "min_day": Game.min_day,
-        "max_day": Game.max_day,
+        "min_day_len": Game.min_day_len,
+        "max_day_len": Game.max_day_len,
         "min_custo": Game.min_custo,
         "max_custo": Game.max_custo,
         "i_stockpile": Game.i_stockpile,
@@ -49,8 +49,8 @@ func load_game(num):
                 "inedible_waste" : Game.inedible_waste = data
                 "satisfaction" : Game.satisfaction = data
                 "day" : Game.day = data
-                "min_day" : Game.min_day = data
-                "max_day" : Game.max_day = data
+                "min_day_len" : Game.min_day_len = data
+                "max_day_len" : Game.max_day_len = data
                 "min_custo" : Game.min_custo = data
                 "max_custo" : Game.max_custo = data
                 "i_stockpile" : Game.i_stockpile = data

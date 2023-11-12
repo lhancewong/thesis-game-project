@@ -23,8 +23,8 @@ var i_stockpile = {
 }
 
 # Game behavior
-var min_day = 6
-var max_day = 10
+var min_day_len = 6
+var max_day_len = 10
 var min_custo = 5
 var max_custo = 10
 
@@ -68,3 +68,7 @@ func get_str_waste() -> String:
 
 func get_str_satisfaction() -> String:
     return make_pretty_num(satisfaction)
+
+func on_day_end():
+    min_custo = 5 + day
+    max_custo = 10 + day

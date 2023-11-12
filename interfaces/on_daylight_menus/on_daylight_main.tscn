@@ -329,7 +329,7 @@ size_flags_stretch_ratio = 0.1
 custom_constants/separation = 20
 alignment = 2
 
-[node name="Debug" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="Debug" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer" groups=["Debug"]]
 margin_right = 117.0
 margin_bottom = 50.251
 size_flags_horizontal = 3
@@ -362,7 +362,7 @@ custom_fonts/font = SubResource( 2 )
 text = "Start Day"
 expand_icon = true
 
-[node name="GameConsole" parent="VBoxContainer/HBoxContainer" instance=ExtResource( 3 )]
+[node name="GameConsole" parent="VBoxContainer/HBoxContainer" groups=["Debug"] instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 0.0
