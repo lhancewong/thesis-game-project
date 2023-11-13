@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://scripts/guis/on_daylight_main.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/pixelated.ttf" type="DynamicFontData" id=2]
@@ -8,13 +8,39 @@
 [ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/statistics.tscn" type="PackedScene" id=6]
 [ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/live_updates.tscn" type="PackedScene" id=7]
 [ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/order_ingredients.tscn" type="PackedScene" id=8]
-[ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/prepare_ingredients.tscn" type="PackedScene" id=9]
+[ext_resource path="res://entities/NPCs/Rob.tscn" type="PackedScene" id=9]
 [ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/tech_upgrades.tscn" type="PackedScene" id=10]
 [ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/management_main.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/images/harvey.png" type="Texture" id=12]
-[ext_resource path="res://resources/themes/curry/curry.tres" type="Theme" id=17]
-[ext_resource path="res://resources/themes/curry/green.tres" type="Theme" id=18]
-[ext_resource path="res://resources/themes/curry/red.tres" type="Theme" id=19]
+[ext_resource path="res://entities/NPCs/Sam.tscn" type="PackedScene" id=13]
+[ext_resource path="res://entities/NPCs/Mary.tscn" type="PackedScene" id=14]
+[ext_resource path="res://entities/NPCs/Ken.tscn" type="PackedScene" id=15]
+[ext_resource path="res://entities/NPCs/Amy.tscn" type="PackedScene" id=16]
+[ext_resource path="res://themes/curry/curry.tres" type="Theme" id=17]
+[ext_resource path="res://themes/curry/green.tres" type="Theme" id=18]
+[ext_resource path="res://themes/curry/red.tres" type="Theme" id=19]
+[ext_resource path="res://assets/images/resto_view.png" type="Texture" id=20]
+[ext_resource path="res://scripts/entities/Spawner.gd" type="Script" id=21]
+[ext_resource path="res://entities/NPCs/Tyrone.tscn" type="PackedScene" id=22]
+[ext_resource path="res://entities/NPCs/Jerome.tscn" type="PackedScene" id=23]
+[ext_resource path="res://entities/NPCs/Matt.tscn" type="PackedScene" id=24]
+[ext_resource path="res://entities/NPCs/Hugh.tscn" type="PackedScene" id=25]
+[ext_resource path="res://entities/NPCs/Tessa.tscn" type="PackedScene" id=26]
+[ext_resource path="res://entities/NPCs/Harry.tscn" type="PackedScene" id=27]
+[ext_resource path="res://entities/NPCs/Layla.tscn" type="PackedScene" id=28]
+[ext_resource path="res://entities/NPCs/Ted.tscn" type="PackedScene" id=29]
+[ext_resource path="res://entities/NPCs/James.tscn" type="PackedScene" id=30]
+[ext_resource path="res://entities/NPCs/John.tscn" type="PackedScene" id=31]
+[ext_resource path="res://entities/NPCs/Mona.tscn" type="PackedScene" id=32]
+[ext_resource path="res://entities/NPCs/Lisa.tscn" type="PackedScene" id=33]
+[ext_resource path="res://entities/NPCs/Chris.tscn" type="PackedScene" id=34]
+[ext_resource path="res://entities/NPCs/Jared.tscn" type="PackedScene" id=35]
+[ext_resource path="res://entities/NPCs/Steve.tscn" type="PackedScene" id=36]
+[ext_resource path="res://entities/NPCs/Justine.tscn" type="PackedScene" id=37]
+[ext_resource path="res://entities/NPCs/Dorothea.tscn" type="PackedScene" id=38]
+[ext_resource path="res://entities/NPCs/Alan.tscn" type="PackedScene" id=39]
+[ext_resource path="res://entities/NPCs/Carmella.tscn" type="PackedScene" id=40]
+[ext_resource path="res://entities/NPCs/Serena.tscn" type="PackedScene" id=41]
 
 [sub_resource type="DynamicFont" id=4]
 size = 18
@@ -33,6 +59,11 @@ font_data = ExtResource( 2 )
 [sub_resource type="DynamicFont" id=5]
 size = 48
 font_data = ExtResource( 2 )
+
+[sub_resource type="Curve2D" id=6]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 813, 597, 0, 0, 0, 0, 1078, 492, 0, 0, 0, 0, 1334, 593 )
+}
 
 [node name="OnDaylight" type="Control"]
 anchor_right = 1.0
@@ -188,30 +219,9 @@ align = 1
 valign = 1
 autowrap = true
 
-[node name="PrepareIngredients" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu icons/HBoxContainer"]
+[node name="TechUpgrades" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu icons/HBoxContainer"]
 margin_left = 220.0
 margin_right = 320.0
-margin_bottom = 91.0
-rect_min_size = Vector2( 100, 91 )
-size_flags_stretch_ratio = 0.15
-theme = SubResource( 1 )
-clip_text = true
-icon_align = 1
-expand_icon = true
-
-[node name="ButtonLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu icons/HBoxContainer/PrepareIngredients"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 3 )
-text = "Prepare Ingredients"
-align = 1
-valign = 1
-autowrap = true
-
-[node name="TechUpgrades" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu icons/HBoxContainer"]
-margin_left = 330.0
-margin_right = 430.0
 margin_bottom = 91.0
 rect_min_size = Vector2( 100, 91 )
 size_flags_stretch_ratio = 0.15
@@ -231,8 +241,8 @@ valign = 1
 autowrap = true
 
 [node name="Statistics" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu icons/HBoxContainer"]
-margin_left = 440.0
-margin_right = 540.0
+margin_left = 330.0
+margin_right = 430.0
 margin_bottom = 91.0
 rect_min_size = Vector2( 100, 91 )
 size_flags_stretch_ratio = 0.15
@@ -252,8 +262,8 @@ valign = 1
 autowrap = true
 
 [node name="Management" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu icons/HBoxContainer"]
-margin_left = 550.0
-margin_right = 650.0
+margin_left = 440.0
+margin_right = 540.0
 margin_bottom = 91.0
 rect_min_size = Vector2( 100, 91 )
 size_flags_stretch_ratio = 0.15
@@ -301,10 +311,6 @@ anchor_bottom = 0.0
 margin_right = 724.0
 margin_bottom = 424.0
 
-[node name="PrepareIngredients" parent="VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer" instance=ExtResource( 9 )]
-visible = false
-margin_bottom = 424.0
-
 [node name="TechUpgrades" parent="VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer" instance=ExtResource( 10 )]
 visible = false
 anchor_right = 0.0
@@ -333,7 +339,7 @@ size_flags_stretch_ratio = 0.1
 custom_constants/separation = 20
 alignment = 2
 
-[node name="Debug" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="Debug" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer" groups=["Debug"]]
 margin_right = 117.0
 margin_bottom = 50.251
 size_flags_horizontal = 3
@@ -366,7 +372,7 @@ custom_fonts/font = SubResource( 2 )
 text = "Start Day"
 expand_icon = true
 
-[node name="GameConsole" parent="VBoxContainer/HBoxContainer" instance=ExtResource( 3 )]
+[node name="GameConsole" parent="VBoxContainer/HBoxContainer" groups=["Debug"] instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 0.0
@@ -377,6 +383,7 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.43
 
 [node name="PauseFrame" type="ColorRect" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.25098, 0.25098, 0.25098, 0.411765 )
@@ -408,9 +415,150 @@ text = "Serving Customers..."
 align = 1
 valign = 1
 
+[node name="RestaurantView" type="TextureRect" parent="."]
+margin_left = 784.0
+margin_top = 104.0
+margin_right = 1346.0
+margin_bottom = 749.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.43
+texture = ExtResource( 20 )
+expand = true
+
+[node name="NPCs" type="Node2D" parent="."]
+
+[node name="Spawner" type="Path2D" parent="NPCs"]
+curve = SubResource( 6 )
+script = ExtResource( 21 )
+
+[node name="Tyrone" parent="NPCs/Spawner" instance=ExtResource( 22 )]
+visible = false
+position = Vector2( 813, 597 )
+rotation = -0.377259
+
+[node name="Jerome" parent="NPCs/Spawner" instance=ExtResource( 23 )]
+visible = false
+position = Vector2( 813, 597 )
+rotation = -0.377259
+
+[node name="Matt" parent="NPCs/Spawner" instance=ExtResource( 24 )]
+visible = false
+position = Vector2( 813, 597 )
+rotation = -0.377259
+
+[node name="Layla" parent="NPCs/Spawner" instance=ExtResource( 28 )]
+visible = false
+position = Vector2( 813, 597 )
+rotation = -0.377259
+
+[node name="Harry" parent="NPCs/Spawner" instance=ExtResource( 27 )]
+visible = false
+position = Vector2( 813, 597 )
+rotation = -0.377259
+
+[node name="Tessa" parent="NPCs/Spawner" instance=ExtResource( 26 )]
+visible = false
+position = Vector2( 813, 597 )
+rotation = -0.377259
+
+[node name="Hugh" parent="NPCs/Spawner" instance=ExtResource( 25 )]
+visible = false
+position = Vector2( 813, 597 )
+rotation = -0.377259
+
+[node name="John" parent="NPCs/Spawner" instance=ExtResource( 31 )]
+visible = false
+position = Vector2( 813, 597 )
+rotation = -0.377259
+
+[node name="Chris" parent="NPCs/Spawner" instance=ExtResource( 34 )]
+visible = false
+position = Vector2( 813, 597 )
+rotation = -0.377259
+
+[node name="James" parent="NPCs/Spawner" instance=ExtResource( 30 )]
+visible = false
+position = Vector2( 813, 597 )
+rotation = -0.377259
+
+[node name="Jared" parent="NPCs/Spawner" instance=ExtResource( 35 )]
+visible = false
+position = Vector2( 813, 597 )
+rotation = -0.377259
+
+[node name="Ted" parent="NPCs/Spawner" instance=ExtResource( 29 )]
+visible = false
+position = Vector2( 813, 597 )
+rotation = -0.377259
+
+[node name="Steve" parent="NPCs/Spawner" instance=ExtResource( 36 )]
+visible = false
+position = Vector2( 813, 597 )
+rotation = -0.377259
+
+[node name="Mona" parent="NPCs/Spawner" instance=ExtResource( 32 )]
+visible = false
+position = Vector2( 813, 597 )
+rotation = -0.377259
+
+[node name="Lisa" parent="NPCs/Spawner" instance=ExtResource( 33 )]
+visible = false
+position = Vector2( 813, 597 )
+rotation = -0.377259
+
+[node name="Rob" parent="NPCs/Spawner" instance=ExtResource( 9 )]
+visible = false
+position = Vector2( 813, 597 )
+rotation = -0.377259
+
+[node name="Mary" parent="NPCs/Spawner" instance=ExtResource( 14 )]
+visible = false
+position = Vector2( 813, 597 )
+rotation = -0.377259
+
+[node name="Ken" parent="NPCs/Spawner" instance=ExtResource( 15 )]
+visible = false
+position = Vector2( 813, 597 )
+rotation = -0.377259
+
+[node name="Alan" parent="NPCs/Spawner" instance=ExtResource( 39 )]
+visible = false
+position = Vector2( 813, 597 )
+rotation = -0.377259
+
+[node name="Justine" parent="NPCs/Spawner" instance=ExtResource( 37 )]
+visible = false
+position = Vector2( 813, 597 )
+rotation = -0.377259
+
+[node name="Dorothea" parent="NPCs/Spawner" instance=ExtResource( 38 )]
+visible = false
+position = Vector2( 813, 597 )
+rotation = -0.377259
+
+[node name="Carmella" parent="NPCs/Spawner" instance=ExtResource( 40 )]
+visible = false
+position = Vector2( 813, 597 )
+rotation = -0.377259
+
+[node name="Sam" parent="NPCs/Spawner" instance=ExtResource( 13 )]
+visible = false
+position = Vector2( 813, 597 )
+rotation = -0.377259
+
+[node name="Amy" parent="NPCs/Spawner" instance=ExtResource( 16 )]
+visible = false
+position = Vector2( 813, 597 )
+rotation = -0.377259
+
+[node name="Serena" parent="NPCs/Spawner" instance=ExtResource( 41 )]
+visible = false
+position = Vector2( 813, 597 )
+rotation = -0.377259
+
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/menu icons/HBoxContainer/LiveUpdatingStats" to="." method="_on_LiveUpdatingStats_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/menu icons/HBoxContainer/OrderIngredients" to="." method="_on_OrderIngredients_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/menu icons/HBoxContainer/PrepareIngredients" to="." method="_on_PrepareIngredients_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/menu icons/HBoxContainer/TechUpgrades" to="." method="_on_TechUpgrades_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/menu icons/HBoxContainer/Statistics" to="." method="_on_Statistics_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/menu icons/HBoxContainer/Management" to="." method="_on_Management_pressed"]

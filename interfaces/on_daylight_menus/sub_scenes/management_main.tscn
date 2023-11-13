@@ -8,7 +8,7 @@
 [ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/management_strategies/feed_animals.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/fonts/thin_pixelated.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://assets/fonts/pixelated.ttf" type="DynamicFontData" id=8]
-[ext_resource path="res://resources/themes/curry/curry.tres" type="Theme" id=10]
+[ext_resource path="res://themes/curry/curry.tres" type="Theme" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 size = 44
@@ -91,7 +91,7 @@ color = Color( 0.980392, 0.854902, 0.368627, 1 )
 [node name="Label" type="Label" parent="MainScreen/VBoxContainer/ContentFrame/Inedible Waste/Waste/Waste"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 2 )
 text = "Inedible Waste"
 align = 1

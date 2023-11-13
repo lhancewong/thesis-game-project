@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/fonts/thin_pixelated.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/fonts/pixelated.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://themes/curry/curry.tres" type="Theme" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 51
@@ -27,6 +28,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = -642.0
 margin_bottom = -340.0
+theme = ExtResource( 3 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0
@@ -36,6 +38,7 @@ anchor_bottom = 1.0
 margin_right = 724.0
 margin_bottom = 47.0
 size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "Waste Management Tree"
 align = 1
@@ -70,11 +73,12 @@ margin_bottom = 110.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
-color = Color( 0.262745, 0.262745, 0.262745, 1 )
+color = Color( 0.980392, 0.854902, 0.368627, 1 )
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/FeedCompost/Animal/Strat"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
 custom_fonts/font = SubResource( 7 )
 text = "Feed
 Animals"
@@ -89,11 +93,12 @@ margin_bottom = 110.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
-color = Color( 0.262745, 0.262745, 0.262745, 1 )
+color = Color( 0.980392, 0.854902, 0.368627, 1 )
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/FeedCompost/Animal/Icon"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
 custom_fonts/font = SubResource( 7 )
 text = "Icon"
 align = 1
@@ -124,11 +129,12 @@ margin_bottom = 111.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
-color = Color( 0.262745, 0.262745, 0.262745, 1 )
+color = Color( 0.980392, 0.854902, 0.368627, 1 )
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/FeedCompost/Compost/Strat"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
 custom_fonts/font = SubResource( 7 )
 text = "Compost"
 align = 1
@@ -142,11 +148,12 @@ margin_bottom = 111.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
-color = Color( 0.262745, 0.262745, 0.262745, 1 )
+color = Color( 0.980392, 0.854902, 0.368627, 1 )
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/FeedCompost/Compost/Icon"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
 custom_fonts/font = SubResource( 7 )
 text = "Icon"
 align = 1
@@ -184,11 +191,12 @@ margin_bottom = 110.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
-color = Color( 0.262745, 0.262745, 0.262745, 1 )
+color = Color( 0.980392, 0.854902, 0.368627, 1 )
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/ShelterIndus/Shelter/Strat"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
 custom_fonts/font = SubResource( 7 )
 text = "Food
 Shelter"
@@ -203,11 +211,12 @@ margin_bottom = 110.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
-color = Color( 0.262745, 0.262745, 0.262745, 1 )
+color = Color( 0.980392, 0.854902, 0.368627, 1 )
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/ShelterIndus/Shelter/Icon"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
 custom_fonts/font = SubResource( 7 )
 text = "Icon"
 align = 1
@@ -238,11 +247,12 @@ margin_bottom = 111.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
-color = Color( 0.262745, 0.262745, 0.262745, 1 )
+color = Color( 0.980392, 0.854902, 0.368627, 1 )
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/ShelterIndus/Industrial/Strat"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
 custom_fonts/font = SubResource( 7 )
 text = "Industrial"
 align = 1
@@ -256,11 +266,12 @@ margin_bottom = 111.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
-color = Color( 0.262745, 0.262745, 0.262745, 1 )
+color = Color( 0.980392, 0.854902, 0.368627, 1 )
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/ShelterIndus/Industrial/Icon"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
 custom_fonts/font = SubResource( 7 )
 text = "Icon"
 align = 1
@@ -292,13 +303,13 @@ margin_bottom = 307.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.55
-color = Color( 0.262745, 0.262745, 0.262745, 1 )
 
 [node name="Info" type="Label" parent="VBoxContainer/HBoxContainer/Text/Text Info"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 20.0
 margin_right = -20.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 5 )
 text = "TIP:
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.

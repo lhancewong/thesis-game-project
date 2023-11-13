@@ -23,8 +23,8 @@ var i_stockpile = {
 }
 
 # Game behavior
-var min_day = 6
-var max_day = 10
+var min_day_len = 6
+var max_day_len = 10
 var min_custo = 5
 var max_custo = 10
 
@@ -37,6 +37,7 @@ onready var ingred_hndlr = $Ingredient
 onready var purchase_hndlr = $Purchase
 onready var custo_hndlr = $Customer
 onready var food_hndlr = $Food
+onready var save_hndlr = $Save
 
 # Entries
 var sold_food: Array
@@ -68,71 +69,6 @@ func get_str_waste() -> String:
 func get_str_satisfaction() -> String:
     return make_pretty_num(satisfaction)
 
-func save():
-    var save_dict = {
-        "money": money,
-        "edible_waste": edible_waste,
-        "inedible_waste": inedible_waste,
-        "satisfaction": satisfaction,
-        "day": day,
-        "min_day": min_day,
-        "max_day": max_day,
-        "min_custo": min_custo,
-        "max_custo": max_custo,
-        "i_stockpile": i_stockpile,
-        "sold_food": sold_food,
-        "waste_managed": waste_managed,
-    }
-    return save_dict
-
-# Note: This can be called from anywhere inside the tree. This function is
-# path independent.
-# Go through everything in the persist category and ask them to return a
-# dict of relevant variables.
-func save_game(num):
-    print('game save')
-    var save_path = "user://savegame%s.save" % num
-    var save_game = File.new()
-    save_game.open(save_path, File.WRITE)
-    # Store the save dictionary as a new line in the save file.
-    save_game.store_line(to_json(save()))
-    save_game.close()
-
-# Note: This can be called from anywhere inside the tree. This function
-# is path independent.
-func load_game(num):
-    print('game load')
-    var save_path = "user://savegame%s.save" % num
-    var save_game = File.new()
-    if not save_game.file_exists(save_path):
-        return # Error! We don't have a save to load.
-    # Load the file line by line and process that dictionary to restore
-    # the object it represents.
-    save_game.open(save_path, File.READ)
-    while save_game.get_position() < save_game.get_len():
-        # Get the saved dictionary from the next line in the save file
-        var save_data = parse_json(save_game.get_line())
-        # Now we set the remaining variables.
-        for i in save_data.keys():
-            print(i)
-            var data = save_data[i]
-            match i:
-                "money" : money = data
-                "edible_waste" : edible_waste = data
-                "inedible_waste" : inedible_waste = data
-                "satisfaction" : satisfaction = data
-                "day" : day = data
-                "min_day" : min_day = data
-                "max_day" : max_day = data
-                "min_custo" : min_custo = data
-                "max_custo" : max_custo = data
-                "i_stockpile" : i_stockpile = data
-                "sold_food" : sold_food = data
-                "waste_managed" : waste_managed = data
-    save_game.close()
-
-
-func delete_save(num):
-    var dir = Directory.new()
-    var save_path = "user://savegame%s.save" % num
-    dir.remove(save_path)
+func on_day_end():
+    min_custo = 5 + day
+    max_custo = 10 + day

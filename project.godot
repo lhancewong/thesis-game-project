@@ -9,22 +9,22 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Reference",
+"base": "Resource",
 "class": "Customer",
 "language": "GDScript",
 "path": "res://scripts/entities/customer.gd"
 }, {
-"base": "Reference",
+"base": "Resource",
 "class": "Ingredient",
 "language": "GDScript",
 "path": "res://scripts/entities/ingredient.gd"
 }, {
-"base": "Reference",
+"base": "Resource",
 "class": "Meal",
 "language": "GDScript",
 "path": "res://scripts/entities/meal.gd"
 }, {
-"base": "Reference",
+"base": "Resource",
 "class": "Restaurant",
 "language": "GDScript",
 "path": "res://scripts/handlers/restaurant_manager.gd"
@@ -38,7 +38,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Thesis-game-project"
+config/name="Thesis Game"
 run/main_scene="res://interfaces/title_screen_menus/title_screen_main.tscn"
 
 [autoload]

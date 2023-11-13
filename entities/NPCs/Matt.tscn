@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/images/c3.png" type="Texture" id=1]
+[ext_resource path="res://scripts/entities/NPC.gd" type="Script" id=2]
+
+[node name="Matt" type="PathFollow2D"]
+loop = false
+script = ExtResource( 2 )
+
+[node name="C3" type="Sprite" parent="."]
+position = Vector2( 1, 12 )
+scale = Vector2( 0.640983, 0.596525 )
+texture = ExtResource( 1 )

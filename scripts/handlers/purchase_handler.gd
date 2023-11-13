@@ -1,6 +1,7 @@
 extends Node
 
 export(Resource) var CUSTO 
+signal day_completed
 
 # Sibling Nodes
 onready var food_hndlr = $"../Food"
@@ -14,28 +15,33 @@ func _noisefy(num: float):
 
 # Handles a customer buying a food item
 func start_day() -> void:
-    var day_length = rand_range(Game.min_day,Game.max_day)
+    var day_length = rand_range(Game.min_day_len,Game.max_day_len)
     var customer_amount = rand_range(Game.min_custo,Game.max_custo)
     var steve_harvey
     var terminal
+    var npc_spawner
     if get_tree().current_scene.name == "OnDaylight":
         steve_harvey = get_node("/root/OnDaylight/PauseFrame/SteveHarvey")
         terminal = get_node("/root/OnDaylight/VBoxContainer/HBoxContainer/GameConsole")
+        npc_spawner = get_node("/root/OnDaylight/NPCs/Spawner")
     for i in customer_amount:
-        var entry =  create_purchase()
+        var entry =  _create_purchase()
         if entry.empty():
             terminal.add_text("No Food!")
         elif get_tree().current_scene.name == "OnDaylight":
             terminal.add_entry(entry)
         
         SoundHandler.get_node("VineBoom").play()
+        npc_spawner.spawnNPC()
         steve_harvey.visible = !steve_harvey.visible
          
         var wait = rand_range(0.7, 1.3) * (day_length/customer_amount)
         yield(get_tree().create_timer(wait), "timeout")
-    emit_signal("completed")
+        
+    Game.on_day_end()
+    emit_signal("day_completed")
 
-func create_purchase() -> Dictionary:
+func _create_purchase() -> Dictionary:
     food_hndlr.update_cookable_food()
     
     var customer = custo_hndler.get_rand_customer()
@@ -51,13 +57,11 @@ func create_purchase() -> Dictionary:
     var entry = create_sold_food(food, customer)
     _add_purchase(entry)
     
-    food_hndlr.update_cookable_food()
-    
     return entry
 
 func _add_purchase(entry: Dictionary) -> void:
     Game.money += entry.food_payment
-    waste_hndlr.add_waste(randi()%2, entry["waste"])
+    waste_hndlr.add_waste(entry["waste_type"], entry["waste_amnt"])
     Game.satisfaction += entry.satisfaction
 
 func create_sold_food(food: Dictionary, customer: Dictionary) -> Dictionary:
@@ -67,14 +71,17 @@ func create_sold_food(food: Dictionary, customer: Dictionary) -> Dictionary:
     
     var customer_type = customer.type
     var waste_amnt = int(_noisefy(CUSTO.BASE_WASTE * customer.waste_factor))
+    var waste_type = randi()%2
     var satisfaction_amnt = _noisefy(CUSTO.BASE_SATISFACTION * customer.satisfaction_factor)
     
     var entry = {
+        "day": Game.day,
         "food_id": food_id,
         "food_type": food_type,
         "food_payment": food_payment,
         "customer": customer_type,
-        "waste": waste_amnt,
+        "waste_type": waste_type,
+        "waste_amnt": waste_amnt,
         "satisfaction": satisfaction_amnt,
     }
     
