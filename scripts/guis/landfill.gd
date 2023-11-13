@@ -1,9 +1,9 @@
 extends Node
 var regex = RegEx.new()
-var edibleToLandfill = 0
-var inedibleToLandfill = 0
-var edible_waste_amount = 0
-var inedible_waste_amount = 0
+var edibleToLandfill: int = 0
+var inedibleToLandfill: int = 0
+var edible_waste_amount: int = 0
+var inedible_waste_amount: int = 0
 var inedible_oldtext = ""
 var edible_oldtext = ""
 
@@ -15,14 +15,15 @@ onready var edibleActionLineEdit = $VBoxContainer/HBoxContainer/Landfill/EdibleW
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_update_labels()
+	regex.compile("^[0-9]*$")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	_update_labels()
 
 func _update_labels():
-	edible_waste_amount = Game.waste_hndlr.get_edible_waste()
-	inedible_waste_amount = Game.waste_hndlr.get_inedible_waste()
+	edible_waste_amount = int(Game.waste_hndlr.get_edible_waste())
+	inedible_waste_amount = int(Game.waste_hndlr.get_inedible_waste())
 	$VBoxContainer/HBoxContainer/Landfill/InedibleWaste/Amount/InedibleAmnt.text = str(inedible_waste_amount)
 	$VBoxContainer/HBoxContainer/Landfill/EdibleWaste/Amount/EdibleAmnt.text = str(edible_waste_amount) 
 	$VBoxContainer/HBoxContainer/Landfill/TotalWaste/Amount/MgmtLabel2.text = str(edibleToLandfill + inedibleToLandfill)
@@ -55,7 +56,7 @@ func _on_inedible_minus_pressed():
 
 
 func _on_inedible_plus_pressed():
-	if inedibleToLandfill < int(inedible_waste_amount):
+	if inedibleToLandfill < inedible_waste_amount:
 		inedibleToLandfill += 1
 		inedibleActionLineEdit.text = str(inedibleToLandfill)
 	else:
@@ -64,8 +65,17 @@ func _on_inedible_plus_pressed():
 
 func _on_inedibleLineEdit_text_changed(new_text):
 	if regex.search(new_text):
+		print("inedibleaccept")
 		inedible_oldtext = str(new_text)
+		if int(new_text) > inedible_waste_amount:
+			print("overload")
+			new_text = inedible_waste_amount
+		inedible_oldtext = str(new_text)
+		inedibleToLandfill = int(new_text)
+		inedibleActionLineEdit.text = inedible_oldtext
+		inedibleActionLineEdit.set_cursor_position(inedibleActionLineEdit.text.length())
 	else:
+		print("inediblerejet")
 		inedibleActionLineEdit.text = inedible_oldtext
 		inedibleActionLineEdit.set_cursor_position(inedibleActionLineEdit.text.length())
 
@@ -81,7 +91,7 @@ func _on_edible_minus_pressed():
 
 
 func _on_edible_plus_pressed():
-	if edibleToLandfill < int(edible_waste_amount):
+	if edibleToLandfill < edible_waste_amount:
 		edibleToLandfill += 1
 		edibleActionLineEdit.text = str(edibleToLandfill)
 	else:
@@ -90,7 +100,13 @@ func _on_edible_plus_pressed():
 
 func _on_edibleLineEdit_text_changed(new_text):
 	if regex.search(new_text):
+		if int(new_text) > edible_waste_amount:
+			print("overload")
+			new_text = edible_waste_amount
 		edible_oldtext = str(new_text)
+		edibleToLandfill = int(new_text)
+		edibleActionLineEdit.text = edible_oldtext
+		edibleActionLineEdit.set_cursor_position(edibleActionLineEdit.text.length())
 	else:
 		edibleActionLineEdit.text = edible_oldtext
 		edibleActionLineEdit.set_cursor_position(edibleActionLineEdit.text.length())
