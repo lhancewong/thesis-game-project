@@ -9,17 +9,17 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Reference",
+"base": "Resource",
 "class": "Customer",
 "language": "GDScript",
 "path": "res://scripts/entities/customer.gd"
 }, {
-"base": "Reference",
+"base": "Resource",
 "class": "Ingredient",
 "language": "GDScript",
 "path": "res://scripts/entities/ingredient.gd"
 }, {
-"base": "Reference",
+"base": "Resource",
 "class": "Meal",
 "language": "GDScript",
 "path": "res://scripts/entities/meal.gd"
