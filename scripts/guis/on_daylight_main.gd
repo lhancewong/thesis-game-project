@@ -18,11 +18,11 @@ onready var sub_scenes_list = [
 ]
 
 func _ready():
-    Game.before_day_start()
-    _toggle_show_sub_scene(live_updates)
-    $PauseFrame.hide()
-    $PauseFrame/SteveHarvey.hide()
-    set_physics_process(true)
+  Game.before_day_start()
+  _toggle_show_sub_scene(live_updates)
+  $PauseFrame.hide()
+  $PauseFrame/SteveHarvey.hide()
+  set_physics_process(true)
 
 func _physics_process(delta):
   $VBoxContainer/topbar/HBoxContainer/Day.text = "Day " + str(Game.day)
@@ -39,8 +39,8 @@ func _toggle_show_sub_scene(sub_scene_name):
       desired_sub_scene = i
     else:
       i.hide()
-  
-  desired_sub_scene.show()
+    
+    desired_sub_scene.show()
 
 # Button Signals
 func _on_Debug_pressed():

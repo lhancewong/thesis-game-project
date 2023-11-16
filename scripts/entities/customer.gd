@@ -9,7 +9,7 @@ export(Dictionary) var tourist = {
   "id": 1,
   "type": "tourist",
   "waste_factor": 1.25,
-  "satisfaction_factor": 0.60,
+  "satisfaction_factor": 0.60
 }
 
 export(Dictionary) var regular = {

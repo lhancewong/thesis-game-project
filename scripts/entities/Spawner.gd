@@ -31,16 +31,16 @@ var Serena = preload("res://entities/NPCs/Serena.tscn")
 
 
 var npcArray = [Tyrone, Jerome, Matt, Layla, Harry, 
-				Tessa, Hugh, John, Chris, James, 
-				Jared, Ted, Mona, Lisa, Rob,
-				Mary, Ken, Alan, Justine, Dorothea,
-				Carmella, Sam, Amy, Serena, Steve]
+        Tessa, Hugh, John, Chris, James, 
+        Jared, Ted, Mona, Lisa, Rob,
+        Mary, Ken, Alan, Justine, Dorothea,
+        Carmella, Sam, Amy, Serena, Steve]
 
 func spawnNPC():
-	var randomIndex = randi() % npcArray.size() 
-	var NPC = npcArray[randomIndex] 
-	var newNPC = NPC.instance()
-	add_child(newNPC)
+  var randomIndex = randi() % npcArray.size() 
+  var NPC = npcArray[randomIndex] 
+  var newNPC = NPC.instance()
+  add_child(newNPC)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

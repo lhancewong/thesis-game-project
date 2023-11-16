@@ -9,8 +9,7 @@ export(Dictionary) var menu = {
   "ingredients": ["chicken", "curry_powder"],
   "toppings": ["potato", "spinach", "eggplant", "cheese"],
   },
-  beef_curry = {
-  "id": 2,
+  beef_curry = {"id": 2,
   "base_price": 25,
   "type": "beef_curry",
   "ingredients": ["beef", "curry_powder"],

@@ -7,4 +7,3 @@ onready var fart = $DryFart
 
 func master_mute():
   bgm.stream_paused = !bgm.stream_paused
-  
