@@ -24,16 +24,21 @@ func start_day() -> void:
         steve_harvey = get_node("/root/OnDaylight/PauseFrame/SteveHarvey")
         terminal = get_node("/root/OnDaylight/VBoxContainer/HBoxContainer/GameConsole")
         npc_spawner = get_node("/root/OnDaylight/NPCs/Spawner")
+        
+    Game.before_day_start()
     for i in customer_amount:
-        var entry =  _create_purchase()
+        var entry =  _create_transaction()
+        
         if entry.empty():
             terminal.add_text("No Food!")
-        elif get_tree().current_scene.name == "OnDaylight":
+            SoundHandler.get_node("DryFart").play()
+        else:
             terminal.add_entry(entry)
+            
+            SoundHandler.get_node("VineBoom").play()
+            npc_spawner.spawnNPC()
+            steve_harvey.visible = !steve_harvey.visible
         
-        SoundHandler.get_node("VineBoom").play()
-        npc_spawner.spawnNPC()
-        steve_harvey.visible = !steve_harvey.visible
          
         var wait = rand_range(0.7, 1.3) * (day_length/customer_amount)
         yield(get_tree().create_timer(wait), "timeout")
@@ -41,10 +46,10 @@ func start_day() -> void:
     Game.on_day_end()
     emit_signal("day_completed")
 
-func _create_purchase() -> Dictionary:
+func _create_transaction() -> Dictionary:
     food_hndlr.update_cookable_food()
     
-    var customer = custo_hndler.get_rand_customer()
+    var custo = custo_hndler.get_rand_customer()
     var food = food_hndlr.get_food(food_hndlr.get_rand_cookable_food())
     
     # Checks if theres any cookable food
@@ -53,18 +58,28 @@ func _create_purchase() -> Dictionary:
     elif food.empty():
         return {}
     
+    Game.custos_served_per_day[Game.day][custo["type"]] += 1
+    Game.meals_served_per_day[Game.day][food["type"]] += 1
+    
+    
     ingred_hndler.spend_ingredients(food)
-    var entry = create_sold_food(food, customer)
-    _add_purchase(entry)
+    var entry = _log_transaction_entry(food, custo)
+    _update_restaurant(entry)
     
     return entry
 
-func _add_purchase(entry: Dictionary) -> void:
+func _update_restaurant(entry: Dictionary) -> void:
     Game.money += entry.food_payment
     waste_hndlr.add_waste(entry["waste_type"], entry["waste_amnt"])
     Game.satisfaction += entry.satisfaction
+    
+    Game.money_earned_per_day[Game.day] += entry.food_payment
+    match(entry["waste_type"]):
+        0: Game.e_waste_managed_per_day[Game.day] += entry["waste_amnt"]
+        1: Game.i_waste_managed_per_day[Game.day] += entry["waste_amnt"]
+    Game.satis_earned_per_day[Game.day] += entry.satisfaction
 
-func create_sold_food(food: Dictionary, customer: Dictionary) -> Dictionary:
+func _log_transaction_entry(food: Dictionary, customer: Dictionary) -> Dictionary:
     var food_id = food.id
     var food_type = food.type
     var food_payment = food.base_price
@@ -88,3 +103,24 @@ func create_sold_food(food: Dictionary, customer: Dictionary) -> Dictionary:
     Game.sold_food.append(entry)
     
     return entry
+
+func _increment_day_end_entry():
+  pass
+
+#var meal_served_per_day: Array
+#var ingred_bought_per_day: Array
+#var ingred_consumed_per_day: Array
+#var custo_served_per_day: Array
+#var satis_earned_per_day: Array
+#var money_left_per_day: Array
+#var money_spent_per_day: Array
+#var money_earned_per_day: Array
+#var e_waste_managed_per_day: Array
+#var i_waste_managed_per_day: Array
+#var e_waste_left_per_day: Array
+#var i_waste_left_per_day: Array
+func _log_day_end_entry(): 
+  pass
+  var entry = {
+    
+   }

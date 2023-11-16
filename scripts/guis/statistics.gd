@@ -25,30 +25,31 @@ onready var sold_food_label = $TabMenu/SoldFood/SoldFoodTable
 onready var managed_waste_label = $TabMenu/ManagedWaste/ManagedWasteTable
 
 func _physics_process(delta):
-	pass
+    pass
 
 func _ready():
-	set_sold_food_table()
-	set_managed_waste_table()
+    set_sold_food_table()
+    set_managed_waste_table()
 
 func set_sold_food_table():
-	sold_food_label.append_bbcode("[table=8]")
-	for entry in Game.sold_food:
-		for j in entry.values():
-			sold_food_label.append_bbcode("[cell] %s [/cell]" % j)
-	sold_food_label.append_bbcode("[/table]")
+    sold_food_label.append_bbcode("[table=8]")
+    for entry in Game.sold_food:
+        for j in entry.values():
+            sold_food_label.append_bbcode("[cell] %s [/cell]" % j)
+    sold_food_label.append_bbcode("[/table]")
 
 func set_managed_waste_table():
-	managed_waste_label.append_bbcode("[table=4]")
-	for entry in Game.waste_managed:
-		for j in entry:
-			managed_waste_label.append_bbcode("[cell] %s [/cell]" % j)
-	managed_waste_label.append_bbcode("[/table]")
+    managed_waste_label.append_bbcode("[table=4]")
+    for entry in Game.waste_managed:
+        for j in entry:
+            managed_waste_label.append_bbcode("[cell] %s [/cell]" % j)
+    managed_waste_label.append_bbcode("[/table]")
 
 func add_sold_food(entry):
-	for j in entry.values():
-		sold_food_label.append_bbcode("[cell] %s [/cell]" % j)
+    for j in entry.values():
+        sold_food_label.append_bbcode("[cell] %s [/cell]" % j)
 
 func add_managed_waste(entry):
-	for j in entry:
-			managed_waste_label.append_bbcode("[cell] %s [/cell]" % j)
+    for j in entry:
+            managed_waste_label.append_bbcode("[cell] %s [/cell]" % j)
+

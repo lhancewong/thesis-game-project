@@ -20,6 +20,9 @@ func buy_ingredients(type: String, amount: int) -> void:
         Game.i_stockpile[ingredient.type] += amount
         Game.money -= price
         
+        Game.ingreds_bought_per_day[Game.day][ingredient.type] += 1
+        Game.money_spent_per_day[Game.day] += price
+        
         debug_msg = "Bought %.2f dollars of %s"
     else:
         debug_msg = "You broke ass bitch you can't afford %.2f dollars of %s"
@@ -30,7 +33,9 @@ func buy_ingredients(type: String, amount: int) -> void:
 
 func spend_ingredients(food: Dictionary) -> void:
     var ingredient_list = food.ingredients
-
+    
     for i in (ingredient_list):
         if i in Game.i_stockpile:
             Game.i_stockpile[i] -= 1
+            
+            Game.ingreds_consumed_per_day[Game.day][i["type"]] += 1

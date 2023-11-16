@@ -15,7 +15,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-    inedible_waste_amount = Game.waste_hndlr.get_inedible_waste()
+    inedible_waste_amount = Game.waste_hndlr.get_str_inedible_waste()
     $VBoxContainer/HBoxContainer/Industrial/Waste/Amount/InedibleWasteAmnt.text = str(inedible_waste_amount)
 
 # This changes the value of the amount to be composted using the buttons

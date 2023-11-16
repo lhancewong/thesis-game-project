@@ -34,9 +34,9 @@ func get_rand_cookable_food() -> String:
 
 func get_food(name: String) -> Dictionary:
     match (name):
-        "Chicken Curry": return MEAL.menu.chicken_curry
-        "Beef Curry": return MEAL.menu.beef_curry
-        "Pork Curry": return MEAL.menu.pork_curry
-        "Lemonade": return MEAL.menu.lemonade
-        "Coffee": return MEAL.menu.coffee
+        "chicken_curry": return MEAL.menu.chicken_curry
+        "beef_curry": return MEAL.menu.beef_curry
+        "pork_curru": return MEAL.menu.pork_curry
+        "lemonade": return MEAL.menu.lemonade
+        "coffee": return MEAL.menu.coffee
         "No Food", _: return {}

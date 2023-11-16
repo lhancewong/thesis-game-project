@@ -124,4 +124,5 @@ size_flags_stretch_ratio = 0.43
 texture = ExtResource( 4 )
 expand = true
 
+[connection signal="pressed" from="Background/HBoxContainer/VBoxContainer/Audio" to="." method="_on_Audio_pressed"]
 [connection signal="pressed" from="Background/HBoxContainer/VBoxContainer/ToTitleScreen" to="." method="_on_ToTitleScreen_pressed"]

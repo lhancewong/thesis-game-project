@@ -15,7 +15,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	waste_amount = Game.waste_hndlr.get_inedible_waste()
+	waste_amount = Game.waste_hndlr.get_str_inedible_waste()
 	$VBoxContainer/HBoxContainer/Compost/Waste/Amount/InedibleWasteAmnt.text = str(waste_amount)
 #	This makes sure that the LineEdit Numbers remain under the maximum waste amount
 	if compost_amount > int(waste_amount):
