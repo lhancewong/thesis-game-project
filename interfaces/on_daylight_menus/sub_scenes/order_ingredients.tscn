@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/fonts/thin_pixelated.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/fonts/pixelated.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://scripts/guis/order_ingredients.gd" type="Script" id=3]
+[ext_resource path="res://assets/images/Paper.jpg" type="Texture" id=4]
 [ext_resource path="res://themes/curry/curry.tres" type="Theme" id=6]
 
 [sub_resource type="DynamicFont" id=1]
@@ -35,6 +36,10 @@ font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=5]
 size = 30
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 52
 font_data = ExtResource( 2 )
 
 [node name="OrderIngredient" type="Control"]
@@ -601,6 +606,42 @@ custom_fonts/font = SubResource( 3 )
 text = "Amount"
 align = 1
 valign = 1
+
+[node name="PaperContainer" type="Container" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="beef" type="Sprite" parent="PaperContainer"]
+position = Vector2( 269.875, 171.562 )
+scale = Vector2( 0.284744, 0.577638 )
+texture = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="PaperContainer/beef"]
+margin_left = -224.324
+margin_top = -70.2213
+margin_right = 238.676
+margin_bottom = 26.7787
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 9 )
+text = "Unlocks on 
+Day 4"
+align = 1
+
+[node name="pork" type="Sprite" parent="PaperContainer"]
+position = Vector2( 453, 171.5 )
+scale = Vector2( 0.284345, 0.577938 )
+texture = ExtResource( 4 )
+
+[node name="Label2" type="Label" parent="PaperContainer/pork"]
+margin_left = -228.596
+margin_top = -66.6162
+margin_right = 234.404
+margin_bottom = 30.3838
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 9 )
+text = "Unlocks on 
+Day 10"
+align = 1
 
 [connection signal="pressed" from="VBoxContainer/Order/Chicken/HBoxContainer/minus" to="." method="_on_Chicken_minus_pressed"]
 [connection signal="text_changed" from="VBoxContainer/Order/Chicken/HBoxContainer/LineEdit" to="." method="_on_ChickenLine_text_changed"]

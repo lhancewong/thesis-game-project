@@ -34,3 +34,12 @@ func spend_ingredients(food: Dictionary) -> void:
     for i in (ingredient_list):
         if i in Game.i_stockpile:
             Game.i_stockpile[i] -= 1
+
+
+func unlock_ingredients():
+  if get_tree().current_scene.name == "OnDaylight":
+    var order_ingred_node = get_node("/root/OnDaylight/VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/OrderIngredients/PaperContainer")
+    for i in Game.unlocked_ingredients:
+        for order_blocker in order_ingred_node.get_children():
+          if Game.unlocked_ingredients[i] && i == order_blocker.name:
+            order_blocker.visible = false
