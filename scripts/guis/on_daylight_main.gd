@@ -56,11 +56,10 @@ func _on_ToTitleScreen_pressed():
 # Main update sequence handler for now
 func _on_StartDay_pressed():
   terminal.add_text("Day Started!")
-  #_on_pause_button_pressed()
+  _on_pause_button_pressed()
   yield(Game.purchase_hndlr.start_day(), "completed")
-  #_on_pause_popup_close_pressed()
+  _on_pause_popup_close_pressed()
   terminal.add_text("Day Finished!")
-  Game.day += 1
 
 # Greys out entire screen
 func _on_pause_button_pressed():

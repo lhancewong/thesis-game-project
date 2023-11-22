@@ -19,7 +19,7 @@ func buy_ingredients(type: String, amount: int) -> void:
   if Game.money >= price:
     Game.i_stockpile[ingredient.type] += amount
     Game.money -= price
-  
+    
     Game.ingreds_bought_per_day[Game.day][ingredient.type] += 1
     Game.money_spent_per_day[Game.day] += price
   
@@ -38,3 +38,12 @@ func spend_ingredients(food: Dictionary) -> void:
     if i in Game.i_stockpile:
       Game.i_stockpile[i] -= 1
       Game.ingreds_consumed_per_day[Game.day][str(i)] += 1
+
+
+func unlock_ingredients():
+  if get_tree().current_scene.name == "OnDaylight":
+    var order_ingred_node = get_node("/root/OnDaylight/VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/OrderIngredients/PaperContainer")
+    for i in Game.unlocked_ingredients:
+      for order_blocker in order_ingred_node.get_children():
+        if Game.unlocked_ingredients[i] && i == order_blocker.name:
+          order_blocker.visible = false

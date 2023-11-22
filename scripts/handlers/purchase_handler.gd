@@ -41,7 +41,6 @@ func start_day() -> void:
     yield(get_tree().create_timer(wait), "timeout")
   
   Game.on_day_end()
-  emit_signal("day_completed")
 
 func _create_transaction() -> Dictionary:
   food_hndlr.update_cookable_food()

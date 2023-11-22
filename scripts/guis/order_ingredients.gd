@@ -6,6 +6,8 @@ var beef_old_text = ""
 var pork_old_text = ""
 var curry_old_text = ""
 
+var unlockedFood = 1
+
 onready var chicken_amount = 1
 onready var chicken_line_edit = $VBoxContainer/Order/Chicken/HBoxContainer/LineEdit
 

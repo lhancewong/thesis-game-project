@@ -6,6 +6,12 @@ var edible_waste = 0.0
 var inedible_waste = 0.0
 var satisfaction = 0.0
 var day = 0
+var unlocked_ingredients = {
+  chicken = true,
+  beef = false,
+  pork = false,
+  curry = true
+}
 
 # Stores ingredients currently in stock
 var i_stockpile = {
@@ -140,7 +146,8 @@ func before_day_start():
   i_waste_produced_per_day[day] = 0.0
   i_waste_managed_per_day[day] = 0.0
   i_waste_left_per_day[day] = 0.0
-  
+
+# Move to purchase handler prob or maybe even create day handler
 func on_day_end():
   min_custo = 5 + day
   max_custo = 10 + day
@@ -148,4 +155,19 @@ func on_day_end():
   Game.money_left_per_day[Game.day] += Game.money
   Game.e_waste_left_per_day[Game.day] += Game.edible_waste
   Game.i_waste_left_per_day[Game.day] += Game.inedible_waste
+  
+  day += 1
+  
   before_day_start()
+  ingredient_unlocker()
+
+func ingredient_unlocker():
+  if day == 3:
+    unlocked_ingredients.beef = true
+  if day == 9:
+    unlocked_ingredients.pork = true
+  ingred_hndlr.unlock_ingredients()
+  
+
+
+
