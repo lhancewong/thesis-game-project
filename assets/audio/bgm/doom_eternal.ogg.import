@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/doom_eternal.ogg-bc0bb9d68ff47dd9acefe10c5d41cf47.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/bgm/doom_eternal.ogg"
+dest_files=[ "res://.import/doom_eternal.ogg-bc0bb9d68ff47dd9acefe10c5d41cf47.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

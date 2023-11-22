@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/berserk.ogg-ecbeab098384d7fe57e3ddcb750c9326.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/bgm/berserk.ogg"
+dest_files=[ "res://.import/berserk.ogg-ecbeab098384d7fe57e3ddcb750c9326.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

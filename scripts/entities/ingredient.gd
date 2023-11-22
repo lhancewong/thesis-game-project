@@ -67,17 +67,3 @@ export(Dictionary) var sugar = {
   "type": "sugar",
   "price": 0.69,
 }
-
-# Maybe prepare curry stock, chicken stock, beef stock, and the veggies
-
-# If the ingredients are this granulated, maybe ordering ingredients can either
-# be by pre-determined batches. Like curry ingredient batch which auto-selects
-# the correct amount of each ingredient.
-#
-# Or even better curry stock is an option to create that just "encapsulates"
-# the required ingredients into one big boye. So all u need to preprepare is
-# enough curry stock and the meats. (and then add some drinks and veggies)
-
-# New storage tab that has info about rotting times (per week basis) for stored
-# ingredients. Could also mention food waste but maybe its bad taste to put
-# them in the same menu interface.
