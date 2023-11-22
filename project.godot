@@ -9,7 +9,7 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Resource",
+"base": "Reference",
 "class": "Customer",
 "language": "GDScript",
 "path": "res://scripts/entities/customer.gd"
@@ -23,17 +23,11 @@ _global_script_classes=[ {
 "class": "Meal",
 "language": "GDScript",
 "path": "res://scripts/entities/meal.gd"
-}, {
-"base": "Resource",
-"class": "Restaurant",
-"language": "GDScript",
-"path": "res://scripts/handlers/restaurant_manager.gd"
 } ]
 _global_script_class_icons={
 "Customer": "",
 "Ingredient": "",
-"Meal": "",
-"Restaurant": ""
+"Meal": ""
 }
 
 [application]

@@ -88,20 +88,20 @@ func get_str_satisfaction() -> String:
   return make_pretty_num(satisfaction)
 
 func before_day_start():
-  meals_served_per_day.resize(day+1)
-  ingreds_bought_per_day.resize(day+1)
-  ingreds_consumed_per_day.resize(day+1)
-  custos_served_per_day.resize(day+1)
-  satis_earned_per_day.resize(day+1)
-  money_left_per_day.resize(day+1)
-  money_spent_per_day.resize(day+1)
-  money_earned_per_day.resize(day+1)
-  e_waste_produced_per_day.resize(day+1)
-  e_waste_managed_per_day.resize(day+1)
-  e_waste_left_per_day.resize(day+1)
-  i_waste_produced_per_day.resize(day+1)
-  i_waste_managed_per_day.resize(day+1)
-  i_waste_left_per_day.resize(day+1)
+  meals_served_per_day.resize(day+2)
+  ingreds_bought_per_day.resize(day+2)
+  ingreds_consumed_per_day.resize(day+2)
+  custos_served_per_day.resize(day+2)
+  satis_earned_per_day.resize(day+2)
+  money_left_per_day.resize(day+2)
+  money_spent_per_day.resize(day+2)
+  money_earned_per_day.resize(day+2)
+  e_waste_produced_per_day.resize(day+2)
+  e_waste_managed_per_day.resize(day+2)
+  e_waste_left_per_day.resize(day+2)
+  i_waste_produced_per_day.resize(day+2)
+  i_waste_managed_per_day.resize(day+2)
+  i_waste_left_per_day.resize(day+2)
   
   # dict of meal amounts
   meals_served_per_day[day] = {
@@ -121,6 +121,7 @@ func before_day_start():
     pork = 0,
     chicken = 0,
     beef = 0,
+    curry_powder = 0,
   }
   
   custos_served_per_day[day] = {
@@ -147,3 +148,4 @@ func on_day_end():
   Game.money_left_per_day[Game.day] += Game.money
   Game.e_waste_left_per_day[Game.day] += Game.edible_waste
   Game.i_waste_left_per_day[Game.day] += Game.inedible_waste
+  before_day_start()

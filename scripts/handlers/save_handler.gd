@@ -3,32 +3,32 @@ extends Node
 
 func save():
   var save_dict = {
-    "money": Game.money,
-    "edible_waste": Game.edible_waste,
-    "inedible_waste": Game.inedible_waste,
-    "satisfaction": Game.satisfaction,
-    "day": Game.day,
-    "min_day_len": Game.min_day_len,
-    "max_day_len": Game.max_day_len,
-    "min_custo": Game.min_custo,
-    "max_custo": Game.max_custo,
-    "i_stockpile": Game.i_stockpile,
-    "sold_food": Game.sold_food,
-    "waste_managed": Game.waste_managed,
-    "meals_served_per_day": Game.meals_served_per_day,
-    "ingreds_bought_per_day": Game.ingreds_bought_per_day,
-    "ingreds_consumed_per_day": Game.ingreds_consumed_per_day,
-    "custos_served_per_day": Game.custos_served_per_day,
-    "satis_earned_per_day":Game.satis_earned_per_day,
-    "money_left_per_day": Game.money_left_per_day,
-    "money_spent_per_day": Game.money_spent_per_day,
-    "money_earned_per_day": Game.money_earned_per_day,
-    "e_waste_produced_per_day": Game.e_waste_produced_per_day,
-    "e_waste_managed_per_day": Game.e_waste_managed_per_day,
-    "e_waste_left_per_day": Game.e_waste_left_per_day,
-    "i_waste_produced_per_day": Game.i_waste_produced_per_day,
-    "i_waste_managed_per_day": Game.i_waste_managed_per_day,
-    "i_waste_left_per_day": Game.i_waste_left_per_day,
+  "money": Game.money,
+  "edible_waste": Game.edible_waste,
+  "inedible_waste": Game.inedible_waste,
+  "satisfaction": Game.satisfaction,
+  "day": Game.day,
+  "min_day_len": Game.min_day_len,
+  "max_day_len": Game.max_day_len,
+  "min_custo": Game.min_custo,
+  "max_custo": Game.max_custo,
+  "i_stockpile": Game.i_stockpile,
+  "sold_food": Game.sold_food,
+  "waste_managed": Game.waste_managed,
+  "meals_served_per_day": Game.meals_served_per_day,
+  "ingreds_bought_per_day": Game.ingreds_bought_per_day,
+  "ingreds_consumed_per_day": Game.ingreds_consumed_per_day,
+  "custos_served_per_day": Game.custos_served_per_day,
+  "satis_earned_per_day":Game.satis_earned_per_day,
+  "money_left_per_day": Game.money_left_per_day,
+  "money_spent_per_day": Game.money_spent_per_day,
+  "money_earned_per_day": Game.money_earned_per_day,
+  "e_waste_produced_per_day": Game.e_waste_produced_per_day,
+  "e_waste_managed_per_day": Game.e_waste_managed_per_day,
+  "e_waste_left_per_day": Game.e_waste_left_per_day,
+  "i_waste_produced_per_day": Game.i_waste_produced_per_day,
+  "i_waste_managed_per_day": Game.i_waste_managed_per_day,
+  "i_waste_left_per_day": Game.i_waste_left_per_day,
   }
   return save_dict
 
@@ -43,7 +43,6 @@ func save_game(num):
 
 
 func load_game(num):
-  print('game load')
   var save_path = "user://savegame%s.save" % num
   var save_game = File.new()
   if not save_game.file_exists(save_path):
@@ -52,7 +51,7 @@ func load_game(num):
   # the object it represents.
   save_game.open(save_path, File.READ)
   while save_game.get_position() < save_game.get_len():
-    # Get the saved dictionary from the next line in the save file
+  # Get the saved dictionary from the next line in the save file
     var save_data = parse_json(save_game.get_line())
     # Now we set the remaining variables.
     for i in save_data.keys():
@@ -84,7 +83,7 @@ func load_game(num):
         "i_waste_produced_per_day": Game.i_waste_produced_per_day = data
         "i_waste_managed_per_day": Game.i_waste_managed_per_day = data
         "i_waste_left_per_day": Game.i_waste_left_per_day = data
-        
+    
   save_game.close()
 
 

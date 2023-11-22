@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Day.png-3db03fa5b99531f4ef6583a17517504f.stex"
+path="res://.import/pork.png-c465eff2e96f1d8739e54ea275091721.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/Day.png"
-dest_files=[ "res://.import/Day.png-3db03fa5b99531f4ef6583a17517504f.stex" ]
+source_file="res://assets/images/icons/pork.png"
+dest_files=[ "res://.import/pork.png-c465eff2e96f1d8739e54ea275091721.stex" ]
 
 [params]
 

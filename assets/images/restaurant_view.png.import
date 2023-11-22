@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Satisfaction.png-b11395e8461c40460f6d8ed88b9a95e9.stex"
+path="res://.import/restaurant_view.png-7b2831949e51446ba5cf8e8d994b3745.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/Satisfaction.png"
-dest_files=[ "res://.import/Satisfaction.png-b11395e8461c40460f6d8ed88b9a95e9.stex" ]
+source_file="res://assets/images/restaurant_view.png"
+dest_files=[ "res://.import/restaurant_view.png-7b2831949e51446ba5cf8e8d994b3745.stex" ]
 
 [params]
 

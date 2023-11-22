@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/minecraft_villager.ogg-08360fc50cb80733cc07facba58d4fa4.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/sfx/minecraft_villager.ogg"
+dest_files=[ "res://.import/minecraft_villager.ogg-08360fc50cb80733cc07facba58d4fa4.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

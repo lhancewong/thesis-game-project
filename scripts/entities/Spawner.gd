@@ -30,11 +30,13 @@ var Amy = preload("res://entities/NPCs/Amy.tscn")
 var Serena = preload("res://entities/NPCs/Serena.tscn")
 
 
-var npcArray = [Tyrone, Jerome, Matt, Layla, Harry, 
-        Tessa, Hugh, John, Chris, James, 
-        Jared, Ted, Mona, Lisa, Rob,
-        Mary, Ken, Alan, Justine, Dorothea,
-        Carmella, Sam, Amy, Serena, Steve]
+var npcArray = [
+  Tyrone, Jerome, Matt, Layla, Harry, 
+  Tessa, Hugh, John, Chris, James, 
+  Jared, Ted, Mona, Lisa, Rob,
+  Mary, Ken, Alan, Justine, Dorothea,
+  Carmella, Sam, Amy, Serena, Steve
+]
 
 func spawnNPC():
   var randomIndex = randi() % npcArray.size() 

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/kuru_kuru.ogg-0563bb7ce5a5ca8fc6d42851af88fb32.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/sfx/kuru_kuru.ogg"
+dest_files=[ "res://.import/kuru_kuru.ogg-0563bb7ce5a5ca8fc6d42851af88fb32.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

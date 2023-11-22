@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://assets/images/RestaurantView.png" type="Texture" id=1]
+[ext_resource path="res://assets/images/restaurant_view.png" type="Texture" id=1]
 [ext_resource path="res://assets/fonts/pixelated.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://scripts/guis/title_screen_save_selection.gd" type="Script" id=3]
 [ext_resource path="res://themes/curry/curry.tres" type="Theme" id=4]

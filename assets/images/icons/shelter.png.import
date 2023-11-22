@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/CurryStock.png-bfaf1645234bb6e86ffb2dcd7143596d.stex"
+path="res://.import/shelter.png-a3b3777b172158b8cfabd177b0755765.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/CurryStock.png"
-dest_files=[ "res://.import/CurryStock.png-bfaf1645234bb6e86ffb2dcd7143596d.stex" ]
+source_file="res://assets/images/icons/shelter.png"
+dest_files=[ "res://.import/shelter.png-a3b3777b172158b8cfabd177b0755765.stex" ]
 
 [params]
 

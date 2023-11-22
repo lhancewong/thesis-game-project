@@ -24,25 +24,22 @@ func start_day() -> void:
     steve_harvey = get_node("/root/OnDaylight/PauseFrame/SteveHarvey")
     terminal = get_node("/root/OnDaylight/VBoxContainer/HBoxContainer/GameConsole")
     npc_spawner = get_node("/root/OnDaylight/NPCs/Spawner")
-    
-  Game.before_day_start()
+  
   for i in customer_amount:
     var entry =  _create_transaction()
     
     if entry.empty():
-      terminal.add_text("No Food!")
+      terminal.add_text("No Food!" + str(entry))
       SoundHandler.get_node("DryFart").play()
     else:
       terminal.add_entry(entry)
-      
       SoundHandler.get_node("VineBoom").play()
       npc_spawner.spawnNPC()
       steve_harvey.visible = !steve_harvey.visible
-    
-     
+      
     var wait = rand_range(0.7, 1.3) * (day_length/customer_amount)
     yield(get_tree().create_timer(wait), "timeout")
-    
+  
   Game.on_day_end()
   emit_signal("day_completed")
 
@@ -60,7 +57,6 @@ func _create_transaction() -> Dictionary:
   
   Game.custos_served_per_day[Game.day][custo["type"]] += 1
   Game.meals_served_per_day[Game.day][food["type"]] += 1
-  
   
   ingred_hndler.spend_ingredients(food)
   var entry = _log_transaction_entry(food, custo)
@@ -90,14 +86,14 @@ func _log_transaction_entry(food: Dictionary, customer: Dictionary) -> Dictionar
   var satisfaction_amnt = _noisefy(CUSTO.BASE_SATISFACTION * customer.satisfaction_factor)
   
   var entry = {
-    "day": Game.day,
-    "food_id": food_id,
-    "food_type": food_type,
-    "food_payment": food_payment,
-    "customer": customer_type,
-    "waste_type": waste_type,
-    "waste_amnt": waste_amnt,
-    "satisfaction": satisfaction_amnt,
+  "day": Game.day,
+  "food_id": food_id,
+  "food_type": food_type,
+  "food_payment": food_payment,
+  "customer": customer_type,
+  "waste_type": waste_type,
+  "waste_amnt": waste_amnt,
+  "satisfaction": satisfaction_amnt,
   }
   
   Game.sold_food.append(entry)

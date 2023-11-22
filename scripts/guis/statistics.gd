@@ -51,5 +51,5 @@ func add_sold_food(entry):
 
 func add_managed_waste(entry):
   for j in entry:
-      managed_waste_label.append_bbcode("[cell] %s [/cell]" % j)
+    managed_waste_label.append_bbcode("[cell] %s [/cell]" % j)
 

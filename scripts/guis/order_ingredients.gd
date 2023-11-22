@@ -60,7 +60,7 @@ func _on_Chicken_minus_pressed():
   chicken_amount -= 1
   if chicken_amount < 0:
     chicken_amount = 0
-    chicken_line_edit.text = str(chicken_amount)
+  chicken_line_edit.text = str(chicken_amount)
 
 func _on_Chicken_plus_pressed():
   chicken_amount += 1
@@ -84,7 +84,7 @@ func _on_Beef_minus_pressed():
   beef_amount -= 1
   if beef_amount < 0:
     beef_amount = 0
-    beef_line_edit.text = str(beef_amount)
+  beef_line_edit.text = str(beef_amount)
 
 func _on_Beef_plus_pressed():
   beef_amount += 1 
@@ -108,7 +108,7 @@ func _on_Pork_minus_pressed():
   pork_amount -= 1
   if pork_amount < 0:
     pork_amount = 0
-    pork_line_edit.text = str(pork_amount)
+  pork_line_edit.text = str(pork_amount)
 
 func _on_Pork_plus_pressed():
   pork_amount += 1
@@ -132,7 +132,7 @@ func _on_Curry_minus_pressed():
   curry_amount -= 1
   if curry_amount < 0:
     curry_amount = 0
-    curry_line_edit.text = str(curry_amount)
+  curry_line_edit.text = str(curry_amount)
 
 func _on_Curry_plus_pressed():
   curry_amount += 1

@@ -28,7 +28,7 @@ func _toggle_show_sub_scene(sub_scene_name):
       desired_sub_scene = i
     else:
       i.hide()
-  
+    
   desired_sub_scene.show()
 
 

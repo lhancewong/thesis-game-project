@@ -26,10 +26,10 @@ func manage_waste( management_strategy:String, waste_type:int, waste_amount:floa
     1: type = "Edible"
   if type == "Inedible" && Game.inedible_waste != 0:
     Game.inedible_waste -= waste_amount
-    Game.i_waste_managed_per_day[Game.day] += waste_amount
+#    Game.i_waste_managed_per_day[Game.day] += waste_amount
   elif type == "Edible" && Game.edible_waste != 0:
     Game.edible_waste -= waste_amount
-    Game.e_waste_managed_per_day[Game.day] += waste_amount
+#    Game.e_waste_managed_per_day[Game.day] += waste_amount
   else:
     return
   

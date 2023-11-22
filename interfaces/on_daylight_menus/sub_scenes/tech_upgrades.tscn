@@ -3,10 +3,10 @@
 [ext_resource path="res://assets/fonts/thin_pixelated.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/fonts/pixelated.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://themes/curry/curry.tres" type="Theme" id=3]
-[ext_resource path="res://assets/images/Industrial.png" type="Texture" id=4]
-[ext_resource path="res://assets/images/Compost.png" type="Texture" id=5]
-[ext_resource path="res://assets/images/Animal.png" type="Texture" id=6]
-[ext_resource path="res://assets/images/Shelter.png" type="Texture" id=7]
+[ext_resource path="res://assets/images/icons/industrial.png" type="Texture" id=4]
+[ext_resource path="res://assets/images/icons/compost.png" type="Texture" id=5]
+[ext_resource path="res://assets/images/icons/animal.png" type="Texture" id=6]
+[ext_resource path="res://assets/images/icons/shelter.png" type="Texture" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 51

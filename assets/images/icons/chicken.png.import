@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Beef.png-ecbe80957f469e2359e7f5b0c1307caf.stex"
+path="res://.import/chicken.png-079d8f049d63d45a100cb7322c4ac429.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/Beef.png"
-dest_files=[ "res://.import/Beef.png-ecbe80957f469e2359e7f5b0c1307caf.stex" ]
+source_file="res://assets/images/icons/chicken.png"
+dest_files=[ "res://.import/chicken.png-079d8f049d63d45a100cb7322c4ac429.stex" ]
 
 [params]
 

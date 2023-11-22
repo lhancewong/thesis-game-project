@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Pork.png-79b8cef1eb78f9a496f75db3d0860b6a.stex"
+path="res://.import/money.png-2c30a3059f114697b7abcd9b76fc86d6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/Pork.png"
-dest_files=[ "res://.import/Pork.png-79b8cef1eb78f9a496f75db3d0860b6a.stex" ]
+source_file="res://assets/images/icons/money.png"
+dest_files=[ "res://.import/money.png-2c30a3059f114697b7abcd9b76fc86d6.stex" ]
 
 [params]
 

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/vine_boom.ogg-1c12eace6a03c27d8e5b964023f1c542.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/sfx/vine_boom.ogg"
+dest_files=[ "res://.import/vine_boom.ogg-1c12eace6a03c27d8e5b964023f1c542.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
