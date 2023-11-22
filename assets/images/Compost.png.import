@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/restaurant.png-6d8be7b1ff078710f23e86807c409be1.stex"
+path="res://.import/Compost.png-546e43eb814396988dc56e606f003561.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/restaurant.png"
-dest_files=[ "res://.import/restaurant.png-6d8be7b1ff078710f23e86807c409be1.stex" ]
+source_file="res://assets/images/Compost.png"
+dest_files=[ "res://.import/Compost.png-546e43eb814396988dc56e606f003561.stex" ]
 
 [params]
 

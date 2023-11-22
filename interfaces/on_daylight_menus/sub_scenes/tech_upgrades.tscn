@@ -1,8 +1,12 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/fonts/thin_pixelated.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/fonts/pixelated.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://themes/curry/curry.tres" type="Theme" id=3]
+[ext_resource path="res://assets/images/Industrial.png" type="Texture" id=4]
+[ext_resource path="res://assets/images/Compost.png" type="Texture" id=5]
+[ext_resource path="res://assets/images/Animal.png" type="Texture" id=6]
+[ext_resource path="res://assets/images/Shelter.png" type="Texture" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 51
@@ -95,15 +99,13 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
 color = Color( 0.980392, 0.854902, 0.368627, 1 )
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/FeedCompost/Animal/Icon"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
-custom_fonts/font = SubResource( 7 )
-text = "Icon"
-align = 1
-valign = 1
-autowrap = true
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/FeedCompost/Animal/Icon"]
+margin_right = 90.0
+margin_bottom = 111.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 6 )
+expand = true
 
 [node name="AniUnlock" type="Button" parent="VBoxContainer/HBoxContainer/FeedCompost"]
 margin_top = 125.0
@@ -150,15 +152,13 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
 color = Color( 0.980392, 0.854902, 0.368627, 1 )
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/FeedCompost/Compost/Icon"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
-custom_fonts/font = SubResource( 7 )
-text = "Icon"
-align = 1
-valign = 1
-autowrap = true
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/FeedCompost/Compost/Icon"]
+margin_right = 90.0
+margin_bottom = 111.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 5 )
+expand = true
 
 [node name="ComUnlock" type="Button" parent="VBoxContainer/HBoxContainer/FeedCompost"]
 margin_top = 321.0
@@ -213,15 +213,13 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
 color = Color( 0.980392, 0.854902, 0.368627, 1 )
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/ShelterIndus/Shelter/Icon"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
-custom_fonts/font = SubResource( 7 )
-text = "Icon"
-align = 1
-valign = 1
-autowrap = true
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/ShelterIndus/Shelter/Icon"]
+margin_right = 90.0
+margin_bottom = 111.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 7 )
+expand = true
 
 [node name="SheltUnlock" type="Button" parent="VBoxContainer/HBoxContainer/ShelterIndus"]
 margin_top = 125.0
@@ -268,15 +266,13 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
 color = Color( 0.980392, 0.854902, 0.368627, 1 )
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/ShelterIndus/Industrial/Icon"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
-custom_fonts/font = SubResource( 7 )
-text = "Icon"
-align = 1
-valign = 1
-autowrap = true
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/ShelterIndus/Industrial/Icon"]
+margin_right = 90.0
+margin_bottom = 111.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 4 )
+expand = true
 
 [node name="IndusUnlock" type="Button" parent="VBoxContainer/HBoxContainer/ShelterIndus"]
 margin_top = 321.0
