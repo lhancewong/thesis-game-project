@@ -20,4 +20,5 @@ volume_db = -15.0
 autoplay = true
 
 [node name="DryFart" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 4 )

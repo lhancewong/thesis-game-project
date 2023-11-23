@@ -29,28 +29,47 @@ var Sam = preload("res://entities/NPCs/Sam.tscn")
 var Amy = preload("res://entities/NPCs/Amy.tscn")
 var Serena = preload("res://entities/NPCs/Serena.tscn")
 
-
 var npcArray = [
-  Tyrone, Jerome, Matt, Layla, Harry, 
-  Tessa, Hugh, John, Chris, James, 
-  Jared, Ted, Mona, Lisa, Rob,
-  Mary, Ken, Alan, Justine, Dorothea,
-  Carmella, Sam, Amy, Serena, Steve
+	Tyrone,
+	Jerome,
+	Matt,
+	Layla,
+	Harry,
+	Tessa,
+	Hugh,
+	John,
+	Chris,
+	James,
+	Jared,
+	Ted,
+	Mona,
+	Lisa,
+	Rob,
+	Mary,
+	Ken,
+	Alan,
+	Justine,
+	Dorothea,
+	Carmella,
+	Sam,
+	Amy,
+	Serena,
+	Steve
 ]
 
-func spawnNPC():
-  var randomIndex = randi() % npcArray.size() 
-  var NPC = npcArray[randomIndex] 
-  var newNPC = NPC.instance()
-  add_child(newNPC)
 
+func spawnNPC():
+	var randomIndex = randi() % npcArray.size()
+	var NPC = npcArray[randomIndex]
+	var newNPC = NPC.instance()
+	add_child(newNPC)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	timer += _delta
 #	if (timer > spawnTime):
-#		var randomIndex = randi() % npcArray.size() 
-#		var NPC = npcArray[randomIndex] 
+#		var randomIndex = randi() % npcArray.size()
+#		var NPC = npcArray[randomIndex]
 #		var newNPC = NPC.instance()
 #		add_child(newNPC)
 #		timer = 0

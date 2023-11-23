@@ -576,6 +576,7 @@ position = Vector2( 838.67, 540.417 )
 rotation = -0.34932
 
 [node name="PauseFrame" type="ColorRect" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.25098, 0.25098, 0.25098, 0.411765 )
