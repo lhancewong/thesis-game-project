@@ -47,7 +47,7 @@ func spend_ingredients(food: Dictionary) -> void:
 			Game.ingreds_consumed_per_day[Game.day][str(i)] += 1
 
 
-func unlock_ingredients():
+func unlock_ingredient_check():
 	if get_tree().current_scene.name == "OnDaylight":
 		var beef_block_node = get_node(
 			"/root/OnDaylight/VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/OrderIngredients/VBoxContainer/Order/BeefBlock"

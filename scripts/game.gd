@@ -47,9 +47,9 @@ onready var save_hndlr = $Save
 # Entries
 var sold_food: Array
 var waste_managed: Array
-var per_day_stats: Array = []
 
-# Day end
+# Day end 
+var stats_per_day: Dictionary
 onready var meals_served_per_day: Array = []
 onready var ingreds_bought_per_day: Array = []
 onready var ingreds_consumed_per_day: Array = []
@@ -149,27 +149,3 @@ func before_day_start():
 	i_waste_produced_per_day[day] = 0.0
 	i_waste_managed_per_day[day] = 0.0
 	i_waste_left_per_day[day] = 0.0
-
-
-# Move to purchase handler prob or maybe even create day handler
-func on_day_end():
-	min_custo = 5 + day
-	max_custo = 10 + day
-
-	Game.money_left_per_day[Game.day] += Game.money
-	Game.e_waste_left_per_day[Game.day] += Game.edible_waste
-	Game.i_waste_left_per_day[Game.day] += Game.inedible_waste
-
-	day += 1
-
-	before_day_start()
-	if Game.day < 15:
-		ingredient_unlocker()
-
-
-func ingredient_unlocker():
-	if day == 3:
-		unlocked_ingredients.beef = true
-	if day == 9:
-		unlocked_ingredients.pork = true
-	ingred_hndlr.unlock_ingredients()
