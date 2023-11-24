@@ -1,5 +1,10 @@
 extends Node
 
+signal iwaste_produced(amount)
+signal ewaste_produced(amount)
+signal iwaste_managed(amount)
+signal ewaste_managed(amount)
+
 enum { edible, inedible }
 
 export(Dictionary) var composting = {
@@ -16,8 +21,10 @@ export(Dictionary) var landfill = {
 func add_waste(waste_type: int, waste_amount: float):
 	if waste_type == 0:
 		Game.inedible_waste += waste_amount
+		emit_signal("iwaste_produced", waste_amount)
 	if waste_type == 1:
 		Game.edible_waste += waste_amount
+		emit_signal("ewaste_produced", waste_amount)
 
 
 func manage_waste(management_strategy: String, waste_type: int, waste_amount: float, date: int):
@@ -30,10 +37,10 @@ func manage_waste(management_strategy: String, waste_type: int, waste_amount: fl
 			type = "Edible"
 	if type == "Inedible" && Game.inedible_waste != 0:
 		Game.inedible_waste -= waste_amount
-#    Game.i_waste_managed_per_day[Game.day] += waste_amount
+		emit_signal("iwaste_managed", waste_amount)
 	elif type == "Edible" && Game.edible_waste != 0:
 		Game.edible_waste -= waste_amount
-#    Game.e_waste_managed_per_day[Game.day] += waste_amount
+		emit_signal("ewaste_managed", waste_amount)
 	else:
 		return
 

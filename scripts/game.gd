@@ -43,27 +43,14 @@ onready var purchase_hndlr = $Purchase
 onready var custo_hndlr = $Customer
 onready var food_hndlr = $Food
 onready var save_hndlr = $Save
+onready var day_hndlr = $DayCycle
 
 # Entries
 var sold_food: Array
 var waste_managed: Array
 
-# Day end 
+# Day end
 var stats_per_day: Dictionary
-onready var meals_served_per_day: Array = []
-onready var ingreds_bought_per_day: Array = []
-onready var ingreds_consumed_per_day: Array = []
-onready var custos_served_per_day: Array = []
-onready var satis_earned_per_day: Array = []
-onready var money_left_per_day: Array = []
-onready var money_spent_per_day: Array = []
-onready var money_earned_per_day: Array = []
-onready var e_waste_produced_per_day: Array = []
-onready var e_waste_managed_per_day: Array = []
-onready var e_waste_left_per_day: Array = []
-onready var i_waste_left_per_day: Array = []
-onready var i_waste_produced_per_day: Array = []
-onready var i_waste_managed_per_day: Array = []
 
 
 # Turns numbers into a Tycoon compatible format
@@ -96,56 +83,20 @@ func get_str_satisfaction() -> String:
 	return make_pretty_num(satisfaction)
 
 
-func before_day_start():
-	meals_served_per_day.resize(day + 2)
-	ingreds_bought_per_day.resize(day + 2)
-	ingreds_consumed_per_day.resize(day + 2)
-	custos_served_per_day.resize(day + 2)
-	satis_earned_per_day.resize(day + 2)
-	money_left_per_day.resize(day + 2)
-	money_spent_per_day.resize(day + 2)
-	money_earned_per_day.resize(day + 2)
-	e_waste_produced_per_day.resize(day + 2)
-	e_waste_managed_per_day.resize(day + 2)
-	e_waste_left_per_day.resize(day + 2)
-	i_waste_produced_per_day.resize(day + 2)
-	i_waste_managed_per_day.resize(day + 2)
-	i_waste_left_per_day.resize(day + 2)
-
-	# dict of meal amounts
-	meals_served_per_day[day] = {
-		pork_curry = 0,
-		chicken_curry = 0,
-		beef_curry = 0,
+func init_daily_statistics():
+	stats_per_day[day] = {
+		meals_served = {pork_curry = 0, chicken_curry = 0, beef_curry = 0},
+		ingreds_bought = {pork = 0, chicken = 0, beef = 0, curry_powder = 0},
+		ingreds_consumed = {pork = 0, chicken = 0, beef = 0, curry_powder = 0},
+		custos_served = {tourist = 0, regular = 0, local = 0},
+		satis_gained = 0.0,
+		money_left = 0.0,
+		money_spent = 0.0,
+		money_earned = 0.0,
+		ewaste_produced = 0.0,
+		ewaste_managed = 0.0,
+		ewaste_left = 0.0,
+		iwaste_produced = 0.0,
+		iwaste_managed = 0.0,
+		iwaste_left = 0.0,
 	}
-
-	ingreds_bought_per_day[day] = {
-		pork = 0,
-		chicken = 0,
-		beef = 0,
-		curry_powder = 0,
-	}
-
-	ingreds_consumed_per_day[day] = {
-		pork = 0,
-		chicken = 0,
-		beef = 0,
-		curry_powder = 0,
-	}
-
-	custos_served_per_day[day] = {
-		tourist = 0,
-		regular = 0,
-		local = 0,
-	}
-
-	satis_earned_per_day[day] = 0.0
-	money_left_per_day[day] = 0.0
-	money_spent_per_day[day] = 0.0
-	money_earned_per_day[day] = 0.0
-	e_waste_produced_per_day[day] = 0.0
-	e_waste_managed_per_day[day] = 0.0
-	e_waste_left_per_day[day] = 0.0
-	i_waste_produced_per_day[day] = 0.0
-	i_waste_managed_per_day[day] = 0.0
-	i_waste_left_per_day[day] = 0.0
