@@ -33,9 +33,8 @@ func save():
 	return save_dict
 
 
-func save_game(num):
-	print("game save")
-	var save_path = "user://savegame%s.save" % num
+func save_game():
+	var save_path = "user://savegame%s.save" % Game.save_file_num
 	var save_game = File.new()
 	save_game.open(save_path, File.WRITE)
 	# Store the save dictionary as a new line in the save file.
@@ -43,8 +42,8 @@ func save_game(num):
 	save_game.close()
 
 
-func load_game(num):
-	var save_path = "user://savegame%s.save" % num
+func load_game():
+	var save_path = "user://savegame%s.save" % Game.save_file_num
 	var save_game = File.new()
 	if not save_game.file_exists(save_path):
 		return  # Error! We don't have a save to load.

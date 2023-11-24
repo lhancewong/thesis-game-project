@@ -58,8 +58,11 @@ func _on_Debug_pressed():
 
 
 func _on_ToTitleScreen_pressed():
-	Game.save_hndlr.save_game(0)
+	Game.save_hndlr.save_game()
+
 	get_tree().change_scene("res://interfaces/title_screen_menus/title_screen_main.tscn")
+
+	Game.init_var()
 
 
 # Main update sequence handler for now

@@ -1,19 +1,19 @@
 extends Node
 
 # Game variables
-var money = 100.0
-var edible_waste = 0.0
-var inedible_waste = 0.0
-var satisfaction = 0.0
-var day = 0
-var unlocked_ingredients = {
+onready var money = 100.0
+onready var edible_waste = 0.0
+onready var inedible_waste = 0.0
+onready var satisfaction = 0.0
+onready var day = 0
+onready var unlocked_ingredients = {
 	chicken = true,
 	beef = false,
 	pork = false,
 }
 
 # Stores ingredients currently in stock
-var i_stockpile = {
+onready var i_stockpile = {
 	"chicken": 0,
 	"beef": 0,
 	"pork": 0,
@@ -28,13 +28,13 @@ var i_stockpile = {
 }
 
 # Game behavior
-var min_day_len = 6
-var max_day_len = 10
-var min_custo = 5
-var max_custo = 10
+onready var min_day_len = 6
+onready var max_day_len = 10
+onready var min_custo = 5
+onready var max_custo = 10
 
 # Stores a temporary list of currently cookable food (aka what can be sold)
-var cookable_food = {}
+onready var cookable_food = {}
 
 # Handlers
 onready var waste_hndlr = $Waste
@@ -64,6 +64,70 @@ onready var e_waste_left_per_day: Array = []
 onready var i_waste_left_per_day: Array = []
 onready var i_waste_produced_per_day: Array = []
 onready var i_waste_managed_per_day: Array = []
+
+onready var save_file_num = -1
+
+
+func init_var():
+	# Game variables
+	money = 100.0
+	edible_waste = 0.0
+	inedible_waste = 0.0
+	satisfaction = 0.0
+	day = 0
+
+	unlocked_ingredients = {
+		chicken = true,
+		beef = false,
+		pork = false,
+	}
+
+	# Stores ingredients currently in stock
+	i_stockpile = {
+		"chicken": 0,
+		"beef": 0,
+		"pork": 0,
+		"curry_powder": 0,
+		"potato": 0,
+		"spinach": 0,
+		"eggplant": 0,
+		"cheese": 0,
+		"lemon": 0,
+		"coffee_mix": 0,
+		"sugar": 0,
+	}
+
+	# Game behavior
+	min_day_len = 6
+	max_day_len = 10
+	min_custo = 5
+	max_custo = 10
+
+	# Stores a temporary list of currently cookable food (aka what can be sold)
+	cookable_food = {}
+
+	# Entries
+	sold_food = []
+	waste_managed = []
+	per_day_stats = []
+
+	# Day end
+	meals_served_per_day = []
+	ingreds_bought_per_day = []
+	ingreds_consumed_per_day = []
+	custos_served_per_day = []
+	satis_earned_per_day = []
+	money_left_per_day = []
+	money_spent_per_day = []
+	money_earned_per_day = []
+	e_waste_produced_per_day = []
+	e_waste_managed_per_day = []
+	e_waste_left_per_day = []
+	i_waste_left_per_day = []
+	i_waste_produced_per_day = []
+	i_waste_managed_per_day = []
+
+	save_file_num = -1
 
 
 # Turns numbers into a Tycoon compatible format
