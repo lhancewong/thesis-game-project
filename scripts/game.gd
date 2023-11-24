@@ -11,6 +11,8 @@ onready var unlocked_ingredients = {
 	beef = false,
 	pork = false,
 }
+onready var store_level = 0
+onready var skill_point = 4
 
 # Stores ingredients currently in stock
 onready var i_stockpile = {
@@ -43,6 +45,7 @@ onready var purchase_hndlr = $Purchase
 onready var custo_hndlr = $Customer
 onready var food_hndlr = $Food
 onready var save_hndlr = $Save
+onready var strat_hndlr = $Strategy
 
 # Entries
 var sold_food: Array
@@ -226,6 +229,8 @@ func on_day_end():
 
 	day += 1
 
+	store_level_upgrade()
+
 	before_day_start()
 	if Game.day < 15:
 		ingredient_unlocker()
@@ -237,3 +242,10 @@ func ingredient_unlocker():
 	if day == 9:
 		unlocked_ingredients.pork = true
 	ingred_hndlr.unlock_ingredients()
+
+
+func store_level_upgrade():
+	if satisfaction >= 10:
+		store_level += 1
+		satisfaction = 0
+		skill_point += 1
