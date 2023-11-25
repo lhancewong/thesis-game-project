@@ -44,6 +44,7 @@ onready var custo_hndlr = $Customer
 onready var food_hndlr = $Food
 onready var save_hndlr = $Save
 onready var day_hndlr = $DayCycle
+onready var database_hndlr = $Database
 
 # Entries
 var sold_food: Array
