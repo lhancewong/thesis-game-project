@@ -34,7 +34,7 @@ func buy_ingredients(type: String, amount: int) -> void:
 		debug_msg = "You broke ass bitch you can't afford %.2f dollars of %s"
 
 	if get_tree().current_scene.name == "OnDaylight":
-		var terminal = get_node("/root/OnDaylight/VBoxContainer/HBoxContainer/GameConsole")
+		var terminal = get_node("/root/OnDaylight/VBoxContainer/HBoxContainer/VBoxContainer2/GameConsole")
 		terminal.add_text(debug_msg % [price, type])
 
 

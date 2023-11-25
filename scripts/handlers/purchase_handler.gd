@@ -22,9 +22,10 @@ func start_day() -> void:
 	var steve_harvey
 	var terminal
 	var npc_spawner
+	
 	if get_tree().current_scene.name == "OnDaylight":
 		steve_harvey = get_node("/root/OnDaylight/PauseFrame/SteveHarvey")
-		terminal = get_node("/root/OnDaylight/VBoxContainer/HBoxContainer/GameConsole")
+		terminal = get_node("/root/OnDaylight/VBoxContainer/HBoxContainer/VBoxContainer2/GameConsole")
 		npc_spawner = get_node("/root/OnDaylight/NPCs/Spawner")
 
 	for i in customer_amount:

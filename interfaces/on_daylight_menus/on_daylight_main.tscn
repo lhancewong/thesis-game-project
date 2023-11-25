@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=2]
+[gd_scene load_steps=57 format=2]
 
 [ext_resource path="res://scripts/guis/on_daylight_main.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/pixelated.ttf" type="DynamicFontData" id=2]
@@ -45,6 +45,11 @@
 [ext_resource path="res://assets/images/icons/waste.png" type="Texture" id=43]
 [ext_resource path="res://assets/images/icons/day.png" type="Texture" id=44]
 [ext_resource path="res://assets/images/icons/satisfaction.png" type="Texture" id=45]
+[ext_resource path="res://assets/images/restaurant_level.png" type="Texture" id=46]
+[ext_resource path="res://assets/images/icons/beef.png" type="Texture" id=47]
+[ext_resource path="res://assets/images/icons/pork.png" type="Texture" id=48]
+[ext_resource path="res://assets/images/icons/curry_stock.png" type="Texture" id=49]
+[ext_resource path="res://assets/images/icons/chicken.png" type="Texture" id=50]
 
 [sub_resource type="DynamicFont" id=4]
 size = 18
@@ -62,7 +67,7 @@ font_data = ExtResource( 2 )
 
 [sub_resource type="Curve2D" id=6]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 838.67, 540.417, 0, 0, 0, 0, 1077.3, 453.5, 0, 0, 0, 0, 1312.13, 537.5 )
+"points": PoolVector2Array( 0, 0, 0, 0, 827.09, 539.119, 0, 0, 0, 0, 1075.83, 477.61, 0, 0, 0, 0, 1325.55, 538.728 )
 }
 
 [sub_resource type="DynamicFont" id=5]
@@ -212,6 +217,7 @@ custom_constants/separation = 20
 [node name="menu icons" type="ColorRect" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_right = 744.0
 margin_bottom = 110.0
+size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.25
 color = Color( 0.980392, 0.929412, 0.803922, 1 )
@@ -330,6 +336,29 @@ align = 1
 valign = 1
 autowrap = true
 
+[node name="LevelIcon" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu icons/HBoxContainer"]
+margin_left = 550.0
+margin_right = 627.0
+margin_bottom = 91.0
+rect_pivot_offset = Vector2( -477, -156 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.27
+texture = ExtResource( 46 )
+expand = true
+
+[node name="Level" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu icons/HBoxContainer"]
+margin_left = 637.0
+margin_top = 32.0
+margin_right = 724.0
+margin_bottom = 58.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Level"
+valign = 1
+
 [node name="middle" type="ColorRect" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_top = 130.0
 margin_right = 744.0
@@ -420,19 +449,130 @@ custom_fonts/font = SubResource( 2 )
 text = "Start Day"
 expand_icon = true
 
-[node name="GameConsole" parent="VBoxContainer/HBoxContainer" groups=["Debug"] instance=ExtResource( 3 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 0.0
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+margin_left = 764.0
 margin_right = 1326.0
 margin_bottom = 644.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.43
+custom_constants/separation = 20
+
+[node name="menu icons" type="ColorRect" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+margin_right = 562.0
+margin_bottom = 111.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+color = Color( 0.980392, 0.929412, 0.803922, 1 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2/menu icons"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 9.0
+margin_top = 10.0
+margin_right = -8.0
+margin_bottom = -8.0
+theme = ExtResource( 17 )
+custom_constants/separation = 5
+
+[node name="DayIcon" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer2/menu icons/HBoxContainer"]
+margin_right = 59.0
+margin_bottom = 93.0
+rect_pivot_offset = Vector2( -477, -156 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 50 )
+expand = true
+
+[node name="Day" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2/menu icons/HBoxContainer"]
+margin_left = 64.0
+margin_top = 33.0
+margin_right = 150.0
+margin_bottom = 59.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Chicken"
+valign = 1
+
+[node name="MoneyIcon" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer2/menu icons/HBoxContainer"]
+margin_left = 155.0
+margin_right = 214.0
+margin_bottom = 93.0
+rect_pivot_offset = Vector2( -477, -156 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 47 )
+expand = true
+
+[node name="Money" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2/menu icons/HBoxContainer"]
+margin_left = 219.0
+margin_top = 33.0
+margin_right = 278.0
+margin_bottom = 59.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Beef"
+valign = 1
+
+[node name="WasteIcon" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer2/menu icons/HBoxContainer"]
+margin_left = 283.0
+margin_right = 342.0
+margin_bottom = 93.0
+rect_pivot_offset = Vector2( -477, -156 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 48 )
+expand = true
+
+[node name="Waste" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2/menu icons/HBoxContainer"]
+margin_left = 347.0
+margin_top = 33.0
+margin_right = 406.0
+margin_bottom = 59.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Pork"
+valign = 1
+
+[node name="SatisfactionIcon" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer2/menu icons/HBoxContainer"]
+margin_left = 411.0
+margin_right = 470.0
+margin_bottom = 93.0
+rect_pivot_offset = Vector2( -477, -156 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 49 )
+expand = true
+
+[node name="Satisfaction" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2/menu icons/HBoxContainer"]
+margin_left = 475.0
+margin_top = 33.0
+margin_right = 545.0
+margin_bottom = 59.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Curry"
+valign = 1
+
+[node name="GameConsole" parent="VBoxContainer/HBoxContainer/VBoxContainer2" groups=["Debug"] instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 131.0
+margin_right = 562.0
+margin_bottom = 644.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.3
 
 [node name="RestaurantView" type="TextureRect" parent="."]
 margin_left = 784.0
-margin_top = 104.0
+margin_top = 234.0
 margin_right = 1346.0
 margin_bottom = 749.0
 size_flags_horizontal = 3
@@ -445,135 +585,135 @@ expand = true
 pause_mode = 2
 
 [node name="Spawner" type="Path2D" parent="NPCs"]
-position = Vector2( -69.1324, -442.428 )
-scale = Vector2( 1.05182, 1.71428 )
+position = Vector2( -39.9047, -818.083 )
+scale = Vector2( 1.02517, 2.55247 )
 curve = SubResource( 6 )
 script = ExtResource( 21 )
 
 [node name="Tyrone" parent="NPCs/Spawner" instance=ExtResource( 22 )]
 visible = false
-position = Vector2( 838.67, 540.417 )
-rotation = -0.34932
+position = Vector2( 827.09, 539.119 )
+rotation = -0.242448
 
 [node name="Jerome" parent="NPCs/Spawner" instance=ExtResource( 23 )]
 visible = false
-position = Vector2( 838.67, 540.417 )
-rotation = -0.34932
+position = Vector2( 827.09, 539.119 )
+rotation = -0.242448
 
 [node name="Matt" parent="NPCs/Spawner" instance=ExtResource( 24 )]
 visible = false
-position = Vector2( 838.67, 540.417 )
-rotation = -0.34932
+position = Vector2( 827.09, 539.119 )
+rotation = -0.242448
 
 [node name="Layla" parent="NPCs/Spawner" instance=ExtResource( 28 )]
 visible = false
-position = Vector2( 838.67, 540.417 )
-rotation = -0.34932
+position = Vector2( 827.09, 539.119 )
+rotation = -0.242448
 
 [node name="Harry" parent="NPCs/Spawner" instance=ExtResource( 27 )]
 visible = false
-position = Vector2( 838.67, 540.417 )
-rotation = -0.34932
+position = Vector2( 827.09, 539.119 )
+rotation = -0.242448
 
 [node name="Tessa" parent="NPCs/Spawner" instance=ExtResource( 26 )]
 visible = false
-position = Vector2( 838.67, 540.417 )
-rotation = -0.34932
+position = Vector2( 827.09, 539.119 )
+rotation = -0.242448
 
 [node name="Hugh" parent="NPCs/Spawner" instance=ExtResource( 25 )]
 visible = false
-position = Vector2( 838.67, 540.417 )
-rotation = -0.34932
+position = Vector2( 827.09, 539.119 )
+rotation = -0.242448
 
 [node name="John" parent="NPCs/Spawner" instance=ExtResource( 31 )]
 visible = false
-position = Vector2( 838.67, 540.417 )
-rotation = -0.34932
+position = Vector2( 827.09, 539.119 )
+rotation = -0.242448
 
 [node name="Chris" parent="NPCs/Spawner" instance=ExtResource( 34 )]
 visible = false
-position = Vector2( 838.67, 540.417 )
-rotation = -0.34932
+position = Vector2( 827.09, 539.119 )
+rotation = -0.242448
 
 [node name="James" parent="NPCs/Spawner" instance=ExtResource( 30 )]
 visible = false
-position = Vector2( 838.67, 540.417 )
-rotation = -0.34932
+position = Vector2( 827.09, 539.119 )
+rotation = -0.242448
 
 [node name="Jared" parent="NPCs/Spawner" instance=ExtResource( 35 )]
 visible = false
-position = Vector2( 838.67, 540.417 )
-rotation = -0.34932
+position = Vector2( 827.09, 539.119 )
+rotation = -0.242448
 
 [node name="Ted" parent="NPCs/Spawner" instance=ExtResource( 29 )]
 visible = false
-position = Vector2( 838.67, 540.417 )
-rotation = -0.34932
+position = Vector2( 827.09, 539.119 )
+rotation = -0.242448
 
 [node name="Steve" parent="NPCs/Spawner" instance=ExtResource( 36 )]
 visible = false
-position = Vector2( 838.67, 540.417 )
-rotation = -0.34932
+position = Vector2( 827.09, 539.119 )
+rotation = -0.242448
 
 [node name="Mona" parent="NPCs/Spawner" instance=ExtResource( 32 )]
 visible = false
-position = Vector2( 838.67, 540.417 )
-rotation = -0.34932
+position = Vector2( 827.09, 539.119 )
+rotation = -0.242448
 
 [node name="Lisa" parent="NPCs/Spawner" instance=ExtResource( 33 )]
 visible = false
-position = Vector2( 838.67, 540.417 )
-rotation = -0.34932
+position = Vector2( 827.09, 539.119 )
+rotation = -0.242448
 
 [node name="Rob" parent="NPCs/Spawner" instance=ExtResource( 9 )]
 visible = false
-position = Vector2( 838.67, 540.417 )
-rotation = -0.34932
+position = Vector2( 827.09, 539.119 )
+rotation = -0.242448
 
 [node name="Mary" parent="NPCs/Spawner" instance=ExtResource( 14 )]
 visible = false
-position = Vector2( 838.67, 540.417 )
-rotation = -0.34932
+position = Vector2( 827.09, 539.119 )
+rotation = -0.242448
 
 [node name="Ken" parent="NPCs/Spawner" instance=ExtResource( 15 )]
 visible = false
-position = Vector2( 838.67, 540.417 )
-rotation = -0.34932
+position = Vector2( 827.09, 539.119 )
+rotation = -0.242448
 
 [node name="Alan" parent="NPCs/Spawner" instance=ExtResource( 39 )]
 visible = false
-position = Vector2( 838.67, 540.417 )
-rotation = -0.34932
+position = Vector2( 827.09, 539.119 )
+rotation = -0.242448
 
 [node name="Justine" parent="NPCs/Spawner" instance=ExtResource( 37 )]
 visible = false
-position = Vector2( 838.67, 540.417 )
-rotation = -0.34932
+position = Vector2( 827.09, 539.119 )
+rotation = -0.242448
 
 [node name="Dorothea" parent="NPCs/Spawner" instance=ExtResource( 38 )]
 visible = false
-position = Vector2( 838.67, 540.417 )
-rotation = -0.34932
+position = Vector2( 827.09, 539.119 )
+rotation = -0.242448
 
 [node name="Carmella" parent="NPCs/Spawner" instance=ExtResource( 40 )]
 visible = false
-position = Vector2( 838.67, 540.417 )
-rotation = -0.34932
+position = Vector2( 827.09, 539.119 )
+rotation = -0.242448
 
 [node name="Sam" parent="NPCs/Spawner" instance=ExtResource( 13 )]
 visible = false
-position = Vector2( 838.67, 540.417 )
-rotation = -0.34932
+position = Vector2( 827.09, 539.119 )
+rotation = -0.242448
 
 [node name="Amy" parent="NPCs/Spawner" instance=ExtResource( 16 )]
 visible = false
-position = Vector2( 838.67, 540.417 )
-rotation = -0.34932
+position = Vector2( 827.09, 539.119 )
+rotation = -0.242448
 
 [node name="Serena" parent="NPCs/Spawner" instance=ExtResource( 41 )]
 visible = false
-position = Vector2( 838.67, 540.417 )
-rotation = -0.34932
+position = Vector2( 827.09, 539.119 )
+rotation = -0.242448
 
 [node name="PauseFrame" type="ColorRect" parent="."]
 visible = false

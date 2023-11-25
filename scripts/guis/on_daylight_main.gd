@@ -1,7 +1,7 @@
 extends Control
 
 # Node
-onready var terminal = $VBoxContainer/HBoxContainer/GameConsole
+onready var terminal = $VBoxContainer/HBoxContainer/VBoxContainer2/GameConsole
 
 # Sub Scenes
 onready var live_updates = $VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/LiveUpdates

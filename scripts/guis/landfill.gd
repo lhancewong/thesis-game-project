@@ -39,13 +39,13 @@ func _on_TrashButton_pressed():
 		return
 	else:
 		if edibleToLandfill > 0:
-			print(Game.waste_hndlr.get_edible_waste())
+			#print(Game.waste_hndlr.get_edible_waste())
 			Game.waste_hndlr.manage_waste("landfill", 1, edibleToLandfill, 1)
-			print(Game.waste_hndlr.get_edible_waste())
+			#print(Game.waste_hndlr.get_edible_waste())
 		if inedibleToLandfill > 0:
-			print(Game.waste_hndlr.get_inedible_waste())
+			#print(Game.waste_hndlr.get_inedible_waste())
 			Game.waste_hndlr.manage_waste("landfill", 0, inedibleToLandfill, 1)
-			print(Game.waste_hndlr.get_inedible_waste())
+			#print(Game.waste_hndlr.get_inedible_waste())
 		edibleToLandfill = 0
 		inedibleToLandfill = 0
 
