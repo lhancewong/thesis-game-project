@@ -73,12 +73,3 @@ func _log_transaction_entry(food: Dictionary, customer: Dictionary) -> Dictionar
 	Game.sold_food.append(entry)
 
 	return entry
-
-
-func _increment_day_end_entry():
-	pass
-
-
-func _log_day_end_entry():
-	pass
-	var entry = {}

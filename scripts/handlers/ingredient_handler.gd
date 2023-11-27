@@ -47,7 +47,7 @@ func spend_ingredients(food: Dictionary) -> void:
 	for i in ingredient_list:
 		if i in Game.i_stockpile:
 			Game.i_stockpile[i] -= 1
-			emit_signal("ingred_consumed", i)
+			emit_signal("ingred_consumed", i, 1)
 
 
 func unlock_ingredient_check():

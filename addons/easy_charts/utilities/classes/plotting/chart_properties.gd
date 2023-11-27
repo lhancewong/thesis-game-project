@@ -26,7 +26,7 @@ var draw_vertical_grid: bool = true
 var draw_horizontal_grid: bool = true
 var draw_ticks: bool = true
 var draw_origin: bool = false
-var draw_grid_box: bool = true 
+var draw_grid_box: bool = true
 var show_tick_labels: bool = true
 var show_x_label: bool = true
 var show_y_label: bool = true
@@ -45,12 +45,16 @@ var colors: Dictionary = {
 	origin = Color.dimgray
 }
 
-var font_data: DynamicFontData = load("res://addons/easy_charts/utilities/assets/OpenSans-VariableFont_wdth,wght.ttf")
+var font_data: DynamicFontData = load(
+	"res://addons/easy_charts/utilities/assets/OpenSans-VariableFont_wdth,wght.ttf"
+)
 var font: DynamicFont = DynamicFont.new()
+
 
 func _init() -> void:
 	font.set_font_data(font_data)
 	font.set_size(13)
+
 
 func get_string_size(text: String) -> Vector2:
 	return font.get_string_size(text)
