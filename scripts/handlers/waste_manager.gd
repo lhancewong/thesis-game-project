@@ -13,31 +13,31 @@ export(Dictionary) var landfill = {
 }
 
 
-func add_waste(waste_type: int, waste_amount: float):
-	if waste_type == 0:
+func add_waste(waste_type: String, waste_amount: float):
+	if waste_type == "inedible_waste":
 		Game.inedible_waste += waste_amount
-	if waste_type == 1:
+	if waste_type == "edible_waste":
 		Game.edible_waste += waste_amount
 
 
-func manage_waste(management_strategy: String, waste_type: int, waste_amount: float, date: int):
+func manage_waste(management_strategy: String, waste_type: String, waste_amount: float, date: int):
 	var type
 
-	match waste_type:
-		0:
-			type = "Inedible"
-		1:
-			type = "Edible"
-	if type == "Inedible" && Game.inedible_waste != 0:
+#	match waste_type:
+#		0:
+#			type = "Inedible"
+#		1:
+#			type = "Edible"
+	if waste_type == "inedible_waste" && Game.inedible_waste != 0:
 		Game.inedible_waste -= waste_amount
 #    Game.i_waste_managed_per_day[Game.day] += waste_amount
-	elif type == "Edible" && Game.edible_waste != 0:
+	elif waste_type == "edible_waste" && Game.edible_waste != 0:
 		Game.edible_waste -= waste_amount
 #    Game.e_waste_managed_per_day[Game.day] += waste_amount
 	else:
 		return
 
-	var waste_entry = [management_strategy, type, waste_amount, date]
+	var waste_entry = [management_strategy, waste_type, waste_amount, date]
 	Game.waste_managed.append(waste_entry)
 	print(Game.waste_managed)
 

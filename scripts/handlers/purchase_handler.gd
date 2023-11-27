@@ -69,14 +69,14 @@ func _create_transaction() -> Dictionary:
 
 func _update_restaurant(entry: Dictionary) -> void:
 	Game.money += entry.food_payment
-	waste_hndlr.add_waste(entry["waste_type"], entry["waste_amnt"])
+	waste_hndlr.add_waste(entry["waste_type_string"], entry["waste_amnt"])
 	Game.satisfaction += entry.satisfaction
 
 	Game.money_earned_per_day[Game.day] += entry.food_payment
-	match entry["waste_type"]:
-		0:
+	match entry["waste_type_string"]:
+		"edible_waste":
 			Game.e_waste_managed_per_day[Game.day] += entry["waste_amnt"]
-		1:
+		"inedible_waste":
 			Game.i_waste_managed_per_day[Game.day] += entry["waste_amnt"]
 	Game.satis_earned_per_day[Game.day] += entry.satisfaction
 
@@ -89,6 +89,12 @@ func _log_transaction_entry(food: Dictionary, customer: Dictionary) -> Dictionar
 	var customer_type = customer.type
 	var waste_amnt = int(_noisefy(CUSTO.BASE_WASTE * customer.waste_factor))
 	var waste_type = randi() % 2
+	var waste_type_string
+	match waste_type:
+		0:
+			waste_type_string = "inedible_waste"
+		1:
+			waste_type_string = "edible_waste"
 	var satisfaction_amnt = _noisefy(CUSTO.BASE_SATISFACTION * customer.satisfaction_factor)
 
 	var entry = {
@@ -97,7 +103,7 @@ func _log_transaction_entry(food: Dictionary, customer: Dictionary) -> Dictionar
 		"food_type": food_type,
 		"food_payment": food_payment,
 		"customer": customer_type,
-		"waste_type": waste_type,
+		"waste_type_string": waste_type_string,
 		"waste_amnt": waste_amnt,
 		"satisfaction": satisfaction_amnt,
 	}
