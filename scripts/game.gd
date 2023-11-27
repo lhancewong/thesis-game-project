@@ -46,27 +46,15 @@ onready var custo_hndlr = $Customer
 onready var food_hndlr = $Food
 onready var save_hndlr = $Save
 onready var strat_hndlr = $Strategy
+onready var day_hndlr = $DayCycle
+onready var database_hndlr = $Database
 
 # Entries
 var sold_food: Array
 var waste_managed: Array
-var per_day_stats: Array = []
 
 # Day end
-onready var meals_served_per_day: Array = []
-onready var ingreds_bought_per_day: Array = []
-onready var ingreds_consumed_per_day: Array = []
-onready var custos_served_per_day: Array = []
-onready var satis_earned_per_day: Array = []
-onready var money_left_per_day: Array = []
-onready var money_spent_per_day: Array = []
-onready var money_earned_per_day: Array = []
-onready var e_waste_produced_per_day: Array = []
-onready var e_waste_managed_per_day: Array = []
-onready var e_waste_left_per_day: Array = []
-onready var i_waste_left_per_day: Array = []
-onready var i_waste_produced_per_day: Array = []
-onready var i_waste_managed_per_day: Array = []
+var stats_per_day: Dictionary
 
 onready var save_file_num = -1
 
@@ -163,89 +151,21 @@ func get_str_satisfaction() -> String:
 	return make_pretty_num(satisfaction)
 
 
-func before_day_start():
-	meals_served_per_day.resize(day + 2)
-	ingreds_bought_per_day.resize(day + 2)
-	ingreds_consumed_per_day.resize(day + 2)
-	custos_served_per_day.resize(day + 2)
-	satis_earned_per_day.resize(day + 2)
-	money_left_per_day.resize(day + 2)
-	money_spent_per_day.resize(day + 2)
-	money_earned_per_day.resize(day + 2)
-	e_waste_produced_per_day.resize(day + 2)
-	e_waste_managed_per_day.resize(day + 2)
-	e_waste_left_per_day.resize(day + 2)
-	i_waste_produced_per_day.resize(day + 2)
-	i_waste_managed_per_day.resize(day + 2)
-	i_waste_left_per_day.resize(day + 2)
-
-	# dict of meal amounts
-	meals_served_per_day[day] = {
-		pork_curry = 0,
-		chicken_curry = 0,
-		beef_curry = 0,
+func init_daily_statistics():
+	stats_per_day[str(day)] = {
+		meals_served = {pork_curry = 0, chicken_curry = 0, beef_curry = 0},
+		ingredients_bought = {pork = 0, chicken = 0, beef = 0, curry_powder = 0},
+		ingredients_consumed = {pork = 0, chicken = 0, beef = 0, curry_powder = 0},
+		customers_served = {tourist = 0, regular = 0, local = 0},
+		money_earned_from_meals = {pork_curry = 0, chicken_curry = 0, beef_curry = 0},
+		satisfaction_gained = 0.0,
+		money_left = 0.0,
+		money_spent = 0.0,
+		money_earned = 0.0,
+		ewaste_produced = 0.0,
+		ewaste_managed = 0.0,
+		ewaste_left = 0.0,
+		iwaste_produced = 0.0,
+		iwaste_managed = 0.0,
+		iwaste_left = 0.0,
 	}
-
-	ingreds_bought_per_day[day] = {
-		pork = 0,
-		chicken = 0,
-		beef = 0,
-		curry_powder = 0,
-	}
-
-	ingreds_consumed_per_day[day] = {
-		pork = 0,
-		chicken = 0,
-		beef = 0,
-		curry_powder = 0,
-	}
-
-	custos_served_per_day[day] = {
-		tourist = 0,
-		regular = 0,
-		local = 0,
-	}
-
-	satis_earned_per_day[day] = 0.0
-	money_left_per_day[day] = 0.0
-	money_spent_per_day[day] = 0.0
-	money_earned_per_day[day] = 0.0
-	e_waste_produced_per_day[day] = 0.0
-	e_waste_managed_per_day[day] = 0.0
-	e_waste_left_per_day[day] = 0.0
-	i_waste_produced_per_day[day] = 0.0
-	i_waste_managed_per_day[day] = 0.0
-	i_waste_left_per_day[day] = 0.0
-
-
-# Move to purchase handler prob or maybe even create day handler
-func on_day_end():
-	min_custo = 5 + day
-	max_custo = 10 + day
-
-	Game.money_left_per_day[Game.day] += Game.money
-	Game.e_waste_left_per_day[Game.day] += Game.edible_waste
-	Game.i_waste_left_per_day[Game.day] += Game.inedible_waste
-
-	day += 1
-
-	store_level_upgrade()
-
-	before_day_start()
-	if Game.day < 15:
-		ingredient_unlocker()
-
-
-func ingredient_unlocker():
-	if day == 3:
-		unlocked_ingredients.beef = true
-	if day == 9:
-		unlocked_ingredients.pork = true
-	ingred_hndlr.unlock_ingredients()
-
-
-func store_level_upgrade():
-	if satisfaction >= 10:
-		store_level += 1
-		satisfaction = 0
-		skill_point += 1

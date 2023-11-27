@@ -3,7 +3,10 @@
 [ext_resource path="res://assets/fonts/thin_pixelated.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/images/graph.png" type="Texture" id=2]
 [ext_resource path="res://scripts/guis/statistics.gd" type="Script" id=3]
+[ext_resource path="res://addons/easy_charts/control_charts/chart.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/fonts/pixelated.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://scripts/guis/graphs/statistics/money_from_meals.gd" type="Script" id=6]
+[ext_resource path="res://scripts/guis/graphs/statistics/profits.gd" type="Script" id=7]
 
 [sub_resource type="StyleBoxFlat" id=7]
 bg_color = Color( 0.772549, 0.635294, 0.505882, 1 )
@@ -44,16 +47,7 @@ TabContainer/styles/tab_fg = SubResource( 10 )
 size = 15
 font_data = ExtResource( 5 )
 
-[sub_resource type="DynamicFont" id=6]
-font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=5]
-font_data = ExtResource( 1 )
-
 [sub_resource type="DynamicFont" id=2]
-font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=3]
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=4]
@@ -85,80 +79,13 @@ margin_top = 35.0
 margin_right = -10.0
 margin_bottom = -10.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TabMenu/MainStats"]
+[node name="MarginContainer" type="MarginContainer" parent="TabMenu/MainStats"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 20.0
-margin_right = -20.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="TabMenu/MainStats/HBoxContainer"]
-margin_right = 330.0
-margin_bottom = 383.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-alignment = 1
-
-[node name="ProductionWaste" type="Label" parent="TabMenu/MainStats/HBoxContainer/VBoxContainer"]
-margin_top = 115.0
-margin_right = 330.0
-margin_bottom = 137.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 6 )
-text = "Production Waste:"
-
-[node name="RottenWaste" type="Label" parent="TabMenu/MainStats/HBoxContainer/VBoxContainer"]
-margin_top = 141.0
-margin_right = 330.0
-margin_bottom = 163.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 6 )
-text = "Rotten Waste:"
-
-[node name="LeftoverWaste" type="Label" parent="TabMenu/MainStats/HBoxContainer/VBoxContainer"]
-margin_top = 167.0
-margin_right = 330.0
-margin_bottom = 189.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 6 )
-text = "Leftover Waste:"
-
-[node name="UnavoidableWaste" type="Label" parent="TabMenu/MainStats/HBoxContainer/VBoxContainer"]
-margin_top = 193.0
-margin_right = 330.0
-margin_bottom = 215.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 6 )
-text = "Unavoidable Waste:"
-
-[node name="WasteCost" type="Label" parent="TabMenu/MainStats/HBoxContainer/VBoxContainer"]
-margin_top = 219.0
-margin_right = 330.0
-margin_bottom = 241.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 6 )
-text = "Food Waste Cost:"
-
-[node name="IngredientAmount" type="Label" parent="TabMenu/MainStats/HBoxContainer/VBoxContainer"]
-margin_top = 245.0
-margin_right = 330.0
-margin_bottom = 267.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 6 )
-text = "Ingredient Amount purchased?"
-
-[node name="Right" type="Label" parent="TabMenu/MainStats/HBoxContainer"]
-margin_left = 334.0
-margin_top = 143.0
-margin_right = 664.0
-margin_bottom = 240.0
-size_flags_horizontal = 3
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 5 )
-text = "(insert random game facts)
-you did 10% better today nice
-customers were happier
-chicken sold the most this week"
-align = 1
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
 
 [node name="Graphs" type="Tabs" parent="TabMenu"]
 visible = false
@@ -210,102 +137,36 @@ margin_top = 32.0
 margin_right = -4.0
 margin_bottom = -4.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabMenu/MoneyStats"]
+[node name="MarginContainer" type="MarginContainer" parent="TabMenu/MoneyStats"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 20.0
-margin_right = -20.0
-alignment = 1
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
 
-[node name="Revenue" type="Label" parent="TabMenu/MoneyStats/VBoxContainer"]
-margin_top = 68.0
-margin_right = 676.0
-margin_bottom = 90.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 3 )
-text = "Revenue"
-valign = 1
+[node name="GridContainer" type="GridContainer" parent="TabMenu/MoneyStats/MarginContainer"]
+margin_right = 696.0
+margin_bottom = 372.0
 
-[node name="FoodAssets" type="Label" parent="TabMenu/MoneyStats/VBoxContainer"]
-margin_top = 94.0
-margin_right = 676.0
-margin_bottom = 116.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 3 )
-text = "Food Assets"
-valign = 1
+[node name="Profits" type="Control" parent="TabMenu/MoneyStats/MarginContainer/GridContainer"]
+margin_right = 696.0
+margin_bottom = 184.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 7 )
 
-[node name="Capital" type="Label" parent="TabMenu/MoneyStats/VBoxContainer"]
-margin_top = 120.0
-margin_right = 676.0
-margin_bottom = 142.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 3 )
-text = "Capital"
-valign = 1
+[node name="Chart" parent="TabMenu/MoneyStats/MarginContainer/GridContainer/Profits" instance=ExtResource( 4 )]
 
-[node name="Profits" type="Label" parent="TabMenu/MoneyStats/VBoxContainer"]
-margin_top = 146.0
-margin_right = 676.0
-margin_bottom = 168.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 3 )
-text = "Profits"
-valign = 1
+[node name="MoneyFromMeals" type="Control" parent="TabMenu/MoneyStats/MarginContainer/GridContainer"]
+margin_top = 188.0
+margin_right = 696.0
+margin_bottom = 372.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 6 )
 
-[node name="GrossProfit" type="Label" parent="TabMenu/MoneyStats/VBoxContainer"]
-margin_top = 172.0
-margin_right = 676.0
-margin_bottom = 194.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 3 )
-text = "Gross Profit"
-valign = 1
-
-[node name="GrossMargin" type="Label" parent="TabMenu/MoneyStats/VBoxContainer"]
-margin_top = 198.0
-margin_right = 676.0
-margin_bottom = 220.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 3 )
-text = "Gross Margin"
-valign = 1
-
-[node name="IngredientCost" type="Label" parent="TabMenu/MoneyStats/VBoxContainer"]
-margin_top = 224.0
-margin_right = 676.0
-margin_bottom = 246.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 3 )
-text = "Ingredient Cost"
-valign = 1
-
-[node name="WasteCost" type="Label" parent="TabMenu/MoneyStats/VBoxContainer"]
-margin_top = 250.0
-margin_right = 676.0
-margin_bottom = 272.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 3 )
-text = "Food Waste Cost"
-valign = 1
-
-[node name="ManagementFees" type="Label" parent="TabMenu/MoneyStats/VBoxContainer"]
-margin_top = 276.0
-margin_right = 676.0
-margin_bottom = 298.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 3 )
-text = "Food Waste Management Fees"
-valign = 1
-
-[node name="TotalExpenses" type="Label" parent="TabMenu/MoneyStats/VBoxContainer"]
-margin_top = 302.0
-margin_right = 676.0
-margin_bottom = 324.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 3 )
-text = "Total Expenses"
-valign = 1
+[node name="Chart" parent="TabMenu/MoneyStats/MarginContainer/GridContainer/MoneyFromMeals" instance=ExtResource( 4 )]
 
 [node name="Forecast" type="Tabs" parent="TabMenu"]
 visible = false
@@ -358,6 +219,7 @@ margin_right = -5.0
 margin_bottom = -5.0
 
 [node name="SoldFoodTable" type="RichTextLabel" parent="TabMenu/SoldFood"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_colors/default_color = Color( 0, 0, 0, 1 )

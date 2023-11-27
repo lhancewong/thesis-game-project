@@ -19,14 +19,14 @@ onready var sub_scenes_list = [
 
 
 func _ready():
-	Game.before_day_start()
 	_toggle_show_sub_scene(live_updates)
 	$PauseFrame.hide()
 	$PauseFrame/SteveHarvey.hide()
 	set_physics_process(true)
+	Game.init_daily_statistics()
 
 
-func _physics_process(delta):
+func _process(delta):
 	$VBoxContainer/topbar/HBoxContainer/Day.text = "Day " + str(Game.day)
 	$VBoxContainer/topbar/HBoxContainer/Money.text = "Money: " + Game.get_str_money()
 	$VBoxContainer/topbar/HBoxContainer/Waste.text = "Waste: " + Game.get_str_waste()
@@ -69,7 +69,7 @@ func _on_ToTitleScreen_pressed():
 func _on_StartDay_pressed():
 	terminal.add_text("Day Started!")
 	_on_pause_button_pressed()
-	yield(Game.purchase_hndlr.start_day(), "completed")
+	yield(Game.day_hndlr.start_day_cycle(), "completed")
 	_on_pause_popup_close_pressed()
 	terminal.add_text("Day Finished!")
 
