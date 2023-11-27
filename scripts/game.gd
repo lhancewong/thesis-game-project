@@ -90,6 +90,7 @@ func init_daily_statistics():
 		ingredients_bought = {pork = 0, chicken = 0, beef = 0, curry_powder = 0},
 		ingredients_consumed = {pork = 0, chicken = 0, beef = 0, curry_powder = 0},
 		customers_served = {tourist = 0, regular = 0, local = 0},
+		money_earned_from_meals = {pork_curry = 0, chicken_curry = 0, beef_curry = 0},
 		satisfaction_gained = 0.0,
 		money_left = 0.0,
 		money_spent = 0.0,

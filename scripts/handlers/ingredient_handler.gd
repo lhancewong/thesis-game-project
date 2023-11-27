@@ -68,7 +68,7 @@ func unlock_ingredient_check():
 			beef_block_node.visible = false
 			beef_node.visible = true
 			Game.unlocked_ingredients.beef = true
-		if Game.day >= 10:
+		if Game.day >= 9:
 			pork_block_node.visible = false
 			pork_node.visible = true
 			Game.unlocked_ingredients.pork = true

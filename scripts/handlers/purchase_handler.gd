@@ -54,7 +54,7 @@ func _log_transaction_entry(food: Dictionary, customer: Dictionary) -> Dictionar
 	var waste_type = randi() % 2
 	var satisfaction_amnt = _noisefy(CUSTO.BASE_SATISFACTION * customer.satisfaction_factor)
 
-	emit_signal("meal_served", food_type)
+	emit_signal("meal_served", food_type, food_payment)
 	emit_signal("customer_served", customer_type)
 	emit_signal("money_earned", food_payment)
 	emit_signal("satsifation_gained", satisfaction_amnt)

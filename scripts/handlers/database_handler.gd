@@ -27,6 +27,30 @@ func get_money_earned(day):
 	return money_earned
 
 
+func get_money_spent(day):
+	if day == 0:
+		return 0
+	var day_stats = Game.stats_per_day[str(day)]
+	var money_spent = day_stats.money_spent
+	return money_spent
+
+
+func get_profit(day):
+	if day == 0:
+		return 0
+	var day_stats = Game.stats_per_day[str(day)]
+	var profit = day_stats.money_earned - day_stats.money_spent
+	return profit
+
+
+func get_money_earned_from_meal(type, day):
+	if day == 0:
+		return 0
+	var day_stats = Game.stats_per_day[str(day)]
+	var money_earned_from_meal = day_stats.money_earned_from_meals[str(type)]
+	return money_earned_from_meal
+
+
 func _on_Waste_ewaste_managed(amount):
 	Game.stats_per_day[str(Game.day)].ewaste_managed += amount
 
@@ -59,8 +83,9 @@ func _on_Purchase_customer_served(type):
 	Game.stats_per_day[str(Game.day)].customers_served[type] += 1
 
 
-func _on_Purchase_meal_served(type):
+func _on_Purchase_meal_served(type, amount):
 	Game.stats_per_day[str(Game.day)].meals_served[type] += 1
+	Game.stats_per_day[str(Game.day)].money_earned_from_meals[type] += amount
 
 
 func _on_Purchase_money_earned(amount):

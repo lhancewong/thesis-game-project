@@ -23,12 +23,9 @@ func _ready():
 	cp.colors.frame = Color.bisque
 	cp.colors.background = Color.bisque
 	cp.colors.grid = Color.bisque
-#	cp.colors.ticks = Color("#283442")
 	cp.colors.text = Color.black
 	cp.draw_bounding_box = true
-	cp.title = ""
 	cp.x_label = "Day"
-	cp.y_label = ""
 	cp.x_scale = 5
 	cp.y_scale = 5
 	cp.interactive = true  # false by default, it allows the chart to create a tooltip to show point values
@@ -67,6 +64,7 @@ func _ready():
 			interpolation = Function.Interpolation.LINEAR
 		}
 	)
+
 	f3 = Function.new(
 		x,
 		y3,
