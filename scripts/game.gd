@@ -13,6 +13,8 @@ onready var unlocked_ingredients = {
 }
 onready var store_level = 0
 onready var skill_point = 4
+onready var compost_stack = []
+onready var last_compost_day = 0
 
 # Stores ingredients currently in stock
 onready var i_stockpile = {
@@ -100,25 +102,6 @@ func init_var():
 	# Entries
 	sold_food = []
 	waste_managed = []
-	per_day_stats = []
-
-	# Day end
-	meals_served_per_day = []
-	ingreds_bought_per_day = []
-	ingreds_consumed_per_day = []
-	custos_served_per_day = []
-	satis_earned_per_day = []
-	money_left_per_day = []
-	money_spent_per_day = []
-	money_earned_per_day = []
-	e_waste_produced_per_day = []
-	e_waste_managed_per_day = []
-	e_waste_left_per_day = []
-	i_waste_left_per_day = []
-	i_waste_produced_per_day = []
-	i_waste_managed_per_day = []
-
-	save_file_num = -1
 
 
 # Turns numbers into a Tycoon compatible format

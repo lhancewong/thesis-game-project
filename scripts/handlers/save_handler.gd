@@ -16,6 +16,8 @@ func save():
 		"sold_food": Game.sold_food,
 		"waste_managed": Game.waste_managed,
 		"stats_per_day": Game.stats_per_day,
+		"compost_stack": Game.compost_stack,
+		"last_compost_day": Game.last_compost_day
 	}
 	return save_dict
 
@@ -70,6 +72,10 @@ func load_game():
 					Game.waste_managed = data
 				"stats_per_day":
 					Game.stats_per_day = data
+				"compost_stack":
+					Game.compost_stack = data
+				"last_compost_day":
+					Game.last_compost_day = data
 
 	save_game.close()
 

@@ -35,17 +35,19 @@ func _update_labels():
 
 
 func _on_TrashButton_pressed():
-	Game.money -= (edibleToLandfill+inedibleToLandfill) * 2
+	Game.money -= (edibleToLandfill + inedibleToLandfill) * 2
 	if edibleToLandfill == 0 && inedibleToLandfill == 0:
 		return
 	else:
 		if edibleToLandfill > 0:
 			print(Game.waste_hndlr.get_str_edible_waste())
-			Game.waste_hndlr.manage_waste("landfill", "edible_waste", edibleToLandfill, 1)
+			Game.waste_hndlr.manage_waste("landfill", "edible_waste", edibleToLandfill, Game.day)
 			print(Game.waste_hndlr.get_str_edible_waste())
 		if inedibleToLandfill > 0:
 			print(Game.waste_hndlr.get_str_inedible_waste())
-			Game.waste_hndlr.manage_waste("landfill", "inedible_waste", inedibleToLandfill, 1)
+			Game.waste_hndlr.manage_waste(
+				"landfill", "inedible_waste", inedibleToLandfill, Game.day
+			)
 			print(Game.waste_hndlr.get_str_inedible_waste())
 		edibleToLandfill = 0
 		inedibleToLandfill = 0

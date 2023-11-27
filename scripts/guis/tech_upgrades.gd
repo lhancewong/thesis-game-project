@@ -12,7 +12,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$VBoxContainer/HBoxContainer/Text/Amount/AmntLabel.text = "Skill Points: " + str(Game.skill_point)
+	$VBoxContainer/HBoxContainer/Text/Amount/AmntLabel.text = (
+		"Skill Points: "
+		+ str(Game.skill_point)
+	)
 
 
 func _on_ComUnlock_pressed():

@@ -52,7 +52,6 @@ func unlock_strategy(type):
 				compost_node.visible = true
 				compost_unlock_button.disabled = true
 				compost_unlock_button.text = str("unlocked")
-			#      Game.unlocked_ingredients.beef = true
 			2:
 				indus_block_node.visible = false
 				indus_node.visible = true
@@ -68,3 +67,7 @@ func unlock_strategy(type):
 				shelter_node.visible = true
 				shelter_unlock_button.disabled = true
 				shelter_unlock_button.text = str("unlocked")
+
+
+func landfill_cost(amount):
+	Game.money -= amount * 2
