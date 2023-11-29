@@ -6,15 +6,23 @@ onready var edible_waste = 0.0
 onready var inedible_waste = 0.0
 onready var satisfaction = 0.0
 onready var day = 0
+
+onready var store_level = 0
+onready var skill_point = 0
+onready var compost_stack = []
+onready var last_compost_day = 0
+
 onready var unlocked_ingredients = {
 	chicken = true,
 	beef = false,
 	pork = false,
 }
-onready var store_level = 0
-onready var skill_point = 4
-onready var compost_stack = []
-onready var last_compost_day = 0
+onready var unlocked_tech = {
+	feed_humans = false,
+	feed_animals = false,
+	industrial =  false,
+	composting =  false,
+}
 
 # Stores ingredients currently in stock
 onready var i_stockpile = {
@@ -58,6 +66,7 @@ var waste_managed: Array
 # Day end
 var stats_per_day: Dictionary
 
+# Menu
 onready var save_file_num = -1
 
 
@@ -132,23 +141,3 @@ func get_str_waste() -> String:
 
 func get_str_satisfaction() -> String:
 	return make_pretty_num(satisfaction)
-
-
-func init_daily_statistics():
-	stats_per_day[str(day)] = {
-		meals_served = {pork_curry = 0, chicken_curry = 0, beef_curry = 0},
-		ingredients_bought = {pork = 0, chicken = 0, beef = 0, curry_powder = 0},
-		ingredients_consumed = {pork = 0, chicken = 0, beef = 0, curry_powder = 0},
-		customers_served = {tourist = 0, regular = 0, local = 0},
-		money_earned_from_meals = {pork_curry = 0, chicken_curry = 0, beef_curry = 0},
-		satisfaction_gained = 0.0,
-		money_left = 0.0,
-		money_spent = 0.0,
-		money_earned = 0.0,
-		ewaste_produced = 0.0,
-		ewaste_managed = 0.0,
-		ewaste_left = 0.0,
-		iwaste_produced = 0.0,
-		iwaste_managed = 0.0,
-		iwaste_left = 0.0,
-	}

@@ -50,7 +50,7 @@ func spend_ingredients(food: Dictionary) -> void:
 			emit_signal("ingred_consumed", i, 1)
 
 
-func unlock_ingredient_check():
+func check_unlocked_ingredient():
 	if get_tree().current_scene.name == "OnDaylight":
 		var beef_block_node = get_node(
 			"/root/OnDaylight/VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/OrderIngredients/VBoxContainer/Order/BeefBlock"

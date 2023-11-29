@@ -5,10 +5,6 @@ onready var sold_food_label = $TabMenu/SoldFood/SoldFoodTable
 onready var managed_waste_label = $TabMenu/ManagedWaste/ManagedWasteTable
 
 
-func _physics_process(delta):
-	pass
-
-
 func _ready():
 	set_sold_food_table()
 	set_managed_waste_table()

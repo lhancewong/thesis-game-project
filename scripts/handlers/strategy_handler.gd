@@ -6,6 +6,8 @@ func unlock_strategy(type):
 	if get_tree().current_scene.name == "OnDaylight":
 		if Game.skill_point > 0:
 			Game.skill_point -= 1
+		else:
+			return
 		var compost_block_node = get_node(
 			"/root/OnDaylight/VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/ManagementHander/MainScreen/VBoxContainer/ContentFrame/Inedible Waste/CompostBlock"
 		)
@@ -67,6 +69,20 @@ func unlock_strategy(type):
 				shelter_node.visible = true
 				shelter_unlock_button.disabled = true
 				shelter_unlock_button.text = str("unlocked")
+
+
+func check_store_level():
+	if Game.satisfaction >= 50:
+		Game.store_level += 1
+		Game.satisfaction = 0
+		Game.skill_point += 1
+
+
+func check_unlocked_tech():
+	var unlocked = Game.unlocked_tech
+	for tech in Game.unlocked_tech:
+		if unlocked[str(tech)]:
+			pass
 
 
 func landfill_cost(amount):

@@ -23,7 +23,7 @@ func _ready():
 	$PauseFrame.hide()
 	$PauseFrame/SteveHarvey.hide()
 	set_physics_process(true)
-	Game.init_daily_statistics()
+	Game.day_hndlr.init_daylight_main()
 
 
 func _process(delta):

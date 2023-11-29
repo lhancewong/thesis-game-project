@@ -30,11 +30,6 @@ func add_waste(waste_type: String, waste_amount: float):
 func manage_waste(management_strategy: String, waste_type: String, waste_amount: float, date: int):
 	var type
 
-#	match waste_type:
-#		0:
-#			type = "Inedible"
-#		1:
-#			type = "Edible"
 	if waste_type == "inedible_waste" && Game.inedible_waste != 0:
 		Game.inedible_waste -= waste_amount
 		emit_signal("iwaste_managed", waste_amount)
@@ -44,7 +39,12 @@ func manage_waste(management_strategy: String, waste_type: String, waste_amount:
 	else:
 		return
 
-	var waste_entry = [management_strategy, waste_type, waste_amount, date]
+	var waste_entry = {
+		management_strategy = management_strategy,
+		waste_type = waste_type,
+		waste_amount = waste_amount,
+		date = date
+	}
 	Game.waste_managed.append(waste_entry)
 	print(Game.waste_managed)
 
