@@ -47,7 +47,7 @@ func get_food(name: String) -> Dictionary:
 			return MEAL.menu.lemonade
 		"coffee":
 			return MEAL.menu.coffee
-		"No Food", _:
+		_:
 			return {}
 			
 func set_meal_price(menu: Dictionary, num: float):

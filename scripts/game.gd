@@ -6,10 +6,22 @@ onready var edible_waste = 0.0
 onready var inedible_waste = 0.0
 onready var satisfaction = 0.0
 onready var day = 0
+
+onready var store_level = 0
+onready var skill_point = 0
+onready var compost_stack = []
+onready var last_compost_day = 0
+
 onready var unlocked_ingredients = {
 	chicken = true,
 	beef = false,
 	pork = false,
+}
+onready var unlocked_tech = {
+	feed_humans = false,
+	feed_animals = false,
+	industrial =  false,
+	composting =  false,
 }
 
 # Stores ingredients currently in stock
@@ -43,28 +55,18 @@ onready var purchase_hndlr = $Purchase
 onready var custo_hndlr = $Customer
 onready var food_hndlr = $Food
 onready var save_hndlr = $Save
+onready var strat_hndlr = $Strategy
+onready var day_hndlr = $DayCycle
+onready var database_hndlr = $Database
 
 # Entries
 var sold_food: Array
 var waste_managed: Array
-var per_day_stats: Array = []
 
 # Day end
-onready var meals_served_per_day: Array = []
-onready var ingreds_bought_per_day: Array = []
-onready var ingreds_consumed_per_day: Array = []
-onready var custos_served_per_day: Array = []
-onready var satis_earned_per_day: Array = []
-onready var money_left_per_day: Array = []
-onready var money_spent_per_day: Array = []
-onready var money_earned_per_day: Array = []
-onready var e_waste_produced_per_day: Array = []
-onready var e_waste_managed_per_day: Array = []
-onready var e_waste_left_per_day: Array = []
-onready var i_waste_left_per_day: Array = []
-onready var i_waste_produced_per_day: Array = []
-onready var i_waste_managed_per_day: Array = []
+var stats_per_day: Dictionary
 
+# Menu
 onready var save_file_num = -1
 
 
@@ -109,25 +111,6 @@ func init_var():
 	# Entries
 	sold_food = []
 	waste_managed = []
-	per_day_stats = []
-
-	# Day end
-	meals_served_per_day = []
-	ingreds_bought_per_day = []
-	ingreds_consumed_per_day = []
-	custos_served_per_day = []
-	satis_earned_per_day = []
-	money_left_per_day = []
-	money_spent_per_day = []
-	money_earned_per_day = []
-	e_waste_produced_per_day = []
-	e_waste_managed_per_day = []
-	e_waste_left_per_day = []
-	i_waste_left_per_day = []
-	i_waste_produced_per_day = []
-	i_waste_managed_per_day = []
-
-	save_file_num = -1
 
 
 # Turns numbers into a Tycoon compatible format
@@ -158,83 +141,3 @@ func get_str_waste() -> String:
 
 func get_str_satisfaction() -> String:
 	return make_pretty_num(satisfaction)
-
-
-func before_day_start():
-	meals_served_per_day.resize(day + 2)
-	ingreds_bought_per_day.resize(day + 2)
-	ingreds_consumed_per_day.resize(day + 2)
-	custos_served_per_day.resize(day + 2)
-	satis_earned_per_day.resize(day + 2)
-	money_left_per_day.resize(day + 2)
-	money_spent_per_day.resize(day + 2)
-	money_earned_per_day.resize(day + 2)
-	e_waste_produced_per_day.resize(day + 2)
-	e_waste_managed_per_day.resize(day + 2)
-	e_waste_left_per_day.resize(day + 2)
-	i_waste_produced_per_day.resize(day + 2)
-	i_waste_managed_per_day.resize(day + 2)
-	i_waste_left_per_day.resize(day + 2)
-
-	# dict of meal amounts
-	meals_served_per_day[day] = {
-		pork_curry = 0,
-		chicken_curry = 0,
-		beef_curry = 0,
-	}
-
-	ingreds_bought_per_day[day] = {
-		pork = 0,
-		chicken = 0,
-		beef = 0,
-		curry_powder = 0,
-	}
-
-	ingreds_consumed_per_day[day] = {
-		pork = 0,
-		chicken = 0,
-		beef = 0,
-		curry_powder = 0,
-	}
-
-	custos_served_per_day[day] = {
-		tourist = 0,
-		regular = 0,
-		local = 0,
-	}
-
-	satis_earned_per_day[day] = 0.0
-	money_left_per_day[day] = 0.0
-	money_spent_per_day[day] = 0.0
-	money_earned_per_day[day] = 0.0
-	e_waste_produced_per_day[day] = 0.0
-	e_waste_managed_per_day[day] = 0.0
-	e_waste_left_per_day[day] = 0.0
-	i_waste_produced_per_day[day] = 0.0
-	i_waste_managed_per_day[day] = 0.0
-	i_waste_left_per_day[day] = 0.0
-
-
-# Move to purchase handler prob or maybe even create day handler
-func on_day_end():
-	min_custo = 5 + day
-	max_custo = 10 + day
-
-	Game.money_left_per_day[Game.day] += Game.money
-	Game.e_waste_left_per_day[Game.day] += Game.edible_waste
-	Game.i_waste_left_per_day[Game.day] += Game.inedible_waste
-
-	day += 1
-
-	before_day_start()
-	if Game.day < 15:
-		ingredient_unlocker()
-
-
-func ingredient_unlocker():
-	if day == 3:
-		unlocked_ingredients.beef = true
-	if day == 9:
-		unlocked_ingredients.pork = true
-	ingred_hndlr.unlock_ingredients()
-	food_hndlr.unlock_meals()

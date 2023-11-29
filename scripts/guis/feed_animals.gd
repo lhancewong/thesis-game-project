@@ -31,7 +31,7 @@ func _physics_process(delta):
 func _on_sendButton_pressed():
 	if disposal_amount == 0:
 		return
-	Game.waste_hndlr.manage_waste("feed_animals", 1, disposal_amount, 1)
+	Game.waste_hndlr.manage_waste("feed_animals", "edible_waste", disposal_amount, Game.day)
 	disposal_amount = 0
 	ActionLineEdit.text = str(disposal_amount)
 
