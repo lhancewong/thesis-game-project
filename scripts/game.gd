@@ -237,3 +237,4 @@ func ingredient_unlocker():
 	if day == 9:
 		unlocked_ingredients.pork = true
 	ingred_hndlr.unlock_ingredients()
+	food_hndlr.unlock_meals()

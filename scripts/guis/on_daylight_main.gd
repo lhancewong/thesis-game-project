@@ -6,12 +6,14 @@ onready var terminal = $VBoxContainer/HBoxContainer/VBoxContainer2/GameConsole
 # Sub Scenes
 onready var live_updates = $VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/LiveUpdates
 onready var order_ingredients = $VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/OrderIngredients
+onready var price_management = $VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/PriceManagement
 onready var tech_upgrades = $VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/TechUpgrades
 onready var statistics = $VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/Statistics
 onready var management = $VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/ManagementHander
 onready var sub_scenes_list = [
 	live_updates,
 	order_ingredients,
+	price_management,
 	tech_upgrades,
 	statistics,
 	management,
@@ -27,6 +29,11 @@ func _ready():
 
 
 func _physics_process(delta):
+	var stockpile = Game.i_stockpile
+	$VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/HBoxContainer/Chicken.text = "Chicken:\n " + str(stockpile["chicken"])  
+	$VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/HBoxContainer/Beef.text = "Beef:\n " + str(stockpile["beef"])
+	$VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/HBoxContainer/Pork.text = "Pork:\n " + str(stockpile["pork"]) 
+	$VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/HBoxContainer/Curry.text = "Curry:\n " + str(stockpile["curry_powder"]) 
 	$VBoxContainer/topbar/HBoxContainer/Day.text = "Day " + str(Game.day)
 	$VBoxContainer/topbar/HBoxContainer/Money.text = "Money: " + Game.get_str_money()
 	$VBoxContainer/topbar/HBoxContainer/Waste.text = "Waste: " + Game.get_str_waste()
@@ -34,7 +41,6 @@ func _physics_process(delta):
 		"Satisfaction: "
 		+ Game.get_str_satisfaction()
 	)
-
 
 # Hides every sub_scene then shows the desired sub scene
 func _toggle_show_sub_scene(sub_scene_name):
@@ -94,6 +100,8 @@ func _on_LiveUpdatingStats_pressed():
 func _on_OrderIngredients_pressed():
 	_toggle_show_sub_scene(order_ingredients)
 
+func _on_PriceManagement_pressed():
+	_toggle_show_sub_scene(price_management)
 
 func _on_TechUpgrades_pressed():
 	_toggle_show_sub_scene(tech_upgrades)
@@ -106,3 +114,4 @@ func _on_Statistics_pressed():
 func _on_Management_pressed():
 	management.set_screen()
 	_toggle_show_sub_scene(management)
+
