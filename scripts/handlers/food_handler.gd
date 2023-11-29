@@ -49,9 +49,11 @@ func get_food(name: String) -> Dictionary:
 			return MEAL.menu.coffee
 		_:
 			return {}
-			
+
+
 func set_meal_price(menu: Dictionary, num: float):
 	menu.base_price = num
+
 
 func unlock_meals():
 	if get_tree().current_scene.name == "OnDaylight":

@@ -24,7 +24,6 @@ onready var stock_beef_price = $VBoxContainer/Stock/Beef/Price/Amount
 onready var stock_pork_price = $VBoxContainer/Stock/Pork/Price/Amount
 
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_update_labels()
@@ -126,4 +125,3 @@ func _on_PorkLine_text_changed(new_text):
 	else:
 		pork_line_edit.text = pork_old_text
 		pork_line_edit.set_cursor_position(pork_line_edit.text.length())
-

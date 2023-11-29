@@ -20,8 +20,8 @@ onready var unlocked_ingredients = {
 onready var unlocked_tech = {
 	feed_humans = false,
 	feed_animals = false,
-	industrial =  false,
-	composting =  false,
+	industrial = false,
+	composting = false,
 }
 
 # Stores ingredients currently in stock

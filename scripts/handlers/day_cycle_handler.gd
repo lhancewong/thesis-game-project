@@ -9,7 +9,7 @@ signal day_ended(money_left, ewaste_left, iwaste_left)
 
 func init_daylight_main():
 	init_daily_statistics()
-	$"../Ingredient".check_unlocked_ingredient()
+	$"../Ingredient".check_unlocked_ingredients()
 	$"../Strategy".check_store_level()
 
 
@@ -47,11 +47,14 @@ func _on_day_start():
 	# Initializes key nodes from the daylight scene
 	if get_tree().current_scene.name == "OnDaylight":
 		steve_harvey = get_node("/root/OnDaylight/PauseFrame/SteveHarvey")
-		terminal = get_node("/root/OnDaylight/VBoxContainer/HBoxContainer/GameConsole")
+		terminal = get_node(
+			"/root/OnDaylight/VBoxContainer/HBoxContainer/VBoxContainer2/GameConsole"
+		)
 		npc_spawner = get_node("/root/OnDaylight/NPCs/Spawner")
 
-	$"../Ingredient".check_unlock_ingredient()
-	$"../Strategy".check_upgrade_store_level()
+	$"../Ingredient".check_unlocked_ingredients()
+	$"../Strategy".check_store_level()
+
 
 func _day_start():
 	# Length of the day in seconds

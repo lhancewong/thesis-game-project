@@ -37,7 +37,9 @@ func buy_ingredients(type: String, amount: int) -> void:
 		debug_msg = "You broke ass bitch you can't afford %.2f dollars of %s"
 
 	if get_tree().current_scene.name == "OnDaylight":
-		var terminal = get_node("/root/OnDaylight/VBoxContainer/HBoxContainer/VBoxContainer2/GameConsole")
+		var terminal = get_node(
+			"/root/OnDaylight/VBoxContainer/HBoxContainer/VBoxContainer2/GameConsole"
+		)
 		terminal.add_text(debug_msg % [price, type])
 
 
@@ -50,7 +52,7 @@ func spend_ingredients(food: Dictionary) -> void:
 			emit_signal("ingred_consumed", i, 1)
 
 
-func check_unlocked_ingredient():
+func check_unlocked_ingredients():
 	if get_tree().current_scene.name == "OnDaylight":
 		var beef_block_node = get_node(
 			"/root/OnDaylight/VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/OrderIngredients/VBoxContainer/Order/BeefBlock"
