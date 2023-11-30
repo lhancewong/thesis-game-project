@@ -9,6 +9,7 @@ onready var day = 0
 
 onready var store_level = 0
 onready var skill_point = 0
+
 onready var compost_stack = []
 onready var last_compost_day = 0
 
@@ -18,10 +19,10 @@ onready var unlocked_ingredients = {
 	pork = false,
 }
 onready var unlocked_tech = {
-	feed_humans = false,
-	feed_animals = false,
-	industrial = false,
 	composting = false,
+	industrial = false,
+	feed_animals = false,
+	feed_humans = false,
 }
 
 # Stores ingredients currently in stock
@@ -59,6 +60,7 @@ onready var save_hndlr = $Save
 onready var strat_hndlr = $Strategy
 onready var day_hndlr = $DayCycle
 onready var database_hndlr = $Database
+onready var buffs_hndlr = $Buffs
 
 # Entries
 var sold_food: Array
@@ -83,6 +85,13 @@ func init_var():
 		chicken = true,
 		beef = false,
 		pork = false,
+	}
+
+	unlocked_tech = {
+		composting = false,
+		industrial = false,
+		feed_animals = false,
+		feed_humans = false,
 	}
 
 	# Stores ingredients currently in stock
@@ -113,6 +122,8 @@ func init_var():
 	# Entries
 	sold_food = []
 	waste_managed = []
+	compost_stack = []
+	last_compost_day = 0
 
 
 # Turns numbers into a Tycoon compatible format

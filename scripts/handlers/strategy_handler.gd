@@ -4,10 +4,6 @@ extends Node
 # Handles unlocking management strategies
 func unlock_strategy(type):
 	if get_tree().current_scene.name == "OnDaylight":
-		if Game.skill_point > 0:
-			Game.skill_point -= 1
-		else:
-			return
 		var compost_block_node = get_node(
 			"/root/OnDaylight/VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/ManagementHander/MainScreen/VBoxContainer/ContentFrame/Inedible Waste/CompostBlock"
 		)
@@ -50,21 +46,25 @@ func unlock_strategy(type):
 
 		match type:
 			1:
+				Game.unlocked_tech["compost"] = true
 				compost_block_node.visible = false
 				compost_node.visible = true
 				compost_unlock_button.disabled = true
 				compost_unlock_button.text = str("unlocked")
 			2:
+				Game.unlocked_tech["industrial"] = true
 				indus_block_node.visible = false
 				indus_node.visible = true
 				indus_unlock_button.disabled = true
 				indus_unlock_button.text = str("unlocked")
 			3:
+				Game.unlocked_tech["feed_animals"] = true
 				ani_block_node.visible = false
 				ani_node.visible = true
 				ani_unlock_button.disabled = true
 				ani_unlock_button.text = str("unlocked")
 			4:
+				Game.unlocked_tech["feed_humans"] = true
 				shelter_block_node.visible = false
 				shelter_node.visible = true
 				shelter_unlock_button.disabled = true
@@ -87,3 +87,15 @@ func check_unlocked_tech():
 
 func landfill_cost(amount):
 	Game.money -= amount * 2
+
+
+func load_unlocked_strats():
+	var temp_array = []
+	for i in Game.unlocked_tech:
+		if Game.unlocked_tech[i] == true:
+			temp_array.append(1)
+		else:
+			temp_array.append(0)
+	for i in range(len(temp_array)):
+		if temp_array[i] == 1:
+			unlock_strategy(i+1)

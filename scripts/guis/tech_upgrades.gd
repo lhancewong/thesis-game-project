@@ -19,16 +19,32 @@ func _process(delta):
 
 
 func _on_ComUnlock_pressed():
-	Game.strat_hndlr.unlock_strategy(1)
+	if Game.skill_point > 0:
+			Game.skill_point -= 1
+			Game.strat_hndlr.unlock_strategy(1)
+	else:
+		return
 
 
 func _on_IndusUnlock_pressed():
-	Game.strat_hndlr.unlock_strategy(2)
+	if Game.skill_point > 0:
+			Game.skill_point -= 1
+			Game.strat_hndlr.unlock_strategy(2)
+	else:
+		return
 
 
 func _on_AniUnlock_pressed():
-	Game.strat_hndlr.unlock_strategy(3)
+	if Game.skill_point > 0:
+			Game.skill_point -= 1
+			Game.strat_hndlr.unlock_strategy(3)
+	else:
+		return
 
 
 func _on_SheltUnlock_pressed():
-	Game.strat_hndlr.unlock_strategy(4)
+	if Game.skill_point > 0:
+			Game.skill_point -= 1
+			Game.strat_hndlr.unlock_strategy(4)
+	else:
+		return

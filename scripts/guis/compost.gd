@@ -70,9 +70,9 @@ func _on_plus_pressed():
 # creates an array that compiles the amount composted per day and only keeps last 3 days
 func compost_stack_add(amount):
 	if Game.last_compost_day != Game.day:
-		if Game.day - Game.last_compost_day > 1:
-			for i in range(Game.day - Game.last_compost_day - 1):
-				Game.compost_stack.append(0)
+#		if Game.day - Game.last_compost_day > 1:
+#			for i in range(Game.day - Game.last_compost_day - 1):
+#				Game.compost_stack.append(0)
 		Game.last_compost_day = Game.day
 		Game.compost_stack.append(amount)
 	else:

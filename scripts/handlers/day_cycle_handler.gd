@@ -11,6 +11,7 @@ func init_daylight_main():
 	init_daily_statistics()
 	$"../Ingredient".check_unlocked_ingredients()
 	$"../Strategy".check_store_level()
+	Game.strat_hndlr.load_unlocked_strats()
 
 
 func init_daily_statistics():
@@ -41,9 +42,18 @@ func start_day_cycle():
 
 # Prepares the dictionary to store daily statistics
 func _on_day_start():
+	# Adds a 0 entry to the compost_stack
+	Game.compost_stack.append(0)
+	Game.compost_stack = Game.compost_stack.slice(-3, Game.compost_stack.size())
+	
 	# Calculates min and max customer amount based on day
-	Game.min_custo = 5 + Game.day
-	Game.max_custo = 10 + Game.day
+	if Game.buffs_hndlr.compost_debuff():
+		print("Customer Debuffed!")
+		Game.min_custo = (5 + Game.day) * 0.6
+		Game.max_custo = (10 + Game.day) * 0.6
+	else:
+		Game.min_custo = 5 + Game.day
+		Game.max_custo = 10 + Game.day
 	# Initializes key nodes from the daylight scene
 	if get_tree().current_scene.name == "OnDaylight":
 		steve_harvey = get_node("/root/OnDaylight/PauseFrame/SteveHarvey")
