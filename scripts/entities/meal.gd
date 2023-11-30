@@ -25,14 +25,14 @@ export(Dictionary) var menu = {
 	},
 	lemonade = {
 		"id": 4,
-		"base_price": 7,
+		"base_price": 3,
 		"type": "lemonade",
-		"ingredients": ["lemon", "sugar"],
+		"ingredients": ["lemon", "cucumber"],
 	},
 	coffee = {
 		"id": 5,
-		"base_price": 7,
+		"base_price": 6,
 		"type": "coffee",
-		"ingredients": ["coffee_mix", "sugar"],
+		"ingredients": ["coffee_mix", "milk"],
 	},
 }

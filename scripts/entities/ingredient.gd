@@ -55,14 +55,20 @@ export(Dictionary) var lemon = {
 	"price": 1,
 }
 
-export(Dictionary) var coffee_mix = {
+export(Dictionary) var cucumber = {
 	"id": 9,
-	"type": "coffee_mix",
-	"price": 5.99,
+	"type": "cucumber",
+	"price": 1,
 }
 
-export(Dictionary) var sugar = {
+export(Dictionary) var coffee_mix = {
 	"id": 10,
-	"type": "sugar",
-	"price": 0.69,
+	"type": "coffee_mix",
+	"price": 2,
+}
+
+export(Dictionary) var milk = {
+	"id": 11,
+	"type": "milk",
+	"price": 2,
 }

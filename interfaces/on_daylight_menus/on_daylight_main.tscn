@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=2]
+[gd_scene load_steps=60 format=2]
 
 [ext_resource path="res://scripts/guis/on_daylight_main.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/pixelated.ttf" type="DynamicFontData" id=2]
@@ -51,6 +51,8 @@
 [ext_resource path="res://assets/images/icons/curry_stock.png" type="Texture" id=49]
 [ext_resource path="res://assets/images/icons/chicken.png" type="Texture" id=50]
 [ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/price_management.tscn" type="PackedScene" id=51]
+[ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/order_drinks.tscn" type="PackedScene" id=52]
+[ext_resource path="res://scripts/guis/order_drinks.gd" type="Script" id=53]
 
 [sub_resource type="DynamicFont" id=4]
 size = 19
@@ -60,10 +62,6 @@ font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 12
-font_data = ExtResource( 5 )
-
-[sub_resource type="DynamicFont" id=7]
-size = 45
 font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=2]
@@ -116,7 +114,7 @@ margin_right = -20.0
 custom_constants/separation = 5
 
 [node name="DayIcon" type="TextureRect" parent="VBoxContainer/topbar/HBoxContainer"]
-margin_right = 66.0
+margin_right = 52.0
 margin_bottom = 64.0
 rect_pivot_offset = Vector2( -477, -156 )
 size_flags_horizontal = 3
@@ -126,9 +124,9 @@ texture = ExtResource( 44 )
 expand = true
 
 [node name="Day" type="Label" parent="VBoxContainer/topbar/HBoxContainer"]
-margin_left = 71.0
+margin_left = 57.0
 margin_top = 18.0
-margin_right = 317.0
+margin_right = 253.0
 margin_bottom = 45.0
 size_flags_horizontal = 3
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -137,8 +135,8 @@ text = "Day"
 valign = 1
 
 [node name="MoneyIcon" type="TextureRect" parent="VBoxContainer/topbar/HBoxContainer"]
-margin_left = 322.0
-margin_right = 389.0
+margin_left = 258.0
+margin_right = 310.0
 margin_bottom = 64.0
 rect_pivot_offset = Vector2( -477, -156 )
 size_flags_horizontal = 3
@@ -148,9 +146,9 @@ texture = ExtResource( 42 )
 expand = true
 
 [node name="Money" type="Label" parent="VBoxContainer/topbar/HBoxContainer"]
-margin_left = 394.0
+margin_left = 315.0
 margin_top = 18.0
-margin_right = 640.0
+margin_right = 511.0
 margin_bottom = 45.0
 size_flags_horizontal = 3
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -159,8 +157,8 @@ text = "Money"
 valign = 1
 
 [node name="WasteIcon" type="TextureRect" parent="VBoxContainer/topbar/HBoxContainer"]
-margin_left = 645.0
-margin_right = 711.0
+margin_left = 516.0
+margin_right = 569.0
 margin_bottom = 64.0
 rect_pivot_offset = Vector2( -477, -156 )
 size_flags_horizontal = 3
@@ -170,9 +168,9 @@ texture = ExtResource( 43 )
 expand = true
 
 [node name="Waste" type="Label" parent="VBoxContainer/topbar/HBoxContainer"]
-margin_left = 716.0
+margin_left = 574.0
 margin_top = 18.0
-margin_right = 963.0
+margin_right = 769.0
 margin_bottom = 45.0
 size_flags_horizontal = 3
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -180,9 +178,31 @@ custom_fonts/font = SubResource( 4 )
 text = "Waste"
 valign = 1
 
+[node name="LevelIcon" type="TextureRect" parent="VBoxContainer/topbar/HBoxContainer"]
+margin_left = 774.0
+margin_right = 827.0
+margin_bottom = 64.0
+rect_pivot_offset = Vector2( -477, -156 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.27
+texture = ExtResource( 20 )
+expand = true
+
+[node name="Level" type="Label" parent="VBoxContainer/topbar/HBoxContainer"]
+margin_left = 832.0
+margin_top = 18.0
+margin_right = 1027.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Level"
+valign = 1
+
 [node name="SatisfactionIcon" type="TextureRect" parent="VBoxContainer/topbar/HBoxContainer"]
-margin_left = 968.0
-margin_right = 1034.0
+margin_left = 1032.0
+margin_right = 1085.0
 margin_bottom = 64.0
 rect_pivot_offset = Vector2( -477, -156 )
 size_flags_horizontal = 3
@@ -192,7 +212,7 @@ texture = ExtResource( 45 )
 expand = true
 
 [node name="Satisfaction" type="Label" parent="VBoxContainer/topbar/HBoxContainer"]
-margin_left = 1039.0
+margin_left = 1090.0
 margin_top = 18.0
 margin_right = 1286.0
 margin_bottom = 45.0
@@ -278,12 +298,34 @@ align = 1
 valign = 1
 autowrap = true
 
-[node name="PriceManagement" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer"]
+[node name="OrderDrinks" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer"]
 margin_left = 210.0
 margin_right = 310.0
 margin_bottom = 91.0
 rect_min_size = Vector2( 100, 91 )
 size_flags_stretch_ratio = 0.15
+clip_text = true
+expand_icon = true
+
+[node name="ButtonLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer/OrderDrinks"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Order 
+Drinks"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="PriceManagement" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer"]
+margin_left = 315.0
+margin_right = 415.0
+margin_bottom = 91.0
+rect_min_size = Vector2( 100, 91 )
+size_flags_stretch_ratio = 0.15
+clip_text = true
+expand_icon = true
 
 [node name="ButtonLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer/PriceManagement"]
 anchor_right = 1.0
@@ -296,51 +338,9 @@ align = 1
 valign = 1
 autowrap = true
 
-[node name="TechUpgrades" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer"]
-margin_left = 315.0
-margin_right = 415.0
-margin_bottom = 91.0
-rect_min_size = Vector2( 100, 91 )
-size_flags_stretch_ratio = 0.15
-theme = SubResource( 1 )
-clip_text = true
-icon_align = 1
-expand_icon = true
-
-[node name="ButtonLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer/TechUpgrades"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 3 )
-text = "Tech Upgrades"
-align = 1
-valign = 1
-autowrap = true
-
-[node name="Statistics" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer"]
+[node name="Management" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer"]
 margin_left = 420.0
 margin_right = 520.0
-margin_bottom = 91.0
-rect_min_size = Vector2( 100, 91 )
-size_flags_stretch_ratio = 0.15
-theme = SubResource( 1 )
-clip_text = true
-icon_align = 1
-expand_icon = true
-
-[node name="ButtonLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer/Statistics"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 3 )
-text = "Statistics"
-align = 1
-valign = 1
-autowrap = true
-
-[node name="Management" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer"]
-margin_left = 525.0
-margin_right = 625.0
 margin_bottom = 91.0
 rect_min_size = Vector2( 100, 91 )
 size_flags_stretch_ratio = 0.15
@@ -359,27 +359,47 @@ align = 1
 valign = 1
 autowrap = true
 
-[node name="LevelIcon" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer"]
-margin_left = 630.0
-margin_right = 724.0
+[node name="Statistics" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer"]
+margin_left = 525.0
+margin_right = 625.0
 margin_bottom = 91.0
-rect_pivot_offset = Vector2( -477, -156 )
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.27
-texture = ExtResource( 20 )
-expand = true
+rect_min_size = Vector2( 100, 91 )
+size_flags_stretch_ratio = 0.15
+theme = SubResource( 1 )
+clip_text = true
+icon_align = 1
+expand_icon = true
 
-[node name="Level" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer/LevelIcon"]
-margin_left = 1.0
-margin_top = 1.0
-margin_right = 95.0
-margin_bottom = 91.0
+[node name="ButtonLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer/Statistics"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 7 )
-text = "0"
+custom_fonts/font = SubResource( 3 )
+text = "Statistics"
 align = 1
 valign = 1
+autowrap = true
+
+[node name="TechUpgrades" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer"]
+margin_left = 630.0
+margin_right = 730.0
+margin_bottom = 91.0
+rect_min_size = Vector2( 100, 91 )
+size_flags_stretch_ratio = 0.15
+theme = SubResource( 1 )
+clip_text = true
+icon_align = 1
+expand_icon = true
+
+[node name="ButtonLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer/TechUpgrades"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Tech Upgrades"
+align = 1
+valign = 1
+autowrap = true
 
 [node name="middle" type="ColorRect" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_top = 130.0
@@ -431,6 +451,10 @@ margin_bottom = 424.0
 
 [node name="PriceManagement" parent="VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer" instance=ExtResource( 51 )]
 visible = false
+
+[node name="OrderDrinks" parent="VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer" instance=ExtResource( 52 )]
+visible = false
+script = ExtResource( 53 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_top = 594.0
@@ -779,10 +803,11 @@ valign = 1
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer/LiveUpdatingStats" to="." method="_on_LiveUpdatingStats_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer/OrderIngredients" to="." method="_on_OrderIngredients_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer/OrderDrinks" to="." method="_on_OrderDrinks_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer/PriceManagement" to="." method="_on_PriceManagement_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer/TechUpgrades" to="." method="_on_TechUpgrades_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer/Statistics" to="." method="_on_Statistics_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer/Management" to="." method="_on_Management_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer/Statistics" to="." method="_on_Statistics_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer/TechUpgrades" to="." method="_on_TechUpgrades_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/Debug" to="." method="_on_Debug_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/ToTitleScreen" to="." method="_on_ToTitleScreen_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/StartDay" to="." method="_on_StartDay_pressed"]

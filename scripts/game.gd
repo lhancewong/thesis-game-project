@@ -35,8 +35,9 @@ onready var i_stockpile = {
 	"eggplant": 0,
 	"cheese": 0,
 	"lemon": 0,
+	"cucumber": 0,
 	"coffee_mix": 0,
-	"sugar": 0,
+	"milk": 0,
 }
 
 # Game behavior
@@ -95,8 +96,9 @@ func init_var():
 		"eggplant": 0,
 		"cheese": 0,
 		"lemon": 0,
+		"cucumber": 0,
 		"coffee_mix": 0,
-		"sugar": 0,
+		"milk": 0,
 	}
 
 	# Game behavior

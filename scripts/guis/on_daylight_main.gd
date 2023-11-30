@@ -6,6 +6,7 @@ onready var terminal = $VBoxContainer/HBoxContainer/VBoxContainer2/GameConsole
 # Sub Scenes
 onready var live_updates = $VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/LiveUpdates
 onready var order_ingredients = $VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/OrderIngredients
+onready var order_drinks = $VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/OrderDrinks
 onready var price_management = $VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/PriceManagement
 onready var tech_upgrades = $VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/TechUpgrades
 onready var statistics = $VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/Statistics
@@ -13,6 +14,7 @@ onready var management = $VBoxContainer/HBoxContainer/VBoxContainer/middle/Margi
 onready var sub_scenes_list = [
 	live_updates,
 	order_ingredients,
+	order_drinks,
 	price_management,
 	tech_upgrades,
 	statistics,
@@ -114,6 +116,10 @@ func _on_LiveUpdatingStats_pressed():
 
 func _on_OrderIngredients_pressed():
 	_toggle_show_sub_scene(order_ingredients)
+
+
+func _on_OrderDrinks_pressed():
+	_toggle_show_sub_scene(order_drinks)
 
 
 func _on_PriceManagement_pressed():

@@ -50,13 +50,18 @@ lemon = {
 "price": 1,
 "type": "lemon"
 }
-coffee_mix = {
+cucumber = {
 "id": 9,
-"price": 5.99,
+"price": 1,
+"type": "cucumber"
+}
+coffee_mix = {
+"id": 10,
+"price": 2,
 "type": "coffee_mix"
 }
-sugar = {
-"id": 10,
-"price": 0.69,
-"type": "sugar"
+milk = {
+"id": 11,
+"price": 2,
+"type": "milk"
 }

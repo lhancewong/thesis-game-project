@@ -4,7 +4,7 @@ var regex = RegEx.new()
 var chicken_old_text = ""
 var beef_old_text = ""
 var pork_old_text = ""
-var curry_old_text = ""
+
 
 onready var chicken_meal = Game.food_hndlr.get_food("chicken_curry")
 onready var beef_meal = Game.food_hndlr.get_food("beef_curry")

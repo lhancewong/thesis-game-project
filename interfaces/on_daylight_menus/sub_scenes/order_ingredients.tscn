@@ -159,7 +159,7 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.0
 custom_fonts/font = SubResource( 7 )
 align = 1
-placeholder_text = "Waste Amount"
+placeholder_text = "Buy Amount"
 
 [node name="plus" type="Button" parent="VBoxContainer/Order/Chicken/HBoxContainer"]
 margin_left = 138.0
@@ -285,7 +285,7 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.0
 custom_fonts/font = SubResource( 7 )
 align = 1
-placeholder_text = "Waste Amount"
+placeholder_text = "Buy Amount"
 
 [node name="Plus" type="Button" parent="VBoxContainer/Order/Beef/HBoxContainer"]
 margin_left = 137.0
@@ -329,8 +329,8 @@ autowrap = true
 
 [node name="Pork" type="VBoxContainer" parent="VBoxContainer/Order"]
 visible = false
-margin_left = 366.0
-margin_right = 542.0
+margin_left = 372.0
+margin_right = 548.0
 margin_bottom = 238.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -379,9 +379,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -23.5
-margin_top = -27.0
+margin_top = -31.5
 margin_right = 23.5
-margin_bottom = 27.0
+margin_bottom = 30.5
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 7 )
@@ -409,7 +409,7 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.0
 custom_fonts/font = SubResource( 7 )
 align = 1
-placeholder_text = "Waste Amount"
+placeholder_text = "Buy Amount"
 
 [node name="Plus" type="Button" parent="VBoxContainer/Order/Pork/HBoxContainer"]
 margin_left = 137.0
@@ -512,7 +512,7 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.0
 custom_fonts/font = SubResource( 7 )
 align = 1
-placeholder_text = "Waste Amount"
+placeholder_text = "Buy Amount"
 
 [node name="Plus" type="Button" parent="VBoxContainer/Order/Curry/HBoxContainer"]
 margin_left = 138.0
