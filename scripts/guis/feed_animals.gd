@@ -32,6 +32,7 @@ func _on_sendButton_pressed():
 	if disposal_amount == 0:
 		return
 	Game.waste_hndlr.manage_waste("feed_animals", "edible_waste", disposal_amount, Game.day)
+	Game.buffs_hndlr.add_animals_buff(disposal_amount)
 	disposal_amount = 0
 	ActionLineEdit.text = str(disposal_amount)
 

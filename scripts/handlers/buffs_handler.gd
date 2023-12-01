@@ -1,8 +1,7 @@
 extends Node
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var sum 
+
 
 
 # Called when the node enters the scene tree for the first time.
@@ -16,7 +15,7 @@ func _ready():
 
 
 func compost_debuff():
-	var sum = 0
+	sum = 0
 	for i in Game.compost_stack:
 		sum += i
 	print(sum)
@@ -24,3 +23,14 @@ func compost_debuff():
 		return true
 	else:
 		return false
+
+
+func feed_animals_buff():
+	if Game.total_animals_fed > 500:
+		return true
+	else:
+		return false
+
+
+func add_animals_buff(amount):
+	Game.total_animals_fed += amount

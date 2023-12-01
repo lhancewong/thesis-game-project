@@ -35,7 +35,7 @@ func _update_labels():
 
 
 func _on_TrashButton_pressed():
-	Game.money -= (edibleToLandfill + inedibleToLandfill) * 2
+	Game.money -= (edibleToLandfill + inedibleToLandfill) * 10
 	if edibleToLandfill == 0 && inedibleToLandfill == 0:
 		return
 	else:

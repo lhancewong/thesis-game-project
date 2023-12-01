@@ -33,6 +33,9 @@ func buy_ingredients(type: String, amount: int) -> void:
 			push_error("Buy Ingredients error")
 
 	price = ingredient.price * amount
+	if Game.buffs_hndlr.feed_animals_buff():
+		print("Price Decreased!")
+		price = price * 0.9
 
 	if Game.money >= price:
 		Game.i_stockpile[ingredient.type] += amount

@@ -25,6 +25,7 @@ onready var sub_scenes_list = [
 onready var day_lbl = $VBoxContainer/topbar/HBoxContainer/Day
 onready var money_lbl = $VBoxContainer/topbar/HBoxContainer/Money
 onready var waste_lbl = $VBoxContainer/topbar/HBoxContainer/Waste
+onready var level_lbl = $VBoxContainer/topbar/HBoxContainer/Level
 onready var satisfaction_lbl = $VBoxContainer/topbar/HBoxContainer/Satisfaction
 
 onready var stock_chicken = $VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer/HBoxContainer/ChickenAmnt
@@ -54,6 +55,7 @@ func _update_labels():
 	day_lbl.text = "Day " + str(Game.day)
 	money_lbl.text = "Money: " + Game.get_str_money()
 	waste_lbl.text = "Waste: " + Game.get_str_waste()
+	level_lbl.text = "Level: " + str(Game.store_level)
 	satisfaction_lbl.text = ("Satisfaction: " + Game.get_str_satisfaction())
 
 	var stockpile = Game.i_stockpile

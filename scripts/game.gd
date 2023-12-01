@@ -14,6 +14,7 @@ onready var skill_points = 0
 
 onready var compost_stack = []
 onready var last_compost_day = 0
+onready var total_animals_fed = 0
 
 onready var unlocked_ingredients = {
 	chicken = true,
@@ -84,7 +85,7 @@ onready var save_file_num = -1
 
 
 func init_var():
-	money = 100.0
+	money = 1000.0
 	edible_waste = 0.0
 	inedible_waste = 0.0
 	satisfaction = 0.0
@@ -111,6 +112,8 @@ func init_var():
 		chicken_curry = MEAL.menu.chicken_curry.base_price,
 		beef_curry = MEAL.menu.beef_curry.base_price,
 		pork_curry = MEAL.menu.pork_curry.base_price,
+		lemonade = MEAL.menu.lemonade.base_price,
+		coffee = MEAL.menu.coffee.base_price,
 	}
 	i_stockpile = {
 		"chicken": 0,

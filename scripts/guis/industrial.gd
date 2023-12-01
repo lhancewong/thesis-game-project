@@ -28,7 +28,7 @@ func _physics_process(delta):
 
 # Calls manage_waste and resets value
 func _on_sendButton_pressed():
-	Game.money -= (disposal_amount) * 1.5
+	Game.money -= (disposal_amount) * 10
 	if disposal_amount == 0:
 		return
 	Game.waste_hndlr.manage_waste("industrial", "inedible_waste", disposal_amount, Game.day)
