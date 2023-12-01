@@ -1,5 +1,7 @@
 extends Node
 
+export(Resource) var MEAL
+
 # Game variables
 onready var money = 100.0
 onready var edible_waste = 0.0
@@ -41,6 +43,12 @@ onready var i_stockpile = {
 	"milk": 0,
 }
 
+onready var meal_prices = {
+	chicken_curry = MEAL.menu.chicken_curry.base_price,
+	beef_curry = MEAL.menu.beef_curry.base_price,
+	pork_curry = MEAL.menu.pork_curry.base_price,
+}
+
 # Game behavior
 onready var min_day_len = 6
 onready var max_day_len = 10
@@ -74,27 +82,34 @@ onready var save_file_num = -1
 
 
 func init_var():
-	# Game variables
 	money = 100.0
 	edible_waste = 0.0
 	inedible_waste = 0.0
 	satisfaction = 0.0
 	day = 0
 
+	store_level = 0
+	skill_point = 0
+
+	compost_stack = []
+	last_compost_day = 0
+
 	unlocked_ingredients = {
 		chicken = true,
 		beef = false,
 		pork = false,
 	}
-
 	unlocked_tech = {
 		composting = false,
 		industrial = false,
 		feed_animals = false,
 		feed_humans = false,
 	}
-
-	# Stores ingredients currently in stock
+	meal_prices = {
+		chicken_curry = MEAL.menu.chicken_curry.base_price,
+		beef_curry = MEAL.menu.beef_curry.base_price,
+		pork_curry = MEAL.menu.pork_curry.base_price,
+	}
 	i_stockpile = {
 		"chicken": 0,
 		"beef": 0,
@@ -110,20 +125,15 @@ func init_var():
 		"milk": 0,
 	}
 
-	# Game behavior
 	min_day_len = 6
 	max_day_len = 10
 	min_custo = 5
 	max_custo = 10
 
-	# Stores a temporary list of currently cookable food (aka what can be sold)
 	cookable_food = {}
 
-	# Entries
 	sold_food = []
 	waste_managed = []
-	compost_stack = []
-	last_compost_day = 0
 
 
 # Turns numbers into a Tycoon compatible format

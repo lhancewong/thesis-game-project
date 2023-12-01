@@ -125,4 +125,5 @@ texture = ExtResource( 4 )
 expand = true
 
 [connection signal="pressed" from="Background/HBoxContainer/VBoxContainer/Audio" to="." method="_on_Audio_pressed"]
+[connection signal="pressed" from="Background/HBoxContainer/VBoxContainer/Developer" to="." method="_on_Developer_pressed"]
 [connection signal="pressed" from="Background/HBoxContainer/VBoxContainer/ToTitleScreen" to="." method="_on_ToTitleScreen_pressed"]

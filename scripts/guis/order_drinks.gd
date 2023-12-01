@@ -18,12 +18,10 @@ onready var coffee_line_edit = $VBoxContainer/Order/Coffee/HBoxContainer/LineEdi
 onready var milk_amount = 1
 onready var milk_line_edit = $VBoxContainer/Order/Milk/HBoxContainer/LineEdit
 
-
 onready var stock_lemon = $VBoxContainer/Storage/Lemon/Amount/Amount
 onready var stock_cucumber = $VBoxContainer/Storage/Cucumber/Amount/Amount
 onready var stock_coffee = $VBoxContainer/Storage/Coffee/Amount/Amount
 onready var stock_milk = $VBoxContainer/Storage/Milk/Amount/Amount
-
 
 
 # Called when the node enters the scene tree for the first time.
@@ -34,6 +32,7 @@ func _ready():
 	cucumber_line_edit.text = str(cucumber_amount)
 	coffee_line_edit.text = str(coffee_amount)
 	milk_line_edit.text = str(milk_amount)
+
 
 func _physics_process(delta):  # change to signals
 	_update_labels()

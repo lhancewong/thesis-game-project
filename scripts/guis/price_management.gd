@@ -5,7 +5,6 @@ var chicken_old_text = ""
 var beef_old_text = ""
 var pork_old_text = ""
 
-
 onready var chicken_meal = Game.food_hndlr.get_food("chicken_curry")
 onready var beef_meal = Game.food_hndlr.get_food("beef_curry")
 onready var pork_meal = Game.food_hndlr.get_food("pork_curry")
@@ -47,7 +46,7 @@ func _update_labels():
 
 
 func _on_ChickenUpdate_pressed():
-	Game.food_hndlr.set_meal_price(chicken_meal, chicken_amount)
+	Game.food_hndlr.set_meal_price("chicken_curry", chicken_amount)
 	chicken_line_edit.text = str(chicken_amount)
 
 
@@ -74,7 +73,7 @@ func _on_ChickenLine_text_changed(new_text):
 
 
 func _on_BeefUpdate_pressed():
-	Game.food_hndlr.set_meal_price(beef_meal, beef_amount)
+	Game.food_hndlr.set_meal_price("beef_curry", beef_amount)
 	beef_line_edit.text = str(beef_amount)
 
 
@@ -101,7 +100,7 @@ func _on_BeefLine_text_changed(new_text):
 
 
 func _on_PorkUpdate_pressed():
-	Game.food_hndlr.set_meal_price(pork_meal, pork_amount)
+	Game.food_hndlr.set_meal_price("pork_curry", pork_amount)
 	pork_line_edit.text = str(pork_amount)
 
 

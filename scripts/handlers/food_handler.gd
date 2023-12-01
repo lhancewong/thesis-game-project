@@ -51,8 +51,8 @@ func get_food(name: String) -> Dictionary:
 			return {}
 
 
-func set_meal_price(menu: Dictionary, num: float):
-	menu.base_price = num
+func set_meal_price(meal: String, price: float):
+	Game.meal_prices[meal] = price
 
 
 func unlock_meals():

@@ -98,4 +98,4 @@ func load_unlocked_strats():
 			temp_array.append(0)
 	for i in range(len(temp_array)):
 		if temp_array[i] == 1:
-			unlock_strategy(i+1)
+			unlock_strategy(i + 1)

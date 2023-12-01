@@ -17,6 +17,7 @@
 
 [node name="Game" type="Node"]
 script = ExtResource( 1 )
+MEAL = ExtResource( 3 )
 
 [node name="Waste" type="Node" parent="."]
 script = ExtResource( 2 )

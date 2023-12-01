@@ -18,7 +18,7 @@ func save():
 		"stats_per_day": Game.stats_per_day,
 		"compost_stack": Game.compost_stack,
 		"last_compost_day": Game.last_compost_day,
-		"unlocked_tech": Game.unlocked_tech
+		"meal_prices": Game.meal_prices,
 	}
 	return save_dict
 
@@ -79,6 +79,8 @@ func load_game():
 					Game.last_compost_day = data
 				"unlocked_tech":
 					Game.unlocked_tech = data
+				"meal_prices":
+					Game.meal_prices = data
 
 	save_game.close()
 

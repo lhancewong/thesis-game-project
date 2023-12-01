@@ -75,8 +75,7 @@ func _toggle_show_sub_scene(sub_scene_name):
 # Button Signals
 func _on_Debug_pressed():
 	Game.food_hndlr.update_cookable_food()
-	terminal.add_text(str(Game.cookable_food))
-	terminal.add_text(Game.food_hndlr.get_rand_cookable_food())
+	terminal.add_text(str(Game.cookable_food) + " " + Game.food_hndlr.get_rand_cookable_food())
 	$RestaurantView.visible = !$RestaurantView.visible
 
 

@@ -45,7 +45,7 @@ func _on_day_start():
 	# Adds a 0 entry to the compost_stack
 	Game.compost_stack.append(0)
 	Game.compost_stack = Game.compost_stack.slice(-3, Game.compost_stack.size())
-	
+
 	# Calculates min and max customer amount based on day
 	if Game.buffs_hndlr.compost_debuff():
 		print("Customer Debuffed!")
@@ -75,8 +75,8 @@ func _day_start():
 	for i in customer_amount:
 		var entry = $"../Purchase".create_transaction()
 
-		if entry.empty():
-			terminal.add_text("No Food!" + str(entry))
+		if entry.size() == 1:
+			terminal.add_text("Failed Transaction: " + str(entry))
 			SoundHandler.get_node("DryFart").play()
 		else:
 			terminal.add_entry(entry)
