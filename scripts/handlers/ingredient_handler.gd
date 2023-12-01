@@ -42,7 +42,7 @@ func buy_ingredients(type: String, amount: int) -> void:
 
 		debug_msg = "Bought %.2f dollars of %s"
 	else:
-		debug_msg = "You broke ass bitch you can't afford %.2f dollars of %s"
+		debug_msg = "You broke ass bitch you can't afford %.2f pesos of %s"
 
 	if get_tree().current_scene.name == "OnDaylight":
 		var terminal = get_node(

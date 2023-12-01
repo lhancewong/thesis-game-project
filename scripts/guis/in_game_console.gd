@@ -4,7 +4,7 @@ onready var console = $BG/Console
 
 
 func add_entry(dict: Dictionary) -> void:
-	var format_text = "> A %s bought $%.1f amount of %s which produced %.1fg of waste. They were %.1f happy."
+	var format_text = "> A %s bought ₱%.1f amount of %s which produced %.1fg of waste. They were %.1f happy."
 	var text = (
 		format_text
 		% [

@@ -45,25 +45,25 @@ func unlock_strategy(type):
 		)
 
 		match type:
-			1:
+			'composting':
 				Game.unlocked_tech["compost"] = true
 				compost_block_node.visible = false
 				compost_node.visible = true
 				compost_unlock_button.disabled = true
 				compost_unlock_button.text = str("unlocked")
-			2:
+			'industrial':
 				Game.unlocked_tech["industrial"] = true
 				indus_block_node.visible = false
 				indus_node.visible = true
 				indus_unlock_button.disabled = true
 				indus_unlock_button.text = str("unlocked")
-			3:
+			'feed_animals':
 				Game.unlocked_tech["feed_animals"] = true
 				ani_block_node.visible = false
 				ani_node.visible = true
 				ani_unlock_button.disabled = true
 				ani_unlock_button.text = str("unlocked")
-			4:
+			'feed_humans':
 				Game.unlocked_tech["feed_humans"] = true
 				shelter_block_node.visible = false
 				shelter_node.visible = true
@@ -78,24 +78,11 @@ func check_store_level():
 		Game.skill_point += 1
 
 
-func check_unlocked_tech():
-	var unlocked = Game.unlocked_tech
-	for tech in Game.unlocked_tech:
-		if unlocked[str(tech)]:
-			pass
-
-
 func landfill_cost(amount):
 	Game.money -= amount * 2
 
 
 func load_unlocked_strats():
-	var temp_array = []
-	for i in Game.unlocked_tech:
-		if Game.unlocked_tech[i] == true:
-			temp_array.append(1)
-		else:
-			temp_array.append(0)
-	for i in range(len(temp_array)):
-		if temp_array[i] == 1:
-			unlock_strategy(i + 1)
+	for key in Game.unlocked_tech:
+		if Game.unlocked_tech[str(key)]:
+			unlock_strategy(str(key))

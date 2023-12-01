@@ -11,7 +11,7 @@ func init_daylight_main():
 	init_daily_statistics()
 	$"../Ingredient".check_unlocked_ingredients()
 	$"../Strategy".check_store_level()
-	Game.strat_hndlr.load_unlocked_strats()
+	$"../Strategy".load_unlocked_strats()
 
 
 func init_daily_statistics():

@@ -14,37 +14,29 @@ func _ready():
 func _process(delta):
 	$VBoxContainer/HBoxContainer/Text/Amount/AmntLabel.text = (
 		"Skill Points: "
-		+ str(Game.skill_point)
+		+ str(Game.skill_points)
 	)
 
 
 func _on_ComUnlock_pressed():
-	if Game.skill_point > 0:
-		Game.skill_point -= 1
-		Game.strat_hndlr.unlock_strategy(1)
-	else:
-		return
+	if Game.skill_points > 0:
+		Game.skill_points -= 1
+		Game.strat_hndlr.unlock_strategy('composting')
 
 
 func _on_IndusUnlock_pressed():
-	if Game.skill_point > 0:
-		Game.skill_point -= 1
-		Game.strat_hndlr.unlock_strategy(2)
-	else:
-		return
+	if Game.skill_points > 0:
+		Game.skill_points -= 1
+		Game.strat_hndlr.unlock_strategy('industrial')
 
 
 func _on_AniUnlock_pressed():
-	if Game.skill_point > 0:
-		Game.skill_point -= 1
-		Game.strat_hndlr.unlock_strategy(3)
-	else:
-		return
+	if Game.skill_points > 0:
+		Game.skill_points -= 1
+		Game.strat_hndlr.unlock_strategy('feed_animals')
 
 
 func _on_SheltUnlock_pressed():
-	if Game.skill_point > 0:
-		Game.skill_point -= 1
-		Game.strat_hndlr.unlock_strategy(4)
-	else:
-		return
+	if Game.skill_points > 0:
+		Game.skill_points -= 1
+		Game.strat_hndlr.unlock_strategy('feed_humans')

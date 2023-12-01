@@ -3,14 +3,14 @@ extends Node
 export(Resource) var MEAL
 
 # Game variables
-onready var money = 100.0
+onready var money = 1000.0
 onready var edible_waste = 0.0
 onready var inedible_waste = 0.0
 onready var satisfaction = 0.0
 onready var day = 0
 
 onready var store_level = 0
-onready var skill_point = 0
+onready var skill_points = 0
 
 onready var compost_stack = []
 onready var last_compost_day = 0
@@ -21,7 +21,7 @@ onready var unlocked_ingredients = {
 	pork = false,
 }
 onready var unlocked_tech = {
-	composting = false,
+	composting = true,
 	industrial = false,
 	feed_animals = false,
 	feed_humans = false,
@@ -91,7 +91,7 @@ func init_var():
 	day = 0
 
 	store_level = 0
-	skill_point = 0
+	skill_points = 0
 
 	compost_stack = []
 	last_compost_day = 0
@@ -102,7 +102,7 @@ func init_var():
 		pork = false,
 	}
 	unlocked_tech = {
-		composting = false,
+		composting = true,
 		industrial = false,
 		feed_animals = false,
 		feed_humans = false,

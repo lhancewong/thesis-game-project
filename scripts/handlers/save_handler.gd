@@ -18,6 +18,9 @@ func save():
 		"stats_per_day": Game.stats_per_day,
 		"compost_stack": Game.compost_stack,
 		"last_compost_day": Game.last_compost_day,
+		"unlocked_tech": Game.unlocked_tech,
+		"store_level": Game.store_level,
+		"skill_points": Game.skill_points,
 		"meal_prices": Game.meal_prices,
 	}
 	return save_dict
