@@ -21,15 +21,15 @@ menu = {
 "type": "chicken_curry"
 },
 "coffee": {
-"base_price": 7,
+"base_price": 6,
 "id": 5,
-"ingredients": [ "coffee_mix", "sugar" ],
+"ingredients": [ "coffee_mix", "milk" ],
 "type": "coffee"
 },
 "lemonade": {
-"base_price": 7,
+"base_price": 3,
 "id": 4,
-"ingredients": [ "lemon", "sugar" ],
+"ingredients": [ "lemon", "cucumber" ],
 "type": "lemonade"
 },
 "pork_curry": {

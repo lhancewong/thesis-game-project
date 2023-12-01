@@ -48,7 +48,7 @@ func _update_labels():
 
 
 func _on_LemonBuy_pressed():
-	Game.ingred_hndlr.buy_ingredients("lemon", lemon_amount)
+	Game.ingred_hndlr.buy_ingredients("Lemon", lemon_amount)
 	lemon_line_edit.text = str(lemon_amount)
 
 
@@ -74,7 +74,7 @@ func _on_LemonLine_text_changed(new_text):
 
 
 func _on_CucumberBuy_pressed():
-	Game.ingred_hndlr.buy_ingredients("cucumber", cucumber_amount)
+	Game.ingred_hndlr.buy_ingredients("Cucumber", cucumber_amount)
 	cucumber_line_edit.text = str(cucumber_amount)
 
 
@@ -100,7 +100,7 @@ func _on_CucumberLine_text_changed(new_text):
 
 
 func _on_CoffeeBuy_pressed():
-	Game.ingred_hndlr.buy_ingredients("coffee", coffee_amount)
+	Game.ingred_hndlr.buy_ingredients("Coffee Mix", coffee_amount)
 	coffee_line_edit.text = str(coffee_amount)
 
 
@@ -126,7 +126,7 @@ func _on_CoffeeLine_text_changed(new_text):
 
 
 func _on_MilkBuy_pressed():
-	Game.ingred_hndlr.buy_ingredients("milk", milk_amount)
+	Game.ingred_hndlr.buy_ingredients("Milk", milk_amount)
 	milk_line_edit.text = str(milk_amount)
 
 

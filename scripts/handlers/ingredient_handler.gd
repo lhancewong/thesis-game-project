@@ -21,6 +21,14 @@ func buy_ingredients(type: String, amount: int) -> void:
 			ingredient = INGRED.pork
 		"Curry Powder":
 			ingredient = INGRED.curry_powder
+		"Lemon":
+			ingredient = INGRED.lemon
+		"Cucumber":
+			ingredient = INGRED.cucumber
+		"Coffee Mix":
+			ingredient = INGRED.coffee_mix
+		"Milk":
+			ingredient = INGRED.milk
 		_:
 			push_error("Buy Ingredients error")
 

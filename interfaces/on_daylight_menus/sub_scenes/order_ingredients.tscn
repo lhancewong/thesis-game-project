@@ -197,8 +197,7 @@ anchor_bottom = 1.0
 rect_scale = Vector2( 0.99703, 0.994043 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 9 )
-text = "Unlocks on 
-Day 5"
+text = "Unlocks on Day 5"
 align = 1
 valign = 1
 autowrap = true
@@ -321,8 +320,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 9 )
-text = "Unlocks on 
-Day 10"
+text = "Unlocks on Day 10"
 align = 1
 valign = 1
 autowrap = true

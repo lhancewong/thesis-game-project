@@ -47,6 +47,8 @@ onready var meal_prices = {
 	chicken_curry = MEAL.menu.chicken_curry.base_price,
 	beef_curry = MEAL.menu.beef_curry.base_price,
 	pork_curry = MEAL.menu.pork_curry.base_price,
+	lemonade = MEAL.menu.lemonade.base_price,
+	coffee = MEAL.menu.coffee.base_price,
 }
 
 # Game behavior

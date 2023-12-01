@@ -27,10 +27,15 @@ onready var money_lbl = $VBoxContainer/topbar/HBoxContainer/Money
 onready var waste_lbl = $VBoxContainer/topbar/HBoxContainer/Waste
 onready var satisfaction_lbl = $VBoxContainer/topbar/HBoxContainer/Satisfaction
 
-onready var stock_chicken = $VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/HBoxContainer/ChickenAmnt
-onready var stock_beef = $VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/HBoxContainer/BeefAmnt
-onready var stock_pork = $VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/HBoxContainer/PorkAmnt
-onready var stock_curry = $VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/HBoxContainer/CurryAmnt
+onready var stock_chicken = $VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer/HBoxContainer/ChickenAmnt
+onready var stock_beef = $VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer/HBoxContainer/BeefAmnt
+onready var stock_pork = $VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer/HBoxContainer/PorkAmnt
+onready var stock_curry = $VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer/HBoxContainer/CurryAmnt
+
+onready var stock_lemon = $VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer/HBoxContainer2/LemonAmnt
+onready var stock_cucumber = $VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer/HBoxContainer2/CucumberAmnt
+onready var stock_coffee = $VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer/HBoxContainer2/CoffeeAmnt
+onready var stock_milk = $VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer/HBoxContainer2/MilkAmnt
 
 
 func _ready():
@@ -57,6 +62,11 @@ func _update_labels():
 	stock_beef.text = str(stockpile["beef"])
 	stock_pork.text = str(stockpile["pork"])
 	stock_curry.text = str(stockpile["curry_powder"])
+	
+	stock_lemon.text = str(stockpile["lemon"])
+	stock_cucumber.text = str(stockpile["cucumber"])
+	stock_coffee.text = str(stockpile["coffee_mix"])
+	stock_milk.text = str(stockpile["milk"])
 
 
 # Hides every sub_scene then shows the desired sub scene

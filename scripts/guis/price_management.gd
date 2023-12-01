@@ -4,10 +4,14 @@ var regex = RegEx.new()
 var chicken_old_text = ""
 var beef_old_text = ""
 var pork_old_text = ""
+var lemonade_old_text = ""
+var coffee_old_text = ""
 
 onready var chicken_meal = Game.food_hndlr.get_food("chicken_curry")
 onready var beef_meal = Game.food_hndlr.get_food("beef_curry")
 onready var pork_meal = Game.food_hndlr.get_food("pork_curry")
+onready var lemonade = Game.food_hndlr.get_food("lemonade")
+onready var coffee = Game.food_hndlr.get_food("coffee")
 
 onready var chicken_amount = chicken_meal.base_price
 onready var chicken_line_edit = $VBoxContainer/Meal/Chicken/HBoxContainer/LineEdit
@@ -18,9 +22,17 @@ onready var beef_line_edit = $VBoxContainer/Meal/Beef/HBoxContainer/LineEdit
 onready var pork_amount = pork_meal.base_price
 onready var pork_line_edit = $VBoxContainer/Meal/Pork/HBoxContainer/LineEdit
 
+onready var lemon_amount = lemonade.base_price
+onready var lemon_line_edit = $VBoxContainer/Meal/Lemon/HBoxContainer/LineEdit
+
+onready var coffee_amount = coffee.base_price
+onready var coffee_line_edit = $VBoxContainer/Meal/Coffee/HBoxContainer/LineEdit
+
 onready var stock_chicken_price = $VBoxContainer/Stock/Chicken/Price/Amount
 onready var stock_beef_price = $VBoxContainer/Stock/Beef/Price/Amount
 onready var stock_pork_price = $VBoxContainer/Stock/Pork/Price/Amount
+onready var stock_lemon_price = $VBoxContainer/Stock/Lemon/Price/Amount
+onready var stock_coffee_price = $VBoxContainer/Stock/Coffee/Price/Amount
 
 
 # Called when the node enters the scene tree for the first time.
@@ -30,6 +42,8 @@ func _ready():
 	chicken_line_edit.text = str(chicken_amount)
 	pork_line_edit.text = str(pork_amount)
 	beef_line_edit.text = str(beef_amount)
+	lemon_line_edit.text = str(lemon_amount)
+	coffee_line_edit.text = str(coffee_amount)
 	Game.food_hndlr.unlock_meals()
 
 
@@ -43,6 +57,8 @@ func _update_labels():
 	stock_chicken_price.text = str(chicken_meal.base_price)
 	stock_beef_price.text = str(beef_meal.base_price)
 	stock_pork_price.text = str(pork_meal.base_price)
+	stock_lemon_price.text = str(lemonade.base_price)
+	stock_coffee_price.text = str(coffee.base_price)
 
 
 func _on_ChickenUpdate_pressed():
@@ -123,4 +139,4 @@ func _on_PorkLine_text_changed(new_text):
 		pork_amount = int(new_text)
 	else:
 		pork_line_edit.text = pork_old_text
-		pork_line_edit.set_cursor_position(pork_line_edit.text.length())
+		pork_line_edit.set_cursor_position(pork_line_edit.text.length())		
