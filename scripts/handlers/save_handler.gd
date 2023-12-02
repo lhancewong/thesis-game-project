@@ -96,6 +96,7 @@ func load_game():
 
 
 func delete_save(num):
+	SoundHandler.scream.play()
 	var dir = Directory.new()
 	var save_path = "user://savegame%s.save" % num
 	dir.remove(save_path)

@@ -22,21 +22,33 @@ func _on_ComUnlock_pressed():
 	if Game.skill_points > 0:
 		Game.skill_points -= 1
 		Game.strat_hndlr.unlock_strategy('composting')
+		SoundHandler.happy_noise.play()
+	else: 
+		SoundHandler.angry_noise.play()
 
 
 func _on_IndusUnlock_pressed():
 	if Game.skill_points > 0:
 		Game.skill_points -= 1
 		Game.strat_hndlr.unlock_strategy('industrial')
+		SoundHandler.happy_noise.play()
+	else:
+		SoundHandler.angry_noise.play()
 
 
 func _on_AniUnlock_pressed():
 	if Game.skill_points > 0:
 		Game.skill_points -= 1
 		Game.strat_hndlr.unlock_strategy('feed_animals')
-
-
+		SoundHandler.happy_noise.play()
+	else:
+		SoundHandler.angry_noise.play()
+		
+		
 func _on_SheltUnlock_pressed():
 	if Game.skill_points > 0:
 		Game.skill_points -= 1
 		Game.strat_hndlr.unlock_strategy('feed_humans')
+		SoundHandler.happy_noise.play()
+	else:
+		SoundHandler.angry_noise.play()

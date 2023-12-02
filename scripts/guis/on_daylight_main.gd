@@ -86,26 +86,31 @@ func _toggle_show_sub_scene(sub_scene_name):
 
 # Button Signals
 func _on_Debug_pressed():
+	SoundHandler.button_click.play()
 	Game.food_hndlr.update_cookable_food()
 	terminal.add_text(str(Game.cookable_food) + " " + Game.food_hndlr.get_rand_cookable_food())
 	$RestaurantView.visible = !$RestaurantView.visible
 
 
 func _on_ToTitleScreen_pressed():
+	SoundHandler.button_click.play()
 	Game.save_hndlr.save_game()
 
 	get_tree().change_scene("res://interfaces/title_screen_menus/title_screen_main.tscn")
 
 	Game.init_var()
+	
 
 
 # Main update sequence handler for now
 func _on_StartDay_pressed():
+	SoundHandler.button_click.play()
 	terminal.add_text("Day Started!")
 	_on_pause_button_pressed()
 	yield(Game.day_hndlr.start_day_cycle(), "completed")
 	_on_pause_popup_close_pressed()
 	terminal.add_text("Day Finished!")
+	SoundHandler.progress_fill.play()
 
 
 # Greys out entire screen
@@ -122,29 +127,36 @@ func _on_pause_popup_close_pressed():
 
 # Sub Scene Button Signals
 func _on_LiveUpdatingStats_pressed():
+	SoundHandler.button_click.play()
 	_toggle_show_sub_scene(live_updates)
 
 
 func _on_OrderIngredients_pressed():
+	SoundHandler.button_click.play()
 	_toggle_show_sub_scene(order_ingredients)
 
 
 func _on_OrderDrinks_pressed():
+	SoundHandler.button_click.play()
 	_toggle_show_sub_scene(order_drinks)
 
 
 func _on_PriceManagement_pressed():
+	SoundHandler.button_click.play()
 	_toggle_show_sub_scene(price_management)
 
 
 func _on_TechUpgrades_pressed():
+	SoundHandler.button_click.play()
 	_toggle_show_sub_scene(tech_upgrades)
 
 
 func _on_Statistics_pressed():
+	SoundHandler.button_click.play()
 	_toggle_show_sub_scene(statistics)
 
 
 func _on_Management_pressed():
+	SoundHandler.button_click.play()
 	management.set_screen()
 	_toggle_show_sub_scene(management)

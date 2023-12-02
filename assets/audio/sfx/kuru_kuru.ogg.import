@@ -11,5 +11,5 @@ dest_files=[ "res://.import/kuru_kuru.ogg-0563bb7ce5a5ca8fc6d42851af88fb32.oggst
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

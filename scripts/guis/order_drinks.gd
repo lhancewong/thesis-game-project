@@ -6,6 +6,11 @@ var cucumber_old_text = ""
 var coffee_old_text = ""
 var milk_old_text = ""
 
+onready var lemon = Game.ingred_hndlr.get_ingredient("Lemon")
+onready var cucumber = Game.ingred_hndlr.get_ingredient("Cucumber")
+onready var coffee = Game.ingred_hndlr.get_ingredient("Coffee Mix")
+onready var milk = Game.ingred_hndlr.get_ingredient("Milk")
+
 onready var lemon_amount = 1
 onready var lemon_line_edit = $VBoxContainer/Order/Lemon/HBoxContainer/LineEdit
 
@@ -39,12 +44,10 @@ func _physics_process(delta):  # change to signals
 
 
 func _update_labels():
-	var stockpile = Game.i_stockpile
-
-	stock_lemon.text = str(stockpile["lemon"]) + " batches"
-	stock_cucumber.text = str(stockpile["cucumber"]) + " batches"
-	stock_coffee.text = str(stockpile["coffee_mix"]) + " batches"
-	stock_milk.text = str(stockpile["milk"]) + " batches"
+	stock_lemon.text = "₱ " + str(lemon.price)
+	stock_cucumber.text = "₱ " + str(cucumber.price)
+	stock_coffee.text = "₱ " + str(coffee.price)
+	stock_milk.text = "₱ " + str(milk.price)
 
 
 func _on_LemonBuy_pressed():
@@ -53,6 +56,7 @@ func _on_LemonBuy_pressed():
 
 
 func _on_Lemon_minus_pressed():
+	SoundHandler.value_change.play()
 	lemon_amount -= 1
 	if lemon_amount < 0:
 		lemon_amount = 0
@@ -60,6 +64,7 @@ func _on_Lemon_minus_pressed():
 
 
 func _on_Lemon_plus_pressed():
+	SoundHandler.value_change.play()
 	lemon_amount += 1
 	lemon_line_edit.text = str(lemon_amount)
 
@@ -79,6 +84,7 @@ func _on_CucumberBuy_pressed():
 
 
 func _on_Cucumber_minus_pressed():
+	SoundHandler.value_change.play()
 	cucumber_amount -= 1
 	if cucumber_amount < 0:
 		cucumber_amount = 0
@@ -86,6 +92,7 @@ func _on_Cucumber_minus_pressed():
 
 
 func _on_Cucumber_plus_pressed():
+	SoundHandler.value_change.play()
 	cucumber_amount += 1
 	cucumber_line_edit.text = str(cucumber_amount)
 
@@ -105,6 +112,7 @@ func _on_CoffeeBuy_pressed():
 
 
 func _on_Coffee_minus_pressed():
+	SoundHandler.value_change.play()
 	coffee_amount -= 1
 	if coffee_amount < 0:
 		coffee_amount = 0
@@ -112,6 +120,7 @@ func _on_Coffee_minus_pressed():
 
 
 func _on_Coffee_plus_pressed():
+	SoundHandler.value_change.play()
 	coffee_amount += 1
 	coffee_line_edit.text = str(coffee_amount)
 
@@ -131,6 +140,7 @@ func _on_MilkBuy_pressed():
 
 
 func _on_Milk_minus_pressed():
+	SoundHandler.value_change.play()
 	milk_amount -= 1
 	if milk_amount < 0:
 		milk_amount = 0
@@ -138,6 +148,7 @@ func _on_Milk_minus_pressed():
 
 
 func _on_Milk_plus_pressed():
+	SoundHandler.value_change.play()
 	milk_amount += 1
 	milk_line_edit.text = str(milk_amount)
 

@@ -1,11 +1,22 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/audio/bgm/layer_cake.ogg" type="AudioStream" id=1]
 [ext_resource path="res://assets/audio/sfx/vine_boom.ogg" type="AudioStream" id=2]
 [ext_resource path="res://scripts/sound_handler.gd" type="Script" id=3]
 [ext_resource path="res://assets/audio/sfx/dry_fart.ogg" type="AudioStream" id=4]
+[ext_resource path="res://assets/audio/sfx/crimson_moon.ogg" type="AudioStream" id=5]
+[ext_resource path="res://assets/audio/sfx/king_cry.ogg" type="AudioStream" id=6]
+[ext_resource path="res://assets/audio/sfx/king_laugh.ogg" type="AudioStream" id=7]
+[ext_resource path="res://assets/audio/sfx/button_click_two.ogg" type="AudioStream" id=8]
+[ext_resource path="res://assets/audio/sfx/progress_fill.ogg" type="AudioStream" id=9]
+[ext_resource path="res://assets/audio/sfx/button_click.ogg" type="AudioStream" id=10]
+[ext_resource path="res://assets/audio/sfx/value_change.ogg" type="AudioStream" id=11]
+[ext_resource path="res://assets/audio/sfx/angry_noise.ogg" type="AudioStream" id=12]
+[ext_resource path="res://assets/audio/sfx/happy_noise.ogg" type="AudioStream" id=13]
+[ext_resource path="res://assets/audio/sfx/scream.ogg" type="AudioStream" id=14]
+[ext_resource path="res://assets/audio/sfx/nani.ogg" type="AudioStream" id=15]
 
-[node name="SoundEngine" type="Node"]
+[node name="SoundHandler" type="Node"]
 script = ExtResource( 3 )
 
 [node name="VineBoom" type="AudioStreamPlayer" parent="."]
@@ -22,3 +33,50 @@ autoplay = true
 [node name="DryFart" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
 stream = ExtResource( 4 )
+
+[node name="CrimsonMoon" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 5 )
+volume_db = -20.0
+
+[node name="KingLaugh" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 7 )
+volume_db = -20.0
+
+[node name="ButtonClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+volume_db = -20.0
+
+[node name="KingCry" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 6 )
+volume_db = -20.0
+
+[node name="Scream" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+volume_db = -30.0
+
+[node name="Nani" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 15 )
+volume_db = -20.0
+
+[node name="ButtonClickTwo" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -20.0
+
+[node name="ProgressFill" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -20.0
+
+[node name="AngryNoise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+volume_db = -20.0
+
+[node name="HappyNoise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+volume_db = -20.0
+
+[node name="ValueChange" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+volume_db = -20.0

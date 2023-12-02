@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/angry_noise.ogg-3b72ca47925090c453fdbca5a6180d66.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/sfx/angry_noise.ogg"
+dest_files=[ "res://.import/angry_noise.ogg-3b72ca47925090c453fdbca5a6180d66.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

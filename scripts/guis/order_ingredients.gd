@@ -6,6 +6,11 @@ var beef_old_text = ""
 var pork_old_text = ""
 var curry_old_text = ""
 
+onready var chicken = Game.ingred_hndlr.get_ingredient("Chicken")
+onready var beef = Game.ingred_hndlr.get_ingredient("Beef")
+onready var pork = Game.ingred_hndlr.get_ingredient("Pork")
+onready var curry = Game.ingred_hndlr.get_ingredient("Curry Powder")
+
 onready var chicken_amount = 1
 onready var chicken_line_edit = $VBoxContainer/Order/Chicken/HBoxContainer/LineEdit
 
@@ -41,13 +46,10 @@ func _physics_process(delta):  # change to signals
 
 
 func _update_labels():
-	var stockpile = Game.i_stockpile
-
-	stock_chicken.text = str(stockpile["chicken"]) + " batches"
-	stock_beef.text = str(stockpile["beef"]) + " batches"
-	stock_pork.text = str(stockpile["pork"]) + " batches"
-	stock_curry.text = str(stockpile["curry_powder"]) + " batches"
-
+	stock_chicken.text = "₱ " + str(chicken.price)
+	stock_beef.text = "₱ " + str(beef.price)
+	stock_pork.text = "₱ " + str(pork.price)
+	stock_curry.text = "₱ " + str(curry.price)
 
 func amnt_minus(amnt):
 	if amnt == 0:
@@ -62,6 +64,7 @@ func _on_ChickenBuy_pressed():
 
 
 func _on_Chicken_minus_pressed():
+	SoundHandler.value_change.play()
 	chicken_amount -= 1
 	if chicken_amount < 0:
 		chicken_amount = 0
@@ -69,6 +72,7 @@ func _on_Chicken_minus_pressed():
 
 
 func _on_Chicken_plus_pressed():
+	SoundHandler.value_change.play()
 	chicken_amount += 1
 	chicken_line_edit.text = str(chicken_amount)
 
@@ -83,6 +87,7 @@ func _on_ChickenLine_text_changed(new_text):
 
 
 func _on_BeefBuy_pressed():
+	SoundHandler.progress_fill.play()
 	Game.ingred_hndlr.buy_ingredients("Beef", beef_amount)
 	beef_line_edit.text = str(beef_amount)
 
@@ -95,6 +100,7 @@ func _on_Beef_minus_pressed():
 
 
 func _on_Beef_plus_pressed():
+	SoundHandler.value_change.play()
 	beef_amount += 1
 	beef_line_edit.text = str(beef_amount)
 
@@ -114,6 +120,7 @@ func _on_PorkBuy_pressed():
 
 
 func _on_Pork_minus_pressed():
+	SoundHandler.value_change.play()
 	pork_amount -= 1
 	if pork_amount < 0:
 		pork_amount = 0
@@ -121,6 +128,7 @@ func _on_Pork_minus_pressed():
 
 
 func _on_Pork_plus_pressed():
+	SoundHandler.value_change.play()
 	pork_amount += 1
 	pork_line_edit.text = str(pork_amount)
 
@@ -140,6 +148,7 @@ func _on_CurryBuy_pressed():
 
 
 func _on_Curry_minus_pressed():
+	SoundHandler.value_change.play()
 	curry_amount -= 1
 	if curry_amount < 0:
 		curry_amount = 0
@@ -147,6 +156,7 @@ func _on_Curry_minus_pressed():
 
 
 func _on_Curry_plus_pressed():
+	SoundHandler.value_change.play()
 	curry_amount += 1
 	curry_line_edit.text = str(curry_amount)
 

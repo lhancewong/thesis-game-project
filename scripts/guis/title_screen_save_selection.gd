@@ -1,5 +1,6 @@
 extends Control
 
+
 var save_buttons: Array
 
 
@@ -22,6 +23,7 @@ func check_saves():
 
 
 func save_button_pressed(button_label, num):
+	SoundHandler.button_click.play()
 	Game.save_file_num = num
 	if button_label.begins_with("Save"):
 		Game.save_hndlr.save_game()
@@ -31,6 +33,7 @@ func save_button_pressed(button_label, num):
 
 
 func _on_ToTitleScreen_pressed():
+	SoundHandler.button_click.play()
 	if get_tree().change_scene("res://interfaces/title_screen_menus/title_screen_main.tscn") != OK:
 		print("An unexpected error occured when trying to switch to the Title Screen scene")
 

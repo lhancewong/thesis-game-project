@@ -28,12 +28,14 @@ func _physics_process(delta):
 # Calls manage_waste and resets value
 func _on_sendButton_pressed():
 	if compost_amount == 0:
+		SoundHandler.angry_noise.play()
 		return
 	compost_stack_add(compost_amount)
 	Game.waste_hndlr.manage_waste("composting", "inedible_waste", compost_amount, Game.day)
 	compost_amount = 0
 	ActionLineEdit.text = str(compost_amount)
 	print(Game.compost_stack)
+	SoundHandler.button_click_two.play()
 
 
 func _on_LineEdit_text_changed(new_text):
@@ -52,6 +54,7 @@ func _on_LineEdit_text_changed(new_text):
 
 # These changes the value of the amount to be composted using the buttons
 func _on_minus_pressed():
+	SoundHandler.value_change.play()
 	if compost_amount == 0:
 		return
 	else:
@@ -60,6 +63,7 @@ func _on_minus_pressed():
 
 
 func _on_plus_pressed():
+	SoundHandler.value_change.play()
 	if compost_amount < Game.inedible_waste:
 		compost_amount += 1
 		ActionLineEdit.text = str(compost_amount)

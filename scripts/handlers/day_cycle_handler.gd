@@ -79,10 +79,10 @@ func _day_start():
 
 		if entry.size() == 1:
 			terminal.add_text("Failed Transaction: " + str(entry))
-			SoundHandler.get_node("DryFart").play()
+			SoundHandler.king_cry.play()
 		else:
 			terminal.add_entry(entry)
-			SoundHandler.get_node("VineBoom").play()
+			SoundHandler.king_laugh.play()
 			npc_spawner.spawnNPC()
 			steve_harvey.visible = !steve_harvey.visible
 

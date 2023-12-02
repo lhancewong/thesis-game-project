@@ -37,6 +37,7 @@ func _update_labels():
 func _on_TrashButton_pressed():
 	Game.money -= (edibleToLandfill + inedibleToLandfill) * 10
 	if edibleToLandfill == 0 && inedibleToLandfill == 0:
+		SoundHandler.angry_noise.play()
 		return
 	else:
 		if edibleToLandfill > 0:
@@ -53,9 +54,10 @@ func _on_TrashButton_pressed():
 		inedibleToLandfill = 0
 	edibleActionLineEdit.text = str(edibleToLandfill)
 	inedibleActionLineEdit.text = str(inedibleToLandfill)
-
+	SoundHandler.crimson_moon.play()
 
 func _on_inedible_minus_pressed():
+	SoundHandler.value_change.play()
 	if inedibleToLandfill == 0:
 		return
 	else:
@@ -64,6 +66,7 @@ func _on_inedible_minus_pressed():
 
 
 func _on_inedible_plus_pressed():
+	SoundHandler.value_change.play()
 	if inedibleToLandfill < Game.inedible_waste:
 		inedibleToLandfill += 1
 		inedibleActionLineEdit.text = str(inedibleToLandfill)
@@ -89,6 +92,7 @@ func _on_inedibleLineEdit_text_changed(new_text):
 
 
 func _on_edible_minus_pressed():
+	SoundHandler.value_change.play()
 	if edibleToLandfill == 0:
 		return
 	else:
@@ -97,6 +101,7 @@ func _on_edible_minus_pressed():
 
 
 func _on_edible_plus_pressed():
+	SoundHandler.value_change.play()
 	if edibleToLandfill < Game.edible_waste:
 		edibleToLandfill += 1
 		edibleActionLineEdit.text = str(edibleToLandfill)
