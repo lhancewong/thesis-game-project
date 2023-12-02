@@ -16,13 +16,18 @@ func save():
 		"sold_food": Game.sold_food,
 		"waste_managed": Game.waste_managed,
 		"stats_per_day": Game.stats_per_day,
+		"compost_stack": Game.compost_stack,
+		"last_compost_day": Game.last_compost_day,
+		"unlocked_tech": Game.unlocked_tech,
+		"store_level": Game.store_level,
+		"skill_points": Game.skill_points,
+		"meal_prices": Game.meal_prices,
 	}
 	return save_dict
 
 
-func save_game(num):
-	print("game save")
-	var save_path = "user://savegame%s.save" % num
+func save_game():
+	var save_path = "user://savegame%s.save" % Game.save_file_num
 	var save_game = File.new()
 	save_game.open(save_path, File.WRITE)
 	# Store the save dictionary as a new line in the save file.
@@ -30,8 +35,8 @@ func save_game(num):
 	save_game.close()
 
 
-func load_game(num):
-	var save_path = "user://savegame%s.save" % num
+func load_game():
+	var save_path = "user://savegame%s.save" % Game.save_file_num
 	var save_game = File.new()
 	if not save_game.file_exists(save_path):
 		return  # Error! We don't have a save to load.
@@ -71,6 +76,14 @@ func load_game(num):
 					Game.waste_managed = data
 				"stats_per_day":
 					Game.stats_per_day = data
+				"compost_stack":
+					Game.compost_stack = data
+				"last_compost_day":
+					Game.last_compost_day = data
+				"unlocked_tech":
+					Game.unlocked_tech = data
+				"meal_prices":
+					Game.meal_prices = data
 
 	save_game.close()
 

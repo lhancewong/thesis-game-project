@@ -22,10 +22,11 @@ func check_saves():
 
 
 func save_button_pressed(button_label, num):
+	Game.save_file_num = num
 	if button_label.begins_with("Save"):
-		Game.save_hndlr.save_game(num)
+		Game.save_hndlr.save_game()
 	elif button_label.begins_with("Load"):
-		Game.save_hndlr.load_game(num)
+		Game.save_hndlr.load_game()
 	get_tree().change_scene("res://interfaces/on_daylight_menus/on_daylight_main.tscn")
 
 

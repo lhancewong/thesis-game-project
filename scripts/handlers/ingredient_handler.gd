@@ -21,6 +21,14 @@ func buy_ingredients(type: String, amount: int) -> void:
 			ingredient = INGRED.pork
 		"Curry Powder":
 			ingredient = INGRED.curry_powder
+		"Lemon":
+			ingredient = INGRED.lemon
+		"Cucumber":
+			ingredient = INGRED.cucumber
+		"Coffee Mix":
+			ingredient = INGRED.coffee_mix
+		"Milk":
+			ingredient = INGRED.milk
 		_:
 			push_error("Buy Ingredients error")
 
@@ -34,10 +42,12 @@ func buy_ingredients(type: String, amount: int) -> void:
 
 		debug_msg = "Bought %.2f dollars of %s"
 	else:
-		debug_msg = "You broke ass bitch you can't afford %.2f dollars of %s"
+		debug_msg = "You broke ass bitch you can't afford %.2f pesos of %s"
 
 	if get_tree().current_scene.name == "OnDaylight":
-		var terminal = get_node("/root/OnDaylight/VBoxContainer/HBoxContainer/GameConsole")
+		var terminal = get_node(
+			"/root/OnDaylight/VBoxContainer/HBoxContainer/VBoxContainer2/GameConsole"
+		)
 		terminal.add_text(debug_msg % [price, type])
 
 
@@ -50,7 +60,7 @@ func spend_ingredients(food: Dictionary) -> void:
 			emit_signal("ingred_consumed", i, 1)
 
 
-func unlock_ingredient_check():
+func check_unlocked_ingredients():
 	if get_tree().current_scene.name == "OnDaylight":
 		var beef_block_node = get_node(
 			"/root/OnDaylight/VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/OrderIngredients/VBoxContainer/Order/BeefBlock"

@@ -8,5 +8,5 @@ loop = false
 script = ExtResource( 2 )
 
 [node name="C16" type="Sprite" parent="."]
-scale = Vector2( 0.866918, 0.756184 )
+scale = Vector2( 0.76, 0.582574 )
 texture = ExtResource( 1 )

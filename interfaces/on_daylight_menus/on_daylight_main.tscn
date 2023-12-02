@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=2]
+[gd_scene load_steps=63 format=2]
 
 [ext_resource path="res://scripts/guis/on_daylight_main.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/pixelated.ttf" type="DynamicFontData" id=2]
@@ -19,7 +19,7 @@
 [ext_resource path="res://themes/curry/curry.tres" type="Theme" id=17]
 [ext_resource path="res://themes/curry/green.tres" type="Theme" id=18]
 [ext_resource path="res://themes/curry/red.tres" type="Theme" id=19]
-[ext_resource path="res://assets/images/restaurant_view.png" type="Texture" id=20]
+[ext_resource path="res://assets/images/icons/restaurant_level.png" type="Texture" id=20]
 [ext_resource path="res://scripts/entities/spawner.gd" type="Script" id=21]
 [ext_resource path="res://entities/npcs/Tyrone.tscn" type="PackedScene" id=22]
 [ext_resource path="res://entities/npcs/jerome.tscn" type="PackedScene" id=23]
@@ -45,9 +45,20 @@
 [ext_resource path="res://assets/images/icons/waste.png" type="Texture" id=43]
 [ext_resource path="res://assets/images/icons/day.png" type="Texture" id=44]
 [ext_resource path="res://assets/images/icons/satisfaction.png" type="Texture" id=45]
+[ext_resource path="res://assets/images/restaurant_view.png" type="Texture" id=46]
+[ext_resource path="res://assets/images/icons/beef.png" type="Texture" id=47]
+[ext_resource path="res://assets/images/icons/pork.png" type="Texture" id=48]
+[ext_resource path="res://assets/images/icons/curry_stock.png" type="Texture" id=49]
+[ext_resource path="res://assets/images/icons/chicken.png" type="Texture" id=50]
+[ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/price_management.tscn" type="PackedScene" id=51]
+[ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/order_drinks.tscn" type="PackedScene" id=52]
+[ext_resource path="res://assets/images/icons/milk.png" type="Texture" id=53]
+[ext_resource path="res://assets/images/icons/cucumber.png" type="Texture" id=54]
+[ext_resource path="res://assets/images/icons/coffee.png" type="Texture" id=55]
+[ext_resource path="res://assets/images/icons/lemon.png" type="Texture" id=56]
 
 [sub_resource type="DynamicFont" id=4]
-size = 18
+size = 19
 font_data = ExtResource( 5 )
 
 [sub_resource type="Theme" id=1]
@@ -62,7 +73,7 @@ font_data = ExtResource( 2 )
 
 [sub_resource type="Curve2D" id=6]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 838.67, 540.417, 0, 0, 0, 0, 1077.3, 453.5, 0, 0, 0, 0, 1312.13, 537.5 )
+"points": PoolVector2Array( 0, 0, 0, 0, 825.229, 535.56, 0, 0, 0, 0, 1075.92, 474.442, 0, 0, 0, 0, 1325.63, 535.56 )
 }
 
 [sub_resource type="DynamicFont" id=5]
@@ -106,7 +117,7 @@ margin_right = -20.0
 custom_constants/separation = 5
 
 [node name="DayIcon" type="TextureRect" parent="VBoxContainer/topbar/HBoxContainer"]
-margin_right = 66.0
+margin_right = 52.0
 margin_bottom = 64.0
 rect_pivot_offset = Vector2( -477, -156 )
 size_flags_horizontal = 3
@@ -116,9 +127,9 @@ texture = ExtResource( 44 )
 expand = true
 
 [node name="Day" type="Label" parent="VBoxContainer/topbar/HBoxContainer"]
-margin_left = 71.0
-margin_top = 19.0
-margin_right = 317.0
+margin_left = 57.0
+margin_top = 18.0
+margin_right = 253.0
 margin_bottom = 45.0
 size_flags_horizontal = 3
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -127,8 +138,8 @@ text = "Day"
 valign = 1
 
 [node name="MoneyIcon" type="TextureRect" parent="VBoxContainer/topbar/HBoxContainer"]
-margin_left = 322.0
-margin_right = 389.0
+margin_left = 258.0
+margin_right = 310.0
 margin_bottom = 64.0
 rect_pivot_offset = Vector2( -477, -156 )
 size_flags_horizontal = 3
@@ -138,9 +149,9 @@ texture = ExtResource( 42 )
 expand = true
 
 [node name="Money" type="Label" parent="VBoxContainer/topbar/HBoxContainer"]
-margin_left = 394.0
-margin_top = 19.0
-margin_right = 640.0
+margin_left = 315.0
+margin_top = 18.0
+margin_right = 511.0
 margin_bottom = 45.0
 size_flags_horizontal = 3
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -149,8 +160,8 @@ text = "Money"
 valign = 1
 
 [node name="WasteIcon" type="TextureRect" parent="VBoxContainer/topbar/HBoxContainer"]
-margin_left = 645.0
-margin_right = 711.0
+margin_left = 516.0
+margin_right = 569.0
 margin_bottom = 64.0
 rect_pivot_offset = Vector2( -477, -156 )
 size_flags_horizontal = 3
@@ -160,9 +171,9 @@ texture = ExtResource( 43 )
 expand = true
 
 [node name="Waste" type="Label" parent="VBoxContainer/topbar/HBoxContainer"]
-margin_left = 716.0
-margin_top = 19.0
-margin_right = 963.0
+margin_left = 574.0
+margin_top = 18.0
+margin_right = 769.0
 margin_bottom = 45.0
 size_flags_horizontal = 3
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -170,9 +181,31 @@ custom_fonts/font = SubResource( 4 )
 text = "Waste"
 valign = 1
 
+[node name="LevelIcon" type="TextureRect" parent="VBoxContainer/topbar/HBoxContainer"]
+margin_left = 774.0
+margin_right = 827.0
+margin_bottom = 64.0
+rect_pivot_offset = Vector2( -477, -156 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.27
+texture = ExtResource( 20 )
+expand = true
+
+[node name="Level" type="Label" parent="VBoxContainer/topbar/HBoxContainer"]
+margin_left = 832.0
+margin_top = 18.0
+margin_right = 1027.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Level"
+valign = 1
+
 [node name="SatisfactionIcon" type="TextureRect" parent="VBoxContainer/topbar/HBoxContainer"]
-margin_left = 968.0
-margin_right = 1034.0
+margin_left = 1032.0
+margin_right = 1085.0
 margin_bottom = 64.0
 rect_pivot_offset = Vector2( -477, -156 )
 size_flags_horizontal = 3
@@ -182,8 +215,8 @@ texture = ExtResource( 45 )
 expand = true
 
 [node name="Satisfaction" type="Label" parent="VBoxContainer/topbar/HBoxContainer"]
-margin_left = 1039.0
-margin_top = 19.0
+margin_left = 1090.0
+margin_top = 18.0
 margin_right = 1286.0
 margin_bottom = 45.0
 size_flags_horizontal = 3
@@ -209,14 +242,15 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.57
 custom_constants/separation = 20
 
-[node name="menu icons" type="ColorRect" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="menu_icons" type="ColorRect" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_right = 744.0
 margin_bottom = 110.0
+size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.25
 color = Color( 0.980392, 0.929412, 0.803922, 1 )
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu icons"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 10.0
@@ -224,9 +258,9 @@ margin_top = 10.0
 margin_right = -10.0
 margin_bottom = -10.0
 theme = ExtResource( 17 )
-custom_constants/separation = 10
+custom_constants/separation = 5
 
-[node name="LiveUpdatingStats" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu icons/HBoxContainer"]
+[node name="LiveUpdatingStats" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer"]
 margin_right = 100.0
 margin_bottom = 91.0
 rect_min_size = Vector2( 100, 91 )
@@ -236,7 +270,7 @@ clip_text = true
 icon_align = 1
 expand_icon = true
 
-[node name="ButtonLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu icons/HBoxContainer/LiveUpdatingStats"]
+[node name="ButtonLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer/LiveUpdatingStats"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -246,9 +280,9 @@ align = 1
 valign = 1
 autowrap = true
 
-[node name="OrderIngredients" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu icons/HBoxContainer"]
-margin_left = 110.0
-margin_right = 210.0
+[node name="OrderIngredients" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer"]
+margin_left = 105.0
+margin_right = 205.0
 margin_bottom = 91.0
 rect_min_size = Vector2( 100, 91 )
 size_flags_stretch_ratio = 0.15
@@ -257,7 +291,7 @@ clip_text = true
 icon_align = 1
 expand_icon = true
 
-[node name="ButtonLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu icons/HBoxContainer/OrderIngredients"]
+[node name="ButtonLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer/OrderIngredients"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -267,30 +301,49 @@ align = 1
 valign = 1
 autowrap = true
 
-[node name="TechUpgrades" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu icons/HBoxContainer"]
-margin_left = 220.0
-margin_right = 320.0
+[node name="OrderDrinks" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer"]
+margin_left = 210.0
+margin_right = 310.0
 margin_bottom = 91.0
 rect_min_size = Vector2( 100, 91 )
 size_flags_stretch_ratio = 0.15
-theme = SubResource( 1 )
 clip_text = true
-icon_align = 1
 expand_icon = true
 
-[node name="ButtonLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu icons/HBoxContainer/TechUpgrades"]
+[node name="ButtonLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer/OrderDrinks"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
-text = "Tech Upgrades"
+text = "Order 
+Drinks"
 align = 1
 valign = 1
 autowrap = true
 
-[node name="Statistics" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu icons/HBoxContainer"]
-margin_left = 330.0
-margin_right = 430.0
+[node name="PriceManagement" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer"]
+margin_left = 315.0
+margin_right = 415.0
+margin_bottom = 91.0
+rect_min_size = Vector2( 100, 91 )
+size_flags_stretch_ratio = 0.15
+clip_text = true
+expand_icon = true
+
+[node name="ButtonLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer/PriceManagement"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Price
+Management"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Management" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer"]
+margin_left = 420.0
+margin_right = 520.0
 margin_bottom = 91.0
 rect_min_size = Vector2( 100, 91 )
 size_flags_stretch_ratio = 0.15
@@ -299,7 +352,28 @@ clip_text = true
 icon_align = 1
 expand_icon = true
 
-[node name="ButtonLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu icons/HBoxContainer/Statistics"]
+[node name="ButtonLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer/Management"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Waste Management"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Statistics" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer"]
+margin_left = 525.0
+margin_right = 625.0
+margin_bottom = 91.0
+rect_min_size = Vector2( 100, 91 )
+size_flags_stretch_ratio = 0.15
+theme = SubResource( 1 )
+clip_text = true
+icon_align = 1
+expand_icon = true
+
+[node name="ButtonLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer/Statistics"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -309,9 +383,9 @@ align = 1
 valign = 1
 autowrap = true
 
-[node name="Management" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu icons/HBoxContainer"]
-margin_left = 440.0
-margin_right = 540.0
+[node name="TechUpgrades" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer"]
+margin_left = 630.0
+margin_right = 730.0
 margin_bottom = 91.0
 rect_min_size = Vector2( 100, 91 )
 size_flags_stretch_ratio = 0.15
@@ -320,12 +394,12 @@ clip_text = true
 icon_align = 1
 expand_icon = true
 
-[node name="ButtonLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu icons/HBoxContainer/Management"]
+[node name="ButtonLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer/TechUpgrades"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
-text = "Waste Management"
+text = "Tech Upgrades"
 align = 1
 valign = 1
 autowrap = true
@@ -378,6 +452,12 @@ anchor_bottom = 0.0
 margin_right = 724.0
 margin_bottom = 424.0
 
+[node name="PriceManagement" parent="VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer" instance=ExtResource( 51 )]
+visible = false
+
+[node name="OrderDrinks" parent="VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer" instance=ExtResource( 52 )]
+visible = false
+
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_top = 594.0
 margin_right = 744.0
@@ -420,160 +500,376 @@ custom_fonts/font = SubResource( 2 )
 text = "Start Day"
 expand_icon = true
 
-[node name="GameConsole" parent="VBoxContainer/HBoxContainer" groups=["Debug"] instance=ExtResource( 3 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 0.0
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+margin_left = 764.0
 margin_right = 1326.0
 margin_bottom = 644.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.43
+custom_constants/separation = 20
+
+[node name="food_icons" type="ColorRect" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+margin_right = 562.0
+margin_bottom = 111.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+color = Color( 0.980392, 0.929412, 0.803922, 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2/food_icons"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 1.0
+margin_right = -7.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer"]
+margin_right = 547.0
+margin_bottom = 53.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 17 )
+custom_constants/separation = 5
+
+[node name="ChickenIcon" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer/HBoxContainer"]
+margin_right = 59.0
+margin_bottom = 53.0
+rect_pivot_offset = Vector2( -477, -156 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 50 )
+expand = true
+stretch_mode = 6
+
+[node name="ChickenAmnt" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer/HBoxContainer"]
+margin_left = 64.0
+margin_top = 13.0
+margin_right = 151.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Chicken"
+valign = 1
+
+[node name="BeefIcon" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer/HBoxContainer"]
+margin_left = 156.0
+margin_right = 215.0
+margin_bottom = 53.0
+rect_pivot_offset = Vector2( -477, -156 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 47 )
+expand = true
+stretch_mode = 6
+
+[node name="BeefAmnt" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer/HBoxContainer"]
+margin_left = 220.0
+margin_top = 13.0
+margin_right = 279.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Beef"
+valign = 1
+
+[node name="PorkIcon" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer/HBoxContainer"]
+margin_left = 284.0
+margin_right = 343.0
+margin_bottom = 53.0
+rect_pivot_offset = Vector2( -477, -156 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 48 )
+expand = true
+stretch_mode = 6
+
+[node name="PorkAmnt" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer/HBoxContainer"]
+margin_left = 348.0
+margin_top = 13.0
+margin_right = 407.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Pork"
+valign = 1
+
+[node name="CurryIcon" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer/HBoxContainer"]
+margin_left = 412.0
+margin_right = 472.0
+margin_bottom = 53.0
+rect_pivot_offset = Vector2( -477, -156 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 49 )
+expand = true
+stretch_mode = 6
+
+[node name="CurryAmnt" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer/HBoxContainer"]
+margin_left = 477.0
+margin_top = 13.0
+margin_right = 547.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Curry"
+valign = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer"]
+margin_top = 57.0
+margin_right = 547.0
+margin_bottom = 110.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 17 )
+custom_constants/separation = 5
+
+[node name="LemonIcon" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer/HBoxContainer2"]
+margin_right = 50.0
+margin_bottom = 53.0
+rect_pivot_offset = Vector2( -477, -156 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 56 )
+expand = true
+stretch_mode = 6
+
+[node name="LemonAmnt" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer/HBoxContainer2"]
+margin_left = 55.0
+margin_top = 13.0
+margin_right = 125.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Lemon"
+valign = 1
+
+[node name="CucumberIcon" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer/HBoxContainer2"]
+margin_left = 130.0
+margin_right = 180.0
+margin_bottom = 53.0
+rect_pivot_offset = Vector2( -477, -156 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 54 )
+expand = true
+stretch_mode = 6
+
+[node name="CucumberAmnt" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer/HBoxContainer2"]
+margin_left = 185.0
+margin_top = 13.0
+margin_right = 297.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Cucumber"
+valign = 1
+
+[node name="CoffeeIcon" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer/HBoxContainer2"]
+margin_left = 302.0
+margin_right = 352.0
+margin_bottom = 53.0
+rect_pivot_offset = Vector2( -477, -156 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 55 )
+expand = true
+stretch_mode = 6
+
+[node name="CoffeeAmnt" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer/HBoxContainer2"]
+margin_left = 357.0
+margin_top = 13.0
+margin_right = 437.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Coffee"
+valign = 1
+
+[node name="MilkIcon" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer/HBoxContainer2"]
+margin_left = 442.0
+margin_right = 492.0
+margin_bottom = 53.0
+rect_pivot_offset = Vector2( -477, -156 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 53 )
+expand = true
+stretch_mode = 6
+
+[node name="MilkAmnt" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer/HBoxContainer2"]
+margin_left = 497.0
+margin_top = 13.0
+margin_right = 547.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Milk"
+valign = 1
+
+[node name="GameConsole" parent="VBoxContainer/HBoxContainer/VBoxContainer2" groups=["Debug"] instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 131.0
+margin_right = 562.0
+margin_bottom = 644.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.3
 
 [node name="RestaurantView" type="TextureRect" parent="."]
 margin_left = 784.0
-margin_top = 104.0
+margin_top = 234.0
 margin_right = 1346.0
 margin_bottom = 749.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.43
-texture = ExtResource( 20 )
+texture = ExtResource( 46 )
 expand = true
 
 [node name="NPCs" type="Node2D" parent="."]
 pause_mode = 2
 
 [node name="Spawner" type="Path2D" parent="NPCs"]
-position = Vector2( -69.1324, -442.428 )
-scale = Vector2( 1.05182, 1.71428 )
+position = Vector2( -40, -828 )
+scale = Vector2( 1.02517, 2.55247 )
 curve = SubResource( 6 )
 script = ExtResource( 21 )
 
 [node name="Tyrone" parent="NPCs/Spawner" instance=ExtResource( 22 )]
 visible = false
-position = Vector2( 838.67, 540.417 )
-rotation = -0.34932
+position = Vector2( 825.229, 535.56 )
+rotation = -0.239149
 
 [node name="Jerome" parent="NPCs/Spawner" instance=ExtResource( 23 )]
 visible = false
-position = Vector2( 838.67, 540.417 )
-rotation = -0.34932
+position = Vector2( 825.229, 535.56 )
+rotation = -0.239149
 
 [node name="Matt" parent="NPCs/Spawner" instance=ExtResource( 24 )]
 visible = false
-position = Vector2( 838.67, 540.417 )
-rotation = -0.34932
+position = Vector2( 825.229, 535.56 )
+rotation = -0.239149
 
 [node name="Layla" parent="NPCs/Spawner" instance=ExtResource( 28 )]
 visible = false
-position = Vector2( 838.67, 540.417 )
-rotation = -0.34932
+position = Vector2( 825.229, 535.56 )
+rotation = -0.239149
 
 [node name="Harry" parent="NPCs/Spawner" instance=ExtResource( 27 )]
 visible = false
-position = Vector2( 838.67, 540.417 )
-rotation = -0.34932
+position = Vector2( 825.229, 535.56 )
+rotation = -0.239149
 
 [node name="Tessa" parent="NPCs/Spawner" instance=ExtResource( 26 )]
 visible = false
-position = Vector2( 838.67, 540.417 )
-rotation = -0.34932
+position = Vector2( 825.229, 535.56 )
+rotation = -0.239149
 
 [node name="Hugh" parent="NPCs/Spawner" instance=ExtResource( 25 )]
 visible = false
-position = Vector2( 838.67, 540.417 )
-rotation = -0.34932
+position = Vector2( 825.229, 535.56 )
+rotation = -0.239149
 
 [node name="John" parent="NPCs/Spawner" instance=ExtResource( 31 )]
 visible = false
-position = Vector2( 838.67, 540.417 )
-rotation = -0.34932
+position = Vector2( 825.229, 535.56 )
+rotation = -0.239149
 
 [node name="Chris" parent="NPCs/Spawner" instance=ExtResource( 34 )]
 visible = false
-position = Vector2( 838.67, 540.417 )
-rotation = -0.34932
+position = Vector2( 825.229, 535.56 )
+rotation = -0.239149
 
 [node name="James" parent="NPCs/Spawner" instance=ExtResource( 30 )]
 visible = false
-position = Vector2( 838.67, 540.417 )
-rotation = -0.34932
+position = Vector2( 825.229, 535.56 )
+rotation = -0.239149
 
 [node name="Jared" parent="NPCs/Spawner" instance=ExtResource( 35 )]
 visible = false
-position = Vector2( 838.67, 540.417 )
-rotation = -0.34932
+position = Vector2( 825.229, 535.56 )
+rotation = -0.239149
 
 [node name="Ted" parent="NPCs/Spawner" instance=ExtResource( 29 )]
 visible = false
-position = Vector2( 838.67, 540.417 )
-rotation = -0.34932
+position = Vector2( 825.229, 535.56 )
+rotation = -0.239149
 
 [node name="Steve" parent="NPCs/Spawner" instance=ExtResource( 36 )]
 visible = false
-position = Vector2( 838.67, 540.417 )
-rotation = -0.34932
+position = Vector2( 825.229, 535.56 )
+rotation = -0.239149
 
 [node name="Mona" parent="NPCs/Spawner" instance=ExtResource( 32 )]
 visible = false
-position = Vector2( 838.67, 540.417 )
-rotation = -0.34932
+position = Vector2( 825.229, 535.56 )
+rotation = -0.239149
 
 [node name="Lisa" parent="NPCs/Spawner" instance=ExtResource( 33 )]
 visible = false
-position = Vector2( 838.67, 540.417 )
-rotation = -0.34932
+position = Vector2( 825.229, 535.56 )
+rotation = -0.239149
 
 [node name="Rob" parent="NPCs/Spawner" instance=ExtResource( 9 )]
 visible = false
-position = Vector2( 838.67, 540.417 )
-rotation = -0.34932
+position = Vector2( 825.229, 535.56 )
+rotation = -0.239149
 
 [node name="Mary" parent="NPCs/Spawner" instance=ExtResource( 14 )]
 visible = false
-position = Vector2( 838.67, 540.417 )
-rotation = -0.34932
+position = Vector2( 825.229, 535.56 )
+rotation = -0.239149
 
 [node name="Ken" parent="NPCs/Spawner" instance=ExtResource( 15 )]
 visible = false
-position = Vector2( 838.67, 540.417 )
-rotation = -0.34932
+position = Vector2( 825.229, 535.56 )
+rotation = -0.239149
 
 [node name="Alan" parent="NPCs/Spawner" instance=ExtResource( 39 )]
 visible = false
-position = Vector2( 838.67, 540.417 )
-rotation = -0.34932
+position = Vector2( 825.229, 535.56 )
+rotation = -0.239149
 
 [node name="Justine" parent="NPCs/Spawner" instance=ExtResource( 37 )]
 visible = false
-position = Vector2( 838.67, 540.417 )
-rotation = -0.34932
+position = Vector2( 825.229, 535.56 )
+rotation = -0.239149
 
 [node name="Dorothea" parent="NPCs/Spawner" instance=ExtResource( 38 )]
 visible = false
-position = Vector2( 838.67, 540.417 )
-rotation = -0.34932
+position = Vector2( 825.229, 535.56 )
+rotation = -0.239149
 
 [node name="Carmella" parent="NPCs/Spawner" instance=ExtResource( 40 )]
 visible = false
-position = Vector2( 838.67, 540.417 )
-rotation = -0.34932
+position = Vector2( 825.229, 535.56 )
+rotation = -0.239149
 
 [node name="Sam" parent="NPCs/Spawner" instance=ExtResource( 13 )]
 visible = false
-position = Vector2( 838.67, 540.417 )
-rotation = -0.34932
+position = Vector2( 825.229, 535.56 )
+rotation = -0.239149
 
 [node name="Amy" parent="NPCs/Spawner" instance=ExtResource( 16 )]
 visible = false
-position = Vector2( 838.67, 540.417 )
-rotation = -0.34932
+position = Vector2( 825.229, 535.56 )
+rotation = -0.239149
 
 [node name="Serena" parent="NPCs/Spawner" instance=ExtResource( 41 )]
 visible = false
-position = Vector2( 838.67, 540.417 )
-rotation = -0.34932
+position = Vector2( 825.229, 535.56 )
+rotation = -0.239149
 
 [node name="PauseFrame" type="ColorRect" parent="."]
 visible = false
@@ -608,11 +904,13 @@ text = "Serving Customers..."
 align = 1
 valign = 1
 
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/menu icons/HBoxContainer/LiveUpdatingStats" to="." method="_on_LiveUpdatingStats_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/menu icons/HBoxContainer/OrderIngredients" to="." method="_on_OrderIngredients_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/menu icons/HBoxContainer/TechUpgrades" to="." method="_on_TechUpgrades_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/menu icons/HBoxContainer/Statistics" to="." method="_on_Statistics_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/menu icons/HBoxContainer/Management" to="." method="_on_Management_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer/LiveUpdatingStats" to="." method="_on_LiveUpdatingStats_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer/OrderIngredients" to="." method="_on_OrderIngredients_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer/OrderDrinks" to="." method="_on_OrderDrinks_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer/PriceManagement" to="." method="_on_PriceManagement_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer/Management" to="." method="_on_Management_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer/Statistics" to="." method="_on_Statistics_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer/TechUpgrades" to="." method="_on_TechUpgrades_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/Debug" to="." method="_on_Debug_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/ToTitleScreen" to="." method="_on_ToTitleScreen_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/StartDay" to="." method="_on_StartDay_pressed"]

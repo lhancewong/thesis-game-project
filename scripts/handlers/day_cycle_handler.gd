@@ -7,8 +7,33 @@ var npc_spawner
 signal day_ended(money_left, ewaste_left, iwaste_left)
 
 
-func _ready():
-	pass
+func init_daylight_main():
+	init_daily_statistics()
+	$"../Ingredient".check_unlocked_ingredients()
+	$"../Strategy".check_store_level()
+	$"../Strategy".load_unlocked_strats()
+
+
+func init_daily_statistics():
+	Game.stats_per_day[str(Game.day)] = {
+		meals_served = {pork_curry = 0, chicken_curry = 0, beef_curry = 0, lemonade = 0, coffee = 0},
+		ingredients_bought = {pork = 0, chicken = 0, beef = 0, curry_powder = 0, 
+							lemon = 0, cucumber = 0, coffee_mix = 0, milk = 0},
+		ingredients_consumed = {pork = 0, chicken = 0, beef = 0, curry_powder = 0,
+							lemon = 0, cucumber = 0, coffee_mix = 0, milk = 0},
+		customers_served = {tourist = 0, regular = 0, local = 0},
+		money_earned_from_meals = {pork_curry = 0, chicken_curry = 0, beef_curry = 0, lemonade = 0, coffee = 0},
+		satisfaction_gained = 0.0,
+		money_left = 0.0,
+		money_spent = 0.0,
+		money_earned = 0.0,
+		ewaste_produced = 0.0,
+		ewaste_managed = 0.0,
+		ewaste_left = 0.0,
+		iwaste_produced = 0.0,
+		iwaste_managed = 0.0,
+		iwaste_left = 0.0,
+	}
 
 
 func start_day_cycle():
@@ -19,16 +44,28 @@ func start_day_cycle():
 
 # Prepares the dictionary to store daily statistics
 func _on_day_start():
+	# Adds a 0 entry to the compost_stack
+	Game.compost_stack.append(0)
+	Game.compost_stack = Game.compost_stack.slice(-3, Game.compost_stack.size())
+
 	# Calculates min and max customer amount based on day
-	Game.min_custo = 5 + Game.day
-	Game.max_custo = 10 + Game.day
+	if Game.buffs_hndlr.compost_debuff():
+		print("Customer Debuffed!")
+		Game.min_custo = (5 + Game.day) * 0.6
+		Game.max_custo = (10 + Game.day) * 0.6
+	else:
+		Game.min_custo = 5 + Game.day
+		Game.max_custo = 10 + Game.day
 	# Initializes key nodes from the daylight scene
 	if get_tree().current_scene.name == "OnDaylight":
 		steve_harvey = get_node("/root/OnDaylight/PauseFrame/SteveHarvey")
-		terminal = get_node("/root/OnDaylight/VBoxContainer/HBoxContainer/GameConsole")
+		terminal = get_node(
+			"/root/OnDaylight/VBoxContainer/HBoxContainer/VBoxContainer2/GameConsole"
+		)
 		npc_spawner = get_node("/root/OnDaylight/NPCs/Spawner")
 
-	$"../Ingredient".unlock_ingredient_check()
+	$"../Ingredient".check_unlocked_ingredients()
+	$"../Strategy".check_store_level()
 
 
 func _day_start():
@@ -40,8 +77,8 @@ func _day_start():
 	for i in customer_amount:
 		var entry = $"../Purchase".create_transaction()
 
-		if entry.empty():
-			terminal.add_text("No Food!" + str(entry))
+		if entry.size() == 1:
+			terminal.add_text("Failed Transaction: " + str(entry))
 			SoundHandler.get_node("DryFart").play()
 		else:
 			terminal.add_entry(entry)
@@ -58,4 +95,4 @@ func _on_day_end():
 	emit_signal("day_ended", Game.money, Game.edible_waste, Game.inedible_waste)
 
 	Game.day += 1
-	Game.init_daily_statistics()
+	init_daily_statistics()

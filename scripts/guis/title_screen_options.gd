@@ -8,3 +8,13 @@ func _on_ToTitleScreen_pressed():
 
 func _on_Audio_pressed():
 	SoundHandler.master_mute()
+
+
+func _on_Developer_pressed():
+#	var base = 20
+#	var price = rand_range(0, 40)
+#
+#	var chance = Game.purchase_hndlr.calculate_buy_chance(base, price)
+#
+#	print("base price of %s, current price of %s, buy chance = %s" % [base, price, chance])
+	pass

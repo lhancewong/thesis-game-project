@@ -1,21 +1,41 @@
 extends Control
 
 # Node
-onready var terminal = $VBoxContainer/HBoxContainer/GameConsole
+onready var terminal = $VBoxContainer/HBoxContainer/VBoxContainer2/GameConsole
 
 # Sub Scenes
 onready var live_updates = $VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/LiveUpdates
 onready var order_ingredients = $VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/OrderIngredients
+onready var order_drinks = $VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/OrderDrinks
+onready var price_management = $VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/PriceManagement
 onready var tech_upgrades = $VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/TechUpgrades
 onready var statistics = $VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/Statistics
 onready var management = $VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/ManagementHander
 onready var sub_scenes_list = [
 	live_updates,
 	order_ingredients,
+	order_drinks,
+	price_management,
 	tech_upgrades,
 	statistics,
 	management,
 ]
+
+# labels
+onready var day_lbl = $VBoxContainer/topbar/HBoxContainer/Day
+onready var money_lbl = $VBoxContainer/topbar/HBoxContainer/Money
+onready var waste_lbl = $VBoxContainer/topbar/HBoxContainer/Waste
+onready var satisfaction_lbl = $VBoxContainer/topbar/HBoxContainer/Satisfaction
+
+onready var stock_chicken = $VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer/HBoxContainer/ChickenAmnt
+onready var stock_beef = $VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer/HBoxContainer/BeefAmnt
+onready var stock_pork = $VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer/HBoxContainer/PorkAmnt
+onready var stock_curry = $VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer/HBoxContainer/CurryAmnt
+
+onready var stock_lemon = $VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer/HBoxContainer2/LemonAmnt
+onready var stock_cucumber = $VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer/HBoxContainer2/CucumberAmnt
+onready var stock_coffee = $VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer/HBoxContainer2/CoffeeAmnt
+onready var stock_milk = $VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer/HBoxContainer2/MilkAmnt
 
 
 func _ready():
@@ -23,17 +43,30 @@ func _ready():
 	$PauseFrame.hide()
 	$PauseFrame/SteveHarvey.hide()
 	set_physics_process(true)
-	Game.init_daily_statistics()
+	Game.day_hndlr.init_daylight_main()
 
 
 func _process(delta):
-	$VBoxContainer/topbar/HBoxContainer/Day.text = "Day " + str(Game.day)
-	$VBoxContainer/topbar/HBoxContainer/Money.text = "Money: " + Game.get_str_money()
-	$VBoxContainer/topbar/HBoxContainer/Waste.text = "Waste: " + Game.get_str_waste()
-	$VBoxContainer/topbar/HBoxContainer/Satisfaction.text = (
-		"Satisfaction: "
-		+ Game.get_str_satisfaction()
-	)
+	_update_labels()
+
+
+func _update_labels():
+	day_lbl.text = "Day " + str(Game.day)
+	money_lbl.text = "Money: " + Game.get_str_money()
+	waste_lbl.text = "Waste: " + Game.get_str_waste()
+	satisfaction_lbl.text = ("Satisfaction: " + Game.get_str_satisfaction())
+
+	var stockpile = Game.i_stockpile
+
+	stock_chicken.text = str(stockpile["chicken"])
+	stock_beef.text = str(stockpile["beef"])
+	stock_pork.text = str(stockpile["pork"])
+	stock_curry.text = str(stockpile["curry_powder"])
+	
+	stock_lemon.text = str(stockpile["lemon"])
+	stock_cucumber.text = str(stockpile["cucumber"])
+	stock_coffee.text = str(stockpile["coffee_mix"])
+	stock_milk.text = str(stockpile["milk"])
 
 
 # Hides every sub_scene then shows the desired sub scene
@@ -52,14 +85,16 @@ func _toggle_show_sub_scene(sub_scene_name):
 # Button Signals
 func _on_Debug_pressed():
 	Game.food_hndlr.update_cookable_food()
-	terminal.add_text(str(Game.cookable_food))
-	terminal.add_text(Game.food_hndlr.get_rand_cookable_food())
+	terminal.add_text(str(Game.cookable_food) + " " + Game.food_hndlr.get_rand_cookable_food())
 	$RestaurantView.visible = !$RestaurantView.visible
 
 
 func _on_ToTitleScreen_pressed():
-	Game.save_hndlr.save_game(0)
+	Game.save_hndlr.save_game()
+
 	get_tree().change_scene("res://interfaces/title_screen_menus/title_screen_main.tscn")
+
+	Game.init_var()
 
 
 # Main update sequence handler for now
@@ -90,6 +125,14 @@ func _on_LiveUpdatingStats_pressed():
 
 func _on_OrderIngredients_pressed():
 	_toggle_show_sub_scene(order_ingredients)
+
+
+func _on_OrderDrinks_pressed():
+	_toggle_show_sub_scene(order_drinks)
+
+
+func _on_PriceManagement_pressed():
+	_toggle_show_sub_scene(price_management)
 
 
 func _on_TechUpgrades_pressed():

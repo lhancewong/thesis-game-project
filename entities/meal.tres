@@ -7,33 +7,33 @@ resource_name = "Meal"
 script = ExtResource( 1 )
 menu = {
 "beef_curry": {
-"base_price": 25,
+"base_price": 450,
 "id": 2,
 "ingredients": [ "beef", "curry_powder" ],
 "toppings": [ "potato", "spinach", "eggplant", "cheese" ],
 "type": "beef_curry"
 },
 "chicken_curry": {
-"base_price": 20,
+"base_price": 380,
 "id": 1,
 "ingredients": [ "chicken", "curry_powder" ],
 "toppings": [ "potato", "spinach", "eggplant", "cheese" ],
 "type": "chicken_curry"
 },
 "coffee": {
-"base_price": 7,
+"base_price": 100,
 "id": 5,
-"ingredients": [ "coffee_mix", "sugar" ],
+"ingredients": [ "coffee_mix", "milk" ],
 "type": "coffee"
 },
 "lemonade": {
-"base_price": 7,
+"base_price": 140,
 "id": 4,
-"ingredients": [ "lemon", "sugar" ],
+"ingredients": [ "lemon", "cucumber" ],
 "type": "lemonade"
 },
 "pork_curry": {
-"base_price": 23,
+"base_price": 380,
 "id": 3,
 "ingredients": [ "pork", "curry_powder" ],
 "toppings": [ "potato", "spinach", "eggplant", "cheese" ],

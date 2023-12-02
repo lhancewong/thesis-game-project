@@ -7,27 +7,47 @@ resource_name = "Ingredient"
 script = ExtResource( 1 )
 chicken = {
 "id": 0,
-"price": 2.99,
+"price": 30.25,
 "type": "chicken"
 }
 beef = {
 "id": 1,
-"price": 4.99,
+"price": 68.0,
 "type": "beef"
 }
 pork = {
 "id": 2,
-"price": 3.49,
+"price": 60.0,
 "type": "pork"
 }
 curry_powder = {
 "id": 3,
-"price": 6.99,
+"price": 120.0,
 "type": "curry_powder"
+}
+lemon = {
+"id": 8,
+"price": 44.25,
+"type": "lemon"
+}
+cucumber = {
+"id": 9,
+"price": 42.25,
+"type": "cucumber"
+}
+coffee_mix = {
+"id": 10,
+"price": 17.5,
+"type": "coffee_mix"
+}
+milk = {
+"id": 11,
+"price": 31.4,
+"type": "milk"
 }
 potato = {
 "id": 4,
-"price": 0.79,
+"price": 0,
 "type": "potato"
 }
 spinach = {
@@ -44,19 +64,4 @@ cheese = {
 "id": 7,
 "price": 5.49,
 "type": "cheese"
-}
-lemon = {
-"id": 8,
-"price": 1,
-"type": "lemon"
-}
-coffee_mix = {
-"id": 9,
-"price": 5.99,
-"type": "coffee_mix"
-}
-sugar = {
-"id": 10,
-"price": 0.69,
-"type": "sugar"
 }

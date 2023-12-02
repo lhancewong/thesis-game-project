@@ -1,7 +1,7 @@
 extends Control
 var regex = RegEx.new()
 
-var disposal_amount: int = 0
+var disposal_amount = 0
 var old_text = ""
 
 onready var ActionLineEdit = $VBoxContainer/HBoxContainer/Industrial/Strategy/HBoxContainer/LineEdit
@@ -28,9 +28,10 @@ func _physics_process(delta):
 
 # Calls manage_waste and resets value
 func _on_sendButton_pressed():
+	Game.money -= (disposal_amount) * 1.5
 	if disposal_amount == 0:
 		return
-	Game.waste_hndlr.manage_waste("industrial", 0, disposal_amount, 1)
+	Game.waste_hndlr.manage_waste("industrial", "inedible_waste", disposal_amount, Game.day)
 	disposal_amount = 0
 	ActionLineEdit.text = str(disposal_amount)
 

@@ -33,7 +33,7 @@ func _ready():
 	beef_line_edit.text = str(beef_amount)
 	curry_line_edit.text = str(curry_amount)
 
-	Game.ingred_hndlr.unlock_ingredient_check()
+	Game.ingred_hndlr.check_unlocked_ingredients()
 
 
 func _physics_process(delta):  # change to signals
