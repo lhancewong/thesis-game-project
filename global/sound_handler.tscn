@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://assets/audio/bgm/layer_cake.ogg" type="AudioStream" id=1]
+[ext_resource path="res://assets/audio/bgm/the_blackpenny_pub.ogg" type="AudioStream" id=1]
 [ext_resource path="res://assets/audio/sfx/vine_boom.ogg" type="AudioStream" id=2]
 [ext_resource path="res://scripts/sound_handler.gd" type="Script" id=3]
 [ext_resource path="res://assets/audio/sfx/dry_fart.ogg" type="AudioStream" id=4]

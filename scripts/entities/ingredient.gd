@@ -5,27 +5,27 @@ extends Resource
 export(Dictionary) var chicken = {
 	"id": 0,
 	"type": "chicken",
-	"price": 30.25, # 0.23 per gram, 130 grams per serving
+	"price": 30.25,  # 0.23 per gram, 130 grams per serving
 }
 
 # https://thegoodmeat.ph/product/beef-cubes-500g/
 export(Dictionary) var beef = {
 	"id": 1,
 	"type": "beef",
-	"price": 68.0, # 0.52 per gram, 130 grams per serving
+	"price": 68.0,  # 0.52 per gram, 130 grams per serving
 }
 
 # https://thegoodmeat.ph/product/pork-tonkatsu-500g/
 export(Dictionary) var pork = {
 	"id": 2,
 	"type": "pork",
-	"price": 60.0, # 0.46 per gram, 130 grams per serving
+	"price": 60.0,  # 0.46 per gram, 130 grams per serving
 }
 
 export(Dictionary) var curry_powder = {
 	"id": 3,
 	"type": "curry_powder",
-	"price": 120.0, # guesstimate
+	"price": 120.0,  # guesstimate
 }
 
 # https://safeselect.ph/products/lemon

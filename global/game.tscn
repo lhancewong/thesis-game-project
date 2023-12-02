@@ -64,4 +64,5 @@ script = ExtResource( 14 )
 [connection signal="meal_served" from="Purchase" to="Database" method="_on_Purchase_meal_served"]
 [connection signal="money_earned" from="Purchase" to="Database" method="_on_Purchase_money_earned"]
 [connection signal="satsifation_gained" from="Purchase" to="Database" method="_on_Purchase_satsifation_gained"]
+[connection signal="transaction_failed" from="Purchase" to="Database" method="_on_Purchase_transaction_failed"]
 [connection signal="day_ended" from="DayCycle" to="Database" method="_on_DayCycle_day_ended"]

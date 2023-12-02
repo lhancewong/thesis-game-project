@@ -6,6 +6,7 @@ signal meal_served(type)
 signal customer_served(type)
 signal money_earned(amount)
 signal satsifation_gained(amount)
+signal transaction_failed(type)
 
 # Sibling Nodes
 onready var food_hndlr = $"../Food"
@@ -33,6 +34,7 @@ func create_transaction() -> Dictionary:
 	if meal == null:
 		return {}
 	elif meal.empty():
+		emit_signal("transaction_failed", "no_meal")
 		return {no_meals = "No Meals"}
 
 	# Checks buy chance
@@ -45,6 +47,7 @@ func create_transaction() -> Dictionary:
 		_update_restaurant_var(entry)
 		return entry
 	else:
+		emit_signal("transaction_failed", meal["type"])
 		return {chance_fail = buy_chance}
 
 

@@ -62,7 +62,7 @@ func _update_labels():
 	stock_beef.text = str(stockpile["beef"])
 	stock_pork.text = str(stockpile["pork"])
 	stock_curry.text = str(stockpile["curry_powder"])
-	
+
 	stock_lemon.text = str(stockpile["lemon"])
 	stock_cucumber.text = str(stockpile["cucumber"])
 	stock_coffee.text = str(stockpile["coffee_mix"])

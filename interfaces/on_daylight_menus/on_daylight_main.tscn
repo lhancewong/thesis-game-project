@@ -420,13 +420,13 @@ margin_right = -10.0
 margin_bottom = -10.0
 
 [node name="LiveUpdates" parent="VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer" instance=ExtResource( 7 )]
-visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 724.0
 margin_bottom = 424.0
 
 [node name="OrderIngredients" parent="VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer" instance=ExtResource( 8 )]
+visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 724.0

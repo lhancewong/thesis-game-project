@@ -139,4 +139,4 @@ func _on_PorkLine_text_changed(new_text):
 		pork_amount = int(new_text)
 	else:
 		pork_line_edit.text = pork_old_text
-		pork_line_edit.set_cursor_position(pork_line_edit.text.length())		
+		pork_line_edit.set_cursor_position(pork_line_edit.text.length())

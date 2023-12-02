@@ -5,18 +5,11 @@ onready var chart: Chart = $Chart
 var f1: Function  # chicken
 var f2: Function  # beef
 var f3: Function  # pork
+var cp: ChartProperties
 
 
 func _ready():
-	Game.day_hndlr.connect("day_ended", self, "_on_DayCycle_day_ended")
-
-	var xy = calculate_x_y()
-	var x: Array = xy[0]
-	var y1: Array = xy[1]
-	var y2: Array = xy[2]
-	var y3: Array = xy[3]
-
-	var cp: ChartProperties = ChartProperties.new()
+	cp = ChartProperties.new()
 	cp.colors.frame = Color.bisque
 	cp.colors.background = Color.bisque
 	cp.colors.grid = Color.bisque
@@ -27,6 +20,34 @@ func _ready():
 	cp.y_scale = 2
 	cp.interactive = true
 	cp.show_legend = true
+
+	Game.day_hndlr.connect("day_ended", self, "_on_DayCycle_day_ended")
+
+	if Game.day == 0:
+		var dummy_x = [0]
+		var dummy_y = [0]
+		var dummy_func = Function.new(
+			dummy_x,
+			dummy_y,
+			"Loading...",
+			{
+				color = Color.darkgreen,
+				marker = Function.Marker.CIRCLE,
+				type = Function.Type.LINE,
+				interpolation = Function.Interpolation.LINEAR,
+			}
+		)
+		chart.plot([dummy_func], cp)
+	else:
+		_plot()
+
+
+func _plot():
+	var xy = calculate_x_y()
+	var x: Array = xy[0]
+	var y1: Array = xy[1]
+	var y2: Array = xy[2]
+	var y3: Array = xy[3]
 
 	f1 = Function.new(
 		x,
@@ -63,13 +84,17 @@ func _ready():
 			interpolation = Function.Interpolation.LINEAR
 		}
 	)
-
 	chart.plot([f1, f2, f3], cp)
 
 
 func _on_DayCycle_day_ended(money_left, ewaste_left, iwaste_left):
 	var day = Game.day
 	var day_stats = Game.stats_per_day[str(day)]
+
+	if day == 0:
+		return
+	if day == 1:
+		_plot()
 
 	var chicken_gross_income = day_stats.money_earned_from_meals["chicken_curry"]
 	var beef_gross_income = day_stats.money_earned_from_meals["beef_curry"]

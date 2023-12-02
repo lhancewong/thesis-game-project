@@ -45,25 +45,25 @@ func unlock_strategy(type):
 		)
 
 		match type:
-			'composting':
+			"composting":
 				Game.unlocked_tech["compost"] = true
 				compost_block_node.visible = false
 				compost_node.visible = true
 				compost_unlock_button.disabled = true
 				compost_unlock_button.text = str("unlocked")
-			'industrial':
+			"industrial":
 				Game.unlocked_tech["industrial"] = true
 				indus_block_node.visible = false
 				indus_node.visible = true
 				indus_unlock_button.disabled = true
 				indus_unlock_button.text = str("unlocked")
-			'feed_animals':
+			"feed_animals":
 				Game.unlocked_tech["feed_animals"] = true
 				ani_block_node.visible = false
 				ani_node.visible = true
 				ani_unlock_button.disabled = true
 				ani_unlock_button.text = str("unlocked")
-			'feed_humans':
+			"feed_humans":
 				Game.unlocked_tech["feed_humans"] = true
 				shelter_block_node.visible = false
 				shelter_node.visible = true

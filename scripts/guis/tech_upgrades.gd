@@ -21,22 +21,22 @@ func _process(delta):
 func _on_ComUnlock_pressed():
 	if Game.skill_points > 0:
 		Game.skill_points -= 1
-		Game.strat_hndlr.unlock_strategy('composting')
+		Game.strat_hndlr.unlock_strategy("composting")
 
 
 func _on_IndusUnlock_pressed():
 	if Game.skill_points > 0:
 		Game.skill_points -= 1
-		Game.strat_hndlr.unlock_strategy('industrial')
+		Game.strat_hndlr.unlock_strategy("industrial")
 
 
 func _on_AniUnlock_pressed():
 	if Game.skill_points > 0:
 		Game.skill_points -= 1
-		Game.strat_hndlr.unlock_strategy('feed_animals')
+		Game.strat_hndlr.unlock_strategy("feed_animals")
 
 
 func _on_SheltUnlock_pressed():
 	if Game.skill_points > 0:
 		Game.skill_points -= 1
-		Game.strat_hndlr.unlock_strategy('feed_humans')
+		Game.strat_hndlr.unlock_strategy("feed_humans")

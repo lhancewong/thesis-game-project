@@ -21,7 +21,7 @@ onready var unlocked_ingredients = {
 	pork = false,
 }
 onready var unlocked_tech = {
-	composting = true,
+	composting = false,
 	industrial = false,
 	feed_animals = false,
 	feed_humans = false,
@@ -60,6 +60,16 @@ onready var max_custo = 10
 # Stores a temporary list of currently cookable food (aka what can be sold)
 onready var cookable_food = {}
 
+# Entries
+var sold_food: Array
+var waste_managed: Array
+
+# Day end
+var stats_per_day: Dictionary
+
+# Menu
+onready var save_file_num = -1
+
 # Handlers
 onready var waste_hndlr = $Waste
 onready var ingred_hndlr = $Ingredient
@@ -72,19 +82,9 @@ onready var day_hndlr = $DayCycle
 onready var database_hndlr = $Database
 onready var buffs_hndlr = $Buffs
 
-# Entries
-var sold_food: Array
-var waste_managed: Array
-
-# Day end
-var stats_per_day: Dictionary
-
-# Menu
-onready var save_file_num = -1
-
 
 func init_var():
-	money = 100.0
+	money = 1000.0
 	edible_waste = 0.0
 	inedible_waste = 0.0
 	satisfaction = 0.0
@@ -102,7 +102,7 @@ func init_var():
 		pork = false,
 	}
 	unlocked_tech = {
-		composting = true,
+		composting = false,
 		industrial = false,
 		feed_animals = false,
 		feed_humans = false,
@@ -111,6 +111,8 @@ func init_var():
 		chicken_curry = MEAL.menu.chicken_curry.base_price,
 		beef_curry = MEAL.menu.beef_curry.base_price,
 		pork_curry = MEAL.menu.pork_curry.base_price,
+		lemonade = MEAL.menu.lemonade.base_price,
+		coffee = MEAL.menu.coffee.base_price,
 	}
 	i_stockpile = {
 		"chicken": 0,
@@ -136,6 +138,7 @@ func init_var():
 
 	sold_food = []
 	waste_managed = []
+	stats_per_day = {}
 
 
 # Turns numbers into a Tycoon compatible format

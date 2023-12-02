@@ -84,7 +84,6 @@ func load_functions(functions: Array) -> void:
 
 
 func _draw() -> void:
-	# GridBox
 	var x_domain: Dictionary = calculate_domain(x)
 	var y_domain: Dictionary = calculate_domain(y)
 

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/the_blackpenny_pub.ogg-da96c0ed072af949bb29b6eaa076413a.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/bgm/the_blackpenny_pub.ogg"
+dest_files=[ "res://.import/the_blackpenny_pub.ogg-da96c0ed072af949bb29b6eaa076413a.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
