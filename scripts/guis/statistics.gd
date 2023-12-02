@@ -1,11 +1,13 @@
 extends Control
 
 # Sold Food Tab
-onready var sold_food_label = $TabMenu/SoldFood/SoldFoodTable
-onready var managed_waste_label = $TabMenu/ManagedWaste/ManagedWasteTable
+onready var sold_food_label = $"%SoldFoodTable"
+onready var managed_waste_label = $"%ManagedWasteTable"
 
 
 func _ready():
+	$TabMenu/Graphs.queue_free()
+	$TabMenu/Forecast.queue_free()
 	set_sold_food_table()
 	set_managed_waste_table()
 

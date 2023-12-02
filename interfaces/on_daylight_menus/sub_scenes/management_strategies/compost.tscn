@@ -29,8 +29,8 @@ font_data = ExtResource( 1 )
 size = 30
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=4]
-size = 13
+[sub_resource type="DynamicFont" id=11]
+size = 12
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=5]
@@ -194,18 +194,22 @@ margin_bottom = 266.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Info" type="Label" parent="VBoxContainer/HBoxContainer/Text/Text Info"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/Text/Text Info"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 30.0
-margin_right = -30.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 4 )
-text = "TIP:
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
-align = 3
-valign = 1
-autowrap = true
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+
+[node name="Info" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/Text/Text Info/MarginContainer"]
+margin_right = 327.0
+margin_bottom = 246.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 11 )
+bbcode_enabled = true
+bbcode_text = "Composting is the act of turning food waste into compost via controlled fermentation. This results into a stable organic material that can be used to provide extra nutrients to plants which can be donated to farmers. Convert your inedible food waste into compost to donate to a local farm. [tornado radius=2.0 freq=5.0 connected=1][color=green]Maintaining a donation streak gets you a discount whenever you stock up on ingredients.[/color][/tornado][shake rate=30.0 level=7 connected=1][color=red] But be careful! Composting too much waste at a time will drive away customers due to the smell of decaying organic matter! [/color] [/shake]"
+text = "Composting is the act of turning food waste into compost via controlled fermentation. This results into a stable organic material that can be used to provide extra nutrients to plants which can be donated to farmers. Convert your inedible food waste into compost to donate to a local farm. Maintaining a donation streak gets you a discount whenever you stock up on ingredients. But be careful! Composting too much waste at a time will drive away customers due to the smell of decaying organic matter!  "
 
 [node name="ManagementStrategy2" type="Button" parent="VBoxContainer/HBoxContainer/Text"]
 margin_top = 291.0

@@ -29,8 +29,8 @@ font_data = ExtResource( 1 )
 size = 30
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=16]
-size = 13
+[sub_resource type="DynamicFont" id=18]
+size = 12
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=17]
@@ -67,14 +67,14 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 30
 
-[node name="Left Block" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+[node name="LeftBlock" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
 margin_right = 346.0
 margin_bottom = 376.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 30
 
-[node name="Waste" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Left Block"]
+[node name="Waste" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/LeftBlock"]
 margin_right = 346.0
 margin_bottom = 178.0
 rect_pivot_offset = Vector2( -345, -102 )
@@ -83,14 +83,14 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
 custom_constants/separation = 20
 
-[node name="Waste" type="ColorRect" parent="VBoxContainer/HBoxContainer/Left Block/Waste"]
+[node name="Waste" type="ColorRect" parent="VBoxContainer/HBoxContainer/LeftBlock/Waste"]
 margin_right = 346.0
 margin_bottom = 79.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color( 0.980392, 0.854902, 0.368627, 1 )
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Left Block/Waste/Waste"]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/LeftBlock/Waste/Waste"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
@@ -99,14 +99,14 @@ text = "Edible Waste"
 align = 1
 valign = 1
 
-[node name="Amount" type="ColorRect" parent="VBoxContainer/HBoxContainer/Left Block/Waste"]
+[node name="Amount" type="ColorRect" parent="VBoxContainer/HBoxContainer/LeftBlock/Waste"]
 margin_top = 99.0
 margin_right = 346.0
 margin_bottom = 178.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="InedibleWasteAmnt" type="Label" parent="VBoxContainer/HBoxContainer/Left Block/Waste/Amount"]
+[node name="InedibleWasteAmnt" type="Label" parent="VBoxContainer/HBoxContainer/LeftBlock/Waste/Amount"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -115,7 +115,7 @@ text = "Waste Amount"
 align = 1
 valign = 1
 
-[node name="Strategy" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Left Block"]
+[node name="Strategy" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/LeftBlock"]
 margin_top = 208.0
 margin_right = 346.0
 margin_bottom = 376.0
@@ -124,14 +124,14 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.7
 custom_constants/separation = 20
 
-[node name="Feed" type="ColorRect" parent="VBoxContainer/HBoxContainer/Left Block/Strategy"]
+[node name="Feed" type="ColorRect" parent="VBoxContainer/HBoxContainer/LeftBlock/Strategy"]
 margin_right = 346.0
 margin_bottom = 96.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.25
 color = Color( 0.980392, 0.854902, 0.368627, 1 )
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Left Block/Strategy/Feed"]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/LeftBlock/Strategy/Feed"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
@@ -143,21 +143,21 @@ align = 1
 valign = 1
 autowrap = true
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Left Block/Strategy"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/LeftBlock/Strategy"]
 margin_top = 116.0
 margin_right = 346.0
 margin_bottom = 168.0
 rect_pivot_offset = Vector2( -74, 24 )
 alignment = 1
 
-[node name="minus" type="Button" parent="VBoxContainer/HBoxContainer/Left Block/Strategy/HBoxContainer2"]
+[node name="minus" type="Button" parent="VBoxContainer/HBoxContainer/LeftBlock/Strategy/HBoxContainer2"]
 margin_right = 67.0
 margin_bottom = 52.251
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 13 )
 text = "-"
 
-[node name="LineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer/Left Block/Strategy/HBoxContainer2"]
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer/LeftBlock/Strategy/HBoxContainer2"]
 margin_left = 71.0
 margin_right = 274.0
 margin_bottom = 52.0
@@ -167,7 +167,7 @@ custom_fonts/font = SubResource( 14 )
 align = 1
 placeholder_text = "Waste Amount"
 
-[node name="plus" type="Button" parent="VBoxContainer/HBoxContainer/Left Block/Strategy/HBoxContainer2"]
+[node name="plus" type="Button" parent="VBoxContainer/HBoxContainer/LeftBlock/Strategy/HBoxContainer2"]
 margin_left = 278.0
 margin_right = 346.0
 margin_bottom = 52.251
@@ -190,18 +190,22 @@ margin_bottom = 272.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Info" type="Label" parent="VBoxContainer/HBoxContainer/Text/Text Info"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/Text/Text Info"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 30.0
-margin_right = -30.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 16 )
-text = "TIP:
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
-align = 3
-valign = 1
-autowrap = true
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+
+[node name="Info" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/Text/Text Info/MarginContainer"]
+margin_right = 327.0
+margin_bottom = 252.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 18 )
+bbcode_enabled = true
+bbcode_text = "Feeding People is the act of donating excess food to organizations that professionally feed people. Partner with a food bank organization after gaining enough popularity in your local area and donate excess edible food. [tornado radius=2.0 freq=5.0 connected=1][color=green]Relatively low cost to donate food and also boosts your restaurant's popularity![/color][/tornado]"
+text = "Feeding People is the act of donating excess food to organizations that professionally feed people. Partner with a food bank organization after gaining enough popularity in your local area and donate excess edible food. Relatively low cost to donate food and also boosts your restaurant's popularity!"
 
 [node name="ManagementStrategy2" type="Button" parent="VBoxContainer/HBoxContainer/Text"]
 margin_top = 297.0
@@ -210,7 +214,7 @@ margin_bottom = 376.251
 custom_fonts/font = SubResource( 17 )
 text = "Send"
 
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Left Block/Strategy/HBoxContainer2/minus" to="." method="_on_minus_pressed"]
-[connection signal="text_changed" from="VBoxContainer/HBoxContainer/Left Block/Strategy/HBoxContainer2/LineEdit" to="." method="_on_LineEdit_text_changed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Left Block/Strategy/HBoxContainer2/plus" to="." method="_on_plus_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/LeftBlock/Strategy/HBoxContainer2/minus" to="." method="_on_minus_pressed"]
+[connection signal="text_changed" from="VBoxContainer/HBoxContainer/LeftBlock/Strategy/HBoxContainer2/LineEdit" to="." method="_on_LineEdit_text_changed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/LeftBlock/Strategy/HBoxContainer2/plus" to="." method="_on_plus_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Text/ManagementStrategy2" to="." method="_on_sendButton_pressed"]

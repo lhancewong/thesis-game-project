@@ -102,10 +102,10 @@ func init_var():
 		pork = false,
 	}
 	unlocked_tech = {
-		composting = false,
-		industrial = false,
-		feed_animals = false,
-		feed_humans = false,
+		composting = true,
+		industrial = true,
+		feed_animals = true,
+		feed_humans = true,
 	}
 	meal_prices = {
 		chicken_curry = MEAL.menu.chicken_curry.base_price,

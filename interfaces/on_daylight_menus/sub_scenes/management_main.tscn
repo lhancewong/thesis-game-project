@@ -31,7 +31,7 @@ font_data = ExtResource( 8 )
 size = 28
 font_data = ExtResource( 8 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=8]
 size = 12
 font_data = ExtResource( 7 )
 
@@ -197,19 +197,24 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
 
-[node name="Info" type="Label" parent="MainScreen/VBoxContainer/ContentFrame/Text/Text Info"]
+[node name="MarginContainer" type="MarginContainer" parent="MainScreen/VBoxContainer/ContentFrame/Text/Text Info"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 20.0
+margin_top = 10.0
 margin_right = -20.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 4 )
+margin_bottom = -10.0
+
+[node name="Info" type="RichTextLabel" parent="MainScreen/VBoxContainer/ContentFrame/Text/Text Info/MarginContainer"]
+margin_right = 188.0
+margin_bottom = 243.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 8 )
+bbcode_enabled = true
+bbcode_text = "TIP:
+Progress through the days and gain customer approval! Once you gain enough satisfaction to merit a skill point, you can choose to unlock  a waste management strategy! Each strategy has its own [tornado radius=2.0 freq=5.0 connected=1][color=green]pros[/color][/tornado] and [shake rate=30.0 level=7 connected=1][color=red]cons[/color][/shake], so choose wisely!"
 text = "TIP:
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-"
-align = 3
-valign = 1
-autowrap = true
+Progress through the days and gain customer approval! Once you gain enough satisfaction to merit a skill point, you can choose to unlock  a waste management strategy! Each strategy has its own pros and cons, so choose wisely!"
 
 [node name="Landfill" type="Button" parent="MainScreen/VBoxContainer/ContentFrame/Text"]
 margin_top = 288.0

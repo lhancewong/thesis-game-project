@@ -16,6 +16,7 @@ func _ready():
 	cp.colors.text = Color.black
 	cp.draw_bounding_box = true
 	cp.x_label = "Day"
+	cp.y_label = "Money"
 	cp.x_scale = 2
 	cp.y_scale = 2
 	cp.interactive = true

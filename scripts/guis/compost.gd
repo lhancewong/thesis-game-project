@@ -3,26 +3,19 @@ var regex = RegEx.new()
 
 var compost_amount: int = 0
 var old_text = ""
-#var compost_stack = []
-#var last_compost_day = 0
 
-onready var ActionLineEdit = $VBoxContainer/HBoxContainer/Compost/Strategy/HBoxContainer2/LineEdit
+onready var action_line_edit = $VBoxContainer/HBoxContainer/Compost/Strategy/HBoxContainer2/LineEdit
+onready var inedible_waste_amnt = $VBoxContainer/HBoxContainer/Compost/Waste/Amount/InedibleWasteAmnt
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	$VBoxContainer/HBoxContainer/Compost/Waste/Amount/InedibleWasteAmnt.text = str(
-		Game.inedible_waste
-	)
-	ActionLineEdit.text = str(compost_amount)
+	inedible_waste_amnt.text = str(Game.inedible_waste)
+	action_line_edit.text = str(compost_amount)
 	regex.compile("^[0-9]*$")
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	$VBoxContainer/HBoxContainer/Compost/Waste/Amount/InedibleWasteAmnt.text = str(
-		Game.inedible_waste
-	)
+	inedible_waste_amnt.text = str(Game.inedible_waste)
 
 
 # Calls manage_waste and resets value
@@ -32,7 +25,7 @@ func _on_sendButton_pressed():
 	compost_stack_add(compost_amount)
 	Game.waste_hndlr.manage_waste("composting", "inedible_waste", compost_amount, Game.day)
 	compost_amount = 0
-	ActionLineEdit.text = str(compost_amount)
+	action_line_edit.text = str(compost_amount)
 	print(Game.compost_stack)
 
 
@@ -43,11 +36,11 @@ func _on_LineEdit_text_changed(new_text):
 			new_text = Game.inedible_waste
 		old_text = str(new_text)
 		compost_amount = int(new_text)
-		ActionLineEdit.text = old_text
-		ActionLineEdit.set_cursor_position(ActionLineEdit.text.length())
+		action_line_edit.text = old_text
+		action_line_edit.set_cursor_position(action_line_edit.text.length())
 	else:
-		ActionLineEdit.text = old_text
-		ActionLineEdit.set_cursor_position(ActionLineEdit.text.length())
+		action_line_edit.text = old_text
+		action_line_edit.set_cursor_position(action_line_edit.text.length())
 
 
 # These changes the value of the amount to be composted using the buttons
@@ -56,15 +49,13 @@ func _on_minus_pressed():
 		return
 	else:
 		compost_amount -= 1
-		ActionLineEdit.text = str(compost_amount)
+		action_line_edit.text = str(compost_amount)
 
 
 func _on_plus_pressed():
 	if compost_amount < Game.inedible_waste:
 		compost_amount += 1
-		ActionLineEdit.text = str(compost_amount)
-	else:
-		pass
+		action_line_edit.text = str(compost_amount)
 
 
 # creates an array that compiles the amount composted per day and only keeps last 3 days

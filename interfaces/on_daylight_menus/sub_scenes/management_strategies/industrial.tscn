@@ -29,8 +29,8 @@ font_data = ExtResource( 1 )
 size = 30
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=4]
-size = 13
+[sub_resource type="DynamicFont" id=9]
+size = 12
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=5]
@@ -194,18 +194,22 @@ margin_bottom = 267.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Info" type="Label" parent="VBoxContainer/HBoxContainer/Text/Text Info"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/Text/Text Info"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 30.0
-margin_right = -30.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 4 )
-text = "TIP:
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
-align = 3
-valign = 1
-autowrap = true
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+
+[node name="Info" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/Text/Text Info/MarginContainer"]
+margin_right = 327.0
+margin_bottom = 247.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 9 )
+bbcode_enabled = true
+bbcode_text = "Industrial Uses is the act of converting food waste into material with industrial applications. Examples include anaerobic digestion, rendering fats, creating biodiesel, and more. Partner with an anaerobic digestion plant and convert inedible food waste into bio-gas. [color=red][shake rate=30.0 level=7 connected=1]Keep in mind it costs money to send trash to the facilty![/shake][/color]"
+text = "Industrial Uses is the act of converting food waste into material with industrial applications. Examples include anaerobic digestion, rendering fats, creating biodiesel, and more. Partner with an anaerobic digestion plant and convert inedible food waste into bio-gas. Keep in mind it costs money to send trash to the facilty!"
 
 [node name="ManagementStrategy2" type="Button" parent="VBoxContainer/HBoxContainer/Text"]
 margin_top = 292.0

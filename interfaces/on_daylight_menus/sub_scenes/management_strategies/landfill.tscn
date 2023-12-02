@@ -32,7 +32,7 @@ font_data = ExtResource( 1 )
 size = 22
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=10]
 size = 12
 font_data = ExtResource( 2 )
 
@@ -248,7 +248,7 @@ margin_right = 351.0
 margin_bottom = 55.0
 size_flags_vertical = 3
 
-[node name="MgmtLabel2" type="Label" parent="VBoxContainer/HBoxContainer/Landfill/TotalWaste/Amount"]
+[node name="TotalWasteLabel" type="Label" parent="VBoxContainer/HBoxContainer/Landfill/TotalWaste/Amount"]
 margin_left = 1.0
 margin_top = 11.0
 margin_right = 352.0
@@ -275,18 +275,22 @@ margin_bottom = 299.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Info" type="Label" parent="VBoxContainer/HBoxContainer/Text/Text Info"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/Text/Text Info"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 20.0
-margin_right = -20.0
-custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
-custom_fonts/font = SubResource( 4 )
-text = "TIP:
-Landfills suck, bro. Think about the turtles. Without turtles, who will eat the jellyfish in the sea? Who will take Nemo into the fast under-sea expressway current? Or was it Melvin? I don't even know the name of the damn daddy fish. Also, landfilling garbage is freaking expensive. Just compost your garbage Just go donate yourself to charity right NOW!"
-align = 3
-valign = 1
-autowrap = true
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+
+[node name="Info" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/Text/Text Info/MarginContainer"]
+margin_right = 332.0
+margin_bottom = 279.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 10 )
+bbcode_enabled = true
+bbcode_text = "Landfill is the act of burning or disposing of food waste. It has a negative impact on the environment. Send any type of food waste into the landfill to dispose of it quickly. [shake rate=30.0 level=7 connected=1][color=red]Comes with a high cost for sending it to the landfill. Your customers will also think less of your restaurant.[/color][/shake] [tornado radius=2.0 freq=5.0 connected=1][color=green]Think about the turtles.[/color][/tornado]"
+text = "Landfill is the act of burning or disposing of food waste. It has a negative impact on the environment. Send any type of food waste into the landfill to dispose of it quickly. Comes with a high cost for sending it to the landfill. Your customers will also think less of your restaurant. Think about the turtles."
 
 [node name="ManagementStrategy2" type="Button" parent="VBoxContainer/HBoxContainer/Text"]
 margin_top = 319.0

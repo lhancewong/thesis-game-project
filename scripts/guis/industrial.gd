@@ -4,26 +4,20 @@ var regex = RegEx.new()
 var disposal_amount = 0
 var old_text = ""
 
-onready var ActionLineEdit = $VBoxContainer/HBoxContainer/Industrial/Strategy/HBoxContainer/LineEdit
+onready var action_line_edit = $VBoxContainer/HBoxContainer/Industrial/Strategy/HBoxContainer/LineEdit
+onready var inedible_waste_amnt = $VBoxContainer/HBoxContainer/Industrial/Waste/Amount/InedibleWasteAmnt
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$VBoxContainer/HBoxContainer/Industrial/Waste/Amount/InedibleWasteAmnt.text = str(
-		Game.inedible_waste
-	)
-	ActionLineEdit.text = str(disposal_amount)
+	inedible_waste_amnt.text = str(Game.inedible_waste)
+	action_line_edit.text = str(disposal_amount)
 	regex.compile("^[0-9]*$")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	$VBoxContainer/HBoxContainer/Industrial/Waste/Amount/InedibleWasteAmnt.text = str(
-		Game.inedible_waste
-	)
-
-
-# This changes the value of the amount to be composted using the buttons
+	inedible_waste_amnt.text = str(Game.inedible_waste)
 
 
 # Calls manage_waste and resets value
@@ -33,7 +27,7 @@ func _on_sendButton_pressed():
 		return
 	Game.waste_hndlr.manage_waste("industrial", "inedible_waste", disposal_amount, Game.day)
 	disposal_amount = 0
-	ActionLineEdit.text = str(disposal_amount)
+	action_line_edit.text = str(disposal_amount)
 
 
 func _on_LineEdit_text_changed(new_text):
@@ -43,11 +37,11 @@ func _on_LineEdit_text_changed(new_text):
 			new_text = Game.inedible_waste
 		old_text = str(new_text)
 		disposal_amount = int(new_text)
-		ActionLineEdit.text = old_text
-		ActionLineEdit.set_cursor_position(ActionLineEdit.text.length())
+		action_line_edit.text = old_text
+		action_line_edit.set_cursor_position(action_line_edit.text.length())
 	else:
-		ActionLineEdit.text = old_text
-		ActionLineEdit.set_cursor_position(ActionLineEdit.text.length())
+		action_line_edit.text = old_text
+		action_line_edit.set_cursor_position(action_line_edit.text.length())
 
 
 func _on_minus_pressed():
@@ -55,12 +49,10 @@ func _on_minus_pressed():
 		return
 	else:
 		disposal_amount -= 1
-		ActionLineEdit.text = str(disposal_amount)
+		action_line_edit.text = str(disposal_amount)
 
 
 func _on_plus_pressed():
 	if disposal_amount < Game.inedible_waste:
 		disposal_amount += 1
-		ActionLineEdit.text = str(disposal_amount)
-	else:
-		pass
+		action_line_edit.text = str(disposal_amount)
