@@ -27,7 +27,7 @@ volume_db = -7.0
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
 stream = ExtResource( 1 )
-volume_db = -15.0
+volume_db = -20.0
 autoplay = true
 
 [node name="DryFart" type="AudioStreamPlayer" parent="."]
@@ -37,7 +37,7 @@ stream = ExtResource( 4 )
 [node name="CrimsonMoon" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
 stream = ExtResource( 5 )
-volume_db = -20.0
+volume_db = -10.0
 
 [node name="KingLaugh" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
@@ -63,7 +63,7 @@ volume_db = -20.0
 
 [node name="ButtonClickTwo" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
-volume_db = -20.0
+volume_db = 1.0
 
 [node name="ProgressFill" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )

@@ -124,18 +124,16 @@ size_flags_stretch_ratio = 1.25
 color = Color( 0.917647, 0.717647, 0.25098, 1 )
 
 [node name="Icon" type="TextureRect" parent="VBoxContainer/Order/Chicken/HBoxContainer2/Icon"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -23.5
-margin_top = -28.0
-margin_right = 23.5
-margin_bottom = 28.0
+anchor_top = 0.0194175
+anchor_right = 1.0
+anchor_bottom = 0.951456
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 4 )
 expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Order/Chicken"]
 margin_top = 113.0
@@ -204,8 +202,8 @@ autowrap = true
 
 [node name="Beef" type="VBoxContainer" parent="VBoxContainer/Order"]
 visible = false
-margin_left = 273.0
-margin_right = 449.0
+margin_left = 186.0
+margin_right = 362.0
 margin_bottom = 238.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -249,18 +247,15 @@ size_flags_stretch_ratio = 1.25
 color = Color( 0.917647, 0.717647, 0.25098, 1 )
 
 [node name="Icon" type="TextureRect" parent="VBoxContainer/Order/Beef/HBoxContainer2/Icon"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -28.0
-margin_top = -33.0
-margin_right = 28.0
-margin_bottom = 33.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 5 )
 expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Order/Beef"]
 margin_top = 113.0
@@ -327,8 +322,8 @@ autowrap = true
 
 [node name="Pork" type="VBoxContainer" parent="VBoxContainer/Order"]
 visible = false
-margin_left = 372.0
-margin_right = 548.0
+margin_left = 366.0
+margin_right = 542.0
 margin_bottom = 238.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -372,14 +367,10 @@ size_flags_stretch_ratio = 1.25
 color = Color( 0.917647, 0.717647, 0.25098, 1 )
 
 [node name="Icon" type="TextureRect" parent="VBoxContainer/Order/Pork/HBoxContainer2/Icon"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -23.5
-margin_top = -31.5
-margin_right = 23.5
-margin_bottom = 30.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -4.0
+margin_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 7 )
@@ -475,14 +466,9 @@ size_flags_stretch_ratio = 1.25
 color = Color( 0.917647, 0.717647, 0.25098, 1 )
 
 [node name="Icon" type="TextureRect" parent="VBoxContainer/Order/Curry/HBoxContainer2/Icon"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -26.0
-margin_top = -29.0
-margin_right = 26.0
-margin_bottom = 29.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -2.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 8 )
@@ -532,7 +518,7 @@ theme = ExtResource( 6 )
 custom_fonts/font = SubResource( 4 )
 text = "Buy"
 
-[node name="StorageLabel" type="Label" parent="VBoxContainer"]
+[node name="PriceLabel" type="Label" parent="VBoxContainer"]
 margin_top = 295.0
 margin_right = 723.0
 margin_bottom = 323.0
@@ -540,7 +526,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 1
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 5 )
-text = "Stock Ingredients"
+text = "Ingredient Prices"
 align = 1
 valign = 1
 autowrap = true
