@@ -1,41 +1,44 @@
 extends Control
 
 # Node
-onready var terminal = $VBoxContainer/HBoxContainer/VBoxContainer2/GameConsole
+onready var game_console = $"%GameConsole"
+onready var restaurant_view = $"%RestaurantView"
 
 # Sub Scenes
-onready var live_updates = $VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/LiveUpdates
-onready var order_ingredients = $VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/OrderIngredients
-onready var order_drinks = $VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/OrderDrinks
-onready var price_management = $VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/PriceManagement
-onready var tech_upgrades = $VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/TechUpgrades
-onready var statistics = $VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/Statistics
-onready var management = $VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/ManagementHander
+onready var live_updates = $"%LiveUpdates"
+onready var order_ingredients = $"%OrderIngredients"
+onready var order_drinks = $"%OrderDrinks"
+onready var price_management = $"%PriceManagement"
+onready var management = $"%WasteManagement"
+onready var tech_upgrades = $"%TechUpgrades"
+onready var statistics = $"%Statistics"
+
 onready var sub_scenes_list = [
 	live_updates,
 	order_ingredients,
 	order_drinks,
 	price_management,
+	management,
 	tech_upgrades,
 	statistics,
-	management,
 ]
 
-# labels
-onready var day_lbl = $VBoxContainer/topbar/HBoxContainer/Day
-onready var money_lbl = $VBoxContainer/topbar/HBoxContainer/Money
-onready var waste_lbl = $VBoxContainer/topbar/HBoxContainer/Waste
-onready var satisfaction_lbl = $VBoxContainer/topbar/HBoxContainer/Satisfaction
+# TopBar Labels
+onready var day_label = $"%DayLabel"
+onready var money_label = $"%MoneyLabel"
+onready var waste_label = $"%WasteLabel"
+onready var level_label = $"%LevelLabel"
+onready var satisfaction_label = $"%SatisfactionLabel"
 
-onready var stock_chicken = $VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer/HBoxContainer/ChickenAmnt
-onready var stock_beef = $VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer/HBoxContainer/BeefAmnt
-onready var stock_pork = $VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer/HBoxContainer/PorkAmnt
-onready var stock_curry = $VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer/HBoxContainer/CurryAmnt
-
-onready var stock_lemon = $VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer/HBoxContainer2/LemonAmnt
-onready var stock_cucumber = $VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer/HBoxContainer2/CucumberAmnt
-onready var stock_coffee = $VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer/HBoxContainer2/CoffeeAmnt
-onready var stock_milk = $VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer/HBoxContainer2/MilkAmnt
+# FoodIcon Labels
+onready var stock_chicken = $"%StockChicken"
+onready var stock_beef = $"%StockBeef"
+onready var stock_pork = $"%StockPork"
+onready var stock_curry = $"%StockCurry"
+onready var stock_lemon = $"%StockLemon"
+onready var stock_cucumber = $"%StockCucumber"
+onready var stock_coffee = $"%StockCoffee"
+onready var stock_milk = $"%StockMilk"
 
 
 func _ready():
@@ -51,10 +54,11 @@ func _process(delta):
 
 
 func _update_labels():
-	day_lbl.text = "Day " + str(Game.day)
-	money_lbl.text = "Money: " + Game.get_str_money()
-	waste_lbl.text = "Waste: " + Game.get_str_waste()
-	satisfaction_lbl.text = ("Satisfaction: " + Game.get_str_satisfaction())
+	day_label.text = "Day " + str(Game.day)
+	money_label.text = "Money: " + Game.get_str_money()
+	waste_label.text = "Waste: " + Game.get_str_waste()
+	level_label.text = "Level: " + str(Game.store_level)
+	satisfaction_label.text = "Satisfaction: " + Game.get_str_satisfaction()
 
 	var stockpile = Game.i_stockpile
 
@@ -62,7 +66,6 @@ func _update_labels():
 	stock_beef.text = str(stockpile["beef"])
 	stock_pork.text = str(stockpile["pork"])
 	stock_curry.text = str(stockpile["curry_powder"])
-
 	stock_lemon.text = str(stockpile["lemon"])
 	stock_cucumber.text = str(stockpile["cucumber"])
 	stock_coffee.text = str(stockpile["coffee_mix"])
@@ -84,38 +87,31 @@ func _toggle_show_sub_scene(sub_scene_name):
 
 # Button Signals
 func _on_Debug_pressed():
-	Game.food_hndlr.update_cookable_food()
-	terminal.add_text(str(Game.cookable_food) + " " + Game.food_hndlr.get_rand_cookable_food())
-	$RestaurantView.visible = !$RestaurantView.visible
+	restaurant_view.visible = !restaurant_view.visible
+	game_console.visible = !game_console.visible
 
 
 func _on_ToTitleScreen_pressed():
 	Game.save_hndlr.save_game()
-
 	get_tree().change_scene("res://interfaces/title_screen_menus/title_screen_main.tscn")
-
 	Game.init_var()
 
 
-# Main update sequence handler for now
 func _on_StartDay_pressed():
-	terminal.add_text("Day Started!")
+	game_console.add_text("Day Started!")
 	_on_pause_button_pressed()
 	yield(Game.day_hndlr.start_day_cycle(), "completed")
 	_on_pause_popup_close_pressed()
-	terminal.add_text("Day Finished!")
+	game_console.add_text("Day Finished!")
 
 
-# Greys out entire screen
 func _on_pause_button_pressed():
-	get_tree().paused = true
 	$PauseFrame.show()
 
 
 # Un-greys out entire screen
 func _on_pause_popup_close_pressed():
 	$PauseFrame.hide()
-	get_tree().paused = false
 
 
 # Sub Scene Button Signals

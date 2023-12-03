@@ -59,21 +59,21 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 15
 
-[node name="FeedCompost" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+[node name="CompostIndustrial" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
 margin_right = 231.0
 margin_bottom = 377.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 15
 
-[node name="Compost" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/FeedCompost"]
+[node name="Compost" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/CompostIndustrial"]
 margin_right = 231.0
 margin_bottom = 110.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 5
 
-[node name="Strat" type="ColorRect" parent="VBoxContainer/HBoxContainer/FeedCompost/Compost"]
+[node name="Strat" type="ColorRect" parent="VBoxContainer/HBoxContainer/CompostIndustrial/Compost"]
 margin_right = 135.0
 margin_bottom = 110.0
 size_flags_horizontal = 3
@@ -81,7 +81,7 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
 color = Color( 0.980392, 0.854902, 0.368627, 1 )
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/FeedCompost/Compost/Strat"]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/CompostIndustrial/Compost/Strat"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
@@ -91,7 +91,7 @@ align = 1
 valign = 1
 autowrap = true
 
-[node name="Icon" type="ColorRect" parent="VBoxContainer/HBoxContainer/FeedCompost/Compost"]
+[node name="Icon" type="ColorRect" parent="VBoxContainer/HBoxContainer/CompostIndustrial/Compost"]
 margin_left = 140.0
 margin_right = 231.0
 margin_bottom = 110.0
@@ -100,7 +100,7 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
 color = Color( 0.980392, 0.854902, 0.368627, 1 )
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/FeedCompost/Compost/Icon"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/CompostIndustrial/Compost/Icon"]
 margin_right = 90.0
 margin_bottom = 111.0
 size_flags_horizontal = 3
@@ -108,7 +108,8 @@ size_flags_vertical = 3
 texture = ExtResource( 5 )
 expand = true
 
-[node name="ComUnlock" type="Button" parent="VBoxContainer/HBoxContainer/FeedCompost"]
+[node name="UnlockCompostButton" type="Button" parent="VBoxContainer/HBoxContainer/CompostIndustrial"]
+unique_name_in_owner = true
 margin_top = 125.0
 margin_right = 231.0
 margin_bottom = 180.0
@@ -119,7 +120,7 @@ custom_colors/font_color_disabled = Color( 0.501961, 0.501961, 0.501961, 1 )
 custom_fonts/font = SubResource( 3 )
 text = "unlock"
 
-[node name="Industrial" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/FeedCompost"]
+[node name="Industrial" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/CompostIndustrial"]
 margin_top = 195.0
 margin_right = 231.0
 margin_bottom = 306.0
@@ -127,7 +128,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 5
 
-[node name="Strat" type="ColorRect" parent="VBoxContainer/HBoxContainer/FeedCompost/Industrial"]
+[node name="Strat" type="ColorRect" parent="VBoxContainer/HBoxContainer/CompostIndustrial/Industrial"]
 margin_right = 135.0
 margin_bottom = 111.0
 size_flags_horizontal = 3
@@ -135,7 +136,7 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
 color = Color( 0.980392, 0.854902, 0.368627, 1 )
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/FeedCompost/Industrial/Strat"]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/CompostIndustrial/Industrial/Strat"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
@@ -145,7 +146,7 @@ align = 1
 valign = 1
 autowrap = true
 
-[node name="Icon" type="ColorRect" parent="VBoxContainer/HBoxContainer/FeedCompost/Industrial"]
+[node name="Icon" type="ColorRect" parent="VBoxContainer/HBoxContainer/CompostIndustrial/Industrial"]
 margin_left = 140.0
 margin_right = 231.0
 margin_bottom = 111.0
@@ -154,7 +155,7 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
 color = Color( 0.980392, 0.854902, 0.368627, 1 )
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/FeedCompost/Industrial/Icon"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/CompostIndustrial/Industrial/Icon"]
 margin_right = 90.0
 margin_bottom = 111.0
 size_flags_horizontal = 3
@@ -162,7 +163,8 @@ size_flags_vertical = 3
 texture = ExtResource( 4 )
 expand = true
 
-[node name="IndusUnlock" type="Button" parent="VBoxContainer/HBoxContainer/FeedCompost"]
+[node name="UnlockIndustrialButton" type="Button" parent="VBoxContainer/HBoxContainer/CompostIndustrial"]
+unique_name_in_owner = true
 margin_top = 321.0
 margin_right = 231.0
 margin_bottom = 377.0
@@ -173,7 +175,7 @@ custom_colors/font_color_disabled = Color( 0.501961, 0.501961, 0.501961, 1 )
 custom_fonts/font = SubResource( 3 )
 text = "unlock"
 
-[node name="ShelterIndus" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+[node name="AnimalHuman" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
 margin_left = 246.0
 margin_right = 477.0
 margin_bottom = 377.0
@@ -181,14 +183,14 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 15
 
-[node name="Animal" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/ShelterIndus"]
+[node name="Animal" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/AnimalHuman"]
 margin_right = 231.0
 margin_bottom = 110.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 5
 
-[node name="Strat" type="ColorRect" parent="VBoxContainer/HBoxContainer/ShelterIndus/Animal"]
+[node name="Strat" type="ColorRect" parent="VBoxContainer/HBoxContainer/AnimalHuman/Animal"]
 margin_right = 135.0
 margin_bottom = 110.0
 size_flags_horizontal = 3
@@ -196,7 +198,7 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
 color = Color( 0.980392, 0.854902, 0.368627, 1 )
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/ShelterIndus/Animal/Strat"]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/AnimalHuman/Animal/Strat"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
@@ -207,7 +209,7 @@ align = 1
 valign = 1
 autowrap = true
 
-[node name="Icon" type="ColorRect" parent="VBoxContainer/HBoxContainer/ShelterIndus/Animal"]
+[node name="Icon" type="ColorRect" parent="VBoxContainer/HBoxContainer/AnimalHuman/Animal"]
 margin_left = 140.0
 margin_right = 231.0
 margin_bottom = 110.0
@@ -216,7 +218,7 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
 color = Color( 0.980392, 0.854902, 0.368627, 1 )
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/ShelterIndus/Animal/Icon"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/AnimalHuman/Animal/Icon"]
 margin_right = 90.0
 margin_bottom = 111.0
 size_flags_horizontal = 3
@@ -224,7 +226,8 @@ size_flags_vertical = 3
 texture = ExtResource( 6 )
 expand = true
 
-[node name="AniUnlock" type="Button" parent="VBoxContainer/HBoxContainer/ShelterIndus"]
+[node name="UnlockFeedAnimalsButton" type="Button" parent="VBoxContainer/HBoxContainer/AnimalHuman"]
+unique_name_in_owner = true
 margin_top = 125.0
 margin_right = 231.0
 margin_bottom = 180.0
@@ -235,7 +238,7 @@ custom_colors/font_color_disabled = Color( 0.501961, 0.501961, 0.501961, 1 )
 custom_fonts/font = SubResource( 3 )
 text = "Unlock"
 
-[node name="Shelter" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/ShelterIndus"]
+[node name="Shelter" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/AnimalHuman"]
 margin_top = 195.0
 margin_right = 231.0
 margin_bottom = 306.0
@@ -243,7 +246,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 5
 
-[node name="Strat" type="ColorRect" parent="VBoxContainer/HBoxContainer/ShelterIndus/Shelter"]
+[node name="Strat" type="ColorRect" parent="VBoxContainer/HBoxContainer/AnimalHuman/Shelter"]
 margin_right = 135.0
 margin_bottom = 111.0
 size_flags_horizontal = 3
@@ -251,7 +254,7 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
 color = Color( 0.980392, 0.854902, 0.368627, 1 )
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/ShelterIndus/Shelter/Strat"]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/AnimalHuman/Shelter/Strat"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
@@ -262,7 +265,7 @@ align = 1
 valign = 1
 autowrap = true
 
-[node name="Icon" type="ColorRect" parent="VBoxContainer/HBoxContainer/ShelterIndus/Shelter"]
+[node name="Icon" type="ColorRect" parent="VBoxContainer/HBoxContainer/AnimalHuman/Shelter"]
 margin_left = 140.0
 margin_right = 231.0
 margin_bottom = 111.0
@@ -271,7 +274,7 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
 color = Color( 0.980392, 0.854902, 0.368627, 1 )
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/ShelterIndus/Shelter/Icon"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/AnimalHuman/Shelter/Icon"]
 margin_right = 90.0
 margin_bottom = 111.0
 size_flags_horizontal = 3
@@ -279,7 +282,8 @@ size_flags_vertical = 3
 texture = ExtResource( 7 )
 expand = true
 
-[node name="SheltUnlock" type="Button" parent="VBoxContainer/HBoxContainer/ShelterIndus"]
+[node name="UnlockFoodShelterButton" type="Button" parent="VBoxContainer/HBoxContainer/AnimalHuman"]
+unique_name_in_owner = true
 margin_top = 321.0
 margin_right = 231.0
 margin_bottom = 377.0
@@ -338,7 +342,7 @@ Unlock"
 align = 1
 valign = 1
 
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/FeedCompost/ComUnlock" to="." method="_on_ComUnlock_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/FeedCompost/IndusUnlock" to="." method="_on_IndusUnlock_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/ShelterIndus/AniUnlock" to="." method="_on_AniUnlock_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/ShelterIndus/SheltUnlock" to="." method="_on_SheltUnlock_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/CompostIndustrial/UnlockCompostButton" to="." method="_on_UnlockCompostButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/CompostIndustrial/UnlockIndustrialButton" to="." method="_on_UnlockIndustrialButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/AnimalHuman/UnlockFeedAnimalsButton" to="." method="_on_UnlockFeedAnimalsButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/AnimalHuman/UnlockFoodShelterButton" to="." method="_on_UnlockFoodShelterButton_pressed"]

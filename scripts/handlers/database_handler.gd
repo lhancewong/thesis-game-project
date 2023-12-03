@@ -106,7 +106,7 @@ func _on_Purchase_satsifation_gained(amount):
 	Game.stats_per_day[str(Game.day)].satisfaction_gained += amount
 
 
-func _on_DayCycle_day_ended(money_left, ewaste_left, iwaste_left):
+func _on_DayCycle_stats_leftover(money_left, ewaste_left, iwaste_left):
 	Game.stats_per_day[str(Game.day)].money_left = money_left
 	Game.stats_per_day[str(Game.day)].ewaste_left = ewaste_left
 	Game.stats_per_day[str(Game.day)].iwaste_left = iwaste_left

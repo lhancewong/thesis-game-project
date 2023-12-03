@@ -72,7 +72,6 @@ custom_fonts/font = SubResource( 1 )
 tab_align = 0
 
 [node name="MoneyStatistics" type="Tabs" parent="TabMenu"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 10.0

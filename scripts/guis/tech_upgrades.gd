@@ -1,16 +1,6 @@
 extends Control
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass  # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	$VBoxContainer/HBoxContainer/Text/Amount/AmntLabel.text = (
 		"Skill Points: "
@@ -18,25 +8,25 @@ func _process(delta):
 	)
 
 
-func _on_ComUnlock_pressed():
+func _on_UnlockCompostButton_pressed():
 	if Game.skill_points > 0:
 		Game.skill_points -= 1
 		Game.strat_hndlr.unlock_strategy("composting")
 
 
-func _on_IndusUnlock_pressed():
+func _on_UnlockIndustrialButton_pressed():
 	if Game.skill_points > 0:
 		Game.skill_points -= 1
 		Game.strat_hndlr.unlock_strategy("industrial")
 
 
-func _on_AniUnlock_pressed():
+func _on_UnlockFeedAnimalsButton_pressed():
 	if Game.skill_points > 0:
 		Game.skill_points -= 1
 		Game.strat_hndlr.unlock_strategy("feed_animals")
 
 
-func _on_SheltUnlock_pressed():
+func _on_UnlockFoodShelterButton_pressed():
 	if Game.skill_points > 0:
 		Game.skill_points -= 1
-		Game.strat_hndlr.unlock_strategy("feed_humans")
+		Game.strat_hndlr.unlock_strategy("food_shelter")

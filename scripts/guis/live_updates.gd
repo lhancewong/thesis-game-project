@@ -22,7 +22,7 @@ func update_labels():
 	food_waste_label.text = "Food Waste: " + Game.get_str_waste()
 
 
-func _on_DayCycle_day_ended(money_left, ewaste_left, iwaste_left):
+func _on_DayCycle_day_ended():
 	var day = Game.day
 	var data = Game.stats_per_day[str(day)]
 	var label_text = """Day %s Performance:

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scripts/guis/on_daylight_main.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/pixelated.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://interfaces/custom_gui/in_game_console.tscn" type="PackedScene" id=3]
+[ext_resource path="res://interfaces/custom_gui/game_console.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/images/steve.png" type="Texture" id=4]
 [ext_resource path="res://assets/fonts/thin_pixelated.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/statistics.tscn" type="PackedScene" id=6]
@@ -101,14 +101,14 @@ margin_right = -20.0
 margin_bottom = -20.0
 custom_constants/separation = 20
 
-[node name="topbar" type="ColorRect" parent="VBoxContainer"]
+[node name="TopInfoBar" type="ColorRect" parent="VBoxContainer"]
 margin_right = 1326.0
-margin_bottom = 64.0
+margin_bottom = 55.0
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.1
+size_flags_stretch_ratio = 0.42
 color = Color( 0.980392, 0.929412, 0.803922, 1 )
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/topbar"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TopInfoBar"]
 pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -116,161 +116,172 @@ margin_left = 20.0
 margin_right = -20.0
 custom_constants/separation = 5
 
-[node name="DayIcon" type="TextureRect" parent="VBoxContainer/topbar/HBoxContainer"]
-margin_right = 52.0
-margin_bottom = 64.0
+[node name="DayIcon" type="TextureRect" parent="VBoxContainer/TopInfoBar/HBoxContainer"]
+margin_right = 46.0
+margin_bottom = 55.0
 rect_pivot_offset = Vector2( -477, -156 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.27
 texture = ExtResource( 44 )
 expand = true
+stretch_mode = 6
 
-[node name="Day" type="Label" parent="VBoxContainer/topbar/HBoxContainer"]
-margin_left = 57.0
-margin_top = 18.0
-margin_right = 253.0
-margin_bottom = 45.0
+[node name="DayLabel" type="Label" parent="VBoxContainer/TopInfoBar/HBoxContainer"]
+unique_name_in_owner = true
+margin_left = 51.0
+margin_top = 14.0
+margin_right = 201.0
+margin_bottom = 41.0
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.86
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 4 )
 text = "Day"
 valign = 1
 
-[node name="MoneyIcon" type="TextureRect" parent="VBoxContainer/topbar/HBoxContainer"]
-margin_left = 258.0
-margin_right = 310.0
-margin_bottom = 64.0
+[node name="MoneyIcon" type="TextureRect" parent="VBoxContainer/TopInfoBar/HBoxContainer"]
+margin_left = 206.0
+margin_right = 250.0
+margin_bottom = 55.0
 rect_pivot_offset = Vector2( -477, -156 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.27
+size_flags_stretch_ratio = 0.25
 texture = ExtResource( 42 )
 expand = true
+stretch_mode = 6
 
-[node name="Money" type="Label" parent="VBoxContainer/topbar/HBoxContainer"]
-margin_left = 315.0
-margin_top = 18.0
-margin_right = 511.0
-margin_bottom = 45.0
+[node name="MoneyLabel" type="Label" parent="VBoxContainer/TopInfoBar/HBoxContainer"]
+unique_name_in_owner = true
+margin_left = 255.0
+margin_top = 14.0
+margin_right = 504.0
+margin_bottom = 41.0
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.43
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 4 )
 text = "Money"
 valign = 1
 
-[node name="WasteIcon" type="TextureRect" parent="VBoxContainer/topbar/HBoxContainer"]
-margin_left = 516.0
-margin_right = 569.0
-margin_bottom = 64.0
+[node name="WasteIcon" type="TextureRect" parent="VBoxContainer/TopInfoBar/HBoxContainer"]
+margin_left = 509.0
+margin_right = 536.0
+margin_bottom = 55.0
 rect_pivot_offset = Vector2( -477, -156 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.27
+size_flags_stretch_ratio = 0.16
 texture = ExtResource( 43 )
 expand = true
+stretch_mode = 6
 
-[node name="Waste" type="Label" parent="VBoxContainer/topbar/HBoxContainer"]
-margin_left = 574.0
-margin_top = 18.0
-margin_right = 769.0
-margin_bottom = 45.0
+[node name="WasteLabel" type="Label" parent="VBoxContainer/TopInfoBar/HBoxContainer"]
+unique_name_in_owner = true
+margin_left = 541.0
+margin_top = 14.0
+margin_right = 771.0
+margin_bottom = 41.0
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.32
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 4 )
 text = "Waste"
 valign = 1
 
-[node name="LevelIcon" type="TextureRect" parent="VBoxContainer/topbar/HBoxContainer"]
-margin_left = 774.0
-margin_right = 827.0
-margin_bottom = 64.0
+[node name="LevelIcon" type="TextureRect" parent="VBoxContainer/TopInfoBar/HBoxContainer"]
+margin_left = 776.0
+margin_right = 823.0
+margin_bottom = 55.0
 rect_pivot_offset = Vector2( -477, -156 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.27
 texture = ExtResource( 20 )
 expand = true
+stretch_mode = 6
 
-[node name="Level" type="Label" parent="VBoxContainer/topbar/HBoxContainer"]
-margin_left = 832.0
-margin_top = 18.0
-margin_right = 1027.0
-margin_bottom = 45.0
+[node name="LevelLabel" type="Label" parent="VBoxContainer/TopInfoBar/HBoxContainer"]
+unique_name_in_owner = true
+margin_left = 828.0
+margin_top = 14.0
+margin_right = 967.0
+margin_bottom = 41.0
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.8
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 4 )
 text = "Level"
 valign = 1
 
-[node name="SatisfactionIcon" type="TextureRect" parent="VBoxContainer/topbar/HBoxContainer"]
-margin_left = 1032.0
-margin_right = 1085.0
-margin_bottom = 64.0
+[node name="SatisfactionIcon" type="TextureRect" parent="VBoxContainer/TopInfoBar/HBoxContainer"]
+margin_left = 972.0
+margin_right = 1019.0
+margin_bottom = 55.0
 rect_pivot_offset = Vector2( -477, -156 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.27
 texture = ExtResource( 45 )
 expand = true
+stretch_mode = 6
 
-[node name="Satisfaction" type="Label" parent="VBoxContainer/topbar/HBoxContainer"]
-margin_left = 1090.0
-margin_top = 18.0
+[node name="SatisfactionLabel" type="Label" parent="VBoxContainer/TopInfoBar/HBoxContainer"]
+unique_name_in_owner = true
+margin_left = 1024.0
+margin_top = 14.0
 margin_right = 1286.0
-margin_bottom = 45.0
+margin_bottom = 41.0
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 4 )
 text = "Satisfaction"
 valign = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 84.0
+[node name="ButtonsNIcons" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 75.0
 margin_right = 1326.0
-margin_bottom = 728.0
+margin_bottom = 193.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_constants/separation = 20
-alignment = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
-margin_right = 744.0
-margin_bottom = 644.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.57
+size_flags_stretch_ratio = 0.9
 custom_constants/separation = 20
 
-[node name="menu_icons" type="ColorRect" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_right = 744.0
-margin_bottom = 110.0
+[node name="MainPanelButtons" type="ColorRect" parent="VBoxContainer/ButtonsNIcons"]
+margin_right = 755.0
+margin_bottom = 118.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.25
+size_flags_stretch_ratio = 0.59
 color = Color( 0.980392, 0.929412, 0.803922, 1 )
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 10.0
-margin_top = 10.0
-margin_right = -10.0
-margin_bottom = -10.0
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ButtonsNIcons/MainPanelButtons"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -367.5
+margin_top = -54.5
+margin_right = 367.5
+margin_bottom = 54.5
 theme = ExtResource( 17 )
 custom_constants/separation = 5
+alignment = 1
 
-[node name="LiveUpdatingStats" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer"]
-margin_right = 100.0
-margin_bottom = 91.0
-rect_min_size = Vector2( 100, 91 )
+[node name="LiveUpdatingStats" type="Button" parent="VBoxContainer/ButtonsNIcons/MainPanelButtons/HBoxContainer"]
+margin_left = 2.0
+margin_right = 102.0
+margin_bottom = 109.0
+rect_min_size = Vector2( 100, 100 )
 size_flags_stretch_ratio = 0.15
 theme = SubResource( 1 )
 clip_text = true
 icon_align = 1
 expand_icon = true
 
-[node name="ButtonLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer/LiveUpdatingStats"]
+[node name="ButtonLabel" type="Label" parent="VBoxContainer/ButtonsNIcons/MainPanelButtons/HBoxContainer/LiveUpdatingStats"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -279,19 +290,22 @@ text = "Live Statistics"
 align = 1
 valign = 1
 autowrap = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
-[node name="OrderIngredients" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer"]
-margin_left = 105.0
-margin_right = 205.0
-margin_bottom = 91.0
-rect_min_size = Vector2( 100, 91 )
+[node name="OrderIngredients" type="Button" parent="VBoxContainer/ButtonsNIcons/MainPanelButtons/HBoxContainer"]
+margin_left = 107.0
+margin_right = 207.0
+margin_bottom = 109.0
+rect_min_size = Vector2( 100, 100 )
 size_flags_stretch_ratio = 0.15
 theme = SubResource( 1 )
 clip_text = true
 icon_align = 1
 expand_icon = true
 
-[node name="ButtonLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer/OrderIngredients"]
+[node name="ButtonLabel" type="Label" parent="VBoxContainer/ButtonsNIcons/MainPanelButtons/HBoxContainer/OrderIngredients"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -301,16 +315,16 @@ align = 1
 valign = 1
 autowrap = true
 
-[node name="OrderDrinks" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer"]
-margin_left = 210.0
-margin_right = 310.0
-margin_bottom = 91.0
-rect_min_size = Vector2( 100, 91 )
+[node name="OrderDrinks" type="Button" parent="VBoxContainer/ButtonsNIcons/MainPanelButtons/HBoxContainer"]
+margin_left = 212.0
+margin_right = 312.0
+margin_bottom = 109.0
+rect_min_size = Vector2( 100, 100 )
 size_flags_stretch_ratio = 0.15
 clip_text = true
 expand_icon = true
 
-[node name="ButtonLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer/OrderDrinks"]
+[node name="ButtonLabel" type="Label" parent="VBoxContainer/ButtonsNIcons/MainPanelButtons/HBoxContainer/OrderDrinks"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -321,16 +335,16 @@ align = 1
 valign = 1
 autowrap = true
 
-[node name="PriceManagement" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer"]
-margin_left = 315.0
-margin_right = 415.0
-margin_bottom = 91.0
-rect_min_size = Vector2( 100, 91 )
+[node name="PriceManagement" type="Button" parent="VBoxContainer/ButtonsNIcons/MainPanelButtons/HBoxContainer"]
+margin_left = 317.0
+margin_right = 417.0
+margin_bottom = 109.0
+rect_min_size = Vector2( 100, 100 )
 size_flags_stretch_ratio = 0.15
 clip_text = true
 expand_icon = true
 
-[node name="ButtonLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer/PriceManagement"]
+[node name="ButtonLabel" type="Label" parent="VBoxContainer/ButtonsNIcons/MainPanelButtons/HBoxContainer/PriceManagement"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -341,60 +355,18 @@ align = 1
 valign = 1
 autowrap = true
 
-[node name="Management" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer"]
-margin_left = 420.0
-margin_right = 520.0
-margin_bottom = 91.0
-rect_min_size = Vector2( 100, 91 )
+[node name="TechUpgrades" type="Button" parent="VBoxContainer/ButtonsNIcons/MainPanelButtons/HBoxContainer"]
+margin_left = 422.0
+margin_right = 522.0
+margin_bottom = 109.0
+rect_min_size = Vector2( 100, 100 )
 size_flags_stretch_ratio = 0.15
 theme = SubResource( 1 )
 clip_text = true
 icon_align = 1
 expand_icon = true
 
-[node name="ButtonLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer/Management"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 3 )
-text = "Waste Management"
-align = 1
-valign = 1
-autowrap = true
-
-[node name="Statistics" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer"]
-margin_left = 525.0
-margin_right = 625.0
-margin_bottom = 91.0
-rect_min_size = Vector2( 100, 91 )
-size_flags_stretch_ratio = 0.15
-theme = SubResource( 1 )
-clip_text = true
-icon_align = 1
-expand_icon = true
-
-[node name="ButtonLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer/Statistics"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 3 )
-text = "Statistics"
-align = 1
-valign = 1
-autowrap = true
-
-[node name="TechUpgrades" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer"]
-margin_left = 630.0
-margin_right = 730.0
-margin_bottom = 91.0
-rect_min_size = Vector2( 100, 91 )
-size_flags_stretch_ratio = 0.15
-theme = SubResource( 1 )
-clip_text = true
-icon_align = 1
-expand_icon = true
-
-[node name="ButtonLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer/TechUpgrades"]
+[node name="ButtonLabel" type="Label" parent="VBoxContainer/ButtonsNIcons/MainPanelButtons/HBoxContainer/TechUpgrades"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -404,14 +376,294 @@ align = 1
 valign = 1
 autowrap = true
 
-[node name="middle" type="ColorRect" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_top = 130.0
-margin_right = 744.0
-margin_bottom = 574.0
+[node name="Management" type="Button" parent="VBoxContainer/ButtonsNIcons/MainPanelButtons/HBoxContainer"]
+margin_left = 527.0
+margin_right = 627.0
+margin_bottom = 109.0
+rect_min_size = Vector2( 100, 100 )
+size_flags_stretch_ratio = 0.15
+theme = SubResource( 1 )
+clip_text = true
+icon_align = 1
+expand_icon = true
+
+[node name="ButtonLabel" type="Label" parent="VBoxContainer/ButtonsNIcons/MainPanelButtons/HBoxContainer/Management"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Waste Management"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Statistics" type="Button" parent="VBoxContainer/ButtonsNIcons/MainPanelButtons/HBoxContainer"]
+margin_left = 632.0
+margin_right = 732.0
+margin_bottom = 109.0
+rect_min_size = Vector2( 100, 100 )
+size_flags_stretch_ratio = 0.15
+theme = SubResource( 1 )
+clip_text = true
+icon_align = 1
+expand_icon = true
+
+[node name="ButtonLabel" type="Label" parent="VBoxContainer/ButtonsNIcons/MainPanelButtons/HBoxContainer/Statistics"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Statistics"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="FoodIcons" type="ColorRect" parent="VBoxContainer/ButtonsNIcons"]
+margin_left = 775.0
+margin_right = 1326.0
+margin_bottom = 118.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.43
+color = Color( 0.980392, 0.929412, 0.803922, 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ButtonsNIcons/FoodIcons"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -268.0
+margin_top = -64.0
+margin_right = 268.0
+margin_bottom = 64.0
+alignment = 1
+
+[node name="MealIcons" type="HBoxContainer" parent="VBoxContainer/ButtonsNIcons/FoodIcons/VBoxContainer"]
+margin_right = 536.0
+margin_bottom = 62.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 17 )
+custom_constants/separation = 5
+alignment = 1
+
+[node name="ChickenIcon" type="TextureRect" parent="VBoxContainer/ButtonsNIcons/FoodIcons/VBoxContainer/MealIcons"]
+margin_right = 57.0
+margin_bottom = 62.0
+rect_pivot_offset = Vector2( -477, -156 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 50 )
+expand = true
+stretch_mode = 6
+
+[node name="StockChicken" type="Label" parent="VBoxContainer/ButtonsNIcons/FoodIcons/VBoxContainer/MealIcons"]
+unique_name_in_owner = true
+margin_left = 62.0
+margin_top = 17.0
+margin_right = 149.0
+margin_bottom = 44.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Chicken"
+valign = 1
+
+[node name="BeefIcon" type="TextureRect" parent="VBoxContainer/ButtonsNIcons/FoodIcons/VBoxContainer/MealIcons"]
+margin_left = 154.0
+margin_right = 211.0
+margin_bottom = 62.0
+rect_pivot_offset = Vector2( -477, -156 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 47 )
+expand = true
+stretch_mode = 6
+
+[node name="StockBeef" type="Label" parent="VBoxContainer/ButtonsNIcons/FoodIcons/VBoxContainer/MealIcons"]
+unique_name_in_owner = true
+margin_left = 216.0
+margin_top = 17.0
+margin_right = 273.0
+margin_bottom = 44.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Beef"
+valign = 1
+
+[node name="PorkIcon" type="TextureRect" parent="VBoxContainer/ButtonsNIcons/FoodIcons/VBoxContainer/MealIcons"]
+margin_left = 278.0
+margin_right = 336.0
+margin_bottom = 62.0
+rect_pivot_offset = Vector2( -477, -156 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 48 )
+expand = true
+stretch_mode = 6
+
+[node name="StockPork" type="Label" parent="VBoxContainer/ButtonsNIcons/FoodIcons/VBoxContainer/MealIcons"]
+unique_name_in_owner = true
+margin_left = 341.0
+margin_top = 17.0
+margin_right = 398.0
+margin_bottom = 44.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Pork"
+valign = 1
+
+[node name="CurryIcon" type="TextureRect" parent="VBoxContainer/ButtonsNIcons/FoodIcons/VBoxContainer/MealIcons"]
+margin_left = 403.0
+margin_right = 460.0
+margin_bottom = 62.0
+rect_pivot_offset = Vector2( -477, -156 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 49 )
+expand = true
+stretch_mode = 6
+
+[node name="StockCurry" type="Label" parent="VBoxContainer/ButtonsNIcons/FoodIcons/VBoxContainer/MealIcons"]
+unique_name_in_owner = true
+margin_left = 465.0
+margin_top = 17.0
+margin_right = 535.0
+margin_bottom = 44.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Curry"
+valign = 1
+
+[node name="DrinkIcons" type="HBoxContainer" parent="VBoxContainer/ButtonsNIcons/FoodIcons/VBoxContainer"]
+margin_top = 66.0
+margin_right = 536.0
+margin_bottom = 128.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 17 )
+custom_constants/separation = 5
+alignment = 1
+
+[node name="LemonIcon" type="TextureRect" parent="VBoxContainer/ButtonsNIcons/FoodIcons/VBoxContainer/DrinkIcons"]
+margin_right = 47.0
+margin_bottom = 62.0
+rect_pivot_offset = Vector2( -477, -156 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 56 )
+expand = true
+stretch_mode = 6
+
+[node name="StockLemon" type="Label" parent="VBoxContainer/ButtonsNIcons/FoodIcons/VBoxContainer/DrinkIcons"]
+unique_name_in_owner = true
+margin_left = 52.0
+margin_top = 17.0
+margin_right = 122.0
+margin_bottom = 44.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Lemon"
+valign = 1
+
+[node name="CucumberIcon" type="TextureRect" parent="VBoxContainer/ButtonsNIcons/FoodIcons/VBoxContainer/DrinkIcons"]
+margin_left = 127.0
+margin_right = 175.0
+margin_bottom = 62.0
+rect_pivot_offset = Vector2( -477, -156 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 54 )
+expand = true
+stretch_mode = 6
+
+[node name="StockCucumber" type="Label" parent="VBoxContainer/ButtonsNIcons/FoodIcons/VBoxContainer/DrinkIcons"]
+unique_name_in_owner = true
+margin_left = 180.0
+margin_top = 17.0
+margin_right = 292.0
+margin_bottom = 44.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Cucumber"
+valign = 1
+
+[node name="CoffeeIcon" type="TextureRect" parent="VBoxContainer/ButtonsNIcons/FoodIcons/VBoxContainer/DrinkIcons"]
+margin_left = 297.0
+margin_right = 345.0
+margin_bottom = 62.0
+rect_pivot_offset = Vector2( -477, -156 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 55 )
+expand = true
+stretch_mode = 6
+
+[node name="StockCoffee" type="Label" parent="VBoxContainer/ButtonsNIcons/FoodIcons/VBoxContainer/DrinkIcons"]
+unique_name_in_owner = true
+margin_left = 350.0
+margin_top = 17.0
+margin_right = 430.0
+margin_bottom = 44.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Coffee"
+valign = 1
+
+[node name="MilkIcon" type="TextureRect" parent="VBoxContainer/ButtonsNIcons/FoodIcons/VBoxContainer/DrinkIcons"]
+margin_left = 435.0
+margin_right = 483.0
+margin_bottom = 62.0
+rect_pivot_offset = Vector2( -477, -156 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 53 )
+expand = true
+stretch_mode = 6
+
+[node name="StockMilk" type="Label" parent="VBoxContainer/ButtonsNIcons/FoodIcons/VBoxContainer/DrinkIcons"]
+unique_name_in_owner = true
+margin_left = 488.0
+margin_top = 17.0
+margin_right = 536.0
+margin_bottom = 44.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Milk"
+valign = 1
+
+[node name="MainPanelNResto" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 213.0
+margin_right = 1326.0
+margin_bottom = 728.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.9
+custom_constants/separation = 20
+alignment = 1
+
+[node name="MainPanel" type="VBoxContainer" parent="VBoxContainer/MainPanelNResto"]
+margin_right = 755.0
+margin_bottom = 515.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.59
+custom_constants/separation = 20
+
+[node name="MainPanel" type="ColorRect" parent="VBoxContainer/MainPanelNResto/MainPanel"]
+margin_right = 755.0
+margin_bottom = 445.0
 size_flags_vertical = 3
 color = Color( 0.980392, 0.929412, 0.803922, 1 )
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/middle"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MainPanelNResto/MainPanel/MainPanel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 10.0
@@ -419,56 +671,68 @@ margin_top = 10.0
 margin_right = -10.0
 margin_bottom = -10.0
 
-[node name="LiveUpdates" parent="VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer" instance=ExtResource( 7 )]
+[node name="LiveUpdates" parent="VBoxContainer/MainPanelNResto/MainPanel/MainPanel/MarginContainer" instance=ExtResource( 7 )]
+unique_name_in_owner = true
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 724.0
-margin_bottom = 424.0
+margin_right = 735.0
+margin_bottom = 425.0
 
-[node name="OrderIngredients" parent="VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer" instance=ExtResource( 8 )]
+[node name="OrderIngredients" parent="VBoxContainer/MainPanelNResto/MainPanel/MainPanel/MarginContainer" instance=ExtResource( 8 )]
+unique_name_in_owner = true
 visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 724.0
-margin_bottom = 424.0
+margin_right = 735.0
+margin_bottom = 425.0
 
-[node name="TechUpgrades" parent="VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer" instance=ExtResource( 10 )]
+[node name="OrderDrinks" parent="VBoxContainer/MainPanelNResto/MainPanel/MainPanel/MarginContainer" instance=ExtResource( 52 )]
+unique_name_in_owner = true
+visible = false
+margin_right = 735.0
+margin_bottom = 425.0
+
+[node name="PriceManagement" parent="VBoxContainer/MainPanelNResto/MainPanel/MainPanel/MarginContainer" instance=ExtResource( 51 )]
+unique_name_in_owner = true
+visible = false
+margin_right = 735.0
+margin_bottom = 425.0
+
+[node name="WasteManagement" parent="VBoxContainer/MainPanelNResto/MainPanel/MainPanel/MarginContainer" instance=ExtResource( 11 )]
+unique_name_in_owner = true
 visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 724.0
-margin_bottom = 424.0
+margin_right = 735.0
+margin_bottom = 425.0
 
-[node name="Statistics" parent="VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer" instance=ExtResource( 6 )]
+[node name="TechUpgrades" parent="VBoxContainer/MainPanelNResto/MainPanel/MainPanel/MarginContainer" instance=ExtResource( 10 )]
+unique_name_in_owner = true
 visible = false
-margin_bottom = 424.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 735.0
+margin_bottom = 425.0
+
+[node name="Statistics" parent="VBoxContainer/MainPanelNResto/MainPanel/MainPanel/MarginContainer" instance=ExtResource( 6 )]
+unique_name_in_owner = true
+visible = false
+margin_right = 735.0
+margin_bottom = 425.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="ManagementHander" parent="VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer" instance=ExtResource( 11 )]
-visible = false
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 724.0
-margin_bottom = 424.0
-
-[node name="PriceManagement" parent="VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer" instance=ExtResource( 51 )]
-visible = false
-
-[node name="OrderDrinks" parent="VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer" instance=ExtResource( 52 )]
-visible = false
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_top = 594.0
-margin_right = 744.0
-margin_bottom = 644.0
+[node name="Buttons" type="HBoxContainer" parent="VBoxContainer/MainPanelNResto/MainPanel"]
+margin_top = 465.0
+margin_right = 755.0
+margin_bottom = 515.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.1
 custom_constants/separation = 20
 alignment = 2
 
-[node name="Debug" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer" groups=["Debug"]]
-margin_right = 117.0
+[node name="Debug" type="Button" parent="VBoxContainer/MainPanelNResto/MainPanel/Buttons" groups=["Debug"]]
+margin_right = 119.0
 margin_bottom = 50.251
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -478,9 +742,9 @@ custom_fonts/font = SubResource( 2 )
 text = "Debug"
 expand_icon = true
 
-[node name="ToTitleScreen" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
-margin_left = 137.0
-margin_right = 430.0
+[node name="ToTitleScreen" type="Button" parent="VBoxContainer/MainPanelNResto/MainPanel/Buttons"]
+margin_left = 139.0
+margin_right = 437.0
 margin_bottom = 50.251
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -489,9 +753,9 @@ custom_fonts/font = SubResource( 2 )
 text = "To Title Screen"
 expand_icon = true
 
-[node name="StartDay" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
-margin_left = 450.0
-margin_right = 744.0
+[node name="StartDay" type="Button" parent="VBoxContainer/MainPanelNResto/MainPanel/Buttons"]
+margin_left = 457.0
+margin_right = 755.0
 margin_bottom = 50.251
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -500,237 +764,32 @@ custom_fonts/font = SubResource( 2 )
 text = "Start Day"
 expand_icon = true
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
-margin_left = 764.0
+[node name="Restaurant" type="VBoxContainer" parent="VBoxContainer/MainPanelNResto"]
+margin_left = 775.0
 margin_right = 1326.0
-margin_bottom = 644.0
+margin_bottom = 515.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.43
 custom_constants/separation = 20
 
-[node name="food_icons" type="ColorRect" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
-margin_right = 562.0
-margin_bottom = 111.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.5
-color = Color( 0.980392, 0.929412, 0.803922, 1 )
-
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2/food_icons"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 8.0
-margin_top = 1.0
-margin_right = -7.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer"]
-margin_right = 547.0
-margin_bottom = 53.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme = ExtResource( 17 )
-custom_constants/separation = 5
-
-[node name="ChickenIcon" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer/HBoxContainer"]
-margin_right = 59.0
-margin_bottom = 53.0
-rect_pivot_offset = Vector2( -477, -156 )
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource( 50 )
-expand = true
-stretch_mode = 6
-
-[node name="ChickenAmnt" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer/HBoxContainer"]
-margin_left = 64.0
-margin_top = 13.0
-margin_right = 151.0
-margin_bottom = 40.0
-size_flags_horizontal = 3
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 4 )
-text = "Chicken"
-valign = 1
-
-[node name="BeefIcon" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer/HBoxContainer"]
-margin_left = 156.0
-margin_right = 215.0
-margin_bottom = 53.0
-rect_pivot_offset = Vector2( -477, -156 )
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource( 47 )
-expand = true
-stretch_mode = 6
-
-[node name="BeefAmnt" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer/HBoxContainer"]
-margin_left = 220.0
-margin_top = 13.0
-margin_right = 279.0
-margin_bottom = 40.0
-size_flags_horizontal = 3
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 4 )
-text = "Beef"
-valign = 1
-
-[node name="PorkIcon" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer/HBoxContainer"]
-margin_left = 284.0
-margin_right = 343.0
-margin_bottom = 53.0
-rect_pivot_offset = Vector2( -477, -156 )
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource( 48 )
-expand = true
-stretch_mode = 6
-
-[node name="PorkAmnt" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer/HBoxContainer"]
-margin_left = 348.0
-margin_top = 13.0
-margin_right = 407.0
-margin_bottom = 40.0
-size_flags_horizontal = 3
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 4 )
-text = "Pork"
-valign = 1
-
-[node name="CurryIcon" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer/HBoxContainer"]
-margin_left = 412.0
-margin_right = 472.0
-margin_bottom = 53.0
-rect_pivot_offset = Vector2( -477, -156 )
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource( 49 )
-expand = true
-stretch_mode = 6
-
-[node name="CurryAmnt" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer/HBoxContainer"]
-margin_left = 477.0
-margin_top = 13.0
-margin_right = 547.0
-margin_bottom = 40.0
-size_flags_horizontal = 3
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 4 )
-text = "Curry"
-valign = 1
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer"]
-margin_top = 57.0
-margin_right = 547.0
-margin_bottom = 110.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme = ExtResource( 17 )
-custom_constants/separation = 5
-
-[node name="LemonIcon" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer/HBoxContainer2"]
-margin_right = 50.0
-margin_bottom = 53.0
-rect_pivot_offset = Vector2( -477, -156 )
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource( 56 )
-expand = true
-stretch_mode = 6
-
-[node name="LemonAmnt" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer/HBoxContainer2"]
-margin_left = 55.0
-margin_top = 13.0
-margin_right = 125.0
-margin_bottom = 40.0
-size_flags_horizontal = 3
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 4 )
-text = "Lemon"
-valign = 1
-
-[node name="CucumberIcon" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer/HBoxContainer2"]
-margin_left = 130.0
-margin_right = 180.0
-margin_bottom = 53.0
-rect_pivot_offset = Vector2( -477, -156 )
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource( 54 )
-expand = true
-stretch_mode = 6
-
-[node name="CucumberAmnt" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer/HBoxContainer2"]
-margin_left = 185.0
-margin_top = 13.0
-margin_right = 297.0
-margin_bottom = 40.0
-size_flags_horizontal = 3
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 4 )
-text = "Cucumber"
-valign = 1
-
-[node name="CoffeeIcon" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer/HBoxContainer2"]
-margin_left = 302.0
-margin_right = 352.0
-margin_bottom = 53.0
-rect_pivot_offset = Vector2( -477, -156 )
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource( 55 )
-expand = true
-stretch_mode = 6
-
-[node name="CoffeeAmnt" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer/HBoxContainer2"]
-margin_left = 357.0
-margin_top = 13.0
-margin_right = 437.0
-margin_bottom = 40.0
-size_flags_horizontal = 3
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 4 )
-text = "Coffee"
-valign = 1
-
-[node name="MilkIcon" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer/HBoxContainer2"]
-margin_left = 442.0
-margin_right = 492.0
-margin_bottom = 53.0
-rect_pivot_offset = Vector2( -477, -156 )
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource( 53 )
-expand = true
-stretch_mode = 6
-
-[node name="MilkAmnt" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/VBoxContainer/HBoxContainer2"]
-margin_left = 497.0
-margin_top = 13.0
-margin_right = 547.0
-margin_bottom = 40.0
-size_flags_horizontal = 3
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 4 )
-text = "Milk"
-valign = 1
-
-[node name="GameConsole" parent="VBoxContainer/HBoxContainer/VBoxContainer2" groups=["Debug"] instance=ExtResource( 3 )]
+[node name="GameConsole" parent="VBoxContainer/MainPanelNResto/Restaurant" groups=["Debug"] instance=ExtResource( 3 )]
+unique_name_in_owner = true
+visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 0.0
-margin_top = 131.0
-margin_right = 562.0
-margin_bottom = 644.0
+margin_top = 0.0
+margin_right = 551.0
+margin_bottom = 408.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-size_flags_stretch_ratio = 2.3
+size_flags_stretch_ratio = 2.31
 
-[node name="RestaurantView" type="TextureRect" parent="."]
-margin_left = 784.0
-margin_top = 234.0
-margin_right = 1346.0
-margin_bottom = 749.0
+[node name="RestaurantView" type="TextureRect" parent="VBoxContainer/MainPanelNResto/Restaurant"]
+unique_name_in_owner = true
+margin_right = 551.0
+margin_bottom = 515.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.43
@@ -904,13 +963,13 @@ text = "Serving Customers..."
 align = 1
 valign = 1
 
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer/LiveUpdatingStats" to="." method="_on_LiveUpdatingStats_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer/OrderIngredients" to="." method="_on_OrderIngredients_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer/OrderDrinks" to="." method="_on_OrderDrinks_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer/PriceManagement" to="." method="_on_PriceManagement_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer/Management" to="." method="_on_Management_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer/Statistics" to="." method="_on_Statistics_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/menu_icons/HBoxContainer/TechUpgrades" to="." method="_on_TechUpgrades_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/Debug" to="." method="_on_Debug_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/ToTitleScreen" to="." method="_on_ToTitleScreen_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/StartDay" to="." method="_on_StartDay_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonsNIcons/MainPanelButtons/HBoxContainer/LiveUpdatingStats" to="." method="_on_LiveUpdatingStats_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonsNIcons/MainPanelButtons/HBoxContainer/OrderIngredients" to="." method="_on_OrderIngredients_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonsNIcons/MainPanelButtons/HBoxContainer/OrderDrinks" to="." method="_on_OrderDrinks_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonsNIcons/MainPanelButtons/HBoxContainer/PriceManagement" to="." method="_on_PriceManagement_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonsNIcons/MainPanelButtons/HBoxContainer/TechUpgrades" to="." method="_on_TechUpgrades_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonsNIcons/MainPanelButtons/HBoxContainer/Management" to="." method="_on_Management_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonsNIcons/MainPanelButtons/HBoxContainer/Statistics" to="." method="_on_Statistics_pressed"]
+[connection signal="pressed" from="VBoxContainer/MainPanelNResto/MainPanel/Buttons/Debug" to="." method="_on_Debug_pressed"]
+[connection signal="pressed" from="VBoxContainer/MainPanelNResto/MainPanel/Buttons/ToTitleScreen" to="." method="_on_ToTitleScreen_pressed"]
+[connection signal="pressed" from="VBoxContainer/MainPanelNResto/MainPanel/Buttons/StartDay" to="." method="_on_StartDay_pressed"]

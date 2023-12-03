@@ -15,16 +15,11 @@ onready var skill_points = 0
 onready var compost_stack = []
 onready var last_compost_day = 0
 
-onready var unlocked_ingredients = {
-	chicken = true,
-	beef = false,
-	pork = false,
-}
 onready var unlocked_tech = {
 	composting = false,
 	industrial = false,
 	feed_animals = false,
-	feed_humans = false,
+	food_shelter = false,
 }
 
 # Stores ingredients currently in stock
@@ -43,6 +38,11 @@ onready var i_stockpile = {
 	"milk": 0,
 }
 
+onready var unlocked_ingredients = {
+	chicken = true,
+	beef = false,
+	pork = false,
+}
 onready var meal_prices = {
 	chicken_curry = MEAL.menu.chicken_curry.base_price,
 	beef_curry = MEAL.menu.beef_curry.base_price,
@@ -105,7 +105,7 @@ func init_var():
 		composting = true,
 		industrial = true,
 		feed_animals = true,
-		feed_humans = true,
+		food_shelter = true,
 	}
 	meal_prices = {
 		chicken_curry = MEAL.menu.chicken_curry.base_price,
@@ -139,6 +139,8 @@ func init_var():
 	sold_food = []
 	waste_managed = []
 	stats_per_day = {}
+
+	save_file_num = -1
 
 
 # Turns numbers into a Tycoon compatible format

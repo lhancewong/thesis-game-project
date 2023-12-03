@@ -88,7 +88,7 @@ func _plot():
 	chart.plot([f3], cp)
 
 
-func _on_DayCycle_day_ended(money_left, ewaste_left, iwaste_left):
+func _on_DayCycle_day_ended():
 	var day = Game.day
 	var day_stats = Game.stats_per_day[str(day)]
 

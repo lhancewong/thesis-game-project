@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scripts/game.gd" type="Script" id=1]
-[ext_resource path="res://scripts/handlers/waste_manager.gd" type="Script" id=2]
+[ext_resource path="res://scripts/handlers/waste_handler.gd" type="Script" id=2]
 [ext_resource path="res://entities/meal.tres" type="Resource" id=3]
 [ext_resource path="res://scripts/handlers/customer_handler.gd" type="Script" id=4]
 [ext_resource path="res://scripts/handlers/ingredient_handler.gd" type="Script" id=5]
@@ -66,3 +66,4 @@ script = ExtResource( 14 )
 [connection signal="satsifation_gained" from="Purchase" to="Database" method="_on_Purchase_satsifation_gained"]
 [connection signal="transaction_failed" from="Purchase" to="Database" method="_on_Purchase_transaction_failed"]
 [connection signal="day_ended" from="DayCycle" to="Database" method="_on_DayCycle_day_ended"]
+[connection signal="stats_leftover" from="DayCycle" to="Database" method="_on_DayCycle_stats_leftover"]

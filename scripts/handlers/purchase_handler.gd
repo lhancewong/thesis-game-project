@@ -96,9 +96,9 @@ func _log_transaction_entry(food: Dictionary, customer: Dictionary) -> Dictionar
 
 func calculate_buy_chance(base_price: float, current_price: float, customer_modifer: float):
 	# max price for customers, any higher and they aint buying
-	var max_tolerance: int = ceil(base_price * 1.6)
+	var max_tolerance = ceil(base_price * 1.6)
 	# min price for customers, any lower and they always buying
-	var min_tolerance: int = floor(base_price * 0.6)
+	var min_tolerance = floor(base_price * 0.6)
 
 	var upper = Vector2(max_tolerance, 0)
 	var origin = Vector2(base_price, 85)

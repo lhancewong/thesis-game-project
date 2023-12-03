@@ -172,6 +172,8 @@ _global_script_class_icons={
 
 config/name="Thesis Game"
 run/main_scene="res://interfaces/title_screen_menus/title_screen_main.tscn"
+config/icon="res://assets/images/icons/waste_not_icon.png"
+config/windows_native_icon="res://waste_not_icon.ico"
 
 [autoload]
 

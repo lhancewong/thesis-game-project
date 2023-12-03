@@ -28,8 +28,6 @@ func add_waste(waste_type: String, waste_amount: float):
 
 
 func manage_waste(management_strategy: String, waste_type: String, waste_amount: float, date: int):
-	var type
-
 	if waste_type == "inedible_waste" && Game.inedible_waste != 0:
 		Game.inedible_waste -= waste_amount
 		emit_signal("iwaste_managed", waste_amount)

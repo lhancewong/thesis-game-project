@@ -4,45 +4,24 @@ extends Node
 # Handles unlocking management strategies
 func unlock_strategy(type):
 	if get_tree().current_scene.name == "OnDaylight":
-		var compost_block_node = get_node(
-			"/root/OnDaylight/VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/ManagementHander/MainScreen/VBoxContainer/ContentFrame/Inedible Waste/CompostBlock"
-		)
-		var compost_node = get_node(
-			"/root/OnDaylight/VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/ManagementHander/MainScreen/VBoxContainer/ContentFrame/Inedible Waste/Compost"
-		)
-		var compost_unlock_button = get_node(
-			"/root/OnDaylight/VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/TechUpgrades/VBoxContainer/HBoxContainer/FeedCompost/ComUnlock"
-		)
+		var waste_management_node = get_node("/root/OnDaylight/%WasteManagement")
+		var tech_upgrade_node = get_node("/root/OnDaylight/%TechUpgrades")
 
-		var indus_block_node = get_node(
-			"/root/OnDaylight/VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/ManagementHander/MainScreen/VBoxContainer/ContentFrame/Inedible Waste/IndusBlock"
-		)
-		var indus_node = get_node(
-			"/root/OnDaylight/VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/ManagementHander/MainScreen/VBoxContainer/ContentFrame/Inedible Waste/Industrial"
-		)
-		var indus_unlock_button = get_node(
-			"//root/OnDaylight/VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/TechUpgrades/VBoxContainer/HBoxContainer/FeedCompost/IndusUnlock"
-		)
+		var compost_block_node = waste_management_node.get_node("%CompostBlock")
+		var compost_node = waste_management_node.get_node("%CompostButton")
+		var compost_unlock_button = tech_upgrade_node.get_node("%UnlockCompostButton")
 
-		var ani_block_node = get_node(
-			"/root/OnDaylight/VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/ManagementHander/MainScreen/VBoxContainer/ContentFrame/Edible Waste/AniBlock"
-		)
-		var ani_node = get_node(
-			"/root/OnDaylight/VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/ManagementHander/MainScreen/VBoxContainer/ContentFrame/Edible Waste/FeedAnimals"
-		)
-		var ani_unlock_button = get_node(
-			"/root/OnDaylight/VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/TechUpgrades/VBoxContainer/HBoxContainer/ShelterIndus/AniUnlock"
-		)
+		var indus_block_node = waste_management_node.get_node("%IndustrialBlock")
+		var indus_node = waste_management_node.get_node("%IndustrialButton")
+		var indus_unlock_button = tech_upgrade_node.get_node("%UnlockIndustrialButton")
 
-		var shelter_block_node = get_node(
-			"/root/OnDaylight/VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/ManagementHander/MainScreen/VBoxContainer/ContentFrame/Edible Waste/SheltBlock"
-		)
-		var shelter_node = get_node(
-			"/root/OnDaylight/VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/ManagementHander/MainScreen/VBoxContainer/ContentFrame/Edible Waste/FoodShelter"
-		)
-		var shelter_unlock_button = get_node(
-			"/root/OnDaylight/VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/TechUpgrades/VBoxContainer/HBoxContainer/ShelterIndus/SheltUnlock"
-		)
+		var ani_block_node = waste_management_node.get_node("%FeedAnimalsBlock")
+		var ani_node = waste_management_node.get_node("%FeedAnimalsButton")
+		var ani_unlock_button = tech_upgrade_node.get_node("%UnlockFeedAnimalsButton")
+
+		var shelter_block_node = waste_management_node.get_node("%FoodShelterBlock")
+		var shelter_node = waste_management_node.get_node("%FoodShelterButton")
+		var shelter_unlock_button = tech_upgrade_node.get_node("%UnlockFoodShelterButton")
 
 		match type:
 			"composting":
@@ -63,8 +42,8 @@ func unlock_strategy(type):
 				ani_node.visible = true
 				ani_unlock_button.disabled = true
 				ani_unlock_button.text = str("unlocked")
-			"feed_humans":
-				Game.unlocked_tech["feed_humans"] = true
+			"food_shelter":
+				Game.unlocked_tech["food_shelter"] = true
 				shelter_block_node.visible = false
 				shelter_node.visible = true
 				shelter_unlock_button.disabled = true
