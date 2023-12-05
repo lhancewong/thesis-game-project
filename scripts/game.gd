@@ -2,75 +2,35 @@ extends Node
 
 export(Resource) var MEAL
 
-# Game variables
-onready var money = 1000.0
-onready var edible_waste = 0.0
-onready var inedible_waste = 0.0
-onready var satisfaction = 0.0
-onready var day = 0
+var money: float
+var edible_waste: float
+var inedible_waste: float
+var satisfaction: float
+var day: int
 
-onready var store_level = 0
-onready var skill_points = 0
+var min_day_len: int
+var max_day_len: int
+var min_custo: int
+var max_custo: int
 
-onready var compost_stack = []
-onready var last_compost_day = 0
+var store_level: int
+var skill_points: int
 
-onready var unlocked_tech = {
-	composting = false,
-	industrial = false,
-	feed_animals = false,
-	food_shelter = false,
-}
+var compost_stack: Array
+var last_compost_day: int
 
-# Stores ingredients currently in stock
-onready var i_stockpile = {
-	"chicken": 0,
-	"beef": 0,
-	"pork": 0,
-	"curry_powder": 0,
-	"potato": 0,
-	"spinach": 0,
-	"eggplant": 0,
-	"cheese": 0,
-	"lemon": 0,
-	"cucumber": 0,
-	"coffee_mix": 0,
-	"milk": 0,
-}
+var unlocked_tech: Dictionary
+var unlocked_ingredients: Dictionary
+var meal_prices: Dictionary
+var i_stockpile: Dictionary
+var cookable_food: Dictionary
 
-onready var unlocked_ingredients = {
-	chicken = true,
-	beef = false,
-	pork = false,
-}
-onready var meal_prices = {
-	chicken_curry = MEAL.menu.chicken_curry.base_price,
-	beef_curry = MEAL.menu.beef_curry.base_price,
-	pork_curry = MEAL.menu.pork_curry.base_price,
-	lemonade = MEAL.menu.lemonade.base_price,
-	coffee = MEAL.menu.coffee.base_price,
-}
-
-# Game behavior
-onready var min_day_len = 6
-onready var max_day_len = 10
-onready var min_custo = 5
-onready var max_custo = 10
-
-# Stores a temporary list of currently cookable food (aka what can be sold)
-onready var cookable_food = {}
-
-# Entries
 var sold_food: Array
 var waste_managed: Array
-
-# Day end
 var stats_per_day: Dictionary
 
-# Menu
-onready var save_file_num = -1
+var save_file_num: int
 
-# Handlers
 onready var waste_hndlr = $Waste
 onready var ingred_hndlr = $Ingredient
 onready var purchase_hndlr = $Purchase
@@ -83,12 +43,21 @@ onready var database_hndlr = $Database
 onready var buffs_hndlr = $Buffs
 
 
-func init_var():
+func _ready():
+	init_game()
+
+
+func init_game():
 	money = 1000.0
 	edible_waste = 0.0
 	inedible_waste = 0.0
 	satisfaction = 0.0
 	day = 0
+
+	min_day_len = 6
+	max_day_len = 10
+	min_custo = 5
+	max_custo = 10
 
 	store_level = 0
 	skill_points = 0
@@ -129,13 +98,7 @@ func init_var():
 		"milk": 0,
 	}
 
-	min_day_len = 6
-	max_day_len = 10
-	min_custo = 5
-	max_custo = 10
-
 	cookable_food = {}
-
 	sold_food = []
 	waste_managed = []
 	stats_per_day = {}
