@@ -87,7 +87,7 @@ length = 0.466667
 loop = true
 step = 0.0666667
 tracks/0/type = "value"
-tracks/0/path = NodePath("King_Laugh_Sprite:frame")
+tracks/0/path = NodePath("KingLaughSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -956,6 +956,7 @@ anchor_bottom = 1.0
 color = Color( 0.25098, 0.25098, 0.25098, 0.411765 )
 
 [node name="SteveHarvey" type="Panel" parent="PauseFrame"]
+visible = false
 margin_top = 776.0
 margin_right = 1366.0
 margin_bottom = 776.0
@@ -975,16 +976,22 @@ texture = ExtResource( 12 )
 stretch_mode = 6
 
 [node name="Title" type="Label" parent="PauseFrame"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -683.0
+margin_top = -22.0
+margin_right = 683.0
+margin_bottom = 22.0
 custom_fonts/font = SubResource( 5 )
 text = "Serving Customers..."
 align = 1
 valign = 1
 
-[node name="KingReactions" type="Node2D" parent="."]
+[node name="KingReactions" type="KinematicBody2D" parent="."]
 
-[node name="King_Laugh_Sprite" type="Sprite" parent="KingReactions"]
+[node name="KingLaughSprite" type="Sprite" parent="KingReactions"]
 visible = false
 position = Vector2( 675, 253 )
 scale = Vector2( 0.469953, 0.44581 )
