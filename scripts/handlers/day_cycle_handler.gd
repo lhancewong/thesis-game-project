@@ -1,6 +1,7 @@
 extends Node
 
 var steve_harvey
+var king_laugh_sprite
 var terminal
 var npc_spawner
 
@@ -58,7 +59,8 @@ func _on_day_start():
 		Game.max_custo = 10 + Game.day
 	# Initializes key nodes from the daylight scene
 	if get_tree().current_scene.name == "OnDaylight":
-		steve_harvey = get_node("/root/OnDaylight/PauseFrame/SteveHarvey")
+		king_laugh_sprite = get_node("/root/OnDaylight/KingReactions/King_Laugh_Sprite")
+		#steve_harvey = get_node("/root/OnDaylight/PauseFrame/SteveHarvey")
 		terminal = get_node(
 			"/root/OnDaylight/VBoxContainer/HBoxContainer/VBoxContainer2/GameConsole"
 		)
@@ -74,9 +76,9 @@ func _day_start():
 	# Amount of customers per day
 	var customer_amount = rand_range(Game.min_custo, Game.max_custo)
 
+	king_laugh_sprite.visible = !king_laugh_sprite.visible
 	for i in customer_amount:
 		var entry = $"../Purchase".create_transaction()
-
 		if entry.size() == 1:
 			terminal.add_text("Failed Transaction: " + str(entry))
 			SoundHandler.king_cry.play()
@@ -84,11 +86,11 @@ func _day_start():
 			terminal.add_entry(entry)
 			SoundHandler.king_laugh.play()
 			npc_spawner.spawnNPC()
-			steve_harvey.visible = !steve_harvey.visible
-
+			#steve_harvey.visible = !steve_harvey.visible
+	
 		var wait = rand_range(0.7, 1.3) * (day_length / customer_amount)
 		yield(get_tree().create_timer(wait), "timeout")
-
+	king_laugh_sprite.visible = !king_laugh_sprite.visible
 
 func _on_day_end():
 	# Handles leftover money, ewaste, and iwaste per day

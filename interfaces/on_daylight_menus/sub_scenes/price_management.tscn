@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://assets/fonts/pixelated.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/fonts/thin_pixelated.ttf" type="DynamicFontData" id=2]
@@ -16,6 +16,10 @@
 [ext_resource path="res://assets/images/icons/cucumber.png" type="Texture" id=14]
 [ext_resource path="res://assets/images/icons/coffee.png" type="Texture" id=15]
 [ext_resource path="res://assets/images/icons/beef_curry.png" type="Texture" id=16]
+[ext_resource path="res://assets/images/icons/chicken_curry.png" type="Texture" id=17]
+[ext_resource path="res://assets/images/icons/pork_curry.png" type="Texture" id=18]
+[ext_resource path="res://assets/images/icons/lemonade.png" type="Texture" id=19]
+[ext_resource path="res://assets/images/icons/coffee_mix.png" type="Texture" id=20]
 
 [sub_resource type="DynamicFont" id=1]
 size = 51
@@ -513,7 +517,7 @@ margin_right = 53.0
 margin_bottom = 72.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource( 15 )
+texture = ExtResource( 20 )
 expand = true
 
 [node name="Plus" type="TextureRect" parent="VBoxContainer/Recipe/Coffee/Meal/HBoxContainer"]
@@ -608,6 +612,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+texture = ExtResource( 17 )
 expand = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Meal/Chicken"]
@@ -845,6 +850,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+texture = ExtResource( 18 )
 expand = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Meal/Pork"]
@@ -941,6 +947,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+texture = ExtResource( 19 )
 expand = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Meal/Lemonade"]
@@ -1037,6 +1044,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+texture = ExtResource( 15 )
 expand = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Meal/Coffee"]

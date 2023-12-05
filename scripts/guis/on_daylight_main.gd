@@ -2,6 +2,7 @@ extends Control
 
 # Node
 onready var terminal = $VBoxContainer/HBoxContainer/VBoxContainer2/GameConsole
+onready var _animated_sprite = $KingReactions/AnimationPlayer
 
 # Sub Scenes
 onready var live_updates = $VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/LiveUpdates
@@ -42,14 +43,15 @@ onready var stock_milk = $VBoxContainer/HBoxContainer/VBoxContainer2/food_icons/
 func _ready():
 	_toggle_show_sub_scene(live_updates)
 	$PauseFrame.hide()
+	$KingReactions/King_Laugh_Sprite.hide()
 	$PauseFrame/SteveHarvey.hide()
 	set_physics_process(true)
 	Game.day_hndlr.init_daylight_main()
 
-
 func _process(delta):
 	_update_labels()
-
+	_animated_sprite.play("king_laugh")
+	
 
 func _update_labels():
 	day_lbl.text = "Day " + str(Game.day)
