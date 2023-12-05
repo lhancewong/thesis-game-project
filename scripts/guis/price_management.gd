@@ -44,7 +44,6 @@ func _ready():
 	beef_line_edit.text = str(beef_amount)
 	lemonade_line_edit.text = str(lemonade_amount)
 	coffee_line_edit.text = str(coffee_amount)
-	Game.food_hndlr.unlock_meals()
 
 
 func _physics_process(delta):  # change to signals

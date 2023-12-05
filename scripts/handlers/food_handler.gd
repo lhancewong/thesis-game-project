@@ -53,27 +53,3 @@ func get_food(name: String) -> Dictionary:
 
 func set_meal_price(meal: String, price: float):
 	Game.meal_prices[meal] = price
-
-
-func unlock_meals():
-	if get_tree().current_scene.name == "OnDaylight":
-		var beef_block_node = get_node(
-			"/root/OnDaylight/VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/PriceManagement/VBoxContainer/Meal/BeefBlock"
-		)
-		var beef_node = get_node(
-			"/root/OnDaylight/VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/PriceManagement/VBoxContainer/Meal/Beef"
-		)
-		var pork_block_node = get_node(
-			"/root/OnDaylight/VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/PriceManagement/VBoxContainer/Meal/PorkBlock"
-		)
-		var pork_node = get_node(
-			"/root/OnDaylight/VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/PriceManagement/VBoxContainer/Meal/Pork"
-		)
-		if Game.day >= 4:
-			beef_block_node.visible = false
-			beef_node.visible = true
-			Game.unlocked_ingredients.beef = true
-		if Game.day >= 10:
-			pork_block_node.visible = false
-			pork_node.visible = true
-			Game.unlocked_ingredients.pork = true

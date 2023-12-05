@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=2]
+[gd_scene load_steps=66 format=2]
 
 [ext_resource path="res://scripts/guis/on_daylight_main.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/pixelated.ttf" type="DynamicFontData" id=2]
@@ -57,6 +57,7 @@
 [ext_resource path="res://assets/images/icons/coffee_mix.png" type="Texture" id=55]
 [ext_resource path="res://assets/images/icons/lemon.png" type="Texture" id=56]
 [ext_resource path="res://assets/sprites/king_laugh_sprite.png" type="Texture" id=57]
+[ext_resource path="res://assets/sprites/king_cry_sprite.png" type="Texture" id=58]
 
 [sub_resource type="DynamicFont" id=4]
 size = 19
@@ -74,7 +75,7 @@ font_data = ExtResource( 2 )
 
 [sub_resource type="Curve2D" id=6]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 825.229, 535.56, 0, 0, 0, 0, 1075.92, 474.442, 0, 0, 0, 0, 1325.63, 535.56 )
+"points": PoolVector2Array( 0, 0, 0, 0, 838.989, 522.486, 0, 0, 0, 0, 1080.29, 466.119, 0, 0, 0, 0, 1321.6, 520.79 )
 }
 
 [sub_resource type="DynamicFont" id=5]
@@ -97,6 +98,18 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ 0, 1, 2, 3, 4, 5, 6, 6, 5, 4, 3, 2, 1, 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("KingCrySprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667, 0.3, 0.333333, 0.366667, 0.4, 0.433333 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 ]
 }
 
 [node name="OnDaylight" type="Control"]
@@ -348,8 +361,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
-text = "Order 
-Drinks"
+text = "Dead
+Button"
 align = 1
 valign = 1
 autowrap = true
@@ -447,19 +460,16 @@ size_flags_stretch_ratio = 0.43
 color = Color( 0.980392, 0.929412, 0.803922, 1 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ButtonsNIcons/FoodIcons"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -268.0
-margin_top = -64.0
-margin_right = 268.0
-margin_bottom = 64.0
+anchor_left = 0.011
+anchor_right = 0.993
+anchor_bottom = 1.0
+margin_left = -0.0610003
+margin_right = -0.143005
 alignment = 1
 
 [node name="MealIcons" type="HBoxContainer" parent="VBoxContainer/ButtonsNIcons/FoodIcons/VBoxContainer"]
-margin_right = 536.0
-margin_bottom = 62.0
+margin_right = 541.0
+margin_bottom = 57.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 17 )
@@ -467,8 +477,8 @@ custom_constants/separation = 5
 alignment = 1
 
 [node name="ChickenIcon" type="TextureRect" parent="VBoxContainer/ButtonsNIcons/FoodIcons/VBoxContainer/MealIcons"]
-margin_right = 57.0
-margin_bottom = 62.0
+margin_right = 58.0
+margin_bottom = 57.0
 rect_pivot_offset = Vector2( -477, -156 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -478,10 +488,10 @@ stretch_mode = 6
 
 [node name="StockChicken" type="Label" parent="VBoxContainer/ButtonsNIcons/FoodIcons/VBoxContainer/MealIcons"]
 unique_name_in_owner = true
-margin_left = 62.0
-margin_top = 17.0
-margin_right = 149.0
-margin_bottom = 44.0
+margin_left = 63.0
+margin_top = 15.0
+margin_right = 150.0
+margin_bottom = 42.0
 size_flags_horizontal = 3
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 4 )
@@ -489,9 +499,9 @@ text = "Chicken"
 valign = 1
 
 [node name="BeefIcon" type="TextureRect" parent="VBoxContainer/ButtonsNIcons/FoodIcons/VBoxContainer/MealIcons"]
-margin_left = 154.0
-margin_right = 211.0
-margin_bottom = 62.0
+margin_left = 155.0
+margin_right = 213.0
+margin_bottom = 57.0
 rect_pivot_offset = Vector2( -477, -156 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -501,10 +511,10 @@ stretch_mode = 6
 
 [node name="StockBeef" type="Label" parent="VBoxContainer/ButtonsNIcons/FoodIcons/VBoxContainer/MealIcons"]
 unique_name_in_owner = true
-margin_left = 216.0
-margin_top = 17.0
-margin_right = 273.0
-margin_bottom = 44.0
+margin_left = 218.0
+margin_top = 15.0
+margin_right = 276.0
+margin_bottom = 42.0
 size_flags_horizontal = 3
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 4 )
@@ -512,9 +522,9 @@ text = "Beef"
 valign = 1
 
 [node name="PorkIcon" type="TextureRect" parent="VBoxContainer/ButtonsNIcons/FoodIcons/VBoxContainer/MealIcons"]
-margin_left = 278.0
-margin_right = 336.0
-margin_bottom = 62.0
+margin_left = 281.0
+margin_right = 339.0
+margin_bottom = 57.0
 rect_pivot_offset = Vector2( -477, -156 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -524,10 +534,10 @@ stretch_mode = 6
 
 [node name="StockPork" type="Label" parent="VBoxContainer/ButtonsNIcons/FoodIcons/VBoxContainer/MealIcons"]
 unique_name_in_owner = true
-margin_left = 341.0
-margin_top = 17.0
-margin_right = 398.0
-margin_bottom = 44.0
+margin_left = 344.0
+margin_top = 15.0
+margin_right = 402.0
+margin_bottom = 42.0
 size_flags_horizontal = 3
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 4 )
@@ -535,9 +545,9 @@ text = "Pork"
 valign = 1
 
 [node name="CurryIcon" type="TextureRect" parent="VBoxContainer/ButtonsNIcons/FoodIcons/VBoxContainer/MealIcons"]
-margin_left = 403.0
-margin_right = 460.0
-margin_bottom = 62.0
+margin_left = 407.0
+margin_right = 466.0
+margin_bottom = 57.0
 rect_pivot_offset = Vector2( -477, -156 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -547,10 +557,10 @@ stretch_mode = 6
 
 [node name="StockCurry" type="Label" parent="VBoxContainer/ButtonsNIcons/FoodIcons/VBoxContainer/MealIcons"]
 unique_name_in_owner = true
-margin_left = 465.0
-margin_top = 17.0
-margin_right = 535.0
-margin_bottom = 44.0
+margin_left = 471.0
+margin_top = 15.0
+margin_right = 541.0
+margin_bottom = 42.0
 size_flags_horizontal = 3
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 4 )
@@ -558,9 +568,9 @@ text = "Curry"
 valign = 1
 
 [node name="DrinkIcons" type="HBoxContainer" parent="VBoxContainer/ButtonsNIcons/FoodIcons/VBoxContainer"]
-margin_top = 66.0
-margin_right = 536.0
-margin_bottom = 128.0
+margin_top = 61.0
+margin_right = 541.0
+margin_bottom = 118.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 17 )
@@ -568,8 +578,8 @@ custom_constants/separation = 5
 alignment = 1
 
 [node name="LemonIcon" type="TextureRect" parent="VBoxContainer/ButtonsNIcons/FoodIcons/VBoxContainer/DrinkIcons"]
-margin_right = 47.0
-margin_bottom = 62.0
+margin_right = 48.0
+margin_bottom = 57.0
 rect_pivot_offset = Vector2( -477, -156 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -579,10 +589,10 @@ stretch_mode = 6
 
 [node name="StockLemon" type="Label" parent="VBoxContainer/ButtonsNIcons/FoodIcons/VBoxContainer/DrinkIcons"]
 unique_name_in_owner = true
-margin_left = 52.0
-margin_top = 17.0
-margin_right = 122.0
-margin_bottom = 44.0
+margin_left = 53.0
+margin_top = 15.0
+margin_right = 123.0
+margin_bottom = 42.0
 size_flags_horizontal = 3
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 4 )
@@ -590,9 +600,9 @@ text = "Lemon"
 valign = 1
 
 [node name="CucumberIcon" type="TextureRect" parent="VBoxContainer/ButtonsNIcons/FoodIcons/VBoxContainer/DrinkIcons"]
-margin_left = 127.0
-margin_right = 175.0
-margin_bottom = 62.0
+margin_left = 128.0
+margin_right = 177.0
+margin_bottom = 57.0
 rect_pivot_offset = Vector2( -477, -156 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -602,10 +612,10 @@ stretch_mode = 6
 
 [node name="StockCucumber" type="Label" parent="VBoxContainer/ButtonsNIcons/FoodIcons/VBoxContainer/DrinkIcons"]
 unique_name_in_owner = true
-margin_left = 180.0
-margin_top = 17.0
-margin_right = 292.0
-margin_bottom = 44.0
+margin_left = 182.0
+margin_top = 15.0
+margin_right = 294.0
+margin_bottom = 42.0
 size_flags_horizontal = 3
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 4 )
@@ -613,9 +623,9 @@ text = "Cucumber"
 valign = 1
 
 [node name="CoffeeIcon" type="TextureRect" parent="VBoxContainer/ButtonsNIcons/FoodIcons/VBoxContainer/DrinkIcons"]
-margin_left = 297.0
-margin_right = 345.0
-margin_bottom = 62.0
+margin_left = 299.0
+margin_right = 348.0
+margin_bottom = 57.0
 rect_pivot_offset = Vector2( -477, -156 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -625,10 +635,10 @@ stretch_mode = 6
 
 [node name="StockCoffee" type="Label" parent="VBoxContainer/ButtonsNIcons/FoodIcons/VBoxContainer/DrinkIcons"]
 unique_name_in_owner = true
-margin_left = 350.0
-margin_top = 17.0
-margin_right = 430.0
-margin_bottom = 44.0
+margin_left = 353.0
+margin_top = 15.0
+margin_right = 433.0
+margin_bottom = 42.0
 size_flags_horizontal = 3
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 4 )
@@ -636,9 +646,9 @@ text = "Coffee"
 valign = 1
 
 [node name="MilkIcon" type="TextureRect" parent="VBoxContainer/ButtonsNIcons/FoodIcons/VBoxContainer/DrinkIcons"]
-margin_left = 435.0
-margin_right = 483.0
-margin_bottom = 62.0
+margin_left = 438.0
+margin_right = 487.0
+margin_bottom = 57.0
 rect_pivot_offset = Vector2( -477, -156 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -648,10 +658,10 @@ stretch_mode = 6
 
 [node name="StockMilk" type="Label" parent="VBoxContainer/ButtonsNIcons/FoodIcons/VBoxContainer/DrinkIcons"]
 unique_name_in_owner = true
-margin_left = 488.0
-margin_top = 17.0
-margin_right = 536.0
-margin_bottom = 44.0
+margin_left = 492.0
+margin_top = 15.0
+margin_right = 541.0
+margin_bottom = 42.0
 size_flags_horizontal = 3
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 4 )
@@ -800,154 +810,265 @@ anchor_bottom = 0.0
 margin_left = 0.0
 margin_top = 0.0
 margin_right = 551.0
-margin_bottom = 408.0
+margin_bottom = 445.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-size_flags_stretch_ratio = 2.31
 
 [node name="RestaurantView" type="TextureRect" parent="VBoxContainer/MainPanelNResto/Restaurant"]
 unique_name_in_owner = true
 margin_right = 551.0
+margin_bottom = 445.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 46 )
+expand = true
+
+[node name="FoodIcons" type="ColorRect" parent="VBoxContainer/MainPanelNResto/Restaurant"]
+margin_top = 465.0
+margin_right = 551.0
 margin_bottom = 515.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.43
-texture = ExtResource( 46 )
+size_flags_stretch_ratio = 0.11
+color = Color( 0.980392, 0.929412, 0.803922, 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MainPanelNResto/Restaurant/FoodIcons"]
+anchor_left = 0.011
+anchor_right = 0.993
+anchor_bottom = 1.0
+margin_left = -0.0610003
+margin_right = -0.143005
+alignment = 1
+
+[node name="DrinkIcons" type="HBoxContainer" parent="VBoxContainer/MainPanelNResto/Restaurant/FoodIcons/VBoxContainer"]
+margin_right = 541.0
+margin_bottom = 50.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 17 )
+custom_constants/separation = 5
+alignment = 1
+
+[node name="LemonIcon" type="TextureRect" parent="VBoxContainer/MainPanelNResto/Restaurant/FoodIcons/VBoxContainer/DrinkIcons"]
+margin_right = 48.0
+margin_bottom = 50.0
+rect_pivot_offset = Vector2( -477, -156 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 56 )
 expand = true
+stretch_mode = 6
+
+[node name="StockLemon" type="Label" parent="VBoxContainer/MainPanelNResto/Restaurant/FoodIcons/VBoxContainer/DrinkIcons"]
+margin_left = 53.0
+margin_top = 11.0
+margin_right = 123.0
+margin_bottom = 38.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Lemon"
+valign = 1
+
+[node name="CucumberIcon" type="TextureRect" parent="VBoxContainer/MainPanelNResto/Restaurant/FoodIcons/VBoxContainer/DrinkIcons"]
+margin_left = 128.0
+margin_right = 177.0
+margin_bottom = 50.0
+rect_pivot_offset = Vector2( -477, -156 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 54 )
+expand = true
+stretch_mode = 6
+
+[node name="StockCucumber" type="Label" parent="VBoxContainer/MainPanelNResto/Restaurant/FoodIcons/VBoxContainer/DrinkIcons"]
+margin_left = 182.0
+margin_top = 11.0
+margin_right = 294.0
+margin_bottom = 38.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Cucumber"
+valign = 1
+
+[node name="CoffeeIcon" type="TextureRect" parent="VBoxContainer/MainPanelNResto/Restaurant/FoodIcons/VBoxContainer/DrinkIcons"]
+margin_left = 299.0
+margin_right = 348.0
+margin_bottom = 50.0
+rect_pivot_offset = Vector2( -477, -156 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 55 )
+expand = true
+stretch_mode = 6
+
+[node name="StockCoffee" type="Label" parent="VBoxContainer/MainPanelNResto/Restaurant/FoodIcons/VBoxContainer/DrinkIcons"]
+margin_left = 353.0
+margin_top = 11.0
+margin_right = 433.0
+margin_bottom = 38.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Coffee"
+valign = 1
+
+[node name="MilkIcon" type="TextureRect" parent="VBoxContainer/MainPanelNResto/Restaurant/FoodIcons/VBoxContainer/DrinkIcons"]
+margin_left = 438.0
+margin_right = 487.0
+margin_bottom = 50.0
+rect_pivot_offset = Vector2( -477, -156 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 53 )
+expand = true
+stretch_mode = 6
+
+[node name="StockMilk" type="Label" parent="VBoxContainer/MainPanelNResto/Restaurant/FoodIcons/VBoxContainer/DrinkIcons"]
+margin_left = 492.0
+margin_top = 11.0
+margin_right = 541.0
+margin_bottom = 38.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Milk"
+valign = 1
 
 [node name="NPCs" type="Node2D" parent="."]
 pause_mode = 2
 
 [node name="Spawner" type="Path2D" parent="NPCs"]
-position = Vector2( -40, -828 )
-scale = Vector2( 1.02517, 2.55247 )
+position = Vector2( -26.8365, -737.831 )
+scale = Vector2( 1.01531, 2.35955 )
 curve = SubResource( 6 )
 script = ExtResource( 21 )
 
 [node name="Tyrone" parent="NPCs/Spawner" instance=ExtResource( 22 )]
 visible = false
-position = Vector2( 825.229, 535.56 )
-rotation = -0.239149
+position = Vector2( 838.989, 522.486 )
+rotation = -0.229502
 
 [node name="Jerome" parent="NPCs/Spawner" instance=ExtResource( 23 )]
 visible = false
-position = Vector2( 825.229, 535.56 )
-rotation = -0.239149
+position = Vector2( 838.989, 522.486 )
+rotation = -0.229502
 
 [node name="Matt" parent="NPCs/Spawner" instance=ExtResource( 24 )]
 visible = false
-position = Vector2( 825.229, 535.56 )
-rotation = -0.239149
+position = Vector2( 838.989, 522.486 )
+rotation = -0.229502
 
 [node name="Layla" parent="NPCs/Spawner" instance=ExtResource( 28 )]
 visible = false
-position = Vector2( 825.229, 535.56 )
-rotation = -0.239149
+position = Vector2( 838.989, 522.486 )
+rotation = -0.229502
 
 [node name="Harry" parent="NPCs/Spawner" instance=ExtResource( 27 )]
 visible = false
-position = Vector2( 825.229, 535.56 )
-rotation = -0.239149
+position = Vector2( 838.989, 522.486 )
+rotation = -0.229502
 
 [node name="Tessa" parent="NPCs/Spawner" instance=ExtResource( 26 )]
 visible = false
-position = Vector2( 825.229, 535.56 )
-rotation = -0.239149
+position = Vector2( 838.989, 522.486 )
+rotation = -0.229502
 
 [node name="Hugh" parent="NPCs/Spawner" instance=ExtResource( 25 )]
 visible = false
-position = Vector2( 825.229, 535.56 )
-rotation = -0.239149
+position = Vector2( 838.989, 522.486 )
+rotation = -0.229502
 
 [node name="John" parent="NPCs/Spawner" instance=ExtResource( 31 )]
 visible = false
-position = Vector2( 825.229, 535.56 )
-rotation = -0.239149
+position = Vector2( 838.989, 522.486 )
+rotation = -0.229502
 
 [node name="Chris" parent="NPCs/Spawner" instance=ExtResource( 34 )]
 visible = false
-position = Vector2( 825.229, 535.56 )
-rotation = -0.239149
+position = Vector2( 838.989, 522.486 )
+rotation = -0.229502
 
 [node name="James" parent="NPCs/Spawner" instance=ExtResource( 30 )]
 visible = false
-position = Vector2( 825.229, 535.56 )
-rotation = -0.239149
+position = Vector2( 838.989, 522.486 )
+rotation = -0.229502
 
 [node name="Jared" parent="NPCs/Spawner" instance=ExtResource( 35 )]
 visible = false
-position = Vector2( 825.229, 535.56 )
-rotation = -0.239149
+position = Vector2( 838.989, 522.486 )
+rotation = -0.229502
 
 [node name="Ted" parent="NPCs/Spawner" instance=ExtResource( 29 )]
 visible = false
-position = Vector2( 825.229, 535.56 )
-rotation = -0.239149
+position = Vector2( 838.989, 522.486 )
+rotation = -0.229502
 
 [node name="Steve" parent="NPCs/Spawner" instance=ExtResource( 36 )]
 visible = false
-position = Vector2( 825.229, 535.56 )
-rotation = -0.239149
+position = Vector2( 838.989, 522.486 )
+rotation = -0.229502
 
 [node name="Mona" parent="NPCs/Spawner" instance=ExtResource( 32 )]
 visible = false
-position = Vector2( 825.229, 535.56 )
-rotation = -0.239149
+position = Vector2( 838.989, 522.486 )
+rotation = -0.229502
 
 [node name="Lisa" parent="NPCs/Spawner" instance=ExtResource( 33 )]
 visible = false
-position = Vector2( 825.229, 535.56 )
-rotation = -0.239149
+position = Vector2( 838.989, 522.486 )
+rotation = -0.229502
 
 [node name="Rob" parent="NPCs/Spawner" instance=ExtResource( 9 )]
 visible = false
-position = Vector2( 825.229, 535.56 )
-rotation = -0.239149
+position = Vector2( 838.989, 522.486 )
+rotation = -0.229502
 
 [node name="Mary" parent="NPCs/Spawner" instance=ExtResource( 14 )]
 visible = false
-position = Vector2( 825.229, 535.56 )
-rotation = -0.239149
+position = Vector2( 838.989, 522.486 )
+rotation = -0.229502
 
 [node name="Ken" parent="NPCs/Spawner" instance=ExtResource( 15 )]
 visible = false
-position = Vector2( 825.229, 535.56 )
-rotation = -0.239149
+position = Vector2( 838.989, 522.486 )
+rotation = -0.229502
 
 [node name="Alan" parent="NPCs/Spawner" instance=ExtResource( 39 )]
 visible = false
-position = Vector2( 825.229, 535.56 )
-rotation = -0.239149
+position = Vector2( 838.989, 522.486 )
+rotation = -0.229502
 
 [node name="Justine" parent="NPCs/Spawner" instance=ExtResource( 37 )]
 visible = false
-position = Vector2( 825.229, 535.56 )
-rotation = -0.239149
+position = Vector2( 838.989, 522.486 )
+rotation = -0.229502
 
 [node name="Dorothea" parent="NPCs/Spawner" instance=ExtResource( 38 )]
 visible = false
-position = Vector2( 825.229, 535.56 )
-rotation = -0.239149
+position = Vector2( 838.989, 522.486 )
+rotation = -0.229502
 
 [node name="Carmella" parent="NPCs/Spawner" instance=ExtResource( 40 )]
 visible = false
-position = Vector2( 825.229, 535.56 )
-rotation = -0.239149
+position = Vector2( 838.989, 522.486 )
+rotation = -0.229502
 
 [node name="Sam" parent="NPCs/Spawner" instance=ExtResource( 13 )]
 visible = false
-position = Vector2( 825.229, 535.56 )
-rotation = -0.239149
+position = Vector2( 838.989, 522.486 )
+rotation = -0.229502
 
 [node name="Amy" parent="NPCs/Spawner" instance=ExtResource( 16 )]
 visible = false
-position = Vector2( 825.229, 535.56 )
-rotation = -0.239149
+position = Vector2( 838.989, 522.486 )
+rotation = -0.229502
 
 [node name="Serena" parent="NPCs/Spawner" instance=ExtResource( 41 )]
 visible = false
-position = Vector2( 825.229, 535.56 )
-rotation = -0.239149
+position = Vector2( 838.989, 522.486 )
+rotation = -0.229502
 
 [node name="PauseFrame" type="ColorRect" parent="."]
 visible = false
@@ -993,11 +1114,21 @@ valign = 1
 
 [node name="KingLaughSprite" type="Sprite" parent="KingReactions"]
 visible = false
-position = Vector2( 675, 253 )
-scale = Vector2( 0.469953, 0.44581 )
+position = Vector2( 668.38, 300.252 )
+scale = Vector2( 0.279164, 0.254023 )
 texture = ExtResource( 57 )
 hframes = 5
 vframes = 3
+frame = 1
+
+[node name="KingCrySprite" type="Sprite" parent="KingReactions"]
+visible = false
+position = Vector2( 668, 307.396 )
+scale = Vector2( 1.08225, 1.01615 )
+texture = ExtResource( 58 )
+hframes = 5
+vframes = 4
+frame = 11
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="KingReactions"]
 pause_mode = 2

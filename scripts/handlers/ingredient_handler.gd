@@ -87,16 +87,16 @@ func spend_ingredients(food: Dictionary) -> void:
 func check_unlocked_ingredients():
 	if get_tree().current_scene.name == "OnDaylight":
 		var beef_block_node = get_node(
-			"/root/OnDaylight/VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/OrderIngredients/VBoxContainer/Order/BeefBlock"
+			"/root/OnDaylight/VBoxContainer/MainPanelNResto/MainPanel/MainPanel/MarginContainer/OrderIngredients/VBoxContainer/MealIngredients/BeefBlock"
 		)
 		var beef_node = get_node(
-			"/root/OnDaylight/VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/OrderIngredients/VBoxContainer/Order/Beef"
+			"/root/OnDaylight/VBoxContainer/MainPanelNResto/MainPanel/MainPanel/MarginContainer/OrderIngredients/VBoxContainer/MealIngredients/Beef"
 		)
 		var pork_block_node = get_node(
-			"/root/OnDaylight/VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/OrderIngredients/VBoxContainer/Order/PorkBlock"
+			"/root/OnDaylight/VBoxContainer/MainPanelNResto/MainPanel/MainPanel/MarginContainer/OrderIngredients/VBoxContainer/MealIngredients/PorkBlock"
 		)
 		var pork_node = get_node(
-			"/root/OnDaylight/VBoxContainer/HBoxContainer/VBoxContainer/middle/MarginContainer/OrderIngredients/VBoxContainer/Order/Pork"
+			"/root/OnDaylight/VBoxContainer/MainPanelNResto/MainPanel/MainPanel/MarginContainer/OrderIngredients/VBoxContainer/MealIngredients/Pork"
 		)
 		if Game.day >= 4:
 			beef_block_node.visible = false

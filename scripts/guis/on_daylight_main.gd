@@ -45,7 +45,8 @@ onready var stock_milk = $"%StockMilk"
 func _ready():
 	_toggle_show_sub_scene(live_updates)
 	$PauseFrame.hide()
-	_animated_sprite.hide()
+	$KingReactions/KingLaughSprite.hide()
+	$KingReactions/KingCrySprite.hide()
 	$PauseFrame/SteveHarvey.hide()
 	set_physics_process(true)
 	Game.day_hndlr.init_daylight_main()
@@ -54,6 +55,7 @@ func _ready():
 func _process(delta):
 	_update_labels()
 	_animated_sprite.play("king_laugh")
+	_animated_sprite.play("king_cry")
 
 
 func _update_labels():

@@ -54,7 +54,7 @@ func check_store_level():
 	if Game.satisfaction >= 50:
 		Game.store_level += 1
 		Game.satisfaction = 0
-		Game.skill_point += 1
+		Game.skill_points += 1
 
 
 func landfill_cost(amount):

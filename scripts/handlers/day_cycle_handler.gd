@@ -2,6 +2,7 @@ extends Node
 
 var game_console
 var king_laugh_sprite
+var king_cry_sprite
 var npc_spawner
 
 signal day_ended
@@ -95,7 +96,8 @@ func _on_day_start():
 		Game.max_custo = 10 + Game.day
 	# Initializes key nodes from the daylight scene
 	if get_tree().current_scene.name == "OnDaylight":
-		king_laugh_sprite = get_node("/root/OnDaylight/KingReactions/King_Laugh_Sprite")
+		king_laugh_sprite = get_node("/root/OnDaylight/KingReactions/KingLaughSprite")
+		king_cry_sprite = get_node("/root/OnDaylight/KingReactions/KingCrySprite")
 		game_console = get_node("/root/OnDaylight/%GameConsole")
 		npc_spawner = get_node("/root/OnDaylight/NPCs/Spawner")
 
@@ -109,21 +111,24 @@ func _day_start():
 	# Amount of customers per day
 	var customer_amount = rand_range(Game.min_custo, Game.max_custo)
 
-	king_laugh_sprite.visible = !king_laugh_sprite.visible
 	for i in customer_amount:
 		var entry = $"../Purchase".create_transaction()
 		if entry.size() == 1:
 			game_console.add_text("Failed Transaction: " + str(entry))
+			king_laugh_sprite.visible = false
+			king_cry_sprite.visible = true
 			SoundHandler.king_cry.play()
 		else:
 			game_console.add_entry(entry)
+			king_cry_sprite.visible = false
+			king_laugh_sprite.visible = true  
 			SoundHandler.king_laugh.play()
 			npc_spawner.spawnNPC()
 
 		var wait = rand_range(0.7, 1.3) * (day_length / customer_amount)
 		yield(get_tree().create_timer(wait), "timeout")
-	king_laugh_sprite.visible = !king_laugh_sprite.visible
-
+		king_cry_sprite.visible = false
+		king_laugh_sprite.visible = false
 
 func _on_day_end():
 	# Handles leftover money, ewaste, and iwaste per day
