@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/king_cry.ogg-0bd561279dd0bffdf02c95342750c468.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/sfx/king_cry.ogg"
+dest_files=[ "res://.import/king_cry.ogg-0bd561279dd0bffdf02c95342750c468.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

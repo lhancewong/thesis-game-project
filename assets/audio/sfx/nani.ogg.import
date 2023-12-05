@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/nani.ogg-3325e1b880d728ed2454049765c3412d.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/sfx/nani.ogg"
+dest_files=[ "res://.import/nani.ogg-3325e1b880d728ed2454049765c3412d.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

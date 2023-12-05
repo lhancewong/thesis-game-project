@@ -22,6 +22,7 @@ func save():
 		"store_level": Game.store_level,
 		"skill_points": Game.skill_points,
 		"meal_prices": Game.meal_prices,
+		"total_animals_fed": Game.total_animals_fed,
 	}
 	return save_dict
 
@@ -84,11 +85,18 @@ func load_game():
 					Game.unlocked_tech = data
 				"meal_prices":
 					Game.meal_prices = data
+				"total_animals_fed":
+					Game.total_animals_fed = data
+				"store_level":
+					Game.store_level = data
+				"skill_points":
+					Game.skill_points = data
 
 	save_game.close()
 
 
 func delete_save(num):
+	SoundHandler.scream.play()
 	var dir = Directory.new()
 	var save_path = "user://savegame%s.save" % num
 	dir.remove(save_path)

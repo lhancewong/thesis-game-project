@@ -44,20 +44,25 @@ func _toggle_show_sub_scene(sub_scene_name):
 
 
 func _on_Compost_pressed():
+	SoundHandler.button_click.play()
 	_toggle_show_sub_scene(compost)
 
 
 func _on_Industrial_pressed():
+	SoundHandler.button_click.play()
 	_toggle_show_sub_scene(industrial)
 
 
 func _on_FeedAnimals_pressed():
+	SoundHandler.button_click.play()
 	_toggle_show_sub_scene(feed_animals)
 
 
 func _on_FoodShelter_pressed():
+	SoundHandler.button_click.play()
 	_toggle_show_sub_scene(food_shelter)
 
 
 func _on_Landfill_pressed():
+	SoundHandler.button_click.play()
 	_toggle_show_sub_scene(landfill)

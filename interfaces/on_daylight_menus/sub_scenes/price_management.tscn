@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://assets/fonts/pixelated.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/fonts/thin_pixelated.ttf" type="DynamicFontData" id=2]
@@ -15,6 +15,11 @@
 [ext_resource path="res://assets/images/icons/milk.png" type="Texture" id=13]
 [ext_resource path="res://assets/images/icons/cucumber.png" type="Texture" id=14]
 [ext_resource path="res://assets/images/icons/coffee.png" type="Texture" id=15]
+[ext_resource path="res://assets/images/icons/beef_curry.png" type="Texture" id=16]
+[ext_resource path="res://assets/images/icons/chicken_curry.png" type="Texture" id=17]
+[ext_resource path="res://assets/images/icons/pork_curry.png" type="Texture" id=18]
+[ext_resource path="res://assets/images/icons/lemonade.png" type="Texture" id=19]
+[ext_resource path="res://assets/images/icons/coffee_mix.png" type="Texture" id=20]
 
 [sub_resource type="DynamicFont" id=1]
 size = 51
@@ -27,6 +32,10 @@ font_data = ExtResource( 1 )
 [sub_resource type="DynamicFont" id=3]
 size = 15
 font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 30
+font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=5]
 size = 20
@@ -73,7 +82,7 @@ autowrap = true
 [node name="Stock" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 55.0
 margin_right = 724.0
-margin_bottom = 134.0
+margin_bottom = 126.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.7
@@ -81,14 +90,14 @@ custom_constants/separation = 6
 
 [node name="Chicken" type="VBoxContainer" parent="VBoxContainer/Stock"]
 margin_right = 140.0
-margin_bottom = 79.0
+margin_bottom = 71.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 10
 
 [node name="Meal" type="ColorRect" parent="VBoxContainer/Stock/Chicken"]
 margin_right = 140.0
-margin_bottom = 38.0
+margin_bottom = 33.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.25
 color = Color( 0.917647, 0.717647, 0.25098, 1 )
@@ -106,9 +115,9 @@ valign = 1
 autowrap = true
 
 [node name="Price" type="ColorRect" parent="VBoxContainer/Stock/Chicken"]
-margin_top = 48.0
+margin_top = 43.0
 margin_right = 140.0
-margin_bottom = 79.0
+margin_bottom = 71.0
 size_flags_vertical = 3
 
 [node name="Amount" type="Label" parent="VBoxContainer/Stock/Chicken/Price"]
@@ -123,14 +132,14 @@ valign = 1
 [node name="Beef" type="VBoxContainer" parent="VBoxContainer/Stock"]
 margin_left = 146.0
 margin_right = 286.0
-margin_bottom = 79.0
+margin_bottom = 71.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 10
 
 [node name="Meal" type="ColorRect" parent="VBoxContainer/Stock/Beef"]
 margin_right = 140.0
-margin_bottom = 38.0
+margin_bottom = 33.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.25
 color = Color( 0.917647, 0.717647, 0.25098, 1 )
@@ -148,9 +157,9 @@ valign = 1
 autowrap = true
 
 [node name="Price" type="ColorRect" parent="VBoxContainer/Stock/Beef"]
-margin_top = 48.0
+margin_top = 43.0
 margin_right = 140.0
-margin_bottom = 79.0
+margin_bottom = 71.0
 size_flags_vertical = 3
 
 [node name="Amount" type="Label" parent="VBoxContainer/Stock/Beef/Price"]
@@ -165,14 +174,14 @@ valign = 1
 [node name="Pork" type="VBoxContainer" parent="VBoxContainer/Stock"]
 margin_left = 292.0
 margin_right = 432.0
-margin_bottom = 79.0
+margin_bottom = 71.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 10
 
 [node name="Meal" type="ColorRect" parent="VBoxContainer/Stock/Pork"]
 margin_right = 140.0
-margin_bottom = 38.0
+margin_bottom = 33.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.25
 color = Color( 0.917647, 0.717647, 0.25098, 1 )
@@ -190,9 +199,9 @@ valign = 1
 autowrap = true
 
 [node name="Price" type="ColorRect" parent="VBoxContainer/Stock/Pork"]
-margin_top = 48.0
+margin_top = 43.0
 margin_right = 140.0
-margin_bottom = 79.0
+margin_bottom = 71.0
 size_flags_vertical = 3
 
 [node name="Amount" type="Label" parent="VBoxContainer/Stock/Pork/Price"]
@@ -204,22 +213,22 @@ text = "Current Price"
 align = 1
 valign = 1
 
-[node name="Lemon" type="VBoxContainer" parent="VBoxContainer/Stock"]
+[node name="Lemonade" type="VBoxContainer" parent="VBoxContainer/Stock"]
 margin_left = 438.0
 margin_right = 578.0
-margin_bottom = 79.0
+margin_bottom = 71.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 10
 
-[node name="Meal" type="ColorRect" parent="VBoxContainer/Stock/Lemon"]
+[node name="Meal" type="ColorRect" parent="VBoxContainer/Stock/Lemonade"]
 margin_right = 140.0
-margin_bottom = 38.0
+margin_bottom = 33.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.25
 color = Color( 0.917647, 0.717647, 0.25098, 1 )
 
-[node name="MealLabel" type="Label" parent="VBoxContainer/Stock/Lemon/Meal"]
+[node name="MealLabel" type="Label" parent="VBoxContainer/Stock/Lemonade/Meal"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
@@ -231,13 +240,13 @@ align = 1
 valign = 1
 autowrap = true
 
-[node name="Price" type="ColorRect" parent="VBoxContainer/Stock/Lemon"]
-margin_top = 48.0
+[node name="Price" type="ColorRect" parent="VBoxContainer/Stock/Lemonade"]
+margin_top = 43.0
 margin_right = 140.0
-margin_bottom = 79.0
+margin_bottom = 71.0
 size_flags_vertical = 3
 
-[node name="Amount" type="Label" parent="VBoxContainer/Stock/Lemon/Price"]
+[node name="Amount" type="Label" parent="VBoxContainer/Stock/Lemonade/Price"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -249,14 +258,14 @@ valign = 1
 [node name="Coffee" type="VBoxContainer" parent="VBoxContainer/Stock"]
 margin_left = 584.0
 margin_right = 724.0
-margin_bottom = 79.0
+margin_bottom = 71.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 10
 
 [node name="Meal" type="ColorRect" parent="VBoxContainer/Stock/Coffee"]
 margin_right = 140.0
-margin_bottom = 38.0
+margin_bottom = 33.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.25
 color = Color( 0.917647, 0.717647, 0.25098, 1 )
@@ -274,9 +283,9 @@ valign = 1
 autowrap = true
 
 [node name="Price" type="ColorRect" parent="VBoxContainer/Stock/Coffee"]
-margin_top = 48.0
+margin_top = 43.0
 margin_right = 140.0
-margin_bottom = 79.0
+margin_bottom = 71.0
 size_flags_vertical = 3
 
 [node name="Amount" type="Label" parent="VBoxContainer/Stock/Coffee/Price"]
@@ -289,9 +298,9 @@ align = 1
 valign = 1
 
 [node name="Recipe" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 142.0
+margin_top = 134.0
 margin_right = 724.0
-margin_bottom = 222.0
+margin_bottom = 206.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.7
@@ -299,14 +308,14 @@ custom_constants/separation = 6
 
 [node name="Chicken" type="VBoxContainer" parent="VBoxContainer/Recipe"]
 margin_right = 140.0
-margin_bottom = 80.0
+margin_bottom = 72.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 10
 
 [node name="Meal" type="ColorRect" parent="VBoxContainer/Recipe/Chicken"]
 margin_right = 140.0
-margin_bottom = 80.0
+margin_bottom = 72.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.25
 color = Color( 0.917647, 0.717647, 0.25098, 1 )
@@ -317,7 +326,7 @@ anchor_bottom = 1.0
 
 [node name="Ingredient" type="TextureRect" parent="VBoxContainer/Recipe/Chicken/Meal/HBoxContainer"]
 margin_right = 53.0
-margin_bottom = 80.0
+margin_bottom = 72.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 5 )
@@ -326,7 +335,7 @@ expand = true
 [node name="Plus" type="TextureRect" parent="VBoxContainer/Recipe/Chicken/Meal/HBoxContainer"]
 margin_left = 57.0
 margin_right = 82.0
-margin_bottom = 80.0
+margin_bottom = 72.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.45
@@ -337,7 +346,7 @@ stretch_mode = 6
 [node name="Ingredient2" type="TextureRect" parent="VBoxContainer/Recipe/Chicken/Meal/HBoxContainer"]
 margin_left = 86.0
 margin_right = 140.0
-margin_bottom = 80.0
+margin_bottom = 72.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 11 )
@@ -346,14 +355,14 @@ expand = true
 [node name="Beef" type="VBoxContainer" parent="VBoxContainer/Recipe"]
 margin_left = 146.0
 margin_right = 286.0
-margin_bottom = 80.0
+margin_bottom = 72.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 10
 
 [node name="Meal" type="ColorRect" parent="VBoxContainer/Recipe/Beef"]
 margin_right = 140.0
-margin_bottom = 80.0
+margin_bottom = 72.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.25
 color = Color( 0.917647, 0.717647, 0.25098, 1 )
@@ -364,7 +373,7 @@ anchor_bottom = 1.0
 
 [node name="Ingredient" type="TextureRect" parent="VBoxContainer/Recipe/Beef/Meal/HBoxContainer"]
 margin_right = 53.0
-margin_bottom = 80.0
+margin_bottom = 72.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 4 )
@@ -373,7 +382,7 @@ expand = true
 [node name="Plus" type="TextureRect" parent="VBoxContainer/Recipe/Beef/Meal/HBoxContainer"]
 margin_left = 57.0
 margin_right = 82.0
-margin_bottom = 80.0
+margin_bottom = 72.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.45
@@ -384,7 +393,7 @@ stretch_mode = 6
 [node name="Ingredient2" type="TextureRect" parent="VBoxContainer/Recipe/Beef/Meal/HBoxContainer"]
 margin_left = 86.0
 margin_right = 140.0
-margin_bottom = 80.0
+margin_bottom = 72.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 11 )
@@ -393,14 +402,14 @@ expand = true
 [node name="Pork" type="VBoxContainer" parent="VBoxContainer/Recipe"]
 margin_left = 292.0
 margin_right = 432.0
-margin_bottom = 80.0
+margin_bottom = 72.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 10
 
 [node name="Meal" type="ColorRect" parent="VBoxContainer/Recipe/Pork"]
 margin_right = 140.0
-margin_bottom = 80.0
+margin_bottom = 72.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.25
 color = Color( 0.917647, 0.717647, 0.25098, 1 )
@@ -411,7 +420,7 @@ anchor_bottom = 1.0
 
 [node name="Ingredient" type="TextureRect" parent="VBoxContainer/Recipe/Pork/Meal/HBoxContainer"]
 margin_right = 53.0
-margin_bottom = 80.0
+margin_bottom = 72.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 7 )
@@ -420,7 +429,7 @@ expand = true
 [node name="Plus" type="TextureRect" parent="VBoxContainer/Recipe/Pork/Meal/HBoxContainer"]
 margin_left = 57.0
 margin_right = 82.0
-margin_bottom = 80.0
+margin_bottom = 72.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.45
@@ -431,43 +440,43 @@ stretch_mode = 6
 [node name="Ingredient2" type="TextureRect" parent="VBoxContainer/Recipe/Pork/Meal/HBoxContainer"]
 margin_left = 86.0
 margin_right = 140.0
-margin_bottom = 80.0
+margin_bottom = 72.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 11 )
 expand = true
 
-[node name="Lemon" type="VBoxContainer" parent="VBoxContainer/Recipe"]
+[node name="Lemonade" type="VBoxContainer" parent="VBoxContainer/Recipe"]
 margin_left = 438.0
 margin_right = 578.0
-margin_bottom = 80.0
+margin_bottom = 72.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 10
 
-[node name="Meal" type="ColorRect" parent="VBoxContainer/Recipe/Lemon"]
+[node name="Meal" type="ColorRect" parent="VBoxContainer/Recipe/Lemonade"]
 margin_right = 140.0
-margin_bottom = 80.0
+margin_bottom = 72.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.25
 color = Color( 0.917647, 0.717647, 0.25098, 1 )
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Recipe/Lemon/Meal"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Recipe/Lemonade/Meal"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="Ingredient" type="TextureRect" parent="VBoxContainer/Recipe/Lemon/Meal/HBoxContainer"]
+[node name="Ingredient" type="TextureRect" parent="VBoxContainer/Recipe/Lemonade/Meal/HBoxContainer"]
 margin_right = 53.0
-margin_bottom = 80.0
+margin_bottom = 72.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 10 )
 expand = true
 
-[node name="Plus" type="TextureRect" parent="VBoxContainer/Recipe/Lemon/Meal/HBoxContainer"]
+[node name="Plus" type="TextureRect" parent="VBoxContainer/Recipe/Lemonade/Meal/HBoxContainer"]
 margin_left = 57.0
 margin_right = 82.0
-margin_bottom = 80.0
+margin_bottom = 72.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.45
@@ -475,10 +484,10 @@ texture = ExtResource( 12 )
 expand = true
 stretch_mode = 6
 
-[node name="Ingredient2" type="TextureRect" parent="VBoxContainer/Recipe/Lemon/Meal/HBoxContainer"]
+[node name="Ingredient2" type="TextureRect" parent="VBoxContainer/Recipe/Lemonade/Meal/HBoxContainer"]
 margin_left = 86.0
 margin_right = 140.0
-margin_bottom = 80.0
+margin_bottom = 72.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 14 )
@@ -487,14 +496,14 @@ expand = true
 [node name="Coffee" type="VBoxContainer" parent="VBoxContainer/Recipe"]
 margin_left = 584.0
 margin_right = 724.0
-margin_bottom = 80.0
+margin_bottom = 72.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 10
 
 [node name="Meal" type="ColorRect" parent="VBoxContainer/Recipe/Coffee"]
 margin_right = 140.0
-margin_bottom = 80.0
+margin_bottom = 72.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.25
 color = Color( 0.917647, 0.717647, 0.25098, 1 )
@@ -505,16 +514,16 @@ anchor_bottom = 1.0
 
 [node name="Ingredient" type="TextureRect" parent="VBoxContainer/Recipe/Coffee/Meal/HBoxContainer"]
 margin_right = 53.0
-margin_bottom = 80.0
+margin_bottom = 72.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource( 15 )
+texture = ExtResource( 20 )
 expand = true
 
 [node name="Plus" type="TextureRect" parent="VBoxContainer/Recipe/Coffee/Meal/HBoxContainer"]
 margin_left = 57.0
 margin_right = 82.0
-margin_bottom = 80.0
+margin_bottom = 72.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.45
@@ -525,14 +534,27 @@ stretch_mode = 6
 [node name="Ingredient2" type="TextureRect" parent="VBoxContainer/Recipe/Coffee/Meal/HBoxContainer"]
 margin_left = 86.0
 margin_right = 140.0
-margin_bottom = 80.0
+margin_bottom = 72.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 13 )
 expand = true
 
+[node name="PriceLabel" type="Label" parent="VBoxContainer"]
+margin_top = 214.0
+margin_right = 724.0
+margin_bottom = 242.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 12 )
+text = "Update Prices"
+align = 1
+valign = 1
+autowrap = true
+
 [node name="Meal" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 230.0
+margin_top = 250.0
 margin_right = 724.0
 margin_bottom = 424.0
 size_flags_horizontal = 3
@@ -542,21 +564,21 @@ custom_constants/separation = 6
 
 [node name="Chicken" type="VBoxContainer" parent="VBoxContainer/Meal"]
 margin_right = 140.0
-margin_bottom = 194.0
+margin_bottom = 174.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 10
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/Meal/Chicken"]
 margin_right = 140.0
-margin_bottom = 82.0
+margin_bottom = 66.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.25
 
 [node name="Chicken" type="ColorRect" parent="VBoxContainer/Meal/Chicken/HBoxContainer2"]
 margin_right = 96.0
-margin_bottom = 82.0
+margin_bottom = 66.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
@@ -579,7 +601,7 @@ autowrap = true
 [node name="Icon" type="ColorRect" parent="VBoxContainer/Meal/Chicken/HBoxContainer2"]
 margin_left = 100.0
 margin_right = 140.0
-margin_bottom = 82.0
+margin_bottom = 66.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.25
@@ -590,12 +612,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+texture = ExtResource( 17 )
 expand = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Meal/Chicken"]
-margin_top = 92.0
+margin_top = 76.0
 margin_right = 140.0
-margin_bottom = 134.0
+margin_bottom = 118.0
 rect_pivot_offset = Vector2( -74, 24 )
 alignment = 1
 
@@ -626,9 +649,9 @@ custom_fonts/font = SubResource( 7 )
 text = "+"
 
 [node name="ChickenUpdate" type="Button" parent="VBoxContainer/Meal/Chicken"]
-margin_top = 144.0
+margin_top = 128.0
 margin_right = 140.0
-margin_bottom = 194.0
+margin_bottom = 174.251
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
@@ -660,21 +683,21 @@ autowrap = true
 [node name="Beef" type="VBoxContainer" parent="VBoxContainer/Meal"]
 margin_left = 146.0
 margin_right = 286.0
-margin_bottom = 194.0
+margin_bottom = 174.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 10
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/Meal/Beef"]
 margin_right = 140.0
-margin_bottom = 82.0
+margin_bottom = 66.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.25
 
 [node name="Beef" type="ColorRect" parent="VBoxContainer/Meal/Beef/HBoxContainer2"]
 margin_right = 96.0
-margin_bottom = 82.0
+margin_bottom = 66.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
@@ -697,7 +720,7 @@ autowrap = true
 [node name="Icon" type="ColorRect" parent="VBoxContainer/Meal/Beef/HBoxContainer2"]
 margin_left = 100.0
 margin_right = 140.0
-margin_bottom = 82.0
+margin_bottom = 66.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.25
@@ -708,12 +731,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+texture = ExtResource( 16 )
 expand = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Meal/Beef"]
-margin_top = 92.0
+margin_top = 76.0
 margin_right = 140.0
-margin_bottom = 134.0
+margin_bottom = 118.0
 rect_pivot_offset = Vector2( -74, 24 )
 alignment = 1
 
@@ -744,9 +768,9 @@ custom_fonts/font = SubResource( 7 )
 text = "+"
 
 [node name="BeefUpdate" type="Button" parent="VBoxContainer/Meal/Beef"]
-margin_top = 144.0
+margin_top = 128.0
 margin_right = 140.0
-margin_bottom = 194.0
+margin_bottom = 174.251
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
@@ -778,21 +802,21 @@ autowrap = true
 [node name="Pork" type="VBoxContainer" parent="VBoxContainer/Meal"]
 margin_left = 292.0
 margin_right = 432.0
-margin_bottom = 194.0
+margin_bottom = 174.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 10
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/Meal/Pork"]
 margin_right = 140.0
-margin_bottom = 82.0
+margin_bottom = 66.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.25
 
 [node name="Pork" type="ColorRect" parent="VBoxContainer/Meal/Pork/HBoxContainer2"]
 margin_right = 96.0
-margin_bottom = 82.0
+margin_bottom = 66.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
@@ -815,7 +839,7 @@ autowrap = true
 [node name="Icon" type="ColorRect" parent="VBoxContainer/Meal/Pork/HBoxContainer2"]
 margin_left = 100.0
 margin_right = 140.0
-margin_bottom = 82.0
+margin_bottom = 66.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.25
@@ -826,12 +850,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+texture = ExtResource( 18 )
 expand = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Meal/Pork"]
-margin_top = 92.0
+margin_top = 76.0
 margin_right = 140.0
-margin_bottom = 134.0
+margin_bottom = 118.0
 rect_pivot_offset = Vector2( -74, 24 )
 alignment = 1
 
@@ -862,9 +887,9 @@ custom_fonts/font = SubResource( 7 )
 text = "+"
 
 [node name="PorkUpdate" type="Button" parent="VBoxContainer/Meal/Pork"]
-margin_top = 144.0
+margin_top = 128.0
 margin_right = 140.0
-margin_bottom = 194.0
+margin_bottom = 174.251
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
@@ -872,30 +897,30 @@ theme = ExtResource( 3 )
 custom_fonts/font = SubResource( 8 )
 text = "Update"
 
-[node name="Lemon" type="VBoxContainer" parent="VBoxContainer/Meal"]
+[node name="Lemonade" type="VBoxContainer" parent="VBoxContainer/Meal"]
 margin_left = 438.0
 margin_right = 578.0
-margin_bottom = 194.0
+margin_bottom = 174.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 10
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/Meal/Lemon"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/Meal/Lemonade"]
 margin_right = 140.0
-margin_bottom = 82.0
+margin_bottom = 66.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.25
 
-[node name="Pork" type="ColorRect" parent="VBoxContainer/Meal/Lemon/HBoxContainer2"]
+[node name="Lemonade" type="ColorRect" parent="VBoxContainer/Meal/Lemonade/HBoxContainer2"]
 margin_right = 96.0
-margin_bottom = 82.0
+margin_bottom = 66.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
 color = Color( 0.917647, 0.717647, 0.25098, 1 )
 
-[node name="Label" type="Label" parent="VBoxContainer/Meal/Lemon/HBoxContainer2/Pork"]
+[node name="Label" type="Label" parent="VBoxContainer/Meal/Lemonade/HBoxContainer2/Lemonade"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_bottom = -1.0
@@ -908,37 +933,38 @@ align = 1
 valign = 1
 autowrap = true
 
-[node name="Icon" type="ColorRect" parent="VBoxContainer/Meal/Lemon/HBoxContainer2"]
+[node name="Icon" type="ColorRect" parent="VBoxContainer/Meal/Lemonade/HBoxContainer2"]
 margin_left = 100.0
 margin_right = 140.0
-margin_bottom = 82.0
+margin_bottom = 66.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.25
 color = Color( 0.917647, 0.717647, 0.25098, 1 )
 
-[node name="Icon" type="TextureRect" parent="VBoxContainer/Meal/Lemon/HBoxContainer2/Icon"]
+[node name="Icon" type="TextureRect" parent="VBoxContainer/Meal/Lemonade/HBoxContainer2/Icon"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+texture = ExtResource( 19 )
 expand = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Meal/Lemon"]
-margin_top = 92.0
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Meal/Lemonade"]
+margin_top = 76.0
 margin_right = 140.0
-margin_bottom = 134.0
+margin_bottom = 118.0
 rect_pivot_offset = Vector2( -74, 24 )
 alignment = 1
 
-[node name="Minus" type="Button" parent="VBoxContainer/Meal/Lemon/HBoxContainer"]
+[node name="Minus" type="Button" parent="VBoxContainer/Meal/Lemonade/HBoxContainer"]
 margin_right = 33.3241
 margin_bottom = 42.251
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 5 )
 text = "-"
 
-[node name="LineEdit" type="LineEdit" parent="VBoxContainer/Meal/Lemon/HBoxContainer"]
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/Meal/Lemonade/HBoxContainer"]
 margin_left = 37.0
 margin_right = 103.866
 margin_bottom = 42.0
@@ -948,7 +974,7 @@ custom_fonts/font = SubResource( 10 )
 align = 1
 placeholder_text = "New Price"
 
-[node name="Plus" type="Button" parent="VBoxContainer/Meal/Lemon/HBoxContainer"]
+[node name="Plus" type="Button" parent="VBoxContainer/Meal/Lemonade/HBoxContainer"]
 margin_left = 107.0
 margin_right = 140.324
 margin_bottom = 42.251
@@ -957,10 +983,10 @@ size_flags_horizontal = 3
 custom_fonts/font = SubResource( 7 )
 text = "+"
 
-[node name="PorkUpdate" type="Button" parent="VBoxContainer/Meal/Lemon"]
-margin_top = 144.0
+[node name="LemonadeUpdate" type="Button" parent="VBoxContainer/Meal/Lemonade"]
+margin_top = 128.0
 margin_right = 140.0
-margin_bottom = 194.0
+margin_bottom = 174.251
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
@@ -971,27 +997,27 @@ text = "Update"
 [node name="Coffee" type="VBoxContainer" parent="VBoxContainer/Meal"]
 margin_left = 584.0
 margin_right = 724.0
-margin_bottom = 194.0
+margin_bottom = 174.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 10
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/Meal/Coffee"]
 margin_right = 140.0
-margin_bottom = 82.0
+margin_bottom = 66.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.25
 
-[node name="Pork" type="ColorRect" parent="VBoxContainer/Meal/Coffee/HBoxContainer2"]
+[node name="Coffee" type="ColorRect" parent="VBoxContainer/Meal/Coffee/HBoxContainer2"]
 margin_right = 96.0
-margin_bottom = 82.0
+margin_bottom = 66.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
 color = Color( 0.917647, 0.717647, 0.25098, 1 )
 
-[node name="Label" type="Label" parent="VBoxContainer/Meal/Coffee/HBoxContainer2/Pork"]
+[node name="Label" type="Label" parent="VBoxContainer/Meal/Coffee/HBoxContainer2/Coffee"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_bottom = -1.0
@@ -1007,7 +1033,7 @@ autowrap = true
 [node name="Icon" type="ColorRect" parent="VBoxContainer/Meal/Coffee/HBoxContainer2"]
 margin_left = 100.0
 margin_right = 140.0
-margin_bottom = 82.0
+margin_bottom = 66.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.25
@@ -1018,12 +1044,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+texture = ExtResource( 15 )
 expand = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Meal/Coffee"]
-margin_top = 92.0
+margin_top = 76.0
 margin_right = 140.0
-margin_bottom = 134.0
+margin_bottom = 118.0
 rect_pivot_offset = Vector2( -74, 24 )
 alignment = 1
 
@@ -1053,10 +1080,10 @@ size_flags_horizontal = 3
 custom_fonts/font = SubResource( 7 )
 text = "+"
 
-[node name="PorkUpdate" type="Button" parent="VBoxContainer/Meal/Coffee"]
-margin_top = 144.0
+[node name="CoffeeUpdate" type="Button" parent="VBoxContainer/Meal/Coffee"]
+margin_top = 128.0
 margin_right = 140.0
-margin_bottom = 194.0
+margin_bottom = 174.251
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
@@ -1076,11 +1103,11 @@ text = "Update"
 [connection signal="text_changed" from="VBoxContainer/Meal/Pork/HBoxContainer/LineEdit" to="." method="_on_PorkLine_text_changed"]
 [connection signal="pressed" from="VBoxContainer/Meal/Pork/HBoxContainer/Plus" to="." method="_on_Pork_plus_pressed"]
 [connection signal="pressed" from="VBoxContainer/Meal/Pork/PorkUpdate" to="." method="_on_PorkUpdate_pressed"]
-[connection signal="pressed" from="VBoxContainer/Meal/Lemon/HBoxContainer/Minus" to="." method="_on_Pork_minus_pressed"]
-[connection signal="text_changed" from="VBoxContainer/Meal/Lemon/HBoxContainer/LineEdit" to="." method="_on_PorkLine_text_changed"]
-[connection signal="pressed" from="VBoxContainer/Meal/Lemon/HBoxContainer/Plus" to="." method="_on_Pork_plus_pressed"]
-[connection signal="pressed" from="VBoxContainer/Meal/Lemon/PorkUpdate" to="." method="_on_PorkUpdate_pressed"]
-[connection signal="pressed" from="VBoxContainer/Meal/Coffee/HBoxContainer/Minus" to="." method="_on_Pork_minus_pressed"]
-[connection signal="text_changed" from="VBoxContainer/Meal/Coffee/HBoxContainer/LineEdit" to="." method="_on_PorkLine_text_changed"]
-[connection signal="pressed" from="VBoxContainer/Meal/Coffee/HBoxContainer/Plus" to="." method="_on_Pork_plus_pressed"]
-[connection signal="pressed" from="VBoxContainer/Meal/Coffee/PorkUpdate" to="." method="_on_PorkUpdate_pressed"]
+[connection signal="pressed" from="VBoxContainer/Meal/Lemonade/HBoxContainer/Minus" to="." method="_on_Lemonade_minus_pressed"]
+[connection signal="text_changed" from="VBoxContainer/Meal/Lemonade/HBoxContainer/LineEdit" to="." method="_on_LemonadeLine_text_changed"]
+[connection signal="pressed" from="VBoxContainer/Meal/Lemonade/HBoxContainer/Plus" to="." method="_on_Lemonade_plus_pressed"]
+[connection signal="pressed" from="VBoxContainer/Meal/Lemonade/LemonadeUpdate" to="." method="_on_LemonadeUpdate_pressed"]
+[connection signal="pressed" from="VBoxContainer/Meal/Coffee/HBoxContainer/Minus" to="." method="_on_Coffee_minus_pressed"]
+[connection signal="text_changed" from="VBoxContainer/Meal/Coffee/HBoxContainer/LineEdit" to="." method="_on_CoffeeLine_text_changed"]
+[connection signal="pressed" from="VBoxContainer/Meal/Coffee/HBoxContainer/Plus" to="." method="_on_Coffee_plus_pressed"]
+[connection signal="pressed" from="VBoxContainer/Meal/Coffee/CoffeeUpdate" to="." method="_on_CoffeeUpdate_pressed"]

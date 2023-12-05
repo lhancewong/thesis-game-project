@@ -3,6 +3,7 @@ extends Control
 # Node
 onready var game_console = $"%GameConsole"
 onready var restaurant_view = $"%RestaurantView"
+onready var _animated_sprite = $KingReactions/AnimationPlayer
 
 # Sub Scenes
 onready var live_updates = $"%LiveUpdates"
@@ -44,6 +45,7 @@ onready var stock_milk = $"%StockMilk"
 func _ready():
 	_toggle_show_sub_scene(live_updates)
 	$PauseFrame.hide()
+	_animated_sprite.hide()
 	$PauseFrame/SteveHarvey.hide()
 	set_physics_process(true)
 	Game.day_hndlr.init_daylight_main()
@@ -51,6 +53,7 @@ func _ready():
 
 func _process(delta):
 	_update_labels()
+	_animated_sprite.play("king_laugh")
 
 
 func _update_labels():
@@ -87,22 +90,26 @@ func _toggle_show_sub_scene(sub_scene_name):
 
 # Button Signals
 func _on_Debug_pressed():
+	SoundHandler.button_click.play()
 	restaurant_view.visible = !restaurant_view.visible
 	game_console.visible = !game_console.visible
 
 
 func _on_ToTitleScreen_pressed():
+	SoundHandler.button_click.play()
 	Game.save_hndlr.save_game()
 	get_tree().change_scene("res://interfaces/title_screen_menus/title_screen_main.tscn")
-	Game.init_var()
+	Game.init_game()
 
 
 func _on_StartDay_pressed():
+	SoundHandler.button_click.play()
 	game_console.add_text("Day Started!")
 	_on_pause_button_pressed()
 	yield(Game.day_hndlr.start_day_cycle(), "completed")
 	_on_pause_popup_close_pressed()
 	game_console.add_text("Day Finished!")
+	SoundHandler.progress_fill.play()
 
 
 func _on_pause_button_pressed():
@@ -116,29 +123,36 @@ func _on_pause_popup_close_pressed():
 
 # Sub Scene Button Signals
 func _on_LiveUpdatingStats_pressed():
+	SoundHandler.button_click.play()
 	_toggle_show_sub_scene(live_updates)
 
 
 func _on_OrderIngredients_pressed():
+	SoundHandler.button_click.play()
 	_toggle_show_sub_scene(order_ingredients)
 
 
 func _on_OrderDrinks_pressed():
+	SoundHandler.button_click.play()
 	_toggle_show_sub_scene(order_drinks)
 
 
 func _on_PriceManagement_pressed():
+	SoundHandler.button_click.play()
 	_toggle_show_sub_scene(price_management)
 
 
 func _on_TechUpgrades_pressed():
+	SoundHandler.button_click.play()
 	_toggle_show_sub_scene(tech_upgrades)
 
 
 func _on_Statistics_pressed():
+	SoundHandler.button_click.play()
 	_toggle_show_sub_scene(statistics)
 
 
 func _on_Management_pressed():
+	SoundHandler.button_click.play()
 	management.set_screen()
 	_toggle_show_sub_scene(management)

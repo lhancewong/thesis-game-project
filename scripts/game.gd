@@ -18,6 +18,7 @@ var skill_points: int
 
 var compost_stack: Array
 var last_compost_day: int
+var total_animals_fed: float
 
 var unlocked_tech: Dictionary
 var unlocked_ingredients: Dictionary
@@ -64,6 +65,7 @@ func init_game():
 
 	compost_stack = []
 	last_compost_day = 0
+	total_animals_fed = 0
 
 	unlocked_ingredients = {
 		chicken = true,

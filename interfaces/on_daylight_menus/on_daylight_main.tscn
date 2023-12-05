@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=2]
+[gd_scene load_steps=65 format=2]
 
 [ext_resource path="res://scripts/guis/on_daylight_main.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/pixelated.ttf" type="DynamicFontData" id=2]
@@ -54,8 +54,9 @@
 [ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/order_drinks.tscn" type="PackedScene" id=52]
 [ext_resource path="res://assets/images/icons/milk.png" type="Texture" id=53]
 [ext_resource path="res://assets/images/icons/cucumber.png" type="Texture" id=54]
-[ext_resource path="res://assets/images/icons/coffee.png" type="Texture" id=55]
+[ext_resource path="res://assets/images/icons/coffee_mix.png" type="Texture" id=55]
 [ext_resource path="res://assets/images/icons/lemon.png" type="Texture" id=56]
+[ext_resource path="res://assets/sprites/king_laugh_sprite.png" type="Texture" id=57]
 
 [sub_resource type="DynamicFont" id=4]
 size = 19
@@ -79,6 +80,24 @@ _data = {
 [sub_resource type="DynamicFont" id=5]
 size = 48
 font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=7]
+resource_name = "king_laugh"
+length = 0.466667
+loop = true
+step = 0.0666667
+tracks/0/type = "value"
+tracks/0/path = NodePath("King_Laugh_Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667, 0.3, 0.333333, 0.366667, 0.4, 0.433333 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 6, 5, 4, 3, 2, 1, 0 ]
+}
 
 [node name="OnDaylight" type="Control"]
 anchor_right = 1.0
@@ -962,6 +981,20 @@ custom_fonts/font = SubResource( 5 )
 text = "Serving Customers..."
 align = 1
 valign = 1
+
+[node name="KingReactions" type="Node2D" parent="."]
+
+[node name="King_Laugh_Sprite" type="Sprite" parent="KingReactions"]
+visible = false
+position = Vector2( 675, 253 )
+scale = Vector2( 0.469953, 0.44581 )
+texture = ExtResource( 57 )
+hframes = 5
+vframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="KingReactions"]
+pause_mode = 2
+anims/king_laugh = SubResource( 7 )
 
 [connection signal="pressed" from="VBoxContainer/ButtonsNIcons/MainPanelButtons/HBoxContainer/LiveUpdatingStats" to="." method="_on_LiveUpdatingStats_pressed"]
 [connection signal="pressed" from="VBoxContainer/ButtonsNIcons/MainPanelButtons/HBoxContainer/OrderIngredients" to="." method="_on_OrderIngredients_pressed"]

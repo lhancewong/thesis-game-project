@@ -21,10 +21,12 @@ func _physics_process(delta):
 # Calls manage_waste and resets value
 func _on_sendButton_pressed():
 	if disposal_amount == 0:
+		SoundHandler.angry_noise.play()
 		return
 	Game.waste_hndlr.manage_waste("food_shelter", "edible_waste", disposal_amount, Game.day)
 	disposal_amount = 0
 	action_line_edit.text = str(disposal_amount)
+	SoundHandler.button_click_two.play()
 
 
 func _on_LineEdit_text_changed(new_text):
@@ -47,9 +49,11 @@ func _on_minus_pressed():
 	else:
 		disposal_amount -= 1
 		action_line_edit.text = str(disposal_amount)
+	SoundHandler.button_click_two.play()
 
 
 func _on_plus_pressed():
+	SoundHandler.value_change.play()
 	if disposal_amount < Game.edible_waste:
 		disposal_amount += 1
 		action_line_edit.text = str(disposal_amount)
