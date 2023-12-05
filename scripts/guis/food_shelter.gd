@@ -23,6 +23,10 @@ func _on_sendButton_pressed():
 	if disposal_amount == 0:
 		SoundHandler.angry_noise.play()
 		return
+	if Game.strat_hndlr.cap_checker("food_shelter") || disposal_amount + Game.strategy_use_tracker["food_shelter"] > Game.strategy_cap["food_shelter"]:
+		SoundHandler.angry_noise.play()
+		return
+	Game.strategy_use_tracker["food_shelter"] += disposal_amount
 	Game.waste_hndlr.manage_waste("food_shelter", "edible_waste", disposal_amount, Game.day)
 	disposal_amount = 0
 	action_line_edit.text = str(disposal_amount)

@@ -23,6 +23,8 @@ func save():
 		"skill_points": Game.skill_points,
 		"meal_prices": Game.meal_prices,
 		"total_animals_fed": Game.total_animals_fed,
+		"strategy_use_tracker": Game.strategy_use_tracker,
+		"strategy_cap": Game.strategy_cap
 	}
 	return save_dict
 
@@ -91,6 +93,10 @@ func load_game():
 					Game.store_level = data
 				"skill_points":
 					Game.skill_points = data
+				"strategy_use_tracker": 
+					Game.strategy_use_tracker = data
+				"strategy_cap": 
+					Game.strategy_cap = data
 
 	save_game.close()
 

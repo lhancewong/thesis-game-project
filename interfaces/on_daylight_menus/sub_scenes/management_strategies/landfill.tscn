@@ -289,8 +289,8 @@ margin_bottom = 279.0
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_fonts/normal_font = SubResource( 10 )
 bbcode_enabled = true
-bbcode_text = "Landfill is the act of burning or disposing of food waste. It has a negative impact on the environment. Send any type of food waste into the landfill to dispose of it quickly. [shake rate=30.0 level=7 connected=1][color=red]Comes with a high cost for sending it to the landfill. Your customers will also think less of your restaurant.[/color][/shake] [tornado radius=2.0 freq=5.0 connected=1][color=green]Think about the turtles.[/color][/tornado]"
-text = "Landfill is the act of burning or disposing of food waste. It has a negative impact on the environment. Send any type of food waste into the landfill to dispose of it quickly. Comes with a high cost for sending it to the landfill. Your customers will also think less of your restaurant. Think about the turtles."
+bbcode_text = "Landfill is the act of burning or disposing of food waste. It has a negative impact on the environment. Send any type of food waste into the landfill to dispose of it quickly. [shake rate=30.0 level=7 connected=1][color=red]Comes with a high cost for sending it to the landfill. Your customers will also think less of your restaurant.[/color][/shake] [tornado radius=2.0 freq=5.0 connected=1][color=green]Think about the trees.[/color][/tornado]"
+text = "Landfill is the act of burning or disposing of food waste. It has a negative impact on the environment. Send any type of food waste into the landfill to dispose of it quickly. Comes with a high cost for sending it to the landfill. Your customers will also think less of your restaurant. Think about the trees."
 
 [node name="ManagementStrategy2" type="Button" parent="VBoxContainer/HBoxContainer/Text"]
 margin_top = 319.0

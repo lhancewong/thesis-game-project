@@ -23,12 +23,17 @@ func _on_sendButton_pressed():
 	if compost_amount == 0:
 		SoundHandler.angry_noise.play()
 		return
-	compost_stack_add(compost_amount)
-	Game.waste_hndlr.manage_waste("composting", "inedible_waste", compost_amount, Game.day)
-	compost_amount = 0
-	action_line_edit.text = str(compost_amount)
-	print(Game.compost_stack)
-	SoundHandler.button_click_two.play()
+	elif Game.strat_hndlr.cap_checker("composting") || compost_amount + Game.strategy_use_tracker["composting"] > Game.strategy_cap["composting"]:
+		SoundHandler.angry_noise.play()
+		return
+	else:
+		Game.strategy_use_tracker["composting"] += compost_amount
+		compost_stack_add(compost_amount)
+		Game.waste_hndlr.manage_waste("composting", "inedible_waste", compost_amount, Game.day)
+		compost_amount = 0
+		action_line_edit.text = str(compost_amount)
+		print(Game.compost_stack)
+		SoundHandler.button_click_two.play()
 
 
 func _on_LineEdit_text_changed(new_text):

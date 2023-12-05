@@ -3,7 +3,7 @@ extends Control
 # Node
 onready var game_console = $"%GameConsole"
 onready var restaurant_view = $"%RestaurantView"
-onready var _animated_sprite = $KingReactions/AnimationPlayer
+onready var animated_sprite = $KingReactions/AnimationPlayer
 
 # Sub Scenes
 onready var live_updates = $"%LiveUpdates"
@@ -54,8 +54,8 @@ func _ready():
 
 func _process(delta):
 	_update_labels()
-	_animated_sprite.play("king_laugh")
-	_animated_sprite.play("king_cry")
+	animated_sprite.play("king_laugh")
+	animated_sprite.play("king_cry")
 
 
 func _update_labels():

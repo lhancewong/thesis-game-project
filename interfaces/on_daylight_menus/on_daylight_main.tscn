@@ -948,127 +948,127 @@ script = ExtResource( 21 )
 [node name="Tyrone" parent="NPCs/Spawner" instance=ExtResource( 22 )]
 visible = false
 position = Vector2( 838.989, 522.486 )
-rotation = -0.229502
+rotation = -0.229513
 
 [node name="Jerome" parent="NPCs/Spawner" instance=ExtResource( 23 )]
 visible = false
 position = Vector2( 838.989, 522.486 )
-rotation = -0.229502
+rotation = -0.229513
 
 [node name="Matt" parent="NPCs/Spawner" instance=ExtResource( 24 )]
 visible = false
 position = Vector2( 838.989, 522.486 )
-rotation = -0.229502
+rotation = -0.229513
 
 [node name="Layla" parent="NPCs/Spawner" instance=ExtResource( 28 )]
 visible = false
 position = Vector2( 838.989, 522.486 )
-rotation = -0.229502
+rotation = -0.229513
 
 [node name="Harry" parent="NPCs/Spawner" instance=ExtResource( 27 )]
 visible = false
 position = Vector2( 838.989, 522.486 )
-rotation = -0.229502
+rotation = -0.229513
 
 [node name="Tessa" parent="NPCs/Spawner" instance=ExtResource( 26 )]
 visible = false
 position = Vector2( 838.989, 522.486 )
-rotation = -0.229502
+rotation = -0.229513
 
 [node name="Hugh" parent="NPCs/Spawner" instance=ExtResource( 25 )]
 visible = false
 position = Vector2( 838.989, 522.486 )
-rotation = -0.229502
+rotation = -0.229513
 
 [node name="John" parent="NPCs/Spawner" instance=ExtResource( 31 )]
 visible = false
 position = Vector2( 838.989, 522.486 )
-rotation = -0.229502
+rotation = -0.229513
 
 [node name="Chris" parent="NPCs/Spawner" instance=ExtResource( 34 )]
 visible = false
 position = Vector2( 838.989, 522.486 )
-rotation = -0.229502
+rotation = -0.229513
 
 [node name="James" parent="NPCs/Spawner" instance=ExtResource( 30 )]
 visible = false
 position = Vector2( 838.989, 522.486 )
-rotation = -0.229502
+rotation = -0.229513
 
 [node name="Jared" parent="NPCs/Spawner" instance=ExtResource( 35 )]
 visible = false
 position = Vector2( 838.989, 522.486 )
-rotation = -0.229502
+rotation = -0.229513
 
 [node name="Ted" parent="NPCs/Spawner" instance=ExtResource( 29 )]
 visible = false
 position = Vector2( 838.989, 522.486 )
-rotation = -0.229502
+rotation = -0.229513
 
 [node name="Steve" parent="NPCs/Spawner" instance=ExtResource( 36 )]
 visible = false
 position = Vector2( 838.989, 522.486 )
-rotation = -0.229502
+rotation = -0.229513
 
 [node name="Mona" parent="NPCs/Spawner" instance=ExtResource( 32 )]
 visible = false
 position = Vector2( 838.989, 522.486 )
-rotation = -0.229502
+rotation = -0.229513
 
 [node name="Lisa" parent="NPCs/Spawner" instance=ExtResource( 33 )]
 visible = false
 position = Vector2( 838.989, 522.486 )
-rotation = -0.229502
+rotation = -0.229513
 
 [node name="Rob" parent="NPCs/Spawner" instance=ExtResource( 9 )]
 visible = false
 position = Vector2( 838.989, 522.486 )
-rotation = -0.229502
+rotation = -0.229513
 
 [node name="Mary" parent="NPCs/Spawner" instance=ExtResource( 14 )]
 visible = false
 position = Vector2( 838.989, 522.486 )
-rotation = -0.229502
+rotation = -0.229513
 
 [node name="Ken" parent="NPCs/Spawner" instance=ExtResource( 15 )]
 visible = false
 position = Vector2( 838.989, 522.486 )
-rotation = -0.229502
+rotation = -0.229513
 
 [node name="Alan" parent="NPCs/Spawner" instance=ExtResource( 39 )]
 visible = false
 position = Vector2( 838.989, 522.486 )
-rotation = -0.229502
+rotation = -0.229513
 
 [node name="Justine" parent="NPCs/Spawner" instance=ExtResource( 37 )]
 visible = false
 position = Vector2( 838.989, 522.486 )
-rotation = -0.229502
+rotation = -0.229513
 
 [node name="Dorothea" parent="NPCs/Spawner" instance=ExtResource( 38 )]
 visible = false
 position = Vector2( 838.989, 522.486 )
-rotation = -0.229502
+rotation = -0.229513
 
 [node name="Carmella" parent="NPCs/Spawner" instance=ExtResource( 40 )]
 visible = false
 position = Vector2( 838.989, 522.486 )
-rotation = -0.229502
+rotation = -0.229513
 
 [node name="Sam" parent="NPCs/Spawner" instance=ExtResource( 13 )]
 visible = false
 position = Vector2( 838.989, 522.486 )
-rotation = -0.229502
+rotation = -0.229513
 
 [node name="Amy" parent="NPCs/Spawner" instance=ExtResource( 16 )]
 visible = false
 position = Vector2( 838.989, 522.486 )
-rotation = -0.229502
+rotation = -0.229513
 
 [node name="Serena" parent="NPCs/Spawner" instance=ExtResource( 41 )]
 visible = false
 position = Vector2( 838.989, 522.486 )
-rotation = -0.229502
+rotation = -0.229513
 
 [node name="PauseFrame" type="ColorRect" parent="."]
 visible = false

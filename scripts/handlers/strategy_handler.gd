@@ -65,3 +65,14 @@ func load_unlocked_strats():
 	for key in Game.unlocked_tech:
 		if Game.unlocked_tech[str(key)]:
 			unlock_strategy(str(key))
+
+
+func cap_checker(strategy):
+	if Game.strategy_use_tracker[strategy] >= Game.strategy_cap[strategy]:
+		return true
+	return false
+
+
+func reset_strat_use():
+	for key in Game.strategy_use_tracker:
+		Game.strategy_use_tracker[str(key)] = 0

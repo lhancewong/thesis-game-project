@@ -22,10 +22,17 @@ func _physics_process(delta):
 
 # Calls manage_waste and resets value
 func _on_sendButton_pressed():
-	Game.money -= (disposal_amount) * 10
+	if (disposal_amount) * 10 > Game.money:
+		SoundHandler.angry_noise.play()
+		return
 	if disposal_amount == 0:
 		SoundHandler.angry_noise.play()
 		return
+	if Game.strat_hndlr.cap_checker("industrial") || disposal_amount + Game.strategy_use_tracker["industrial"] > Game.strategy_cap["industrial"]:
+		SoundHandler.angry_noise.play()
+		return
+	Game.money -= (disposal_amount) * 10
+	Game.strategy_use_tracker["industrial"] += disposal_amount
 	Game.waste_hndlr.manage_waste("industrial", "inedible_waste", disposal_amount, Game.day)
 	disposal_amount = 0
 	action_line_edit.text = str(disposal_amount)

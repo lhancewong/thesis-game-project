@@ -20,6 +20,8 @@ var compost_stack: Array
 var last_compost_day: int
 var total_animals_fed: float
 
+var strategy_use_tracker: Dictionary
+var strategy_cap: Dictionary
 var unlocked_tech: Dictionary
 var unlocked_ingredients: Dictionary
 var meal_prices: Dictionary
@@ -67,6 +69,18 @@ func init_game():
 	last_compost_day = 0
 	total_animals_fed = 0
 
+	strategy_use_tracker = {
+		composting = 0,
+		industrial = 0,
+		feed_animals = 0,
+		food_shelter = 0,
+	}
+	strategy_cap = {
+		composting = 200,
+		industrial = 200,
+		feed_animals = 200,
+		food_shelter = 200,
+	}
 	unlocked_ingredients = {
 		chicken = true,
 		beef = false,

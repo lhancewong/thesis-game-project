@@ -30,11 +30,14 @@ func _update_labels():
 
 
 func _on_TrashButton_pressed():
-	Game.money -= (ewaste_to_landfill + iwaste_to_landfill) * 10
-	if ewaste_to_landfill == 0 && iwaste_to_landfill == 0:
+	if (ewaste_to_landfill + iwaste_to_landfill) * 10 > Game.money:
+		SoundHandler.angry_noise.play()
+		return
+	elif ewaste_to_landfill == 0 && iwaste_to_landfill == 0:
 		SoundHandler.angry_noise.play()
 		return
 	else:
+		Game.money -= (ewaste_to_landfill + iwaste_to_landfill) * 10
 		if ewaste_to_landfill > 0:
 			print(Game.waste_hndlr.get_str_edible_waste())
 			Game.waste_hndlr.manage_waste("landfill", "edible_waste", ewaste_to_landfill, Game.day)

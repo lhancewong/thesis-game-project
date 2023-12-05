@@ -85,6 +85,7 @@ func _on_day_start():
 	# Adds a 0 entry to the compost_stack
 	Game.compost_stack.append(0)
 	Game.compost_stack = Game.compost_stack.slice(-3, Game.compost_stack.size())
+	Game.strat_hndlr.reset_strat_use()
 
 	# Calculates min and max customer amount based on day
 	if Game.buffs_hndlr.compost_debuff():
