@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=2]
+[gd_scene load_steps=68 format=2]
 
 [ext_resource path="res://scripts/guis/on_daylight_main.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/pixelated.ttf" type="DynamicFontData" id=2]
@@ -51,13 +51,15 @@
 [ext_resource path="res://assets/images/icons/curry_stock.png" type="Texture" id=49]
 [ext_resource path="res://assets/images/icons/chicken.png" type="Texture" id=50]
 [ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/price_management.tscn" type="PackedScene" id=51]
-[ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/order_drinks.tscn" type="PackedScene" id=52]
+[ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/prepare_ingredients.tscn" type="PackedScene" id=52]
 [ext_resource path="res://assets/images/icons/milk.png" type="Texture" id=53]
 [ext_resource path="res://assets/images/icons/cucumber.png" type="Texture" id=54]
 [ext_resource path="res://assets/images/icons/coffee_mix.png" type="Texture" id=55]
 [ext_resource path="res://assets/images/icons/lemon.png" type="Texture" id=56]
 [ext_resource path="res://assets/sprites/king_laugh_sprite.png" type="Texture" id=57]
 [ext_resource path="res://assets/sprites/king_cry_sprite.png" type="Texture" id=58]
+[ext_resource path="res://assets/images/icons/discount_buff.png" type="Texture" id=59]
+[ext_resource path="res://assets/images/icons/compost_debuff.png" type="Texture" id=60]
 
 [sub_resource type="DynamicFont" id=4]
 size = 19
@@ -83,7 +85,7 @@ size = 48
 font_data = ExtResource( 2 )
 
 [sub_resource type="Animation" id=7]
-resource_name = "king_laugh"
+resource_name = "king_emotes"
 length = 0.466667
 loop = true
 step = 0.0666667
@@ -318,7 +320,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
-text = "Live Statistics"
+text = "Live 
+Updates"
 align = 1
 valign = 1
 autowrap = true
@@ -347,7 +350,7 @@ align = 1
 valign = 1
 autowrap = true
 
-[node name="OrderDrinks" type="Button" parent="VBoxContainer/ButtonsNIcons/MainPanelButtons/HBoxContainer"]
+[node name="PrepareIngredients" type="Button" parent="VBoxContainer/ButtonsNIcons/MainPanelButtons/HBoxContainer"]
 margin_left = 212.0
 margin_right = 312.0
 margin_bottom = 109.0
@@ -356,13 +359,12 @@ size_flags_stretch_ratio = 0.15
 clip_text = true
 expand_icon = true
 
-[node name="ButtonLabel" type="Label" parent="VBoxContainer/ButtonsNIcons/MainPanelButtons/HBoxContainer/OrderDrinks"]
+[node name="ButtonLabel" type="Label" parent="VBoxContainer/ButtonsNIcons/MainPanelButtons/HBoxContainer/PrepareIngredients"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
-text = "Dead
-Button"
+text = "Prepare Ingredients"
 align = 1
 valign = 1
 autowrap = true
@@ -823,7 +825,7 @@ size_flags_vertical = 3
 texture = ExtResource( 46 )
 expand = true
 
-[node name="FoodIcons" type="ColorRect" parent="VBoxContainer/MainPanelNResto/Restaurant"]
+[node name="StatusEffects" type="ColorRect" parent="VBoxContainer/MainPanelNResto/Restaurant"]
 margin_top = 465.0
 margin_right = 551.0
 margin_bottom = 515.0
@@ -832,7 +834,7 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.11
 color = Color( 0.980392, 0.929412, 0.803922, 1 )
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MainPanelNResto/Restaurant/FoodIcons"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MainPanelNResto/Restaurant/StatusEffects"]
 anchor_left = 0.011
 anchor_right = 0.993
 anchor_bottom = 1.0
@@ -840,7 +842,7 @@ margin_left = -0.0610003
 margin_right = -0.143005
 alignment = 1
 
-[node name="DrinkIcons" type="HBoxContainer" parent="VBoxContainer/MainPanelNResto/Restaurant/FoodIcons/VBoxContainer"]
+[node name="DrinkIcons" type="HBoxContainer" parent="VBoxContainer/MainPanelNResto/Restaurant/StatusEffects/VBoxContainer"]
 margin_right = 541.0
 margin_bottom = 50.0
 size_flags_horizontal = 3
@@ -849,92 +851,46 @@ theme = ExtResource( 17 )
 custom_constants/separation = 5
 alignment = 1
 
-[node name="LemonIcon" type="TextureRect" parent="VBoxContainer/MainPanelNResto/Restaurant/FoodIcons/VBoxContainer/DrinkIcons"]
-margin_right = 48.0
+[node name="CompostDebuff" type="TextureRect" parent="VBoxContainer/MainPanelNResto/Restaurant/StatusEffects/VBoxContainer/DrinkIcons"]
+margin_right = 131.0
 margin_bottom = 50.0
 rect_pivot_offset = Vector2( -477, -156 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource( 56 )
+texture = ExtResource( 60 )
 expand = true
 stretch_mode = 6
 
-[node name="StockLemon" type="Label" parent="VBoxContainer/MainPanelNResto/Restaurant/FoodIcons/VBoxContainer/DrinkIcons"]
-margin_left = 53.0
-margin_top = 11.0
-margin_right = 123.0
-margin_bottom = 38.0
-size_flags_horizontal = 3
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 4 )
-text = "Lemon"
-valign = 1
-
-[node name="CucumberIcon" type="TextureRect" parent="VBoxContainer/MainPanelNResto/Restaurant/FoodIcons/VBoxContainer/DrinkIcons"]
-margin_left = 128.0
-margin_right = 177.0
+[node name="Cucumber" type="TextureRect" parent="VBoxContainer/MainPanelNResto/Restaurant/StatusEffects/VBoxContainer/DrinkIcons"]
+margin_left = 136.0
+margin_right = 268.0
 margin_bottom = 50.0
 rect_pivot_offset = Vector2( -477, -156 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource( 54 )
 expand = true
 stretch_mode = 6
 
-[node name="StockCucumber" type="Label" parent="VBoxContainer/MainPanelNResto/Restaurant/FoodIcons/VBoxContainer/DrinkIcons"]
-margin_left = 182.0
-margin_top = 11.0
-margin_right = 294.0
-margin_bottom = 38.0
-size_flags_horizontal = 3
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 4 )
-text = "Cucumber"
-valign = 1
-
-[node name="CoffeeIcon" type="TextureRect" parent="VBoxContainer/MainPanelNResto/Restaurant/FoodIcons/VBoxContainer/DrinkIcons"]
-margin_left = 299.0
-margin_right = 348.0
+[node name="Coffee" type="TextureRect" parent="VBoxContainer/MainPanelNResto/Restaurant/StatusEffects/VBoxContainer/DrinkIcons"]
+margin_left = 273.0
+margin_right = 404.0
 margin_bottom = 50.0
 rect_pivot_offset = Vector2( -477, -156 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource( 55 )
 expand = true
 stretch_mode = 6
 
-[node name="StockCoffee" type="Label" parent="VBoxContainer/MainPanelNResto/Restaurant/FoodIcons/VBoxContainer/DrinkIcons"]
-margin_left = 353.0
-margin_top = 11.0
-margin_right = 433.0
-margin_bottom = 38.0
-size_flags_horizontal = 3
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 4 )
-text = "Coffee"
-valign = 1
-
-[node name="MilkIcon" type="TextureRect" parent="VBoxContainer/MainPanelNResto/Restaurant/FoodIcons/VBoxContainer/DrinkIcons"]
-margin_left = 438.0
-margin_right = 487.0
-margin_bottom = 50.0
-rect_pivot_offset = Vector2( -477, -156 )
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource( 53 )
-expand = true
-stretch_mode = 6
-
-[node name="StockMilk" type="Label" parent="VBoxContainer/MainPanelNResto/Restaurant/FoodIcons/VBoxContainer/DrinkIcons"]
-margin_left = 492.0
-margin_top = 11.0
+[node name="DiscountBuff" type="TextureRect" parent="VBoxContainer/MainPanelNResto/Restaurant/StatusEffects/VBoxContainer/DrinkIcons"]
+margin_left = 409.0
 margin_right = 541.0
-margin_bottom = 38.0
+margin_bottom = 50.0
+rect_pivot_offset = Vector2( -477, -156 )
 size_flags_horizontal = 3
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 4 )
-text = "Milk"
-valign = 1
+size_flags_vertical = 3
+texture = ExtResource( 59 )
+expand = true
+stretch_mode = 6
 
 [node name="NPCs" type="Node2D" parent="."]
 pause_mode = 2
@@ -1119,7 +1075,6 @@ scale = Vector2( 0.279164, 0.254023 )
 texture = ExtResource( 57 )
 hframes = 5
 vframes = 3
-frame = 1
 
 [node name="KingCrySprite" type="Sprite" parent="KingReactions"]
 visible = false
@@ -1128,15 +1083,14 @@ scale = Vector2( 1.08225, 1.01615 )
 texture = ExtResource( 58 )
 hframes = 5
 vframes = 4
-frame = 11
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="KingReactions"]
 pause_mode = 2
-anims/king_laugh = SubResource( 7 )
+anims/king_emotes = SubResource( 7 )
 
 [connection signal="pressed" from="VBoxContainer/ButtonsNIcons/MainPanelButtons/HBoxContainer/LiveUpdatingStats" to="." method="_on_LiveUpdatingStats_pressed"]
 [connection signal="pressed" from="VBoxContainer/ButtonsNIcons/MainPanelButtons/HBoxContainer/OrderIngredients" to="." method="_on_OrderIngredients_pressed"]
-[connection signal="pressed" from="VBoxContainer/ButtonsNIcons/MainPanelButtons/HBoxContainer/OrderDrinks" to="." method="_on_OrderDrinks_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonsNIcons/MainPanelButtons/HBoxContainer/PrepareIngredients" to="." method="_on_OrderDrinks_pressed"]
 [connection signal="pressed" from="VBoxContainer/ButtonsNIcons/MainPanelButtons/HBoxContainer/PriceManagement" to="." method="_on_PriceManagement_pressed"]
 [connection signal="pressed" from="VBoxContainer/ButtonsNIcons/MainPanelButtons/HBoxContainer/TechUpgrades" to="." method="_on_TechUpgrades_pressed"]
 [connection signal="pressed" from="VBoxContainer/ButtonsNIcons/MainPanelButtons/HBoxContainer/Management" to="." method="_on_Management_pressed"]

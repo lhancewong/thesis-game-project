@@ -54,8 +54,7 @@ func _ready():
 
 func _process(delta):
 	_update_labels()
-	animated_sprite.play("king_laugh")
-	animated_sprite.play("king_cry")
+	animated_sprite.play("king_emotes")
 
 
 func _update_labels():

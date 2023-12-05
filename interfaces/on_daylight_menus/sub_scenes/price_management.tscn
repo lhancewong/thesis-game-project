@@ -22,7 +22,7 @@
 [ext_resource path="res://assets/images/icons/coffee_mix.png" type="Texture" id=20]
 
 [sub_resource type="DynamicFont" id=1]
-size = 51
+size = 50
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
@@ -68,9 +68,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 custom_constants/separation = 8
 
-[node name="MgmtStrat" type="Label" parent="VBoxContainer"]
+[node name="PriceMgmt" type="Label" parent="VBoxContainer"]
 margin_right = 724.0
-margin_bottom = 47.0
+margin_bottom = 46.0
 size_flags_horizontal = 3
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
@@ -80,9 +80,9 @@ valign = 1
 autowrap = true
 
 [node name="Stock" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 55.0
+margin_top = 54.0
 margin_right = 724.0
-margin_bottom = 126.0
+margin_bottom = 125.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.7
@@ -298,9 +298,9 @@ align = 1
 valign = 1
 
 [node name="Recipe" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 134.0
+margin_top = 133.0
 margin_right = 724.0
-margin_bottom = 206.0
+margin_bottom = 205.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.7
@@ -541,9 +541,9 @@ texture = ExtResource( 13 )
 expand = true
 
 [node name="PriceLabel" type="Label" parent="VBoxContainer"]
-margin_top = 214.0
+margin_top = 213.0
 margin_right = 724.0
-margin_bottom = 242.0
+margin_bottom = 241.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -554,7 +554,7 @@ valign = 1
 autowrap = true
 
 [node name="Meal" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 250.0
+margin_top = 249.0
 margin_right = 724.0
 margin_bottom = 424.0
 size_flags_horizontal = 3
@@ -564,21 +564,21 @@ custom_constants/separation = 6
 
 [node name="Chicken" type="VBoxContainer" parent="VBoxContainer/Meal"]
 margin_right = 140.0
-margin_bottom = 174.0
+margin_bottom = 175.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 10
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/Meal/Chicken"]
 margin_right = 140.0
-margin_bottom = 66.0
+margin_bottom = 67.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.25
 
 [node name="Chicken" type="ColorRect" parent="VBoxContainer/Meal/Chicken/HBoxContainer2"]
 margin_right = 96.0
-margin_bottom = 66.0
+margin_bottom = 67.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
@@ -601,7 +601,7 @@ autowrap = true
 [node name="Icon" type="ColorRect" parent="VBoxContainer/Meal/Chicken/HBoxContainer2"]
 margin_left = 100.0
 margin_right = 140.0
-margin_bottom = 66.0
+margin_bottom = 67.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.25
@@ -616,9 +616,9 @@ texture = ExtResource( 17 )
 expand = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Meal/Chicken"]
-margin_top = 76.0
+margin_top = 77.0
 margin_right = 140.0
-margin_bottom = 118.0
+margin_bottom = 119.0
 rect_pivot_offset = Vector2( -74, 24 )
 alignment = 1
 
@@ -649,9 +649,9 @@ custom_fonts/font = SubResource( 7 )
 text = "+"
 
 [node name="ChickenUpdate" type="Button" parent="VBoxContainer/Meal/Chicken"]
-margin_top = 128.0
+margin_top = 129.0
 margin_right = 140.0
-margin_bottom = 174.251
+margin_bottom = 175.251
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
@@ -683,21 +683,21 @@ autowrap = true
 [node name="Beef" type="VBoxContainer" parent="VBoxContainer/Meal"]
 margin_left = 146.0
 margin_right = 286.0
-margin_bottom = 174.0
+margin_bottom = 175.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 10
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/Meal/Beef"]
 margin_right = 140.0
-margin_bottom = 66.0
+margin_bottom = 67.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.25
 
 [node name="Beef" type="ColorRect" parent="VBoxContainer/Meal/Beef/HBoxContainer2"]
 margin_right = 96.0
-margin_bottom = 66.0
+margin_bottom = 67.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
@@ -720,7 +720,7 @@ autowrap = true
 [node name="Icon" type="ColorRect" parent="VBoxContainer/Meal/Beef/HBoxContainer2"]
 margin_left = 100.0
 margin_right = 140.0
-margin_bottom = 66.0
+margin_bottom = 67.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.25
@@ -735,9 +735,9 @@ texture = ExtResource( 16 )
 expand = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Meal/Beef"]
-margin_top = 76.0
+margin_top = 77.0
 margin_right = 140.0
-margin_bottom = 118.0
+margin_bottom = 119.0
 rect_pivot_offset = Vector2( -74, 24 )
 alignment = 1
 
@@ -768,9 +768,9 @@ custom_fonts/font = SubResource( 7 )
 text = "+"
 
 [node name="BeefUpdate" type="Button" parent="VBoxContainer/Meal/Beef"]
-margin_top = 128.0
+margin_top = 129.0
 margin_right = 140.0
-margin_bottom = 174.251
+margin_bottom = 175.251
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
@@ -802,21 +802,21 @@ autowrap = true
 [node name="Pork" type="VBoxContainer" parent="VBoxContainer/Meal"]
 margin_left = 292.0
 margin_right = 432.0
-margin_bottom = 174.0
+margin_bottom = 175.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 10
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/Meal/Pork"]
 margin_right = 140.0
-margin_bottom = 66.0
+margin_bottom = 67.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.25
 
 [node name="Pork" type="ColorRect" parent="VBoxContainer/Meal/Pork/HBoxContainer2"]
 margin_right = 96.0
-margin_bottom = 66.0
+margin_bottom = 67.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
@@ -839,7 +839,7 @@ autowrap = true
 [node name="Icon" type="ColorRect" parent="VBoxContainer/Meal/Pork/HBoxContainer2"]
 margin_left = 100.0
 margin_right = 140.0
-margin_bottom = 66.0
+margin_bottom = 67.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.25
@@ -854,9 +854,9 @@ texture = ExtResource( 18 )
 expand = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Meal/Pork"]
-margin_top = 76.0
+margin_top = 77.0
 margin_right = 140.0
-margin_bottom = 118.0
+margin_bottom = 119.0
 rect_pivot_offset = Vector2( -74, 24 )
 alignment = 1
 
@@ -887,9 +887,9 @@ custom_fonts/font = SubResource( 7 )
 text = "+"
 
 [node name="PorkUpdate" type="Button" parent="VBoxContainer/Meal/Pork"]
-margin_top = 128.0
+margin_top = 129.0
 margin_right = 140.0
-margin_bottom = 174.251
+margin_bottom = 175.251
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
@@ -900,21 +900,21 @@ text = "Update"
 [node name="Lemonade" type="VBoxContainer" parent="VBoxContainer/Meal"]
 margin_left = 438.0
 margin_right = 578.0
-margin_bottom = 174.0
+margin_bottom = 175.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 10
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/Meal/Lemonade"]
 margin_right = 140.0
-margin_bottom = 66.0
+margin_bottom = 67.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.25
 
 [node name="Lemonade" type="ColorRect" parent="VBoxContainer/Meal/Lemonade/HBoxContainer2"]
 margin_right = 96.0
-margin_bottom = 66.0
+margin_bottom = 67.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
@@ -936,7 +936,7 @@ autowrap = true
 [node name="Icon" type="ColorRect" parent="VBoxContainer/Meal/Lemonade/HBoxContainer2"]
 margin_left = 100.0
 margin_right = 140.0
-margin_bottom = 66.0
+margin_bottom = 67.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.25
@@ -951,9 +951,9 @@ texture = ExtResource( 19 )
 expand = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Meal/Lemonade"]
-margin_top = 76.0
+margin_top = 77.0
 margin_right = 140.0
-margin_bottom = 118.0
+margin_bottom = 119.0
 rect_pivot_offset = Vector2( -74, 24 )
 alignment = 1
 
@@ -984,9 +984,9 @@ custom_fonts/font = SubResource( 7 )
 text = "+"
 
 [node name="LemonadeUpdate" type="Button" parent="VBoxContainer/Meal/Lemonade"]
-margin_top = 128.0
+margin_top = 129.0
 margin_right = 140.0
-margin_bottom = 174.251
+margin_bottom = 175.251
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
@@ -997,21 +997,21 @@ text = "Update"
 [node name="Coffee" type="VBoxContainer" parent="VBoxContainer/Meal"]
 margin_left = 584.0
 margin_right = 724.0
-margin_bottom = 174.0
+margin_bottom = 175.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 10
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/Meal/Coffee"]
 margin_right = 140.0
-margin_bottom = 66.0
+margin_bottom = 67.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.25
 
 [node name="Coffee" type="ColorRect" parent="VBoxContainer/Meal/Coffee/HBoxContainer2"]
 margin_right = 96.0
-margin_bottom = 66.0
+margin_bottom = 67.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
@@ -1033,7 +1033,7 @@ autowrap = true
 [node name="Icon" type="ColorRect" parent="VBoxContainer/Meal/Coffee/HBoxContainer2"]
 margin_left = 100.0
 margin_right = 140.0
-margin_bottom = 66.0
+margin_bottom = 67.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.25
@@ -1048,9 +1048,9 @@ texture = ExtResource( 15 )
 expand = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Meal/Coffee"]
-margin_top = 76.0
+margin_top = 77.0
 margin_right = 140.0
-margin_bottom = 118.0
+margin_bottom = 119.0
 rect_pivot_offset = Vector2( -74, 24 )
 alignment = 1
 
@@ -1081,9 +1081,9 @@ custom_fonts/font = SubResource( 7 )
 text = "+"
 
 [node name="CoffeeUpdate" type="Button" parent="VBoxContainer/Meal/Coffee"]
-margin_top = 128.0
+margin_top = 129.0
 margin_right = 140.0
-margin_bottom = 174.251
+margin_bottom = 175.251
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
