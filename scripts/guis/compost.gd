@@ -23,7 +23,13 @@ func _on_sendButton_pressed():
 	if compost_amount == 0:
 		SoundHandler.angry_noise.play()
 		return
-	elif Game.strat_hndlr.cap_checker("composting") || compost_amount + Game.strategy_use_tracker["composting"] > Game.strategy_cap["composting"]:
+	elif (
+		Game.strat_hndlr.cap_checker("composting")
+		|| (
+			compost_amount + Game.strategy_use_tracker["composting"]
+			> Game.strategy_cap["composting"]
+		)
+	):
 		SoundHandler.angry_noise.play()
 		return
 	else:

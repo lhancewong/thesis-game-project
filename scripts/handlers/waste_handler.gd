@@ -4,6 +4,7 @@ signal iwaste_produced(amount)
 signal ewaste_produced(amount)
 signal iwaste_managed(amount)
 signal ewaste_managed(amount)
+signal strategy_used(strategy, ewaste, iwaste)
 
 enum { edible, inedible }
 
@@ -31,9 +32,11 @@ func manage_waste(management_strategy: String, waste_type: String, waste_amount:
 	if waste_type == "inedible_waste" && Game.inedible_waste != 0:
 		Game.inedible_waste -= waste_amount
 		emit_signal("iwaste_managed", waste_amount)
+		emit_signal("strategy_used", management_strategy, 0, waste_amount)
 	elif waste_type == "edible_waste" && Game.edible_waste != 0:
 		Game.edible_waste -= waste_amount
 		emit_signal("ewaste_managed", waste_amount)
+		emit_signal("strategy_used", management_strategy, waste_amount, 0)
 	else:
 		return
 
@@ -43,8 +46,6 @@ func manage_waste(management_strategy: String, waste_type: String, waste_amount:
 		waste_amount = waste_amount,
 		date = date
 	}
-	Game.waste_managed.append(waste_entry)
-	print(Game.waste_managed)
 
 
 func get_str_edible_waste():

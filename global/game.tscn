@@ -16,6 +16,7 @@
 [ext_resource path="res://scripts/handlers/buffs_handler.gd" type="Script" id=14]
 
 [node name="Game" type="Node"]
+pause_mode = 2
 script = ExtResource( 1 )
 MEAL = ExtResource( 3 )
 
@@ -57,13 +58,11 @@ script = ExtResource( 14 )
 [connection signal="ewaste_produced" from="Waste" to="Database" method="_on_Waste_ewaste_produced"]
 [connection signal="iwaste_managed" from="Waste" to="Database" method="_on_Waste_iwaste_managed"]
 [connection signal="iwaste_produced" from="Waste" to="Database" method="_on_Waste_iwaste_produced"]
+[connection signal="strategy_used" from="Waste" to="Database" method="_on_Waste_strategy_used"]
 [connection signal="ingred_bought" from="Ingredient" to="Database" method="_on_Ingredient_ingred_bought"]
 [connection signal="ingred_consumed" from="Ingredient" to="Database" method="_on_Ingredient_ingred_consumed"]
 [connection signal="money_spent" from="Ingredient" to="Database" method="_on_Ingredient_money_spent"]
-[connection signal="customer_served" from="Purchase" to="Database" method="_on_Purchase_customer_served"]
-[connection signal="meal_served" from="Purchase" to="Database" method="_on_Purchase_meal_served"]
-[connection signal="money_earned" from="Purchase" to="Database" method="_on_Purchase_money_earned"]
-[connection signal="satsifation_gained" from="Purchase" to="Database" method="_on_Purchase_satsifation_gained"]
 [connection signal="transaction_failed" from="Purchase" to="Database" method="_on_Purchase_transaction_failed"]
+[connection signal="transaction_succeded" from="Purchase" to="Database" method="_on_Purchase_transaction_succeded"]
 [connection signal="day_ended" from="DayCycle" to="Database" method="_on_DayCycle_day_ended"]
 [connection signal="stats_leftover" from="DayCycle" to="Database" method="_on_DayCycle_stats_leftover"]

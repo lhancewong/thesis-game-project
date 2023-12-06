@@ -2,11 +2,8 @@ extends Node
 
 export(Resource) var CUSTO
 
-signal meal_served(type)
-signal customer_served(type)
-signal money_earned(amount)
-signal satsifation_gained(amount)
 signal transaction_failed(type)
+signal transaction_succeded(meal, customer, payment, ewaste, iwaste, satisfaction)
 
 # Sibling Nodes
 onready var food_hndlr = $"../Food"
@@ -73,10 +70,22 @@ func _log_transaction_entry(food: Dictionary, customer: Dictionary) -> Dictionar
 			waste_type_string = "edible_waste"
 	var satisfaction_amnt = _noisefy(CUSTO.BASE_SATISFACTION * customer.satisfaction_factor)
 
-	emit_signal("meal_served", food_type, food_payment)
-	emit_signal("customer_served", customer_type)
-	emit_signal("money_earned", food_payment)
-	emit_signal("satsifation_gained", satisfaction_amnt)
+	var ewaste = 0
+	var iwaste = 0
+	if waste_type:
+		ewaste = waste_amnt
+	else:
+		iwaste = waste_amnt
+
+	emit_signal(
+		"transaction_succeded",
+		food_type,
+		customer_type,
+		food_payment,
+		ewaste,
+		iwaste,
+		satisfaction_amnt
+	)
 
 	var entry = {
 		"day": Game.day,
@@ -88,8 +97,6 @@ func _log_transaction_entry(food: Dictionary, customer: Dictionary) -> Dictionar
 		"waste_amnt": waste_amnt,
 		"satisfaction": satisfaction_amnt,
 	}
-
-	Game.sold_food.append(entry)
 
 	return entry
 

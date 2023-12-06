@@ -17,7 +17,110 @@ func init_daylight_main():
 
 
 func init_daily_statistics():
+	Game.strategy_receipts[str(Game.day)] = []
+	Game.transaction_receipts[str(Game.day)] = []
 	Game.stats_per_day[str(Game.day)] = {
+		ingredient_costed = {
+			pork = 0,
+			chicken = 0,
+			beef = 0,
+			curry_powder = 0,
+			lemon = 0,
+			cucumber = 0,
+			coffee_mix = 0,
+			milk = 0,
+		},
+		transaction_receipts = [],
+		chicken_curry = {
+			transactions_succeded = 0,
+			transactions_failed = 0,
+			money_earned = 0,
+			price_sold = 0,
+			customers_served = {
+				tourist = 0,
+				regular = 0,
+				local = 0,
+			},
+			satisfaction_gained = {
+				tourist = 0,
+				regular = 0,
+				local = 0,
+			},
+			ewaste_produced = 0,
+			iwaste_produced = 0,
+		},
+		pork_curry = {
+			transactions_succeded = 0,
+			transactions_failed = 0,
+			money_earned = 0,
+			price_sold = 0,
+			customers_served = {
+				tourist = 0,
+				regular = 0,
+				local = 0,
+			},
+			satisfaction_gained = {
+				tourist = 0,
+				regular = 0,
+				local = 0,
+			},
+			ewaste_produced = 0,
+			iwaste_produced = 0,
+		},
+		beef_curry = {
+			transactions_succeded = 0,
+			transactions_failed = 0,
+			money_earned = 0,
+			price_sold = 0,
+			customers_served = {
+				tourist = 0,
+				regular = 0,
+				local = 0,
+			},
+			satisfaction_gained = {
+				tourist = 0,
+				regular = 0,
+				local = 0,
+			},
+			ewaste_produced = 0,
+			iwaste_produced = 0,
+		},
+		lemonade = {
+			transactions_succeded = 0,
+			transactions_failed = 0,
+			money_earned = 0,
+			price_sold = 0,
+			customers_served = {
+				tourist = 0,
+				regular = 0,
+				local = 0,
+			},
+			satisfaction_gained = {
+				tourist = 0,
+				regular = 0,
+				local = 0,
+			},
+			ewaste_produced = 0,
+			iwaste_produced = 0,
+		},
+		coffee = {
+			transactions_succeded = 0,
+			transactions_failed = 0,
+			money_earned = 0,
+			price_sold = 0,
+			customers_served = {
+				tourist = 0,
+				regular = 0,
+				local = 0,
+			},
+			satisfaction_gained = {
+				tourist = 0,
+				regular = 0,
+				local = 0,
+			},
+			ewaste_produced = 0,
+			iwaste_produced = 0,
+		},
 		meals_served = {
 			pork_curry = 0,
 			chicken_curry = 0,
@@ -60,17 +163,39 @@ func init_daily_statistics():
 			coffee = [Game.meal_prices["coffee"], 0],
 			no_meal = [0, 0],
 		},
-		customers_served = {tourist = 0, regular = 0, local = 0},
-		satisfaction_gained = 0.0,
-		money_left = 0.0,
-		money_spent = 0.0,
-		money_earned = 0.0,
-		ewaste_produced = 0.0,
-		ewaste_managed = 0.0,
-		ewaste_left = 0.0,
-		iwaste_produced = 0.0,
-		iwaste_managed = 0.0,
-		iwaste_left = 0.0,
+		ewaste_data = {
+			total_produced = 0,
+			total_managed = 0,
+			from_meals = {
+				pork_curry = 0,
+				chicken_curry = 0,
+				beef_curry = 0,
+				lemonade = 0,
+				coffee = 0,
+			},
+			strategies_used = {
+				food_shelter = 0,
+				feed_animals = 0,
+				landfill = 0,
+			}
+		},
+		customers_served = {
+			tourist = 0,
+			regular = 0,
+			local = 0,
+		},
+		satisfaction_gained = {
+			tourist = 0,
+			regular = 0,
+			local = 0,
+		},
+		money_left = 0,
+		money_earned = 0,
+		money_spent = 0,
+		ewaste_produced = 0,
+		ewaste_managed = 0,
+		iwaste_produced = 0,
+		iwaste_managed = 0,
 	}
 
 
@@ -122,7 +247,7 @@ func _day_start():
 		else:
 			game_console.add_entry(entry)
 			king_cry_sprite.visible = false
-			king_laugh_sprite.visible = true  
+			king_laugh_sprite.visible = true
 			SoundHandler.king_laugh.play()
 			npc_spawner.spawnNPC()
 
@@ -130,6 +255,7 @@ func _day_start():
 		yield(get_tree().create_timer(wait), "timeout")
 		king_cry_sprite.visible = false
 		king_laugh_sprite.visible = false
+
 
 func _on_day_end():
 	# Handles leftover money, ewaste, and iwaste per day

@@ -2,9 +2,8 @@ extends Control
 
 onready var chart: Chart = $Chart
 
-var f1: Function  # gross income
-var f2: Function  # expenses
-var f3: Function  # profit
+var f1: Function
+var f2: Function
 var cp: ChartProperties
 
 
@@ -48,12 +47,11 @@ func _plot():
 	var x: Array = xy[0]
 	var y1: Array = xy[1]
 	var y2: Array = xy[2]
-	var y3: Array = xy[3]
 
 	f1 = Function.new(
 		x,
 		y1,
-		"Gross Income",
+		"Waste Produced",
 		{
 			color = Color.darkgreen,
 			type = Function.Type.LINE,
@@ -61,10 +59,11 @@ func _plot():
 			interpolation = Function.Interpolation.LINEAR
 		}
 	)
+
 	f2 = Function.new(
 		x,
 		y2,
-		"Total Expenses",
+		"Waste Managed",
 		{
 			color = Color.darkred,
 			type = Function.Type.LINE,
@@ -72,19 +71,8 @@ func _plot():
 			interpolation = Function.Interpolation.LINEAR
 		}
 	)
-	f3 = Function.new(
-		x,
-		y3,
-		"Profits",
-		{
-			color = Color.darkcyan,
-			type = Function.Type.LINE,
-			marker = Function.Marker.CIRCLE,
-			interpolation = Function.Interpolation.LINEAR
-		}
-	)
 
-	chart.plot([f1, f2, f3], cp)
+	chart.plot([f1, f2], cp)
 
 
 func _on_DayCycle_day_ended():
@@ -96,14 +84,11 @@ func _on_DayCycle_day_ended():
 	if day == 1:
 		_plot()
 
-	var gross_income = day_stats.money_earned
-	var total_expense = day_stats.money_spent
-	var profit = gross_income - total_expense
-	print(gross_income)
+	var waste_produced = Game.database_hndlr.get_waste_produced(day)
+	var waste_managed = Game.database_hndlr.get_waste_managed(day)
 
-	f1.add_point(day, gross_income)
-	f2.add_point(day, total_expense)
-	f3.add_point(day, profit)
+	f1.add_point(day, waste_produced)
+	f2.add_point(day, waste_managed)
 
 	chart.update()
 
@@ -123,8 +108,7 @@ func calculate_x_y():
 	for i in range(Game.stats_per_day.size() - 1):
 		x.append(int(i))
 	for i in x:
-		y1.append(Game.database_hndlr.get_money_earned(i))
-		y2.append(Game.database_hndlr.get_money_spent(i))
-		y3.append(Game.database_hndlr.get_profit(i))
+		y1.append(Game.database_hndlr.get_waste_produced(i))
+		y2.append(Game.database_hndlr.get_waste_managed(i))
 
-	return [x, y1, y2, y3]
+	return [x, y1, y2]

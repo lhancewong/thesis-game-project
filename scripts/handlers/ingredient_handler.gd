@@ -4,6 +4,7 @@ export(Resource) var INGRED
 
 signal ingred_bought(type, amount)
 signal ingred_consumed(type, amount)
+signal ingred_costed(type, amount)
 signal money_spent(amount)
 
 
@@ -42,6 +43,7 @@ func buy_ingredients(type: String, amount: int) -> void:
 		Game.money -= price
 		emit_signal("money_spent", price)
 		emit_signal("ingred_bought", ingredient.type, amount)
+		emit_signal("ingred_costed", ingredient.type, price)
 		SoundHandler.progress_fill.play()
 		debug_msg = "Bought %.2f dollars of %s"
 	else:

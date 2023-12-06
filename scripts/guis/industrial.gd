@@ -28,7 +28,13 @@ func _on_sendButton_pressed():
 	if disposal_amount == 0:
 		SoundHandler.angry_noise.play()
 		return
-	if Game.strat_hndlr.cap_checker("industrial") || disposal_amount + Game.strategy_use_tracker["industrial"] > Game.strategy_cap["industrial"]:
+	if (
+		Game.strat_hndlr.cap_checker("industrial")
+		|| (
+			disposal_amount + Game.strategy_use_tracker["industrial"]
+			> Game.strategy_cap["industrial"]
+		)
+	):
 		SoundHandler.angry_noise.play()
 		return
 	Game.money -= (disposal_amount) * 10

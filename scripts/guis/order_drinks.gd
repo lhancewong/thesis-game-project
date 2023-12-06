@@ -32,6 +32,7 @@ func _ready():
 	_update_labels()
 
 
+
 func _physics_process(delta):  # change to signals
 	_update_labels()
 

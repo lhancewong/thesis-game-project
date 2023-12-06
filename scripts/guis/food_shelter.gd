@@ -23,7 +23,13 @@ func _on_sendButton_pressed():
 	if disposal_amount == 0:
 		SoundHandler.angry_noise.play()
 		return
-	if Game.strat_hndlr.cap_checker("food_shelter") || disposal_amount + Game.strategy_use_tracker["food_shelter"] > Game.strategy_cap["food_shelter"]:
+	if (
+		Game.strat_hndlr.cap_checker("food_shelter")
+		|| (
+			disposal_amount + Game.strategy_use_tracker["food_shelter"]
+			> Game.strategy_cap["food_shelter"]
+		)
+	):
 		SoundHandler.angry_noise.play()
 		return
 	Game.strategy_use_tracker["food_shelter"] += disposal_amount

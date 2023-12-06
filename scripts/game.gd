@@ -28,9 +28,10 @@ var meal_prices: Dictionary
 var i_stockpile: Dictionary
 var cookable_food: Dictionary
 
-var sold_food: Array
 var waste_managed: Array
 var stats_per_day: Dictionary
+var transaction_receipts: Dictionary
+var strategy_receipts: Dictionary
 
 var save_file_num: int
 
@@ -85,6 +86,11 @@ func init_game():
 		chicken = true,
 		beef = false,
 		pork = false,
+		curry_powder = true,
+		lemon = false,
+		cucumber = false,
+		coffee_mix = false,
+		milk = false,
 	}
 	unlocked_tech = {
 		composting = true,
@@ -115,9 +121,9 @@ func init_game():
 	}
 
 	cookable_food = {}
-	sold_food = []
-	waste_managed = []
 	stats_per_day = {}
+	transaction_receipts = {}
+	strategy_receipts = {}
 
 	save_file_num = -1
 

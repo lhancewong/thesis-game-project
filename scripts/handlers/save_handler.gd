@@ -13,9 +13,10 @@ func save():
 		"min_custo": Game.min_custo,
 		"max_custo": Game.max_custo,
 		"i_stockpile": Game.i_stockpile,
-		"sold_food": Game.sold_food,
 		"waste_managed": Game.waste_managed,
 		"stats_per_day": Game.stats_per_day,
+		"transaction_receipts": Game.transaction_receipts,
+		"strategy_receipts": Game.strategy_receipts,
 		"compost_stack": Game.compost_stack,
 		"last_compost_day": Game.last_compost_day,
 		"unlocked_tech": Game.unlocked_tech,
@@ -93,10 +94,14 @@ func load_game():
 					Game.store_level = data
 				"skill_points":
 					Game.skill_points = data
-				"strategy_use_tracker": 
+				"strategy_use_tracker":
 					Game.strategy_use_tracker = data
-				"strategy_cap": 
+				"strategy_cap":
 					Game.strategy_cap = data
+				"transaction_receipts":
+					Game.transaction_receipts = data
+				"strategy_receipts":
+					Game.strategy_receipts = data
 
 	save_game.close()
 

@@ -65,16 +65,8 @@ func _on_Waste_ewaste_managed(amount):
 	Game.stats_per_day[str(Game.day)].ewaste_managed += amount
 
 
-func _on_Waste_ewaste_produced(amount):
-	Game.stats_per_day[str(Game.day)].ewaste_produced += amount
-
-
 func _on_Waste_iwaste_managed(amount):
 	Game.stats_per_day[str(Game.day)].iwaste_managed += amount
-
-
-func _on_Waste_iwaste_produced(amount):
-	Game.stats_per_day[str(Game.day)].iwaste_produced += amount
 
 
 func _on_Ingredient_ingred_bought(type, amount):
@@ -86,24 +78,8 @@ func _on_Ingredient_ingred_consumed(type, amount):
 
 
 func _on_Ingredient_money_spent(amount):
+	print(amount)
 	Game.stats_per_day[str(Game.day)].money_spent += amount
-
-
-func _on_Purchase_customer_served(type):
-	Game.stats_per_day[str(Game.day)].customers_served[type] += 1
-
-
-func _on_Purchase_meal_served(type, amount):
-	Game.stats_per_day[str(Game.day)].meals_served[type] += 1
-	Game.stats_per_day[str(Game.day)].money_earned_from_meals[type] += amount
-
-
-func _on_Purchase_money_earned(amount):
-	Game.stats_per_day[str(Game.day)].money_earned += amount
-
-
-func _on_Purchase_satsifation_gained(amount):
-	Game.stats_per_day[str(Game.day)].satisfaction_gained += amount
 
 
 func _on_DayCycle_stats_leftover(money_left, ewaste_left, iwaste_left):
@@ -114,3 +90,35 @@ func _on_DayCycle_stats_leftover(money_left, ewaste_left, iwaste_left):
 
 func _on_Purchase_transaction_failed(type):
 	Game.stats_per_day[str(Game.day)].transactions_failed[type][1] += 1
+
+
+func _on_Purchase_transaction_succeded(meal, customer, payment, ewaste, iwaste, satisfaction):
+	var day = str(Game.day)
+	var receipt = {
+		customer = customer,
+		ewaste = ewaste,
+		iwaste = iwaste,
+		meal_type = meal,
+		payment = payment,
+		satisfaction = satisfaction,
+	}
+
+	Game.stats_per_day[day].meals_served[meal] += 1
+	Game.stats_per_day[day].money_earned_from_meals[meal] += payment
+	Game.stats_per_day[day].customers_served[customer] += 1
+	Game.stats_per_day[day].satisfaction_gained[customer] += satisfaction
+
+	Game.stats_per_day[day].money_earned += payment
+	Game.stats_per_day[day].ewaste_produced += ewaste
+	Game.stats_per_day[day].iwaste_produced += iwaste
+
+	Game.transaction_receipts[day].append(receipt)
+
+
+func _on_Waste_strategy_used(strategy, ewaste, iwaste):
+	var receipt = {
+		ewaste = ewaste,
+		iwaste = iwaste,
+		strategy = strategy,
+	}
+	Game.strategy_receipts[str(Game.day)].append(receipt)

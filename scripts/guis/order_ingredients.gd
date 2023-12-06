@@ -64,7 +64,7 @@ func _ready():
 	lemon_line_edit.text = str(lemon_amount)
 	cucumber_line_edit.text = str(cucumber_amount)
 	coffee_line_edit.text = str(coffee_amount)
-	milk_line_edit.text = str(milk_amount)	
+	milk_line_edit.text = str(milk_amount)
 
 	Game.ingred_hndlr.check_unlocked_ingredients()
 
@@ -74,14 +74,14 @@ func _physics_process(delta):  # change to signals
 
 
 func _update_labels():
-	stock_chicken.text = "₱ " + str(chicken.price)
-	stock_beef.text = "₱ " + str(beef.price)
-	stock_pork.text = "₱ " + str(pork.price)
-	stock_curry.text = "₱ " + str(curry.price)
-	stock_lemon.text = "₱ " + str(lemon.price)
-	stock_cucumber.text = "₱ " + str(cucumber.price)
-	stock_coffee.text = "₱ " + str(coffee.price)
-	stock_milk.text = "₱ " + str(milk.price)
+	stock_chicken.text = "₱ " + str(chicken.price * chicken_amount)
+	stock_beef.text = "₱ " + str(beef.price * beef_amount)
+	stock_pork.text = "₱ " + str(pork.price * pork_amount)
+	stock_curry.text = "₱ " + str(curry.price * curry_amount)
+	stock_lemon.text = "₱ " + str(lemon.price * lemon_amount)
+	stock_cucumber.text = "₱ " + str(cucumber.price * cucumber_amount)
+	stock_coffee.text = "₱ " + str(coffee.price * coffee_amount)
+	stock_milk.text = "₱ " + str(milk.price * milk_amount)
 
 
 func amnt_minus(amnt):
@@ -201,7 +201,7 @@ func _on_CurryLine_text_changed(new_text):
 	else:
 		curry_line_edit.text = curry_old_text
 		curry_line_edit.set_cursor_position(curry_line_edit.text.length())
-		
+
 
 func _on_LemonBuy_pressed():
 	Game.ingred_hndlr.buy_ingredients("Lemon", lemon_amount)
@@ -313,4 +313,3 @@ func _on_MilkLine_text_changed(new_text):
 	else:
 		milk_line_edit.text = milk_old_text
 		milk_line_edit.set_cursor_position(milk_line_edit.text.length())
-
