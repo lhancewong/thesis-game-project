@@ -88,42 +88,32 @@ func spend_ingredients(food: Dictionary) -> void:
 
 func check_unlocked_ingredients():
 	if get_tree().current_scene.name == "OnDaylight":
-		var order_ingred_node = get_node("/root/OnDaylight/%OrderIngredients")
+		var order_ingreds_node = get_node("/root/OnDaylight/%OrderIngredients")
+		var price_mgmt_node = get_node("/root/OnDaylight/%PriceManagement")
+		var prepare_meals_node = get_node("/root/OnDaylight/%PrepareMeals")
 
-		var coffee_block_node = order_ingred_node.get_node("%CoffeeBlock")
-		var coffee_node = order_ingred_node.get_node("%CoffeeOrder")
-		var milk_block_node = order_ingred_node.get_node("%MilkBlock")
-		var milk_node = order_ingred_node.get_node("%MilkOrder")
-		if Game.day >= 3:
-			coffee_block_node.visible = false
-			coffee_node.visible = true
+		if Game.day >= 2:
+			order_ingreds_node.set_coffee_visibility()
+			price_mgmt_node.set_coffee_visibility()
+			prepare_meals_node.set_coffee_visibility()
 			Game.unlocked_ingredients.coffee = true
-			milk_block_node.visible = false
-			milk_node.visible = true
 			Game.unlocked_ingredients.milk = true
 
-		var beef_block_node = order_ingred_node.get_node("%BeefBlock")
-		var beef_node = order_ingred_node.get_node("%BeefOrder")
-		if Game.day >= 5:
-			beef_block_node.visible = false
-			beef_node.visible = true
+		if Game.day >= 4:
+			order_ingreds_node.set_beef_visibility()
+			price_mgmt_node.set_beef_visibility()
+			prepare_meals_node.set_beef_visibility()
 			Game.unlocked_ingredients.beef = true
 
-		var lemon_block_node = order_ingred_node.get_node("%LemonBlock")
-		var lemon_node = order_ingred_node.get_node("%LemonOrder")
-		var cucumber_block_node = order_ingred_node.get_node("%CucumberBlock")
-		var cucumber_node = order_ingred_node.get_node("%CucumberOrder")
-		if Game.day >= 7:
-			lemon_block_node.visible = false
-			lemon_node.visible = true
+		if Game.day >= 6:
+			order_ingreds_node.set_lemonade_visibility()
+			price_mgmt_node.set_lemonade_visibility()
+			prepare_meals_node.set_lemonade_visibility()
 			Game.unlocked_ingredients.lemon = true
-			cucumber_block_node.visible = false
-			cucumber_node.visible = true
 			Game.unlocked_ingredients.cucumber = true
 
-		var pork_block_node = order_ingred_node.get_node("%PorkBlock")
-		var pork_node = order_ingred_node.get_node("%PorkOrder")
-		if Game.day >= 10:
-			pork_block_node.visible = false
-			pork_node.visible = true
+		if Game.day >= 9:
+			order_ingreds_node.set_pork_visibility()
+			price_mgmt_node.set_pork_visibility()
+			prepare_meals_node.set_pork_visibility()
 			Game.unlocked_ingredients.pork = true

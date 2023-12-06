@@ -312,3 +312,27 @@ func _on_MilkLine_text_changed(new_text):
 	else:
 		milk_line_edit.text = milk_old_text
 		milk_line_edit.set_cursor_position(milk_line_edit.text.length())
+
+
+func set_beef_visibility():
+	$"%BeefBlock".visible = false
+	$"%BeefOrder".visible = true
+
+
+func set_pork_visibility():
+	$"%PorkBlock".visible = false
+	$"%PorkOrder".visible = true
+
+
+func set_lemonade_visibility():
+	$"%LemonBlock".visible = false
+	$"%CucumberBlock".visible = false
+	$"%LemonOrder".visible = true
+	$"%CucumberOrder".visible = true
+
+
+func set_coffee_visibility():
+	$"%CoffeeBlock".visible = false
+	$"%MilkBlock".visible = false
+	$"%CoffeeOrder".visible = true
+	$"%MilkOrder".visible = true

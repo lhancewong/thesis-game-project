@@ -49,3 +49,31 @@ func _update_labels():
 	stock_cucumber.text = str(stockpile["cucumber"])
 	stock_coffee.text = str(stockpile["coffee_mix"])
 	stock_milk.text = str(stockpile["milk"])
+
+
+func set_beef_visibility():
+	$VBoxContainer/Meal/BeefBlock.visible = false
+	$VBoxContainer/Stock/BeefBlock.visible = false
+	$VBoxContainer/Meal/Beef.visible = true
+	$VBoxContainer/Stock/BeefCurry.visible = true
+
+
+func set_pork_visibility():
+	$VBoxContainer/Meal/PorkBlock.visible = false
+	$VBoxContainer/Stock/PorkBlock.visible = false
+	$VBoxContainer/Meal/Pork.visible = true
+	$VBoxContainer/Stock/PorkCurry.visible = true
+
+
+func set_lemonade_visibility():
+	$VBoxContainer/Meal/LemonadeBlock.visible = false
+	$VBoxContainer/Stock/LemonadeBlock.visible = false
+	$VBoxContainer/Meal/Lemonade.visible = true
+	$VBoxContainer/Stock/Lemonade.visible = true
+
+
+func set_coffee_visibility():
+	$VBoxContainer/Meal/CoffeeBlock.visible = false
+	$VBoxContainer/Stock/CoffeeBlock.visible = false
+	$VBoxContainer/Meal/Coffee.visible = true
+	$VBoxContainer/Stock/Coffee.visible = true

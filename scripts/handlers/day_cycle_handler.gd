@@ -205,6 +205,12 @@ func start_day_cycle():
 	_on_day_end()  # +DAY1
 
 
+func start_dev_cycle():
+	_on_day_start()
+	_dev_start()
+	_on_day_end()
+
+
 # Prepares the dictionary to store daily statistics
 func _on_day_start():
 	# Adds a 0 entry to the compost_stack
@@ -255,6 +261,19 @@ func _day_start():
 		yield(get_tree().create_timer(wait), "timeout")
 		king_cry_sprite.visible = false
 		king_laugh_sprite.visible = false
+
+
+# Faster Day
+func _dev_start():
+	# Amount of customers per day
+	var customer_amount = rand_range(Game.min_custo, Game.max_custo)
+
+	for i in customer_amount:
+		var entry = $"../Purchase".create_transaction()
+		if entry.size() != 8:
+			game_console.add_text("Failed Transaction: " + str(entry))
+		else:
+			game_console.add_entry(entry)
 
 
 func _on_day_end():

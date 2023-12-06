@@ -212,7 +212,7 @@ theme = ExtResource( 6 )
 custom_fonts/font = SubResource( 4 )
 text = "Buy"
 
-[node name="BeefBlock" type="TextureRect" parent="VBoxContainer/MealIngredients"]
+[node name="BeefBlock" type="TextureRect" parent="VBoxContainer/MealIngredients" groups=["BeefBlocks"]]
 unique_name_in_owner = true
 margin_left = 183.0
 margin_right = 356.0
@@ -618,6 +618,25 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 10
 
+[node name="CoffeeBlock" type="TextureRect" parent="VBoxContainer/DrinkIngredients"]
+unique_name_in_owner = true
+margin_right = 173.0
+margin_bottom = 185.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 9 )
+expand = true
+
+[node name="Label" type="Label" parent="VBoxContainer/DrinkIngredients/CoffeeBlock"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 9 )
+text = "Unlocks on Day 3"
+align = 1
+valign = 1
+autowrap = true
+
 [node name="CoffeeOrder" type="VBoxContainer" parent="VBoxContainer/DrinkIngredients"]
 unique_name_in_owner = true
 visible = false
@@ -730,16 +749,17 @@ theme = ExtResource( 6 )
 custom_fonts/font = SubResource( 14 )
 text = "Buy"
 
-[node name="CoffeeBlock" type="TextureRect" parent="VBoxContainer/DrinkIngredients"]
+[node name="MilkBlock" type="TextureRect" parent="VBoxContainer/DrinkIngredients"]
 unique_name_in_owner = true
-margin_right = 173.0
+margin_left = 183.0
+margin_right = 356.0
 margin_bottom = 185.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 9 )
 expand = true
 
-[node name="Label" type="Label" parent="VBoxContainer/DrinkIngredients/CoffeeBlock"]
+[node name="Label" type="Label" parent="VBoxContainer/DrinkIngredients/MilkBlock"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -862,22 +882,22 @@ theme = ExtResource( 6 )
 custom_fonts/font = SubResource( 14 )
 text = "Buy"
 
-[node name="MilkBlock" type="TextureRect" parent="VBoxContainer/DrinkIngredients"]
+[node name="LemonBlock" type="TextureRect" parent="VBoxContainer/DrinkIngredients"]
 unique_name_in_owner = true
-margin_left = 183.0
-margin_right = 356.0
+margin_left = 366.0
+margin_right = 539.0
 margin_bottom = 185.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 9 )
 expand = true
 
-[node name="Label" type="Label" parent="VBoxContainer/DrinkIngredients/MilkBlock"]
+[node name="Label" type="Label" parent="VBoxContainer/DrinkIngredients/LemonBlock"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 9 )
-text = "Unlocks on Day 3"
+text = "Unlocks on Day 7"
 align = 1
 valign = 1
 autowrap = true
@@ -995,17 +1015,17 @@ theme = ExtResource( 6 )
 custom_fonts/font = SubResource( 14 )
 text = "Buy"
 
-[node name="LemonBlock" type="TextureRect" parent="VBoxContainer/DrinkIngredients"]
+[node name="CucumberBlock" type="TextureRect" parent="VBoxContainer/DrinkIngredients"]
 unique_name_in_owner = true
-margin_left = 366.0
-margin_right = 539.0
+margin_left = 549.0
+margin_right = 723.0
 margin_bottom = 185.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 9 )
 expand = true
 
-[node name="Label" type="Label" parent="VBoxContainer/DrinkIngredients/LemonBlock"]
+[node name="Label" type="Label" parent="VBoxContainer/DrinkIngredients/CucumberBlock"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -1127,26 +1147,6 @@ size_flags_vertical = 3
 theme = ExtResource( 6 )
 custom_fonts/font = SubResource( 14 )
 text = "Buy"
-
-[node name="CucumberBlock" type="TextureRect" parent="VBoxContainer/DrinkIngredients"]
-unique_name_in_owner = true
-margin_left = 549.0
-margin_right = 723.0
-margin_bottom = 185.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource( 9 )
-expand = true
-
-[node name="Label" type="Label" parent="VBoxContainer/DrinkIngredients/CucumberBlock"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 9 )
-text = "Unlocks on Day 7"
-align = 1
-valign = 1
-autowrap = true
 
 [node name="PaperContainer" type="Control" parent="."]
 visible = false

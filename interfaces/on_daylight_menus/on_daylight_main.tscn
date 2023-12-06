@@ -718,7 +718,7 @@ anchor_bottom = 0.0
 margin_right = 735.0
 margin_bottom = 425.0
 
-[node name="OrderDrinks" parent="VBoxContainer/MainPanelNResto/MainPanel/MainPanel/MarginContainer" instance=ExtResource( 52 )]
+[node name="PrepareMeals" parent="VBoxContainer/MainPanelNResto/MainPanel/MainPanel/MarginContainer" instance=ExtResource( 52 )]
 unique_name_in_owner = true
 visible = false
 margin_right = 735.0
@@ -763,8 +763,19 @@ size_flags_stretch_ratio = 0.1
 custom_constants/separation = 20
 alignment = 2
 
+[node name="StartDev" type="Button" parent="VBoxContainer/MainPanelNResto/MainPanel/Buttons"]
+margin_right = 167.0
+margin_bottom = 50.251
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 18 )
+custom_fonts/font = SubResource( 2 )
+text = "Start Dev"
+expand_icon = true
+
 [node name="Debug" type="Button" parent="VBoxContainer/MainPanelNResto/MainPanel/Buttons" groups=["Debug"]]
-margin_right = 119.0
+margin_left = 187.0
+margin_right = 293.324
 margin_bottom = 50.251
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -775,8 +786,8 @@ text = "Debug"
 expand_icon = true
 
 [node name="ToTitleScreen" type="Button" parent="VBoxContainer/MainPanelNResto/MainPanel/Buttons"]
-margin_left = 139.0
-margin_right = 437.0
+margin_left = 313.0
+margin_right = 567.324
 margin_bottom = 50.251
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -786,7 +797,7 @@ text = "To Title Screen"
 expand_icon = true
 
 [node name="StartDay" type="Button" parent="VBoxContainer/MainPanelNResto/MainPanel/Buttons"]
-margin_left = 457.0
+margin_left = 587.0
 margin_right = 755.0
 margin_bottom = 50.251
 size_flags_horizontal = 3
@@ -1099,6 +1110,7 @@ anims/king_emotes = SubResource( 7 )
 [connection signal="pressed" from="VBoxContainer/ButtonsNIcons/MainPanelButtons/HBoxContainer/TechUpgrades" to="." method="_on_TechUpgrades_pressed"]
 [connection signal="pressed" from="VBoxContainer/ButtonsNIcons/MainPanelButtons/HBoxContainer/Management" to="." method="_on_Management_pressed"]
 [connection signal="pressed" from="VBoxContainer/ButtonsNIcons/MainPanelButtons/HBoxContainer/Statistics" to="." method="_on_Statistics_pressed"]
+[connection signal="pressed" from="VBoxContainer/MainPanelNResto/MainPanel/Buttons/StartDev" to="." method="_on_StartDev_pressed"]
 [connection signal="pressed" from="VBoxContainer/MainPanelNResto/MainPanel/Buttons/Debug" to="." method="_on_Debug_pressed"]
 [connection signal="pressed" from="VBoxContainer/MainPanelNResto/MainPanel/Buttons/ToTitleScreen" to="." method="_on_ToTitleScreen_pressed"]
 [connection signal="pressed" from="VBoxContainer/MainPanelNResto/MainPanel/Buttons/StartDay" to="." method="_on_StartDay_pressed"]

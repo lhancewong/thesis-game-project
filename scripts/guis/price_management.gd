@@ -201,3 +201,31 @@ func _on_CoffeeLine_text_changed(new_text):
 	else:
 		coffee_line_edit.text = coffee_old_text
 		coffee_line_edit.set_cursor_position(coffee_line_edit.text.length())
+
+
+func set_beef_visibility():
+	$"%BeefBlock1".visible = false
+	$"%BeefBlock2".visible = false
+	$VBoxContainer/Stock/Beef.visible = true
+	$VBoxContainer/Meal/Beef.visible = true
+
+
+func set_pork_visibility():
+	$"%PorkBlock1".visible = false
+	$"%PorkBlock2".visible = false
+	$VBoxContainer/Stock/Pork.visible = true
+	$VBoxContainer/Meal/Pork.visible = true
+
+
+func set_lemonade_visibility():
+	$"%LemonBlock1".visible = false
+	$"%LemonBlock2".visible = false
+	$VBoxContainer/Stock/Lemonade.visible = true
+	$VBoxContainer/Meal/Lemonade.visible = true
+
+
+func set_coffee_visibility():
+	$"%CoffeeBlock1".visible = false
+	$"%CoffeeBlock2".visible = false
+	$VBoxContainer/Stock/Coffee.visible = true
+	$VBoxContainer/Meal/Coffee.visible = true

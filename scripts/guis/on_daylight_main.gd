@@ -8,7 +8,7 @@ onready var animated_sprite = $KingReactions/AnimationPlayer
 # Sub Scenes
 onready var live_updates = $"%LiveUpdates"
 onready var order_ingredients = $"%OrderIngredients"
-onready var order_drinks = $"%OrderDrinks"
+onready var prepare_meals = $"%PrepareMeals"
 onready var price_management = $"%PriceManagement"
 onready var management = $"%WasteManagement"
 onready var tech_upgrades = $"%TechUpgrades"
@@ -17,7 +17,7 @@ onready var statistics = $"%Statistics"
 onready var sub_scenes_list = [
 	live_updates,
 	order_ingredients,
-	order_drinks,
+	prepare_meals,
 	price_management,
 	management,
 	tech_upgrades,
@@ -113,6 +113,11 @@ func _on_StartDay_pressed():
 	SoundHandler.progress_fill.play()
 
 
+func _on_StartDev_pressed():
+	SoundHandler.vine_boom.play()
+	Game.day_hndlr.start_dev_cycle()
+
+
 func _on_pause_button_pressed():
 	$PauseFrame.show()
 
@@ -135,7 +140,7 @@ func _on_OrderIngredients_pressed():
 
 func _on_OrderDrinks_pressed():
 	SoundHandler.button_click.play()
-	_toggle_show_sub_scene(order_drinks)
+	_toggle_show_sub_scene(prepare_meals)
 
 
 func _on_PriceManagement_pressed():
