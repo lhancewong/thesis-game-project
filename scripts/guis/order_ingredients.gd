@@ -20,40 +20,39 @@ onready var coffee = Game.ingred_hndlr.get_ingredient("Coffee Mix")
 onready var milk = Game.ingred_hndlr.get_ingredient("Milk")
 
 onready var chicken_amount = 1
-onready var chicken_line_edit = $VBoxContainer/MealIngredients/Chicken/HBoxContainer/LineEdit
+onready var chicken_line_edit = $"%ChickenOrder/HBoxContainer/LineEdit"
 
 onready var beef_amount = 1
-onready var beef_line_edit = $VBoxContainer/MealIngredients/Beef/HBoxContainer/LineEdit
+onready var beef_line_edit = $"%BeefOrder/HBoxContainer/LineEdit"
 
 onready var pork_amount = 1
-onready var pork_line_edit = $VBoxContainer/MealIngredients/Pork/HBoxContainer/LineEdit
+onready var pork_line_edit = $"%PorkOrder/HBoxContainer/LineEdit"
 
 onready var curry_amount = 1
-onready var curry_line_edit = $VBoxContainer/MealIngredients/Curry/HBoxContainer/LineEdit
+onready var curry_line_edit = $"%CurryOrder/HBoxContainer/LineEdit"
 
 onready var lemon_amount = 1
-onready var lemon_line_edit = $VBoxContainer/DrinkIngredients/Lemon/HBoxContainer/LineEdit
+onready var lemon_line_edit = $"%LemonOrder/HBoxContainer/LineEdit"
 
 onready var cucumber_amount = 1
-onready var cucumber_line_edit = $VBoxContainer/DrinkIngredients/Cucumber/HBoxContainer/LineEdit
+onready var cucumber_line_edit = $"%CucumberOrder/HBoxContainer/LineEdit"
 
 onready var coffee_amount = 1
-onready var coffee_line_edit = $VBoxContainer/DrinkIngredients/Coffee/HBoxContainer/LineEdit
+onready var coffee_line_edit = $"%CoffeeOrder/HBoxContainer/LineEdit"
 
 onready var milk_amount = 1
-onready var milk_line_edit = $VBoxContainer/DrinkIngredients/Milk/HBoxContainer/LineEdit
+onready var milk_line_edit = $"%MilkOrder/HBoxContainer/LineEdit"
 
-onready var stock_chicken = $VBoxContainer/MealIngredients/Chicken/Price/Amount
-onready var stock_beef = $VBoxContainer/MealIngredients/Beef/Price/Amount
-onready var stock_pork = $VBoxContainer/MealIngredients/Pork/Price/Amount
-onready var stock_curry = $VBoxContainer/MealIngredients/Curry/Price/Amount
-onready var stock_lemon = $VBoxContainer/DrinkIngredients/Lemon/Price/Amount
-onready var stock_cucumber = $VBoxContainer/DrinkIngredients/Cucumber/Price/Amount
-onready var stock_coffee = $VBoxContainer/DrinkIngredients/Coffee/Price/Amount
-onready var stock_milk = $VBoxContainer/DrinkIngredients/Milk/Price/Amount
+onready var stock_chicken = $"%ChickenOrder/Price/Amount"
+onready var stock_beef = $"%BeefOrder/Price/Amount"
+onready var stock_pork = $"%PorkOrder/Price/Amount"
+onready var stock_curry = $"%CurryOrder/Price/Amount"
+onready var stock_lemon = $"%LemonOrder/Price/Amount"
+onready var stock_cucumber = $"%CucumberOrder/Price/Amount"
+onready var stock_coffee = $"%CoffeeOrder/Price/Amount"
+onready var stock_milk = $"%MilkOrder/Price/Amount"
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	_update_labels()
 	regex.compile("^[0-9]*$")
