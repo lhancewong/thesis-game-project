@@ -19,9 +19,9 @@ onready var milk = Game.ingred_hndlr.get_ingredient("Milk")
 onready var stock_chicken = $VBoxContainer/Stock/ChickenCurry/Chicken/Stock/Label
 onready var stock_beef = $VBoxContainer/Stock/BeefCurry/Beef/Stock/Label
 onready var stock_pork = $VBoxContainer/Stock/PorkCurry/Pork/Stock/Label
-onready var stock_curry_one = $VBoxContainer/Stock/ChickenCurry/Curry/Stock/Label 
-onready var stock_curry_two = $VBoxContainer/Stock/BeefCurry/Curry/Stock/Label 
-onready var stock_curry_three = $VBoxContainer/Stock/PorkCurry/Curry/Stock/Label 
+onready var stock_curry_one = $VBoxContainer/Stock/ChickenCurry/Curry/Stock/Label
+onready var stock_curry_two = $VBoxContainer/Stock/BeefCurry/Curry/Stock/Label
+onready var stock_curry_three = $VBoxContainer/Stock/PorkCurry/Curry/Stock/Label
 onready var stock_lemon = $VBoxContainer/Stock/Lemonade/Lemon/Stock/Label
 onready var stock_cucumber = $VBoxContainer/Stock/Lemonade/Cucumber/Stock/Label
 onready var stock_coffee = $VBoxContainer/Stock/Coffee/CoffeeMix/Stock/Label
@@ -32,14 +32,13 @@ func _ready():
 	_update_labels()
 
 
-
 func _physics_process(delta):  # change to signals
 	_update_labels()
 
 
 func _update_labels():
 	var stockpile = Game.i_stockpile
-	
+
 	stock_chicken.text = str(stockpile["chicken"])
 	stock_beef.text = str(stockpile["beef"])
 	stock_pork.text = str(stockpile["pork"])

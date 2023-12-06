@@ -45,7 +45,12 @@ func create_transaction() -> Dictionary:
 		return entry
 	else:
 		emit_signal("transaction_failed", meal["type"])
-		return {chance_fail = buy_chance}
+		return {
+			chance_fail = buy_chance * 100,
+			mealtype = meal["type"],
+			base_price = base_price,
+			current = current_price
+		}
 
 
 func _update_restaurant_var(entry: Dictionary) -> void:

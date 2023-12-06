@@ -9,6 +9,10 @@ func _ready():
 
 
 static func _map_domain(value: float, from_domain: Dictionary, to_domain: Dictionary) -> float:
+	if from_domain.empty():
+		from_domain = {lb = 0, ub = 0}
+	if to_domain.empty():
+		to_domain = {lb = 0, ub = 0}
 	return range_lerp(value, from_domain.lb, from_domain.ub, to_domain.lb, to_domain.ub)
 
 

@@ -239,7 +239,7 @@ func _day_start():
 
 	for i in customer_amount:
 		var entry = $"../Purchase".create_transaction()
-		if entry.size() == 1:
+		if entry.size() != 8:
 			game_console.add_text("Failed Transaction: " + str(entry))
 			king_laugh_sprite.visible = false
 			king_cry_sprite.visible = true

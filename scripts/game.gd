@@ -94,9 +94,9 @@ func init_game():
 	}
 	unlocked_tech = {
 		composting = true,
-		industrial = true,
-		feed_animals = true,
-		food_shelter = true,
+		industrial = false,
+		feed_animals = false,
+		food_shelter = false,
 	}
 	meal_prices = {
 		chicken_curry = MEAL.menu.chicken_curry.base_price,

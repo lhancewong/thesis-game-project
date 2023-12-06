@@ -100,11 +100,11 @@ func check_unlocked_ingredients():
 		var pork_node = get_node(
 			"/root/OnDaylight/VBoxContainer/MainPanelNResto/MainPanel/MainPanel/MarginContainer/OrderIngredients/VBoxContainer/MealIngredients/Pork"
 		)
-		if Game.day >= 4:
+		if Game.day >= 5:
 			beef_block_node.visible = false
 			beef_node.visible = true
 			Game.unlocked_ingredients.beef = true
-		if Game.day >= 9:
+		if Game.day >= 10:
 			pork_block_node.visible = false
 			pork_node.visible = true
 			Game.unlocked_ingredients.pork = true
