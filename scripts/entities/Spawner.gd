@@ -28,6 +28,7 @@ var Carmella = preload("res://entities/NPCs/Carmella.tscn")
 var Sam = preload("res://entities/NPCs/Sam.tscn")
 var Amy = preload("res://entities/NPCs/Amy.tscn")
 var Serena = preload("res://entities/NPCs/Serena.tscn")
+var Him = preload("res://entities/NPCs/Him.tscn")
 
 var npcArray = [
 	Tyrone,
@@ -54,7 +55,8 @@ var npcArray = [
 	Sam,
 	Amy,
 	Serena,
-	Steve
+	Steve,
+	Him
 ]
 
 

@@ -618,7 +618,119 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 10
 
-[node name="LemonBlock" type="TextureRect" parent="VBoxContainer/DrinkIngredients"]
+[node name="CoffeeOrder" type="VBoxContainer" parent="VBoxContainer/DrinkIngredients"]
+unique_name_in_owner = true
+visible = false
+margin_right = 140.0
+margin_bottom = 185.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 5
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/DrinkIngredients/CoffeeOrder"]
+margin_right = 140.0
+margin_bottom = 51.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.5
+
+[node name="Ingredient" type="ColorRect" parent="VBoxContainer/DrinkIngredients/CoffeeOrder/HBoxContainer2"]
+margin_right = 96.0
+margin_bottom = 51.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+color = Color( 0.917647, 0.717647, 0.25098, 1 )
+
+[node name="Label" type="Label" parent="VBoxContainer/DrinkIngredients/CoffeeOrder/HBoxContainer2/Ingredient"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -1.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
+custom_fonts/font = SubResource( 10 )
+text = "Coffee"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Icon" type="ColorRect" parent="VBoxContainer/DrinkIngredients/CoffeeOrder/HBoxContainer2"]
+margin_left = 100.0
+margin_right = 140.0
+margin_bottom = 51.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.25
+color = Color( 0.917647, 0.717647, 0.25098, 1 )
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/DrinkIngredients/CoffeeOrder/HBoxContainer2/Icon"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 13 )
+expand = true
+
+[node name="Price" type="ColorRect" parent="VBoxContainer/DrinkIngredients/CoffeeOrder"]
+margin_top = 56.0
+margin_right = 140.0
+margin_bottom = 91.0
+size_flags_vertical = 3
+
+[node name="Amount" type="Label" parent="VBoxContainer/DrinkIngredients/CoffeeOrder/Price"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Coffee Price"
+align = 1
+valign = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/DrinkIngredients/CoffeeOrder"]
+margin_top = 96.0
+margin_right = 140.0
+margin_bottom = 138.0
+rect_pivot_offset = Vector2( -74, 24 )
+alignment = 1
+
+[node name="Minus" type="Button" parent="VBoxContainer/DrinkIngredients/CoffeeOrder/HBoxContainer"]
+margin_right = 33.3241
+margin_bottom = 42.251
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 11 )
+text = "-"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/DrinkIngredients/CoffeeOrder/HBoxContainer"]
+margin_left = 37.0
+margin_right = 103.866
+margin_bottom = 42.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+custom_fonts/font = SubResource( 12 )
+align = 1
+placeholder_text = "Buy Amount"
+
+[node name="Plus" type="Button" parent="VBoxContainer/DrinkIngredients/CoffeeOrder/HBoxContainer"]
+margin_left = 107.0
+margin_right = 140.324
+margin_bottom = 42.251
+rect_pivot_offset = Vector2( -71, 20 )
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 13 )
+text = "+"
+
+[node name="CoffeeBuy" type="Button" parent="VBoxContainer/DrinkIngredients/CoffeeOrder"]
+margin_top = 143.0
+margin_right = 140.0
+margin_bottom = 185.251
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 6 )
+custom_fonts/font = SubResource( 14 )
+text = "Buy"
+
+[node name="CoffeeBlock" type="TextureRect" parent="VBoxContainer/DrinkIngredients"]
 unique_name_in_owner = true
 margin_right = 173.0
 margin_bottom = 185.0
@@ -627,12 +739,145 @@ size_flags_vertical = 3
 texture = ExtResource( 9 )
 expand = true
 
-[node name="Label" type="Label" parent="VBoxContainer/DrinkIngredients/LemonBlock"]
+[node name="Label" type="Label" parent="VBoxContainer/DrinkIngredients/CoffeeBlock"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 9 )
-text = "Unlocks on Day 7"
+text = "Unlocks on Day 3"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="MilkOrder" type="VBoxContainer" parent="VBoxContainer/DrinkIngredients"]
+unique_name_in_owner = true
+visible = false
+margin_left = 583.0
+margin_right = 723.0
+margin_bottom = 185.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 5
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/DrinkIngredients/MilkOrder"]
+margin_right = 140.0
+margin_bottom = 51.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.5
+
+[node name="Ingredient" type="ColorRect" parent="VBoxContainer/DrinkIngredients/MilkOrder/HBoxContainer2"]
+margin_right = 96.0
+margin_bottom = 51.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+color = Color( 0.917647, 0.717647, 0.25098, 1 )
+
+[node name="Label" type="Label" parent="VBoxContainer/DrinkIngredients/MilkOrder/HBoxContainer2/Ingredient"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -1.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
+custom_fonts/font = SubResource( 10 )
+text = "Milk"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Icon" type="ColorRect" parent="VBoxContainer/DrinkIngredients/MilkOrder/HBoxContainer2"]
+margin_left = 100.0
+margin_right = 140.0
+margin_bottom = 51.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.25
+color = Color( 0.917647, 0.717647, 0.25098, 1 )
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/DrinkIngredients/MilkOrder/HBoxContainer2/Icon"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 12 )
+expand = true
+
+[node name="Price" type="ColorRect" parent="VBoxContainer/DrinkIngredients/MilkOrder"]
+margin_top = 56.0
+margin_right = 140.0
+margin_bottom = 91.0
+size_flags_vertical = 3
+
+[node name="Amount" type="Label" parent="VBoxContainer/DrinkIngredients/MilkOrder/Price"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Milk Price"
+align = 1
+valign = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/DrinkIngredients/MilkOrder"]
+margin_top = 96.0
+margin_right = 140.0
+margin_bottom = 138.0
+rect_pivot_offset = Vector2( -74, 24 )
+alignment = 1
+
+[node name="Minus" type="Button" parent="VBoxContainer/DrinkIngredients/MilkOrder/HBoxContainer"]
+margin_right = 33.3241
+margin_bottom = 42.251
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 11 )
+text = "-"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/DrinkIngredients/MilkOrder/HBoxContainer"]
+margin_left = 37.0
+margin_right = 103.866
+margin_bottom = 42.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+custom_fonts/font = SubResource( 12 )
+align = 1
+placeholder_text = "Buy Amount"
+
+[node name="Plus" type="Button" parent="VBoxContainer/DrinkIngredients/MilkOrder/HBoxContainer"]
+margin_left = 107.0
+margin_right = 140.324
+margin_bottom = 42.251
+rect_pivot_offset = Vector2( -71, 20 )
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 13 )
+text = "+"
+
+[node name="MilkBuy" type="Button" parent="VBoxContainer/DrinkIngredients/MilkOrder"]
+margin_top = 143.0
+margin_right = 140.0
+margin_bottom = 185.251
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 6 )
+custom_fonts/font = SubResource( 14 )
+text = "Buy"
+
+[node name="MilkBlock" type="TextureRect" parent="VBoxContainer/DrinkIngredients"]
+unique_name_in_owner = true
+margin_left = 183.0
+margin_right = 356.0
+margin_bottom = 185.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 9 )
+expand = true
+
+[node name="Label" type="Label" parent="VBoxContainer/DrinkIngredients/MilkBlock"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 9 )
+text = "Unlocks on Day 3"
 align = 1
 valign = 1
 autowrap = true
@@ -750,17 +995,17 @@ theme = ExtResource( 6 )
 custom_fonts/font = SubResource( 14 )
 text = "Buy"
 
-[node name="CucumberBlock" type="TextureRect" parent="VBoxContainer/DrinkIngredients"]
+[node name="LemonBlock" type="TextureRect" parent="VBoxContainer/DrinkIngredients"]
 unique_name_in_owner = true
-margin_left = 183.0
-margin_right = 356.0
+margin_left = 366.0
+margin_right = 539.0
 margin_bottom = 185.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 9 )
 expand = true
 
-[node name="Label" type="Label" parent="VBoxContainer/DrinkIngredients/CucumberBlock"]
+[node name="Label" type="Label" parent="VBoxContainer/DrinkIngredients/LemonBlock"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -883,140 +1128,7 @@ theme = ExtResource( 6 )
 custom_fonts/font = SubResource( 14 )
 text = "Buy"
 
-[node name="CoffeeBlock" type="TextureRect" parent="VBoxContainer/DrinkIngredients"]
-unique_name_in_owner = true
-margin_left = 366.0
-margin_right = 539.0
-margin_bottom = 185.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource( 9 )
-expand = true
-
-[node name="Label" type="Label" parent="VBoxContainer/DrinkIngredients/CoffeeBlock"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 9 )
-text = "Unlocks on Day 1"
-align = 1
-valign = 1
-autowrap = true
-
-[node name="CoffeeOrder" type="VBoxContainer" parent="VBoxContainer/DrinkIngredients"]
-unique_name_in_owner = true
-visible = false
-margin_left = 362.0
-margin_right = 502.0
-margin_bottom = 185.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_constants/separation = 5
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/DrinkIngredients/CoffeeOrder"]
-margin_right = 140.0
-margin_bottom = 51.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 1.5
-
-[node name="Ingredient" type="ColorRect" parent="VBoxContainer/DrinkIngredients/CoffeeOrder/HBoxContainer2"]
-margin_right = 96.0
-margin_bottom = 51.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 3.0
-color = Color( 0.917647, 0.717647, 0.25098, 1 )
-
-[node name="Label" type="Label" parent="VBoxContainer/DrinkIngredients/CoffeeOrder/HBoxContainer2/Ingredient"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_bottom = -1.0
-size_flags_horizontal = 3
-size_flags_vertical = 1
-custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
-custom_fonts/font = SubResource( 10 )
-text = "Coffee"
-align = 1
-valign = 1
-autowrap = true
-
-[node name="Icon" type="ColorRect" parent="VBoxContainer/DrinkIngredients/CoffeeOrder/HBoxContainer2"]
-margin_left = 100.0
-margin_right = 140.0
-margin_bottom = 51.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 1.25
-color = Color( 0.917647, 0.717647, 0.25098, 1 )
-
-[node name="Icon" type="TextureRect" parent="VBoxContainer/DrinkIngredients/CoffeeOrder/HBoxContainer2/Icon"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource( 13 )
-expand = true
-
-[node name="Price" type="ColorRect" parent="VBoxContainer/DrinkIngredients/CoffeeOrder"]
-margin_top = 56.0
-margin_right = 140.0
-margin_bottom = 91.0
-size_flags_vertical = 3
-
-[node name="Amount" type="Label" parent="VBoxContainer/DrinkIngredients/CoffeeOrder/Price"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 3 )
-text = "Coffee Price"
-align = 1
-valign = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/DrinkIngredients/CoffeeOrder"]
-margin_top = 96.0
-margin_right = 140.0
-margin_bottom = 138.0
-rect_pivot_offset = Vector2( -74, 24 )
-alignment = 1
-
-[node name="Minus" type="Button" parent="VBoxContainer/DrinkIngredients/CoffeeOrder/HBoxContainer"]
-margin_right = 33.3241
-margin_bottom = 42.251
-size_flags_horizontal = 3
-custom_fonts/font = SubResource( 11 )
-text = "-"
-
-[node name="LineEdit" type="LineEdit" parent="VBoxContainer/DrinkIngredients/CoffeeOrder/HBoxContainer"]
-margin_left = 37.0
-margin_right = 103.866
-margin_bottom = 42.0
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 3.0
-custom_fonts/font = SubResource( 12 )
-align = 1
-placeholder_text = "Buy Amount"
-
-[node name="Plus" type="Button" parent="VBoxContainer/DrinkIngredients/CoffeeOrder/HBoxContainer"]
-margin_left = 107.0
-margin_right = 140.324
-margin_bottom = 42.251
-rect_pivot_offset = Vector2( -71, 20 )
-size_flags_horizontal = 3
-custom_fonts/font = SubResource( 13 )
-text = "+"
-
-[node name="CoffeeBuy" type="Button" parent="VBoxContainer/DrinkIngredients/CoffeeOrder"]
-margin_top = 143.0
-margin_right = 140.0
-margin_bottom = 185.251
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme = ExtResource( 6 )
-custom_fonts/font = SubResource( 14 )
-text = "Buy"
-
-[node name="MilkBlock" type="TextureRect" parent="VBoxContainer/DrinkIngredients"]
+[node name="CucumberBlock" type="TextureRect" parent="VBoxContainer/DrinkIngredients"]
 unique_name_in_owner = true
 margin_left = 549.0
 margin_right = 723.0
@@ -1026,128 +1138,15 @@ size_flags_vertical = 3
 texture = ExtResource( 9 )
 expand = true
 
-[node name="Label" type="Label" parent="VBoxContainer/DrinkIngredients/MilkBlock"]
+[node name="Label" type="Label" parent="VBoxContainer/DrinkIngredients/CucumberBlock"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 9 )
-text = "Unlocks on Day 1"
+text = "Unlocks on Day 7"
 align = 1
 valign = 1
 autowrap = true
-
-[node name="MilkOrder" type="VBoxContainer" parent="VBoxContainer/DrinkIngredients"]
-unique_name_in_owner = true
-visible = false
-margin_left = 583.0
-margin_right = 723.0
-margin_bottom = 185.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_constants/separation = 5
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/DrinkIngredients/MilkOrder"]
-margin_right = 140.0
-margin_bottom = 51.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 1.5
-
-[node name="Ingredient" type="ColorRect" parent="VBoxContainer/DrinkIngredients/MilkOrder/HBoxContainer2"]
-margin_right = 96.0
-margin_bottom = 51.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 3.0
-color = Color( 0.917647, 0.717647, 0.25098, 1 )
-
-[node name="Label" type="Label" parent="VBoxContainer/DrinkIngredients/MilkOrder/HBoxContainer2/Ingredient"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_bottom = -1.0
-size_flags_horizontal = 3
-size_flags_vertical = 1
-custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
-custom_fonts/font = SubResource( 10 )
-text = "Milk"
-align = 1
-valign = 1
-autowrap = true
-
-[node name="Icon" type="ColorRect" parent="VBoxContainer/DrinkIngredients/MilkOrder/HBoxContainer2"]
-margin_left = 100.0
-margin_right = 140.0
-margin_bottom = 51.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 1.25
-color = Color( 0.917647, 0.717647, 0.25098, 1 )
-
-[node name="Icon" type="TextureRect" parent="VBoxContainer/DrinkIngredients/MilkOrder/HBoxContainer2/Icon"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource( 12 )
-expand = true
-
-[node name="Price" type="ColorRect" parent="VBoxContainer/DrinkIngredients/MilkOrder"]
-margin_top = 56.0
-margin_right = 140.0
-margin_bottom = 91.0
-size_flags_vertical = 3
-
-[node name="Amount" type="Label" parent="VBoxContainer/DrinkIngredients/MilkOrder/Price"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 3 )
-text = "Milk Price"
-align = 1
-valign = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/DrinkIngredients/MilkOrder"]
-margin_top = 96.0
-margin_right = 140.0
-margin_bottom = 138.0
-rect_pivot_offset = Vector2( -74, 24 )
-alignment = 1
-
-[node name="Minus" type="Button" parent="VBoxContainer/DrinkIngredients/MilkOrder/HBoxContainer"]
-margin_right = 33.3241
-margin_bottom = 42.251
-size_flags_horizontal = 3
-custom_fonts/font = SubResource( 11 )
-text = "-"
-
-[node name="LineEdit" type="LineEdit" parent="VBoxContainer/DrinkIngredients/MilkOrder/HBoxContainer"]
-margin_left = 37.0
-margin_right = 103.866
-margin_bottom = 42.0
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 3.0
-custom_fonts/font = SubResource( 12 )
-align = 1
-placeholder_text = "Buy Amount"
-
-[node name="Plus" type="Button" parent="VBoxContainer/DrinkIngredients/MilkOrder/HBoxContainer"]
-margin_left = 107.0
-margin_right = 140.324
-margin_bottom = 42.251
-rect_pivot_offset = Vector2( -71, 20 )
-size_flags_horizontal = 3
-custom_fonts/font = SubResource( 13 )
-text = "+"
-
-[node name="MilkBuy" type="Button" parent="VBoxContainer/DrinkIngredients/MilkOrder"]
-margin_top = 143.0
-margin_right = 140.0
-margin_bottom = 185.251
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme = ExtResource( 6 )
-custom_fonts/font = SubResource( 14 )
-text = "Buy"
 
 [node name="PaperContainer" type="Control" parent="."]
 visible = false
@@ -1170,14 +1169,6 @@ anchor_bottom = 1.0
 [connection signal="text_changed" from="VBoxContainer/MealIngredients/CurryOrder/HBoxContainer/LineEdit" to="." method="_on_CurryLine_text_changed"]
 [connection signal="pressed" from="VBoxContainer/MealIngredients/CurryOrder/HBoxContainer/Plus" to="." method="_on_Curry_plus_pressed"]
 [connection signal="pressed" from="VBoxContainer/MealIngredients/CurryOrder/CurryBuy" to="." method="_on_CurryBuy_pressed"]
-[connection signal="pressed" from="VBoxContainer/DrinkIngredients/LemonOrder/HBoxContainer/minus" to="." method="_on_Lemon_minus_pressed"]
-[connection signal="text_changed" from="VBoxContainer/DrinkIngredients/LemonOrder/HBoxContainer/LineEdit" to="." method="_on_LemonLine_text_changed"]
-[connection signal="pressed" from="VBoxContainer/DrinkIngredients/LemonOrder/HBoxContainer/plus" to="." method="_on_Lemon_plus_pressed"]
-[connection signal="pressed" from="VBoxContainer/DrinkIngredients/LemonOrder/LemonBuy" to="." method="_on_LemonBuy_pressed"]
-[connection signal="pressed" from="VBoxContainer/DrinkIngredients/CucumberOrder/HBoxContainer/Minus" to="." method="_on_Cucumber_minus_pressed"]
-[connection signal="text_changed" from="VBoxContainer/DrinkIngredients/CucumberOrder/HBoxContainer/LineEdit" to="." method="_on_CucumberLine_text_changed"]
-[connection signal="pressed" from="VBoxContainer/DrinkIngredients/CucumberOrder/HBoxContainer/Plus" to="." method="_on_Cucumber_plus_pressed"]
-[connection signal="pressed" from="VBoxContainer/DrinkIngredients/CucumberOrder/CucumberBuy" to="." method="_on_CucumberBuy_pressed"]
 [connection signal="pressed" from="VBoxContainer/DrinkIngredients/CoffeeOrder/HBoxContainer/Minus" to="." method="_on_Coffee_minus_pressed"]
 [connection signal="text_changed" from="VBoxContainer/DrinkIngredients/CoffeeOrder/HBoxContainer/LineEdit" to="." method="_on_CoffeeLine_text_changed"]
 [connection signal="pressed" from="VBoxContainer/DrinkIngredients/CoffeeOrder/HBoxContainer/Plus" to="." method="_on_Coffee_plus_pressed"]
@@ -1186,3 +1177,11 @@ anchor_bottom = 1.0
 [connection signal="text_changed" from="VBoxContainer/DrinkIngredients/MilkOrder/HBoxContainer/LineEdit" to="." method="_on_MilkLine_text_changed"]
 [connection signal="pressed" from="VBoxContainer/DrinkIngredients/MilkOrder/HBoxContainer/Plus" to="." method="_on_Milk_plus_pressed"]
 [connection signal="pressed" from="VBoxContainer/DrinkIngredients/MilkOrder/MilkBuy" to="." method="_on_MilkBuy_pressed"]
+[connection signal="pressed" from="VBoxContainer/DrinkIngredients/LemonOrder/HBoxContainer/minus" to="." method="_on_Lemon_minus_pressed"]
+[connection signal="text_changed" from="VBoxContainer/DrinkIngredients/LemonOrder/HBoxContainer/LineEdit" to="." method="_on_LemonLine_text_changed"]
+[connection signal="pressed" from="VBoxContainer/DrinkIngredients/LemonOrder/HBoxContainer/plus" to="." method="_on_Lemon_plus_pressed"]
+[connection signal="pressed" from="VBoxContainer/DrinkIngredients/LemonOrder/LemonBuy" to="." method="_on_LemonBuy_pressed"]
+[connection signal="pressed" from="VBoxContainer/DrinkIngredients/CucumberOrder/HBoxContainer/Minus" to="." method="_on_Cucumber_minus_pressed"]
+[connection signal="text_changed" from="VBoxContainer/DrinkIngredients/CucumberOrder/HBoxContainer/LineEdit" to="." method="_on_CucumberLine_text_changed"]
+[connection signal="pressed" from="VBoxContainer/DrinkIngredients/CucumberOrder/HBoxContainer/Plus" to="." method="_on_Cucumber_plus_pressed"]
+[connection signal="pressed" from="VBoxContainer/DrinkIngredients/CucumberOrder/CucumberBuy" to="." method="_on_CucumberBuy_pressed"]

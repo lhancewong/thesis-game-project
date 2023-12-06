@@ -94,7 +94,7 @@ func check_unlocked_ingredients():
 		var coffee_node = order_ingred_node.get_node("%CoffeeOrder")
 		var milk_block_node = order_ingred_node.get_node("%MilkBlock")
 		var milk_node = order_ingred_node.get_node("%MilkOrder")
-		if Game.day >= 2:
+		if Game.day >= 3:
 			coffee_block_node.visible = false
 			coffee_node.visible = true
 			Game.unlocked_ingredients.coffee = true
