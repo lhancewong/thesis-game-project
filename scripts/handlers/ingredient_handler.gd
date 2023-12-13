@@ -21,7 +21,7 @@ func buy_ingredients(type: String, amount: int) -> void:
 		"Pork":
 			ingredient = INGRED.pork
 		"Curry Powder":
-			ingredient = INGRED.curry_powder
+			ingredient = INGRED.curry_stock
 		"Lemon":
 			ingredient = INGRED.lemon
 		"Cucumber":
@@ -39,7 +39,7 @@ func buy_ingredients(type: String, amount: int) -> void:
 		price = price * 0.9
 
 	if Game.money >= price:
-		Game.i_stockpile[ingredient.type] += amount
+		Game.ingredients_ordered[ingredient.type] += amount
 		Game.money -= price
 		emit_signal("money_spent", price)
 		emit_signal("ingred_bought", ingredient.type, amount)
@@ -64,7 +64,7 @@ func get_ingredient(type: String):
 		"Pork":
 			return INGRED.pork
 		"Curry Powder":
-			return INGRED.curry_powder
+			return INGRED.curry_stock
 		"Lemon":
 			return INGRED.lemon
 		"Cucumber":
@@ -77,13 +77,15 @@ func get_ingredient(type: String):
 			return INGRED.lemon
 
 
-func spend_ingredients(food: Dictionary) -> void:
-	var ingredient_list = food.ingredients
+func receive_ingredients_ordered():
+	for ingred_type in Game.ingredients_ordered:
+		Game.i_stockpile[ingred_type] += Game.ingredients_ordered[ingred_type]
 
-	for i in ingredient_list:
-		if i in Game.i_stockpile:
-			Game.i_stockpile[i] -= 1
-			emit_signal("ingred_consumed", i, 1)
+
+func spend_ingredients(ingredients: Array, amount: int) -> void:
+	for ingredient in ingredients:
+		Game.i_stockpile[ingredient] -= amount
+		emit_signal("ingred_consumed", ingredient, amount)
 
 
 func check_unlocked_ingredients():
@@ -92,27 +94,27 @@ func check_unlocked_ingredients():
 		var price_mgmt_node = get_node("/root/OnDaylight/%PriceManagement")
 		var prepare_meals_node = get_node("/root/OnDaylight/%PrepareMeals")
 
-		if Game.day >= 2:
+		if Game.day >= 3:
 			order_ingreds_node.set_coffee_visibility()
 			price_mgmt_node.set_coffee_visibility()
 			prepare_meals_node.set_coffee_visibility()
 			Game.unlocked_ingredients.coffee = true
 			Game.unlocked_ingredients.milk = true
 
-		if Game.day >= 4:
+		if Game.day >= 5:
 			order_ingreds_node.set_beef_visibility()
 			price_mgmt_node.set_beef_visibility()
 			prepare_meals_node.set_beef_visibility()
 			Game.unlocked_ingredients.beef = true
 
-		if Game.day >= 6:
+		if Game.day >= 7:
 			order_ingreds_node.set_lemonade_visibility()
 			price_mgmt_node.set_lemonade_visibility()
 			prepare_meals_node.set_lemonade_visibility()
 			Game.unlocked_ingredients.lemon = true
 			Game.unlocked_ingredients.cucumber = true
 
-		if Game.day >= 9:
+		if Game.day >= 10:
 			order_ingreds_node.set_pork_visibility()
 			price_mgmt_node.set_pork_visibility()
 			prepare_meals_node.set_pork_visibility()

@@ -25,12 +25,10 @@ func create_transaction() -> Dictionary:
 	food_hndlr.update_cookable_food()
 
 	var custo = custo_hndler.get_rand_customer()
-	var meal = food_hndlr.get_food(food_hndlr.get_rand_cookable_food())
+	var meal = food_hndlr.get_rand_cookable_meal()
 
 	# Checks if theres any cookable food
-	if meal == null:
-		return {}
-	elif meal.empty():
+	if typeof(meal) == TYPE_STRING:
 		emit_signal("transaction_failed", "no_meal")
 		return {no_meals = "No Meals"}
 
@@ -39,7 +37,7 @@ func create_transaction() -> Dictionary:
 	var current_price = Game.meal_prices[meal["type"]]
 	var buy_chance = calculate_buy_chance(base_price, current_price, custo["buy_factor"])
 	if randf() <= buy_chance:
-		ingred_hndler.spend_ingredients(meal)
+		ingred_hndler.spend_ingredients(meal["ingredients"], 1)
 		var entry = _log_transaction_entry(meal, custo)
 		_update_restaurant_var(entry)
 		return entry
@@ -48,6 +46,7 @@ func create_transaction() -> Dictionary:
 		return {
 			chance_fail = buy_chance * 100,
 			mealtype = meal["type"],
+			custotype = custo["type"],
 			base_price = base_price,
 			current = current_price
 		}
@@ -60,10 +59,8 @@ func _update_restaurant_var(entry: Dictionary) -> void:
 
 
 func _log_transaction_entry(food: Dictionary, customer: Dictionary) -> Dictionary:
-	var food_id = food.id
 	var food_type = food.type
 	var food_payment = Game.meal_prices[food_type]
-
 	var customer_type = customer.type
 	var waste_amnt = int(_noisefy(CUSTO.BASE_WASTE * customer.waste_factor))
 	var waste_type = randi() % 2
@@ -94,7 +91,6 @@ func _log_transaction_entry(food: Dictionary, customer: Dictionary) -> Dictionar
 
 	var entry = {
 		"day": Game.day,
-		"food_id": food_id,
 		"food_type": food_type,
 		"food_payment": food_payment,
 		"customer": customer_type,

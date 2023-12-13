@@ -60,7 +60,7 @@ func _process(delta):
 func _update_labels():
 	day_label.text = "Day " + str(Game.day)
 	money_label.text = "Money: " + Game.get_str_money()
-	waste_label.text = "Waste: " + Game.get_str_waste()
+	waste_label.text = "Waste: %sg" % Game.get_str_waste()
 	level_label.text = "Level: " + str(Game.store_level)
 	satisfaction_label.text = "Satisfaction: " + Game.get_str_satisfaction()
 
@@ -69,7 +69,7 @@ func _update_labels():
 	stock_chicken.text = str(stockpile["chicken"])
 	stock_beef.text = str(stockpile["beef"])
 	stock_pork.text = str(stockpile["pork"])
-	stock_curry.text = str(stockpile["curry_powder"])
+	stock_curry.text = str(stockpile["curry_stock"])
 	stock_lemon.text = str(stockpile["lemon"])
 	stock_cucumber.text = str(stockpile["cucumber"])
 	stock_coffee.text = str(stockpile["coffee_mix"])
@@ -105,17 +105,21 @@ func _on_ToTitleScreen_pressed():
 
 func _on_StartDay_pressed():
 	SoundHandler.button_click.play()
-	game_console.add_text("Day Started!")
+	game_console.add_text("")
+	game_console.add_text("Day %s Started!" % str(Game.day))
 	_on_pause_button_pressed()
 	yield(Game.day_hndlr.start_day_cycle(), "completed")
 	_on_pause_popup_close_pressed()
-	game_console.add_text("Day Finished!")
+	game_console.add_text("Day %s Finished!" % str(Game.day))
 	SoundHandler.progress_fill.play()
 
 
 func _on_StartDev_pressed():
+	game_console.add_text("")
+	game_console.add_text("Day %s Started!" % str(Game.day))
 	SoundHandler.vine_boom.play()
 	Game.day_hndlr.start_dev_cycle()
+	game_console.add_text("Day %s Finished!" % str(Game.day))
 
 
 func _on_pause_button_pressed():

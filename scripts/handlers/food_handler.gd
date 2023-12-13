@@ -26,29 +26,32 @@ func update_cookable_food():
 			Game.cookable_food.erase(food["type"])
 
 
-func get_rand_cookable_food() -> String:
+func pre_prepare_meal(meal_type: String, amount: int):
+	var meal = MEAL.menu[meal_type]
+
+	var needed_ingredients = []
+	for ingredient in meal["ingredients"]:
+		if Game.i_stockpile[ingredient] < amount:
+			print("not enough ingredients!")
+			return
+		else:
+			needed_ingredients.append(ingredient)
+
+	Game.cookable_food[meal_type] += amount
+	$"../Ingredient".spend_ingredients(needed_ingredients, amount)
+
+
+func get_rand_cookable_meal() -> String:
 	var c_food_keys = Game.cookable_food.keys()
 	if c_food_keys:
 		var food_name = c_food_keys[randi() % c_food_keys.size()]
-		return food_name
+		return MEAL.menu[food_name]
 	else:
-		return "No Food"
+		return "No Meals"
 
 
-func get_food(name: String) -> Dictionary:
-	match name:
-		"chicken_curry":
-			return MEAL.menu.chicken_curry
-		"beef_curry":
-			return MEAL.menu.beef_curry
-		"pork_curry":
-			return MEAL.menu.pork_curry
-		"lemonade":
-			return MEAL.menu.lemonade
-		"coffee":
-			return MEAL.menu.coffee
-		_:
-			return {}
+func get_meal(type: String):
+	return MEAL.menu[type]
 
 
 func set_meal_price(meal: String, price: float):

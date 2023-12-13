@@ -9,7 +9,7 @@ export(Dictionary) var menu = {
 		"base_ewaste": 35,
 		"base_iwaste": 65,
 		"type": "chicken_curry",
-		"ingredients": ["chicken", "curry_powder"],
+		"ingredients": ["chicken", "curry_stock"],
 		"toppings": ["potato", "spinach", "eggplant", "cheese"],
 	},
 	beef_curry = {
@@ -17,7 +17,7 @@ export(Dictionary) var menu = {
 		"base_ewaste": 25,
 		"base_iwaste": 75,
 		"type": "beef_curry",
-		"ingredients": ["beef", "curry_powder"],
+		"ingredients": ["beef", "curry_stock"],
 		"toppings": ["potato", "spinach", "eggplant", "cheese"],
 	},
 	pork_curry = {
@@ -25,7 +25,7 @@ export(Dictionary) var menu = {
 		"base_ewaste": 25,
 		"base_iwaste": 75,
 		"type": "pork_curry",
-		"ingredients": ["pork", "curry_powder"],
+		"ingredients": ["pork", "curry_stock"],
 		"toppings": ["potato", "spinach", "eggplant", "cheese"],
 	},
 	lemonade = {

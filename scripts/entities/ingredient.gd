@@ -22,9 +22,9 @@ export(Dictionary) var pork = {
 	"price": 60.0,  # 0.46 per gram, 130 grams per serving
 }
 
-export(Dictionary) var curry_powder = {
+export(Dictionary) var curry_stock = {
 	"id": 3,
-	"type": "curry_powder",
+	"type": "curry_stock",
 	"price": 120.0,  # guesstimate
 }
 

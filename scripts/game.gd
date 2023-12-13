@@ -27,11 +27,13 @@ var unlocked_ingredients: Dictionary
 var meal_prices: Dictionary
 var i_stockpile: Dictionary
 var cookable_food: Dictionary
+var ingredients_ordered: Dictionary
 
 var waste_managed: Array
 var stats_per_day: Dictionary
 var transaction_receipts: Dictionary
 var strategy_receipts: Dictionary
+var meal_stats: Dictionary
 
 var save_file_num: int
 
@@ -77,16 +79,16 @@ func init_game():
 		food_shelter = 0,
 	}
 	strategy_cap = {
-		composting = 200,
-		industrial = 200,
-		feed_animals = 200,
-		food_shelter = 200,
+		composting = 5000,
+		industrial = 10000,
+		feed_animals = 5000,
+		food_shelter = 3000,
 	}
 	unlocked_ingredients = {
 		chicken = true,
 		beef = false,
 		pork = false,
-		curry_powder = true,
+		curry_stock = true,
 		lemon = false,
 		cucumber = false,
 		coffee_mix = false,
@@ -106,10 +108,10 @@ func init_game():
 		coffee = MEAL.menu.coffee.base_price,
 	}
 	i_stockpile = {
-		"chicken": 0,
+		"chicken": 10,
 		"beef": 0,
 		"pork": 0,
-		"curry_powder": 0,
+		"curry_stock": 10,
 		"potato": 0,
 		"spinach": 0,
 		"eggplant": 0,
@@ -119,11 +121,18 @@ func init_game():
 		"coffee_mix": 0,
 		"milk": 0,
 	}
-
-	cookable_food = {}
+	cookable_food = {
+		chicken_curry = 0,
+		beef_curry = 0,
+		pork_curry = 0,
+		lemonade = 0,
+		coffee = 0,
+	}
+	ingredients_ordered = {}
 	stats_per_day = {}
 	transaction_receipts = {}
 	strategy_receipts = {}
+#	meal_stats = {}
 
 	save_file_num = -1
 

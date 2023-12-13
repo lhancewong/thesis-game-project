@@ -82,10 +82,13 @@ func _on_Ingredient_money_spent(amount):
 	Game.stats_per_day[str(Game.day)].money_spent += amount
 
 
-func _on_DayCycle_stats_leftover(money_left, ewaste_left, iwaste_left):
+func _on_DayCycle_stats_leftover(money_left, ewaste_left, iwaste_left, meals_leftover):
 	Game.stats_per_day[str(Game.day)].money_left = money_left
 	Game.stats_per_day[str(Game.day)].ewaste_left = ewaste_left
 	Game.stats_per_day[str(Game.day)].iwaste_left = iwaste_left
+
+	for meal in meals_leftover:
+		Game.stats_per_day[str(Game.day)].meals_leftover[meal] == meals_leftover[meal]
 
 
 func _on_Purchase_transaction_failed(type):

@@ -7,11 +7,11 @@ var pork_old_text = ""
 var lemonade_old_text = ""
 var coffee_old_text = ""
 
-onready var chicken_meal = Game.food_hndlr.get_food("chicken_curry")
-onready var beef_meal = Game.food_hndlr.get_food("beef_curry")
-onready var pork_meal = Game.food_hndlr.get_food("pork_curry")
-onready var lemonade = Game.food_hndlr.get_food("lemonade")
-onready var coffee = Game.food_hndlr.get_food("coffee")
+onready var chicken_meal = Game.food_hndlr.get_meal("chicken_curry")
+onready var beef_meal = Game.food_hndlr.get_meal("beef_curry")
+onready var pork_meal = Game.food_hndlr.get_meal("pork_curry")
+onready var lemonade = Game.food_hndlr.get_meal("lemonade")
+onready var coffee = Game.food_hndlr.get_meal("coffee")
 
 onready var chicken_amount = Game.meal_prices["chicken_curry"]
 onready var chicken_line_edit = $VBoxContainer/Meal/Chicken/HBoxContainer/LineEdit
