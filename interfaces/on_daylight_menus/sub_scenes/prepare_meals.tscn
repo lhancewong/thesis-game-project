@@ -1389,3 +1389,5 @@ expand = true
 __meta__ = {
 "_edit_use_anchors_": true
 }
+
+[connection signal="pressed" from="VBoxContainer/Meal/Chicken/ChickenPrepare" to="." method="_on_ChickenPrepare_pressed"]

@@ -3,7 +3,7 @@ extends Node
 export(Resource) var CUSTO
 
 signal transaction_failed(type)
-signal transaction_succeded(meal, customer, payment, ewaste, iwaste, satisfaction)
+signal transaction_succeded(meal, customer, payment, iwaste, satisfaction)
 
 # Sibling Nodes
 onready var food_hndlr = $"../Food"
@@ -22,8 +22,6 @@ func _noisefy(num: float):
 
 
 func create_transaction() -> Dictionary:
-	food_hndlr.update_cookable_food()
-
 	var custo = custo_hndler.get_rand_customer()
 	var meal = food_hndlr.get_rand_cookable_meal()
 
@@ -37,7 +35,7 @@ func create_transaction() -> Dictionary:
 	var current_price = Game.meal_prices[meal["type"]]
 	var buy_chance = calculate_buy_chance(base_price, current_price, custo["buy_factor"])
 	if randf() <= buy_chance:
-		ingred_hndler.spend_ingredients(meal["ingredients"], 1)
+		Game.cookable_food[meal["type"]] -= 1
 		var entry = _log_transaction_entry(meal, custo)
 		_update_restaurant_var(entry)
 		return entry
@@ -53,48 +51,33 @@ func create_transaction() -> Dictionary:
 
 
 func _update_restaurant_var(entry: Dictionary) -> void:
-	Game.money += entry.food_payment
+	Game.money += entry.meal_payment
 	waste_hndlr.add_waste(entry["waste_type_string"], entry["waste_amnt"])
 	Game.satisfaction += entry.satisfaction
 
 
-func _log_transaction_entry(food: Dictionary, customer: Dictionary) -> Dictionary:
-	var food_type = food.type
-	var food_payment = Game.meal_prices[food_type]
+func _log_transaction_entry(meal: Dictionary, customer: Dictionary) -> Dictionary:
+	var meal_type = meal.type
+	var meal_payment = Game.meal_prices[meal_type]
 	var customer_type = customer.type
-	var waste_amnt = int(_noisefy(CUSTO.BASE_WASTE * customer.waste_factor))
-	var waste_type = randi() % 2
-	var waste_type_string
-	match waste_type:
-		0:
-			waste_type_string = "inedible_waste"
-		1:
-			waste_type_string = "edible_waste"
+	var waste_amnt = _noisefy(meal.base_iwaste * customer.waste_factor)
 	var satisfaction_amnt = _noisefy(CUSTO.BASE_SATISFACTION * customer.satisfaction_factor)
-
-	var ewaste = 0
-	var iwaste = 0
-	if waste_type:
-		ewaste = waste_amnt
-	else:
-		iwaste = waste_amnt
 
 	emit_signal(
 		"transaction_succeded",
-		food_type,
+		meal_type,
 		customer_type,
-		food_payment,
-		ewaste,
-		iwaste,
+		meal_payment,
+		waste_amnt,
 		satisfaction_amnt
 	)
 
 	var entry = {
 		"day": Game.day,
-		"food_type": food_type,
-		"food_payment": food_payment,
+		"meal_type": meal_type,
+		"meal_payment": meal_payment,
 		"customer": customer_type,
-		"waste_type_string": waste_type_string,
+		"waste_type_string": "inedible_waste",
 		"waste_amnt": waste_amnt,
 		"satisfaction": satisfaction_amnt,
 	}

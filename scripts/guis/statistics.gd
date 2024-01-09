@@ -29,7 +29,7 @@ func set_sold_food_table():
 			)
 			sold_food_label.newline()
 		else:
-			sold_food_label.append_bbcode("[table=6]")
+			sold_food_label.append_bbcode("[table=5]")
 			for cell_label in Game.transaction_receipts[day][0].keys():  # prints out cell labels
 				sold_food_label.append_bbcode("[cell] %s [/cell]" % cell_label)
 			for receipt in Game.transaction_receipts[day]:  # A day's
@@ -73,7 +73,7 @@ func add_sold_food():
 		)
 		sold_food_label.newline()
 	else:
-		sold_food_label.append_bbcode("[table=6]")
+		sold_food_label.append_bbcode("[table=5]")
 		for cell_label in Game.transaction_receipts[day][0].keys():  # prints out cell labels
 			sold_food_label.append_bbcode("[cell] %s [/cell]" % cell_label)
 		for receipt in Game.transaction_receipts[day]:  # All of a day's receipts

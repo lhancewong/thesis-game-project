@@ -46,14 +46,14 @@ script = ExtResource( 8 )
 [node name="DayCycle" type="Node" parent="."]
 script = ExtResource( 11 )
 
-[node name="Database" type="Node" parent="."]
-script = ExtResource( 12 )
-
 [node name="Strategy" type="Node" parent="."]
 script = ExtResource( 13 )
 
 [node name="Buffs" type="Node" parent="."]
 script = ExtResource( 14 )
+
+[node name="Database" type="Node" parent="."]
+script = ExtResource( 12 )
 
 [connection signal="ewaste_managed" from="Waste" to="Database" method="_on_Waste_ewaste_managed"]
 [connection signal="ewaste_produced" from="Waste" to="Database" method="_on_Waste_ewaste_produced"]

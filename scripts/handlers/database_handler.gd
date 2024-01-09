@@ -78,7 +78,6 @@ func _on_Ingredient_ingred_consumed(type, amount):
 
 
 func _on_Ingredient_money_spent(amount):
-	print(amount)
 	Game.stats_per_day[str(Game.day)].money_spent += amount
 
 
@@ -95,11 +94,10 @@ func _on_Purchase_transaction_failed(type):
 	Game.stats_per_day[str(Game.day)].transactions_failed[type][1] += 1
 
 
-func _on_Purchase_transaction_succeded(meal, customer, payment, ewaste, iwaste, satisfaction):
+func _on_Purchase_transaction_succeded(meal, customer, payment, iwaste, satisfaction):
 	var day = str(Game.day)
 	var receipt = {
 		customer = customer,
-		ewaste = ewaste,
 		iwaste = iwaste,
 		meal_type = meal,
 		payment = payment,
@@ -112,7 +110,6 @@ func _on_Purchase_transaction_succeded(meal, customer, payment, ewaste, iwaste, 
 	Game.stats_per_day[day].satisfaction_gained[customer] += satisfaction
 
 	Game.stats_per_day[day].money_earned += payment
-	Game.stats_per_day[day].ewaste_produced += ewaste
 	Game.stats_per_day[day].iwaste_produced += iwaste
 
 	Game.transaction_receipts[day].append(receipt)

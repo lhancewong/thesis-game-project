@@ -39,8 +39,8 @@ func _on_DayCycle_day_ended():
 		data.money_earned,
 		data.money_spent,
 		Game.database_hndlr.get_ingredients_bought(day),
-		Game.database_hndlr.get_waste_produced(day),
-		Game.database_hndlr.get_waste_managed(day),
+		Game.make_pretty_num(Game.database_hndlr.get_waste_produced(day)),
+		Game.make_pretty_num(Game.database_hndlr.get_waste_managed(day)),
 		Game.database_hndlr.get_customers_served(day),
 		Game.database_hndlr.get_transactions_failed(day),
 	]

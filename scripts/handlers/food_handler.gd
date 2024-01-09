@@ -42,10 +42,13 @@ func pre_prepare_meal(meal_type: String, amount: int):
 
 
 func get_rand_cookable_meal() -> String:
-	var c_food_keys = Game.cookable_food.keys()
-	if c_food_keys:
-		var food_name = c_food_keys[randi() % c_food_keys.size()]
-		return MEAL.menu[food_name]
+	var available_meals = []
+	for meal in Game.cookable_food:
+		if Game.cookable_food[meal] > 0:
+			available_meals.append(meal)
+	if available_meals:
+		var meal_name = available_meals[randi() % available_meals.size()]
+		return MEAL.menu[meal_name]
 	else:
 		return "No Meals"
 

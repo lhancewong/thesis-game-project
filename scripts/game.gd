@@ -123,8 +123,8 @@ func init_game():
 	}
 	cookable_food = {
 		chicken_curry = 0,
-		beef_curry = 0,
 		pork_curry = 0,
+		beef_curry = 0,
 		lemonade = 0,
 		coffee = 0,
 	}

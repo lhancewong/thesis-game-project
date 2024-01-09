@@ -7,6 +7,7 @@ signal ewaste_produced(amount)
 signal iwaste_managed(amount)
 signal ewaste_managed(amount)
 signal strategy_used(strategy, ewaste, iwaste)
+signal ewaste_leftover(type, amount)
 
 enum { edible, inedible }
 
@@ -21,16 +22,22 @@ export(Dictionary) var landfill = {
 }
 
 
+# Adds noise to a float value
+func _noisefy(num: float):
+	return rand_range(0.95, 1.05) * num
+
+
 func dispose_leftover_prepared_meals():
-	for leftover in Game.cookable_food:
-		var waste_amount = 100 * Game.cookable_food[leftover]
+	for leftover_food in Game.cookable_food:
+		var waste_base = MEAL.menu[leftover_food]["base_ewaste"]
+		var waste_amount = waste_base * Game.cookable_food[leftover_food]
 		if waste_amount >= 0:
-			add_waste("edible_waste", waste_amount)
+			add_waste("edible_waste", _noisefy(waste_amount))
 	# Resets cookable food
 	Game.cookable_food = {
 		chicken_curry = 0,
-		beef_curry = 0,
 		pork_curry = 0,
+		beef_curry = 0,
 		lemonade = 0,
 		coffee = 0,
 	}
@@ -39,12 +46,8 @@ func dispose_leftover_prepared_meals():
 func add_waste(waste_type: String, waste_amount: float):
 	if waste_type == "inedible_waste":
 		Game.inedible_waste += waste_amount
-#		emit_signal("iwaste_produced", waste_amount)
 	if waste_type == "edible_waste":
 		Game.edible_waste += waste_amount
-
-
-#		emit_signal("ewaste_produced", waste_amount)
 
 
 func manage_waste(management_strategy: String, waste_type: String, waste_amount: float, date: int):

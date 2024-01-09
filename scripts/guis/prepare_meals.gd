@@ -77,3 +77,7 @@ func set_coffee_visibility():
 	$VBoxContainer/Stock/CoffeeBlock.visible = false
 	$VBoxContainer/Meal/Coffee.visible = true
 	$VBoxContainer/Stock/Coffee.visible = true
+
+
+func _on_ChickenPrepare_pressed():
+	Game.food_hndlr.pre_prepare_meal("chicken_curry", 1)

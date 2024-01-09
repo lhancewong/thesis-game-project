@@ -116,8 +116,8 @@ func init_daily_statistics():
 
 	Game.cookable_food = {
 		chicken_curry = 0,
-		beef_curry = 0,
 		pork_curry = 0,
+		beef_curry = 0,
 		lemonade = 0,
 		coffee = 0,
 	}
@@ -248,7 +248,6 @@ func start_dev_cycle():
 	_on_day_end()
 
 
-# Prepares the dictionary to store daily statistics
 func _on_day_start():
 	# Adds a 0 entry to the compost_stack
 	Game.compost_stack.append(0)
@@ -280,12 +279,12 @@ func _day_start():
 	for i in customer_amount:
 		var entry = $"../Purchase".create_transaction()
 		if entry.size() != 7:
-			game_console.add_text("Failed Transaction: " + str(entry))
+			game_console.add_text("Failed Transaction: " + str(entry))  # show result in game debug screen
 			king_laugh_sprite.visible = false
 			king_cry_sprite.visible = true
 			SoundHandler.king_cry.play()
 		else:
-			game_console.add_entry(entry)
+			game_console.add_entry(entry)  # show result in game debug screen
 			king_cry_sprite.visible = false
 			king_laugh_sprite.visible = true
 			SoundHandler.king_laugh.play()
@@ -316,7 +315,8 @@ func _on_day_end():
 	emit_signal(
 		"stats_leftover", Game.money, Game.edible_waste, Game.inedible_waste, Game.cookable_food
 	)
-#	$"../Waste".dispose_leftover_prepared_meals()
+
+	$"../Waste".dispose_leftover_prepared_meals()
 
 	Game.day += 1
 

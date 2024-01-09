@@ -95,6 +95,8 @@ func _on_Debug_pressed():
 	restaurant_view.visible = !restaurant_view.visible
 	game_console.visible = !game_console.visible
 
+	game_console.add_text(str(Game.cookable_food))
+
 
 func _on_ToTitleScreen_pressed():
 	SoundHandler.button_click.play()

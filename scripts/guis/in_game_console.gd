@@ -9,8 +9,8 @@ func add_entry(dict: Dictionary) -> void:
 		format_text
 		% [
 			dict["customer"],
-			dict["food_payment"],
-			dict["food_type"],
+			dict["meal_payment"],
+			dict["meal_type"],
 			dict["waste_amnt"],
 			dict["satisfaction"]
 		]
