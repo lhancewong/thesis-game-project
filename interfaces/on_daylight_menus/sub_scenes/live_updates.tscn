@@ -17,7 +17,7 @@ size = 19
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 14
+size = 13
 font_data = ExtResource( 2 )
 
 [node name="LiveUpdates" type="Control"]

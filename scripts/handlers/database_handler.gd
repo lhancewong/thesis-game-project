@@ -9,9 +9,15 @@ func get_ingredients_bought(day):
 	return ingredient_bought
 
 
-func get_waste_produced(day):
+func get_ewaste_produced(day):
 	var day_stats = Game.stats_per_day[str(day)]
-	var waste_produced = day_stats.ewaste_produced + day_stats.iwaste_produced
+	var waste_produced = day_stats.ewaste_produced
+	return waste_produced
+
+
+func get_iwaste_produced(day):
+	var day_stats = Game.stats_per_day[str(day)]
+	var waste_produced = day_stats.iwaste_produced
 	return waste_produced
 
 
@@ -59,6 +65,11 @@ func get_transactions_failed(day):
 	for data in day_stats.transactions_failed.values():
 		transactions_failed += data[1]
 	return transactions_failed
+
+
+func _on_Waste_ewaste_produced(amount):
+	Game.stats_per_day[str(Game.day)].ewaste_produced += amount
+	print("ewaste " + str(amount))
 
 
 func _on_Waste_ewaste_managed(amount):

@@ -310,13 +310,14 @@ func _dev_start():
 
 
 func _on_day_end():
+	# before day end so that live updates displays correct values
+	$"../Waste".dispose_leftover_prepared_meals()
+
 	# Handles leftover money, ewaste, and iwaste per day
 	emit_signal("day_ended")
 	emit_signal(
 		"stats_leftover", Game.money, Game.edible_waste, Game.inedible_waste, Game.cookable_food
 	)
-
-	$"../Waste".dispose_leftover_prepared_meals()
 
 	Game.day += 1
 

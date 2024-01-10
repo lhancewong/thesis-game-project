@@ -165,3 +165,7 @@ func get_str_waste() -> String:
 
 func get_str_satisfaction() -> String:
 	return make_pretty_num(satisfaction)
+
+
+func _on_Waste_ewaste_produced(amount):
+	pass  # Replace with function body.

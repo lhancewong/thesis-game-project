@@ -30,9 +30,10 @@ func _noisefy(num: float):
 func dispose_leftover_prepared_meals():
 	for leftover_food in Game.cookable_food:
 		var waste_base = MEAL.menu[leftover_food]["base_ewaste"]
-		var waste_amount = waste_base * Game.cookable_food[leftover_food]
+		var waste_amount = _noisefy(waste_base * Game.cookable_food[leftover_food])
 		if waste_amount >= 0:
-			add_waste("edible_waste", _noisefy(waste_amount))
+			add_waste("edible_waste", waste_amount)
+			emit_signal("ewaste_produced", waste_amount)
 	# Resets cookable food
 	Game.cookable_food = {
 		chicken_curry = 0,
