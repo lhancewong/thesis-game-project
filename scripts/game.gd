@@ -47,6 +47,7 @@ onready var strat_hndlr = $Strategy
 onready var day_hndlr = $DayCycle
 onready var database_hndlr = $Database
 onready var buffs_hndlr = $Buffs
+onready var performance_hndlr = $Performance
 
 
 func _ready():

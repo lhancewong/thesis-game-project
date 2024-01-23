@@ -44,7 +44,6 @@ func _on_sendButton_pressed():
 func _on_LineEdit_text_changed(new_text):
 	if regex.search(new_text):
 		if int(new_text) > Game.edible_waste:
-			print("overload")
 			new_text = Game.edible_waste
 		old_text = str(new_text)
 		disposal_amount = int(new_text)

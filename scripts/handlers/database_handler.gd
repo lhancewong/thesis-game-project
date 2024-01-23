@@ -69,7 +69,6 @@ func get_transactions_failed(day):
 
 func _on_Waste_ewaste_produced(amount):
 	Game.stats_per_day[str(Game.day)].ewaste_produced += amount
-	print("ewaste " + str(amount))
 
 
 func _on_Waste_ewaste_managed(amount):
@@ -133,3 +132,7 @@ func _on_Waste_strategy_used(strategy, ewaste, iwaste):
 		strategy = strategy,
 	}
 	Game.strategy_receipts[str(Game.day)].append(receipt)
+
+
+func _on_Food_prepare_meal(type, amount):
+	Game.stats_per_day[str(Game.day)].meals_prepared[type] += amount

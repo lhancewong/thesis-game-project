@@ -2,6 +2,8 @@ extends Node
 
 export(Resource) var MEAL
 
+signal prepare_meal(type, amount)
+
 
 # Calculates possible food items that can be cooked given
 # the current ingredient stockpile
@@ -38,6 +40,7 @@ func pre_prepare_meal(meal_type: String, amount: int):
 			needed_ingredients.append(ingredient)
 
 	Game.cookable_food[meal_type] += amount
+	emit_signal("prepare_meal", meal_type, amount)
 	$"../Ingredient".spend_ingredients(needed_ingredients, amount)
 
 
