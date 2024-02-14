@@ -27,9 +27,30 @@ onready var stock_cucumber = $VBoxContainer/Stock/Lemonade/Cucumber/Stock/Label
 onready var stock_coffee = $VBoxContainer/Stock/Coffee/CoffeeMix/Stock/Label
 onready var stock_milk = $VBoxContainer/Stock/Coffee/Milk/Stock/Label
 
+onready var chicken_curry_amount = 1
+onready var chicken_curry_line_edit = $VBoxContainer/Meal/Chicken/HBoxContainer/LineEdit
+
+onready var beef_curry_amount = 1
+onready var beef_curry_line_edit = $VBoxContainer/Meal/Beef/HBoxContainer/LineEdit
+
+onready var pork_curry_amount = 1
+onready var pork_curry_line_edit = $VBoxContainer/Meal/Pork/HBoxContainer/LineEdit
+
+onready var coffee_amount = 1
+onready var coffee_line_edit = $VBoxContainer/Meal/Coffee/HBoxContainer/LineEdit
+
+onready var lemonade_amount = 1
+onready var lemonade_line_edit = $VBoxContainer/Meal/Lemonade/HBoxContainer/LineEdit
+
 
 func _ready():
 	_update_labels()
+	regex.compile("^[0-9]*$")
+	chicken_curry_line_edit.text = str(chicken_curry_amount)
+	pork_curry_line_edit.text = str(pork_curry_amount)
+	beef_curry_line_edit.text = str(beef_curry_amount)
+	lemonade_line_edit.text = str(lemonade_amount)
+	coffee_line_edit.text = str(coffee_amount)
 
 
 func _physics_process(delta):  # change to signals
@@ -80,4 +101,125 @@ func set_coffee_visibility():
 
 
 func _on_ChickenPrepare_pressed():
-	Game.food_hndlr.pre_prepare_meal("chicken_curry", 1)
+	Game.food_hndlr.pre_prepare_meal("chicken_curry", chicken_curry_amount)
+
+
+func _on_Chicken_plus_pressed():
+	chicken_curry_amount += 1
+	chicken_curry_line_edit.text = str(chicken_curry_amount)
+
+
+func _on_Chicken_minus_pressed():
+	chicken_curry_amount -= 1
+	if chicken_curry_amount < 0:
+		chicken_curry_amount = 0
+	chicken_curry_line_edit.text = str(chicken_curry_amount)
+
+	
+func _on_ChickenLineEdit_text_changed(new_text):
+	if regex.search(new_text):
+		chicken_old_text = str(new_text)
+		chicken_curry_amount = int(new_text)
+	else:
+		chicken_curry_line_edit.text = str(chicken_old_text)
+		chicken_curry_line_edit.set_cursor_position(chicken_curry_line_edit.text.length())
+
+
+func _on_Beef_Minus_pressed():
+	beef_curry_amount -= 1
+	if beef_curry_amount < 0:
+		beef_curry_amount = 0
+	beef_curry_line_edit.text = str(beef_curry_amount)
+
+
+func _on_Beef_Plus_pressed():
+	beef_curry_amount += 1
+	beef_curry_line_edit.text = str(beef_curry_amount)
+
+
+func _on_BeefPrepare_pressed():
+	Game.food_hndlr.pre_prepare_meal("beef_curry", beef_curry_amount)
+	
+
+func _on_BeefLineEdit_text_changed(new_text):
+	if regex.search(new_text):
+		beef_old_text = str(new_text)
+		beef_curry_amount = int(new_text)
+	else:
+		beef_curry_line_edit.text = beef_old_text
+		beef_curry_line_edit.set_cursor_position(beef_curry_line_edit.text.length())
+	
+	
+func _on_Pork_Minus_pressed():
+	pork_curry_amount -= 1
+	if pork_curry_amount < 0:
+		pork_curry_amount = 0
+	pork_curry_line_edit.text = str(pork_curry_amount)
+
+
+func _on_Pork_Plus_pressed():
+	pork_curry_amount += 1
+	pork_curry_line_edit.text = str(pork_curry_amount)
+
+
+func _on_PorkPrepare_pressed():
+	Game.food_hndlr.pre_prepare_meal("pork_curry", pork_curry_amount)
+
+
+func _on_PorkLineEdit_text_changed(new_text):
+	if regex.search(new_text):
+		pork_old_text = str(new_text)
+		pork_curry_amount = int(new_text)
+	else:
+		pork_curry_line_edit.text = pork_old_text
+		pork_curry_line_edit.set_cursor_position(pork_curry_line_edit.text.length())
+
+
+func _on_Coffee_Minus_pressed():
+	coffee_amount -= 1
+	if coffee_amount < 0:
+		coffee_amount = 0
+	coffee_line_edit.text = str(coffee_amount)
+
+
+func _on_Coffee_Plus_pressed():
+	coffee_amount += 1
+	coffee_line_edit.text = str(coffee_amount)
+
+
+func _on_CoffeePrepare_pressed():
+	Game.food_hndlr.pre_prepare_meal("coffee", coffee_amount)
+
+
+func _on_CoffeeLineEdit_text_changed(new_text):
+	if regex.search(new_text):
+		coffee_old_text = str(new_text)
+		coffee_amount = int(new_text)
+	else:
+		coffee_line_edit.text = str(coffee_old_text)
+		coffee_line_edit.set_cursor_position(coffee_line_edit.text.length())
+
+
+func _on_Lemonade_Minus_pressed():
+	lemonade_amount -= 1
+	if lemonade_amount < 0:
+		lemonade_amount = 0
+	lemonade_line_edit.text = str(lemonade_amount)
+
+
+func _on_Lemonade_Plus_pressed():
+	lemonade_amount += 1
+	lemonade_line_edit.text = str(lemonade_amount)
+
+
+func _on_LemonadePrepare_pressed():
+	Game.food_hndlr.pre_prepare_meal("beef_curry", lemonade_amount)
+
+
+func _on_LemonadeLineEdit_text_changed(new_text):
+	if regex.search(new_text):
+		lemonade_old_text = str(new_text)
+		lemonade_amount = int(new_text)
+	else:
+		lemonade_line_edit.text = str(lemonade_old_text)
+		lemonade_line_edit.set_cursor_position(lemonade_line_edit.text.length())

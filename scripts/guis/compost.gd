@@ -4,13 +4,15 @@ var regex = RegEx.new()
 var compost_amount: int = 0
 var old_text = ""
 
-onready var action_line_edit = $VBoxContainer/HBoxContainer/Compost/Strategy/HBoxContainer2/LineEdit
-onready var inedible_waste_amnt = $VBoxContainer/HBoxContainer/Compost/Waste/Amount/InedibleWasteAmnt
+onready var action_line_edit = $VBoxContainer/HBoxContainer/Compost/Top/Strategy/HBoxContainer2/LineEdit
+onready var inedible_waste_amnt = $VBoxContainer/HBoxContainer/Compost/Top/Waste/Amount/InedibleWasteAmnt
+onready var composted_amount = $VBoxContainer/HBoxContainer/Compost/Bottom/Strategy/HBoxContainer2/Amount/CompostedAmount
 
 
 func _ready():
 	inedible_waste_amnt.text = str(Game.inedible_waste)
 	action_line_edit.text = str(compost_amount)
+	composted_amount.text = str(Game.get_compost_stack_sum())
 	regex.compile("^[0-9]*$")
 
 
@@ -34,11 +36,12 @@ func _on_sendButton_pressed():
 		return
 	else:
 		Game.strategy_use_tracker["composting"] += compost_amount
-		compost_stack_add(compost_amount)
+		Game.compost_stack_add(compost_amount)
 		Game.waste_hndlr.manage_waste("composting", "inedible_waste", compost_amount, Game.day)
 		compost_amount = 0
 		action_line_edit.text = str(compost_amount)
 		print(Game.compost_stack)
+		composted_amount.text = str(Game.get_compost_stack_sum())
 		SoundHandler.button_click_two.play()
 
 
@@ -73,14 +76,4 @@ func _on_plus_pressed():
 		action_line_edit.text = str(compost_amount)
 
 
-# creates an array that compiles the amount composted per day and only keeps last 3 days
-func compost_stack_add(amount):
-	if Game.last_compost_day != Game.day:
-#		if Game.day - Game.last_compost_day > 1:
-#			for i in range(Game.day - Game.last_compost_day - 1):
-#				Game.compost_stack.append(0)
-		Game.last_compost_day = Game.day
-		Game.compost_stack.append(amount)
-	else:
-		Game.compost_stack[-1] += amount
-	Game.compost_stack = Game.compost_stack.slice(-3, Game.compost_stack.size())
+

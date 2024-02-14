@@ -30,7 +30,7 @@ func _update_labels():
 
 
 func _on_TrashButton_pressed():
-	if (ewaste_to_landfill + iwaste_to_landfill) * 10 > Game.money:
+	if (ewaste_to_landfill + iwaste_to_landfill) * 5 > Game.money:
 		SoundHandler.angry_noise.play()
 		return
 	elif ewaste_to_landfill == 0 && iwaste_to_landfill == 0:

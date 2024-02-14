@@ -165,3 +165,20 @@ func get_str_waste() -> String:
 
 func get_str_satisfaction() -> String:
 	return make_pretty_num(satisfaction)
+
+
+func get_compost_stack_sum() -> int:
+	var sum = 0
+	for i in compost_stack:
+		sum += i
+	return sum
+
+
+# creates an array that compiles the amount composted per day and only keeps last 3 days
+func compost_stack_add(amount):
+	if Game.last_compost_day != Game.day:
+		Game.last_compost_day = Game.day
+		Game.compost_stack.append(amount)
+	else:
+		Game.compost_stack[-1] += amount
+	Game.compost_stack = Game.compost_stack.slice(-3, Game.compost_stack.size(), 1, true)

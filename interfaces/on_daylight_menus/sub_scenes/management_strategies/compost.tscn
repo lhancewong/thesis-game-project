@@ -10,7 +10,7 @@ size = 51
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=6]
-size = 37
+size = 17
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=7]
@@ -78,23 +78,29 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 30
 
-[node name="Waste" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Compost"]
+[node name="Top" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Compost"]
 margin_right = 346.0
-margin_bottom = 175.0
+margin_bottom = 170.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Waste" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Compost/Top"]
+margin_right = 146.0
+margin_bottom = 170.0
 rect_pivot_offset = Vector2( -345, -102 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
 custom_constants/separation = 20
 
-[node name="Waste" type="ColorRect" parent="VBoxContainer/HBoxContainer/Compost/Waste"]
-margin_right = 346.0
-margin_bottom = 77.0
+[node name="Waste" type="ColorRect" parent="VBoxContainer/HBoxContainer/Compost/Top/Waste"]
+margin_right = 146.0
+margin_bottom = 75.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color( 0.980392, 0.854902, 0.368627, 1 )
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Compost/Waste/Waste"]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Compost/Top/Waste/Waste"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
@@ -103,14 +109,14 @@ text = "Inedible Waste"
 align = 1
 valign = 1
 
-[node name="Amount" type="ColorRect" parent="VBoxContainer/HBoxContainer/Compost/Waste"]
-margin_top = 97.0
-margin_right = 346.0
-margin_bottom = 175.0
+[node name="Amount" type="ColorRect" parent="VBoxContainer/HBoxContainer/Compost/Top/Waste"]
+margin_top = 95.0
+margin_right = 146.0
+margin_bottom = 170.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="InedibleWasteAmnt" type="Label" parent="VBoxContainer/HBoxContainer/Compost/Waste/Amount"]
+[node name="InedibleWasteAmnt" type="Label" parent="VBoxContainer/HBoxContainer/Compost/Top/Waste/Amount"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -119,23 +125,22 @@ text = "Waste Amount"
 align = 1
 valign = 1
 
-[node name="Strategy" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Compost"]
-margin_top = 205.0
+[node name="Strategy" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Compost/Top"]
+margin_left = 150.0
 margin_right = 346.0
-margin_bottom = 370.0
+margin_bottom = 170.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.7
 custom_constants/separation = 20
 
-[node name="Amount" type="ColorRect" parent="VBoxContainer/HBoxContainer/Compost/Strategy"]
-margin_right = 346.0
-margin_bottom = 93.0
+[node name="Amount" type="ColorRect" parent="VBoxContainer/HBoxContainer/Compost/Top/Strategy"]
+margin_right = 196.0
+margin_bottom = 75.0
+size_flags_horizontal = 3
 size_flags_vertical = 3
-size_flags_stretch_ratio = 1.25
 color = Color( 0.980392, 0.854902, 0.368627, 1 )
 
-[node name="CompostAmnt" type="Label" parent="VBoxContainer/HBoxContainer/Compost/Strategy/Amount"]
+[node name="CompostAmnt" type="Label" parent="VBoxContainer/HBoxContainer/Compost/Top/Strategy/Amount"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
@@ -147,38 +152,137 @@ align = 1
 valign = 1
 autowrap = true
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Compost/Strategy"]
-margin_top = 113.0
-margin_right = 346.0
-margin_bottom = 165.0
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Compost/Top/Strategy"]
+margin_top = 95.0
+margin_right = 196.0
+margin_bottom = 170.0
 rect_pivot_offset = Vector2( -74, 24 )
+size_flags_vertical = 3
 alignment = 1
 
-[node name="minus" type="Button" parent="VBoxContainer/HBoxContainer/Compost/Strategy/HBoxContainer2"]
-margin_right = 67.0
-margin_bottom = 52.251
+[node name="minus" type="Button" parent="VBoxContainer/HBoxContainer/Compost/Top/Strategy/HBoxContainer2"]
+margin_right = 39.3241
+margin_bottom = 75.0
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 8 )
 text = "-"
 
-[node name="LineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer/Compost/Strategy/HBoxContainer2"]
-margin_left = 71.0
-margin_right = 274.0
-margin_bottom = 52.0
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer/Compost/Top/Strategy/HBoxContainer2"]
+margin_left = 43.0
+margin_right = 153.0
+margin_bottom = 75.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.0
 custom_fonts/font = SubResource( 9 )
 align = 1
 placeholder_text = "Waste Amount"
 
-[node name="plus" type="Button" parent="VBoxContainer/HBoxContainer/Compost/Strategy/HBoxContainer2"]
-margin_left = 278.0
-margin_right = 346.0
-margin_bottom = 52.251
+[node name="plus" type="Button" parent="VBoxContainer/HBoxContainer/Compost/Top/Strategy/HBoxContainer2"]
+margin_left = 157.0
+margin_right = 196.324
+margin_bottom = 75.0
 rect_pivot_offset = Vector2( -71, 20 )
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 10 )
 text = "+"
+
+[node name="Bottom" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Compost"]
+margin_top = 200.0
+margin_right = 346.0
+margin_bottom = 370.0
+size_flags_vertical = 3
+
+[node name="Waste" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Compost/Bottom"]
+margin_right = 146.0
+margin_bottom = 170.0
+rect_pivot_offset = Vector2( -345, -102 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.75
+custom_constants/separation = 20
+
+[node name="Waste" type="ColorRect" parent="VBoxContainer/HBoxContainer/Compost/Bottom/Waste"]
+margin_right = 146.0
+margin_bottom = 75.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.980392, 0.854902, 0.368627, 1 )
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Compost/Bottom/Waste/Waste"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -6.0
+custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "Maximum
+Tolerance"
+align = 1
+valign = 1
+
+[node name="Amount" type="ColorRect" parent="VBoxContainer/HBoxContainer/Compost/Bottom/Waste"]
+margin_top = 95.0
+margin_right = 146.0
+margin_bottom = 170.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Tolerance" type="Label" parent="VBoxContainer/HBoxContainer/Compost/Bottom/Waste/Amount"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 7 )
+text = "5000"
+align = 1
+valign = 1
+
+[node name="Strategy" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Compost/Bottom"]
+margin_left = 150.0
+margin_right = 346.0
+margin_bottom = 170.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 20
+
+[node name="Amount" type="ColorRect" parent="VBoxContainer/HBoxContainer/Compost/Bottom/Strategy"]
+margin_right = 196.0
+margin_bottom = 75.0
+size_flags_vertical = 3
+color = Color( 0.980392, 0.854902, 0.368627, 1 )
+
+[node name="CompostAmnt" type="Label" parent="VBoxContainer/HBoxContainer/Compost/Bottom/Strategy/Amount"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "Current Composted"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Compost/Bottom/Strategy"]
+margin_top = 95.0
+margin_right = 196.0
+margin_bottom = 170.0
+rect_pivot_offset = Vector2( -74, 24 )
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Amount" type="ColorRect" parent="VBoxContainer/HBoxContainer/Compost/Bottom/Strategy/HBoxContainer2"]
+margin_right = 196.0
+margin_bottom = 75.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CompostedAmount" type="Label" parent="VBoxContainer/HBoxContainer/Compost/Bottom/Strategy/HBoxContainer2/Amount"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 7 )
+text = "Current"
+align = 1
+valign = 1
 
 [node name="Text" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
 margin_left = 376.0
@@ -218,7 +322,7 @@ margin_bottom = 370.251
 custom_fonts/font = SubResource( 5 )
 text = "Send"
 
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Compost/Strategy/HBoxContainer2/minus" to="." method="_on_minus_pressed"]
-[connection signal="text_changed" from="VBoxContainer/HBoxContainer/Compost/Strategy/HBoxContainer2/LineEdit" to="." method="_on_LineEdit_text_changed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Compost/Strategy/HBoxContainer2/plus" to="." method="_on_plus_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Compost/Top/Strategy/HBoxContainer2/minus" to="." method="_on_minus_pressed"]
+[connection signal="text_changed" from="VBoxContainer/HBoxContainer/Compost/Top/Strategy/HBoxContainer2/LineEdit" to="." method="_on_LineEdit_text_changed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Compost/Top/Strategy/HBoxContainer2/plus" to="." method="_on_plus_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Text/ManagementStrategy2" to="." method="_on_sendButton_pressed"]
