@@ -47,6 +47,7 @@ onready var strat_hndlr = $Strategy
 onready var day_hndlr = $DayCycle
 onready var database_hndlr = $Database
 onready var buffs_hndlr = $Buffs
+onready var performance_hndlr = $Performance
 
 
 func _ready():
@@ -182,3 +183,7 @@ func compost_stack_add(amount):
 	else:
 		Game.compost_stack[-1] += amount
 	Game.compost_stack = Game.compost_stack.slice(-3, Game.compost_stack.size(), 1, true)
+
+	
+func _on_Waste_ewaste_produced(amount):
+	pass  # Replace with function body.

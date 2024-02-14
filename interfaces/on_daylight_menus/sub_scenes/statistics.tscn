@@ -70,6 +70,7 @@ custom_fonts/font = SubResource( 1 )
 tab_align = 0
 
 [node name="MoneyData" type="Tabs" parent="TabMenu"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 10.0
@@ -121,7 +122,6 @@ script = ExtResource( 6 )
 [node name="Chart" parent="TabMenu/MealProfits/MarginContainer/MoneyFromMeals" instance=ExtResource( 4 )]
 
 [node name="WasteData" type="Tabs" parent="TabMenu"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -133,13 +133,13 @@ margin_bottom = -4.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 10.0
-margin_top = 10.0
+margin_top = 2.0
 margin_right = -10.0
 margin_bottom = -10.0
 
 [node name="WasteData" type="Control" parent="TabMenu/WasteData/MarginContainer"]
 margin_right = 696.0
-margin_bottom = 367.0
+margin_bottom = 375.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 8 )

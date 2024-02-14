@@ -83,6 +83,13 @@ func init_daily_statistics():
 			regular = 0,
 			local = 0,
 		},
+		meals_prepared = {
+			chicken_curry = 0,
+			pork_curry = 0,
+			beef_curry = 0,
+			lemonade = 0,
+			coffee = 0,
+		},
 		meals_leftover = {
 			pork_curry = 0,
 			chicken_curry = 0,
@@ -309,13 +316,15 @@ func _dev_start():
 
 
 func _on_day_end():
+	# before day end so that live updates displays correct values
+	$"../Waste".dispose_leftover_prepared_meals()
 	# Handles leftover money, ewaste, and iwaste per day
 	emit_signal("day_ended")
 	emit_signal(
 		"stats_leftover", Game.money, Game.edible_waste, Game.inedible_waste, Game.cookable_food
 	)
 
-	$"../Waste".dispose_leftover_prepared_meals()
+	$"../Performance".temp_func(Game.day)
 
 	Game.day += 1
 

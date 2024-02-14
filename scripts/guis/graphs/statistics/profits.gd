@@ -99,7 +99,6 @@ func _on_DayCycle_day_ended():
 	var gross_income = day_stats.money_earned
 	var total_expense = day_stats.money_spent
 	var profit = gross_income - total_expense
-	print(gross_income)
 
 	f1.add_point(day, gross_income)
 	f2.add_point(day, total_expense)

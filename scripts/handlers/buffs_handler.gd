@@ -17,7 +17,6 @@ func compost_debuff():
 	sum = 0
 	for i in Game.compost_stack:
 		sum += i
-	print(sum)
 	if sum > 250:
 		return true
 	else:

@@ -1,0 +1,1391 @@
+[gd_scene load_steps=30 format=2]
+
+[ext_resource path="res://assets/fonts/thin_pixelated.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/fonts/pixelated.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://themes/curry/curry.tres" type="Theme" id=3]
+[ext_resource path="res://themes/curry/pixelated.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://assets/images/icons/lemon.png" type="Texture" id=5]
+[ext_resource path="res://assets/images/icons/chicken.png" type="Texture" id=6]
+[ext_resource path="res://scripts/guis/prepare_meals.gd" type="Script" id=7]
+[ext_resource path="res://assets/images/icons/beef_curry.png" type="Texture" id=8]
+[ext_resource path="res://assets/images/icons/chicken_curry.png" type="Texture" id=9]
+[ext_resource path="res://assets/images/icons/coffee.png" type="Texture" id=10]
+[ext_resource path="res://assets/images/icons/lemonade.png" type="Texture" id=11]
+[ext_resource path="res://assets/images/icons/pork_curry.png" type="Texture" id=12]
+[ext_resource path="res://assets/images/icons/pork.png" type="Texture" id=13]
+[ext_resource path="res://assets/images/icons/cucumber.png" type="Texture" id=14]
+[ext_resource path="res://assets/images/icons/curry_stock.png" type="Texture" id=15]
+[ext_resource path="res://assets/images/icons/coffee_mix.png" type="Texture" id=16]
+[ext_resource path="res://assets/images/icons/beef.png" type="Texture" id=17]
+[ext_resource path="res://assets/images/icons/milk.png" type="Texture" id=18]
+[ext_resource path="res://assets/images/paper.png" type="Texture" id=19]
+
+[sub_resource type="DynamicFont" id=1]
+size = 45
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 17
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 20
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 13
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 20
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 20
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 26
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 35
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 17
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 15
+font_data = ExtResource( 1 )
+
+[node name="OrderDrinks" type="Control"]
+margin_right = 724.0
+margin_bottom = 424.0
+theme = ExtResource( 3 )
+script = ExtResource( 7 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="PrepareIngred" type="Label" parent="VBoxContainer"]
+margin_right = 724.0
+margin_bottom = 41.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Prepare Meals"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Meal" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 45.0
+margin_right = 724.0
+margin_bottom = 235.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.9
+custom_constants/separation = 5
+
+[node name="Chicken" type="VBoxContainer" parent="VBoxContainer/Meal"]
+margin_right = 140.0
+margin_bottom = 190.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 5
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/Meal/Chicken"]
+margin_right = 140.0
+margin_bottom = 86.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.25
+
+[node name="Chicken" type="ColorRect" parent="VBoxContainer/Meal/Chicken/HBoxContainer2"]
+margin_right = 96.0
+margin_bottom = 86.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+color = Color( 0.917647, 0.717647, 0.25098, 1 )
+
+[node name="Label" type="Label" parent="VBoxContainer/Meal/Chicken/HBoxContainer2/Chicken"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -1.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Chicken
+Curry"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Icon" type="ColorRect" parent="VBoxContainer/Meal/Chicken/HBoxContainer2"]
+margin_left = 100.0
+margin_right = 140.0
+margin_bottom = 86.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.25
+color = Color( 0.917647, 0.717647, 0.25098, 1 )
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/Meal/Chicken/HBoxContainer2/Icon"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 9 )
+expand = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Meal/Chicken"]
+margin_top = 91.0
+margin_right = 140.0
+margin_bottom = 133.0
+rect_pivot_offset = Vector2( -74, 24 )
+alignment = 1
+
+[node name="minus" type="Button" parent="VBoxContainer/Meal/Chicken/HBoxContainer"]
+margin_right = 33.3241
+margin_bottom = 42.251
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 4 )
+text = "-"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/Meal/Chicken/HBoxContainer"]
+margin_left = 37.0
+margin_right = 103.866
+margin_bottom = 42.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+custom_fonts/font = SubResource( 5 )
+align = 1
+placeholder_text = "New Price"
+
+[node name="plus" type="Button" parent="VBoxContainer/Meal/Chicken/HBoxContainer"]
+margin_left = 107.0
+margin_right = 140.324
+margin_bottom = 42.251
+rect_pivot_offset = Vector2( -71, 20 )
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 6 )
+text = "+"
+
+[node name="ChickenPrepare" type="Button" parent="VBoxContainer/Meal/Chicken"]
+margin_top = 138.0
+margin_right = 140.0
+margin_bottom = 190.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.75
+theme = ExtResource( 3 )
+custom_fonts/font = SubResource( 7 )
+text = "Prepare"
+
+[node name="BeefBlock" type="TextureRect" parent="VBoxContainer/Meal"]
+margin_left = 145.0
+margin_right = 286.0
+margin_bottom = 190.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 19 )
+expand = true
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/Meal/BeefBlock"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_scale = Vector2( 0.99703, 0.994043 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 11 )
+text = "Unlocks on Day 5"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Beef" type="VBoxContainer" parent="VBoxContainer/Meal"]
+visible = false
+margin_left = 145.0
+margin_right = 286.0
+margin_bottom = 190.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 5
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/Meal/Beef"]
+margin_right = 141.0
+margin_bottom = 86.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.25
+
+[node name="Beef" type="ColorRect" parent="VBoxContainer/Meal/Beef/HBoxContainer2"]
+margin_right = 96.0
+margin_bottom = 86.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+color = Color( 0.917647, 0.717647, 0.25098, 1 )
+
+[node name="Label" type="Label" parent="VBoxContainer/Meal/Beef/HBoxContainer2/Beef"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -1.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Beef 
+Curry"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Icon" type="ColorRect" parent="VBoxContainer/Meal/Beef/HBoxContainer2"]
+margin_left = 100.0
+margin_right = 141.0
+margin_bottom = 86.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.25
+color = Color( 0.917647, 0.717647, 0.25098, 1 )
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/Meal/Beef/HBoxContainer2/Icon"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 8 )
+expand = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Meal/Beef"]
+margin_top = 91.0
+margin_right = 141.0
+margin_bottom = 133.0
+rect_pivot_offset = Vector2( -74, 24 )
+alignment = 1
+
+[node name="Minus" type="Button" parent="VBoxContainer/Meal/Beef/HBoxContainer"]
+margin_right = 33.3241
+margin_bottom = 42.251
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 4 )
+text = "-"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/Meal/Beef/HBoxContainer"]
+margin_left = 37.0
+margin_right = 104.0
+margin_bottom = 42.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+custom_fonts/font = SubResource( 5 )
+align = 1
+placeholder_text = "New Price"
+
+[node name="Plus" type="Button" parent="VBoxContainer/Meal/Beef/HBoxContainer"]
+margin_left = 108.0
+margin_right = 141.324
+margin_bottom = 42.251
+rect_pivot_offset = Vector2( -71, 20 )
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 6 )
+text = "+"
+
+[node name="BeefPrepare" type="Button" parent="VBoxContainer/Meal/Beef"]
+margin_top = 138.0
+margin_right = 141.0
+margin_bottom = 190.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.75
+theme = ExtResource( 3 )
+custom_fonts/font = SubResource( 7 )
+text = "Prepare"
+
+[node name="PorkBlock" type="TextureRect" parent="VBoxContainer/Meal"]
+margin_left = 291.0
+margin_right = 432.0
+margin_bottom = 190.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 19 )
+expand = true
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/Meal/PorkBlock"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_scale = Vector2( 0.99703, 0.994043 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 11 )
+text = "Unlocks on Day 10"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Pork" type="VBoxContainer" parent="VBoxContainer/Meal"]
+visible = false
+margin_left = 182.0
+margin_right = 359.0
+margin_bottom = 190.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 5
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/Meal/Pork"]
+margin_right = 177.0
+margin_bottom = 86.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.25
+
+[node name="Pork" type="ColorRect" parent="VBoxContainer/Meal/Pork/HBoxContainer2"]
+margin_right = 122.0
+margin_bottom = 86.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+color = Color( 0.917647, 0.717647, 0.25098, 1 )
+
+[node name="Label" type="Label" parent="VBoxContainer/Meal/Pork/HBoxContainer2/Pork"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -1.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Pork 
+Curry"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Icon" type="ColorRect" parent="VBoxContainer/Meal/Pork/HBoxContainer2"]
+margin_left = 126.0
+margin_right = 177.0
+margin_bottom = 86.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.25
+color = Color( 0.917647, 0.717647, 0.25098, 1 )
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/Meal/Pork/HBoxContainer2/Icon"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 12 )
+expand = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Meal/Pork"]
+margin_top = 91.0
+margin_right = 177.0
+margin_bottom = 133.0
+rect_pivot_offset = Vector2( -74, 24 )
+alignment = 1
+
+[node name="Minus" type="Button" parent="VBoxContainer/Meal/Pork/HBoxContainer"]
+margin_right = 33.3241
+margin_bottom = 42.251
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 4 )
+text = "-"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/Meal/Pork/HBoxContainer"]
+margin_left = 37.0
+margin_right = 139.0
+margin_bottom = 42.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+custom_fonts/font = SubResource( 5 )
+align = 1
+placeholder_text = "New Price"
+
+[node name="Plus" type="Button" parent="VBoxContainer/Meal/Pork/HBoxContainer"]
+margin_left = 143.0
+margin_right = 177.0
+margin_bottom = 42.251
+rect_pivot_offset = Vector2( -71, 20 )
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 6 )
+text = "+"
+
+[node name="PorkPrepare" type="Button" parent="VBoxContainer/Meal/Pork"]
+margin_top = 138.0
+margin_right = 177.0
+margin_bottom = 190.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.75
+theme = ExtResource( 3 )
+custom_fonts/font = SubResource( 7 )
+text = "Prepare"
+
+[node name="CoffeeBlock" type="TextureRect" parent="VBoxContainer/Meal"]
+margin_left = 437.0
+margin_right = 578.0
+margin_bottom = 190.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 19 )
+expand = true
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/Meal/CoffeeBlock"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_scale = Vector2( 0.99703, 0.994043 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 11 )
+text = "Unlocks on Day 3"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Coffee" type="VBoxContainer" parent="VBoxContainer/Meal"]
+visible = false
+margin_left = 243.0
+margin_right = 481.0
+margin_bottom = 190.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 5
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/Meal/Coffee"]
+margin_right = 238.0
+margin_bottom = 86.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.25
+
+[node name="Coffee" type="ColorRect" parent="VBoxContainer/Meal/Coffee/HBoxContainer2"]
+margin_right = 165.0
+margin_bottom = 86.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+color = Color( 0.917647, 0.717647, 0.25098, 1 )
+
+[node name="Label" type="Label" parent="VBoxContainer/Meal/Coffee/HBoxContainer2/Coffee"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -1.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Coffee"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Icon" type="ColorRect" parent="VBoxContainer/Meal/Coffee/HBoxContainer2"]
+margin_left = 169.0
+margin_right = 238.0
+margin_bottom = 86.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.25
+color = Color( 0.917647, 0.717647, 0.25098, 1 )
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/Meal/Coffee/HBoxContainer2/Icon"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 10 )
+expand = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Meal/Coffee"]
+margin_top = 91.0
+margin_right = 238.0
+margin_bottom = 133.0
+rect_pivot_offset = Vector2( -74, 24 )
+alignment = 1
+
+[node name="Minus" type="Button" parent="VBoxContainer/Meal/Coffee/HBoxContainer"]
+margin_right = 46.0
+margin_bottom = 42.251
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 4 )
+text = "-"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/Meal/Coffee/HBoxContainer"]
+margin_left = 50.0
+margin_right = 188.0
+margin_bottom = 42.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+custom_fonts/font = SubResource( 5 )
+align = 1
+placeholder_text = "New Price"
+
+[node name="Plus" type="Button" parent="VBoxContainer/Meal/Coffee/HBoxContainer"]
+margin_left = 192.0
+margin_right = 238.0
+margin_bottom = 42.251
+rect_pivot_offset = Vector2( -71, 20 )
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 6 )
+text = "+"
+
+[node name="CoffeePrepare" type="Button" parent="VBoxContainer/Meal/Coffee"]
+margin_top = 138.0
+margin_right = 238.0
+margin_bottom = 190.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.75
+theme = ExtResource( 3 )
+custom_fonts/font = SubResource( 7 )
+text = "Prepare"
+
+[node name="LemonadeBlock" type="TextureRect" parent="VBoxContainer/Meal"]
+margin_left = 583.0
+margin_right = 724.0
+margin_bottom = 190.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 19 )
+expand = true
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/Meal/LemonadeBlock"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_scale = Vector2( 0.99703, 0.994043 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 11 )
+text = "Unlocks on Day 7"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Lemonade" type="VBoxContainer" parent="VBoxContainer/Meal"]
+visible = false
+margin_left = 364.0
+margin_right = 724.0
+margin_bottom = 190.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 5
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/Meal/Lemonade"]
+margin_right = 360.0
+margin_bottom = 86.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.25
+
+[node name="Lemonade" type="ColorRect" parent="VBoxContainer/Meal/Lemonade/HBoxContainer2"]
+margin_right = 251.0
+margin_bottom = 86.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+color = Color( 0.917647, 0.717647, 0.25098, 1 )
+
+[node name="Label" type="Label" parent="VBoxContainer/Meal/Lemonade/HBoxContainer2/Lemonade"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -1.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "lemonade"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Icon" type="ColorRect" parent="VBoxContainer/Meal/Lemonade/HBoxContainer2"]
+margin_left = 255.0
+margin_right = 360.0
+margin_bottom = 86.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.25
+color = Color( 0.917647, 0.717647, 0.25098, 1 )
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/Meal/Lemonade/HBoxContainer2/Icon"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 11 )
+expand = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Meal/Lemonade"]
+margin_top = 91.0
+margin_right = 360.0
+margin_bottom = 133.0
+rect_pivot_offset = Vector2( -74, 24 )
+alignment = 1
+
+[node name="Minus" type="Button" parent="VBoxContainer/Meal/Lemonade/HBoxContainer"]
+margin_right = 70.0
+margin_bottom = 42.251
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 4 )
+text = "-"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/Meal/Lemonade/HBoxContainer"]
+margin_left = 74.0
+margin_right = 285.0
+margin_bottom = 42.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+custom_fonts/font = SubResource( 5 )
+align = 1
+placeholder_text = "New Price"
+
+[node name="Plus" type="Button" parent="VBoxContainer/Meal/Lemonade/HBoxContainer"]
+margin_left = 289.0
+margin_right = 360.0
+margin_bottom = 42.251
+rect_pivot_offset = Vector2( -71, 20 )
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 6 )
+text = "+"
+
+[node name="LemonadePrepare" type="Button" parent="VBoxContainer/Meal/Lemonade"]
+margin_top = 138.0
+margin_right = 360.0
+margin_bottom = 190.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.75
+theme = ExtResource( 3 )
+custom_fonts/font = SubResource( 7 )
+text = "Prepare"
+
+[node name="StockLabel" type="Label" parent="VBoxContainer"]
+margin_top = 239.0
+margin_right = 724.0
+margin_bottom = 272.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 9 )
+text = "Ingredient Stock"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Stock" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 276.0
+margin_right = 724.0
+margin_bottom = 424.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.7
+custom_constants/separation = 6
+
+[node name="ChickenCurry" type="VBoxContainer" parent="VBoxContainer/Stock"]
+margin_right = 140.0
+margin_bottom = 148.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 5
+
+[node name="Meal" type="ColorRect" parent="VBoxContainer/Stock/ChickenCurry"]
+margin_right = 140.0
+margin_bottom = 51.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.2
+color = Color( 0.917647, 0.717647, 0.25098, 1 )
+
+[node name="Label" type="Label" parent="VBoxContainer/Stock/ChickenCurry/Meal"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Chicken Curry"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Chicken" type="HBoxContainer" parent="VBoxContainer/Stock/ChickenCurry"]
+margin_top = 56.0
+margin_right = 140.0
+margin_bottom = 99.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Stock" type="ColorRect" parent="VBoxContainer/Stock/ChickenCurry/Chicken"]
+margin_right = 96.0
+margin_bottom = 43.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="Label" type="Label" parent="VBoxContainer/Stock/ChickenCurry/Chicken/Stock"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -1.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
+custom_fonts/font = SubResource( 10 )
+text = "Chicken"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Icon" type="ColorRect" parent="VBoxContainer/Stock/ChickenCurry/Chicken"]
+margin_left = 100.0
+margin_right = 140.0
+margin_bottom = 43.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.25
+color = Color( 0.917647, 0.717647, 0.25098, 1 )
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/Stock/ChickenCurry/Chicken/Icon"]
+anchor_top = 0.0194175
+anchor_right = 1.0
+anchor_bottom = 0.951456
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Curry" type="HBoxContainer" parent="VBoxContainer/Stock/ChickenCurry"]
+margin_top = 104.0
+margin_right = 140.0
+margin_bottom = 148.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Stock" type="ColorRect" parent="VBoxContainer/Stock/ChickenCurry/Curry"]
+margin_right = 96.0
+margin_bottom = 44.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="Label" type="Label" parent="VBoxContainer/Stock/ChickenCurry/Curry/Stock"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -1.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
+custom_fonts/font = SubResource( 10 )
+text = "Curry"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Icon" type="ColorRect" parent="VBoxContainer/Stock/ChickenCurry/Curry"]
+margin_left = 100.0
+margin_right = 140.0
+margin_bottom = 44.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.25
+color = Color( 0.917647, 0.717647, 0.25098, 1 )
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/Stock/ChickenCurry/Curry/Icon"]
+anchor_top = 0.0194175
+anchor_right = 1.0
+anchor_bottom = 0.951456
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 15 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="BeefBlock" type="TextureRect" parent="VBoxContainer/Stock"]
+margin_left = 146.0
+margin_right = 286.0
+margin_bottom = 148.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 19 )
+expand = true
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/Stock/BeefBlock"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_scale = Vector2( 0.99703, 0.994043 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 11 )
+text = "Unlocks on Day 5"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="BeefCurry" type="VBoxContainer" parent="VBoxContainer/Stock"]
+visible = false
+margin_left = 81.0
+margin_right = 156.0
+margin_bottom = 148.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 5
+
+[node name="Meal" type="ColorRect" parent="VBoxContainer/Stock/BeefCurry"]
+margin_right = 75.0
+margin_bottom = 51.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.2
+color = Color( 0.917647, 0.717647, 0.25098, 1 )
+
+[node name="Label" type="Label" parent="VBoxContainer/Stock/BeefCurry/Meal"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Beef Curry"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Beef" type="HBoxContainer" parent="VBoxContainer/Stock/BeefCurry"]
+margin_top = 56.0
+margin_right = 75.0
+margin_bottom = 99.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Stock" type="ColorRect" parent="VBoxContainer/Stock/BeefCurry/Beef"]
+margin_right = 50.0
+margin_bottom = 43.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="Label" type="Label" parent="VBoxContainer/Stock/BeefCurry/Beef/Stock"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -1.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
+custom_fonts/font = SubResource( 10 )
+text = "Chicken"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Icon" type="ColorRect" parent="VBoxContainer/Stock/BeefCurry/Beef"]
+margin_left = 54.0
+margin_right = 75.0
+margin_bottom = 43.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.25
+color = Color( 0.917647, 0.717647, 0.25098, 1 )
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/Stock/BeefCurry/Beef/Icon"]
+anchor_top = 0.0194175
+anchor_right = 1.0
+anchor_bottom = 0.951456
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 17 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Curry" type="HBoxContainer" parent="VBoxContainer/Stock/BeefCurry"]
+margin_top = 104.0
+margin_right = 75.0
+margin_bottom = 148.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Stock" type="ColorRect" parent="VBoxContainer/Stock/BeefCurry/Curry"]
+margin_right = 50.0
+margin_bottom = 44.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="Label" type="Label" parent="VBoxContainer/Stock/BeefCurry/Curry/Stock"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -1.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
+custom_fonts/font = SubResource( 10 )
+text = "Curry"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Icon" type="ColorRect" parent="VBoxContainer/Stock/BeefCurry/Curry"]
+margin_left = 54.0
+margin_right = 75.0
+margin_bottom = 44.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.25
+color = Color( 0.917647, 0.717647, 0.25098, 1 )
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/Stock/BeefCurry/Curry/Icon"]
+anchor_top = 0.0194175
+anchor_right = 1.0
+anchor_bottom = 0.951456
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 15 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="PorkBlock" type="TextureRect" parent="VBoxContainer/Stock"]
+margin_left = 292.0
+margin_right = 432.0
+margin_bottom = 148.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 19 )
+expand = true
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/Stock/PorkBlock"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_scale = Vector2( 0.99703, 0.994043 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 11 )
+text = "Unlocks on Day 10"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="PorkCurry" type="VBoxContainer" parent="VBoxContainer/Stock"]
+visible = false
+margin_left = 182.0
+margin_right = 267.0
+margin_bottom = 148.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 5
+
+[node name="Meal" type="ColorRect" parent="VBoxContainer/Stock/PorkCurry"]
+margin_right = 85.0
+margin_bottom = 51.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.2
+color = Color( 0.917647, 0.717647, 0.25098, 1 )
+
+[node name="MealLabel" type="Label" parent="VBoxContainer/Stock/PorkCurry/Meal"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 1.2
+custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Pork Curry"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Pork" type="HBoxContainer" parent="VBoxContainer/Stock/PorkCurry"]
+margin_top = 56.0
+margin_right = 85.0
+margin_bottom = 99.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Stock" type="ColorRect" parent="VBoxContainer/Stock/PorkCurry/Pork"]
+margin_right = 57.0
+margin_bottom = 43.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="Label" type="Label" parent="VBoxContainer/Stock/PorkCurry/Pork/Stock"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -1.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
+custom_fonts/font = SubResource( 10 )
+text = "Chicken"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Icon" type="ColorRect" parent="VBoxContainer/Stock/PorkCurry/Pork"]
+margin_left = 61.0
+margin_right = 85.0
+margin_bottom = 43.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.25
+color = Color( 0.917647, 0.717647, 0.25098, 1 )
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/Stock/PorkCurry/Pork/Icon"]
+anchor_top = 0.0194175
+anchor_right = 1.0
+anchor_bottom = 0.951456
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 13 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Curry" type="HBoxContainer" parent="VBoxContainer/Stock/PorkCurry"]
+margin_top = 104.0
+margin_right = 85.0
+margin_bottom = 148.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Stock" type="ColorRect" parent="VBoxContainer/Stock/PorkCurry/Curry"]
+margin_right = 57.0
+margin_bottom = 44.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="Label" type="Label" parent="VBoxContainer/Stock/PorkCurry/Curry/Stock"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -1.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
+custom_fonts/font = SubResource( 10 )
+text = "Curry"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Icon" type="ColorRect" parent="VBoxContainer/Stock/PorkCurry/Curry"]
+margin_left = 61.0
+margin_right = 85.0
+margin_bottom = 44.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.25
+color = Color( 0.917647, 0.717647, 0.25098, 1 )
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/Stock/PorkCurry/Curry/Icon"]
+anchor_top = 0.0194175
+anchor_right = 1.0
+anchor_bottom = 0.951456
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 15 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="CoffeeBlock" type="TextureRect" parent="VBoxContainer/Stock"]
+margin_left = 438.0
+margin_right = 578.0
+margin_bottom = 148.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 19 )
+expand = true
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/Stock/CoffeeBlock"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_scale = Vector2( 0.99703, 0.994043 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 11 )
+text = "Unlocks on Day 3"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Coffee" type="VBoxContainer" parent="VBoxContainer/Stock"]
+visible = false
+margin_left = 486.0
+margin_right = 602.0
+margin_bottom = 148.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 5
+
+[node name="Meal" type="ColorRect" parent="VBoxContainer/Stock/Coffee"]
+margin_right = 116.0
+margin_bottom = 51.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.2
+color = Color( 0.917647, 0.717647, 0.25098, 1 )
+
+[node name="MealLabel" type="Label" parent="VBoxContainer/Stock/Coffee/Meal"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Coffee"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="CoffeeMix" type="HBoxContainer" parent="VBoxContainer/Stock/Coffee"]
+margin_top = 56.0
+margin_right = 116.0
+margin_bottom = 99.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Stock" type="ColorRect" parent="VBoxContainer/Stock/Coffee/CoffeeMix"]
+margin_right = 79.0
+margin_bottom = 43.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="Label" type="Label" parent="VBoxContainer/Stock/Coffee/CoffeeMix/Stock"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -1.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
+custom_fonts/font = SubResource( 10 )
+text = "Coffee"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Icon" type="ColorRect" parent="VBoxContainer/Stock/Coffee/CoffeeMix"]
+margin_left = 83.0
+margin_right = 116.0
+margin_bottom = 43.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.25
+color = Color( 0.917647, 0.717647, 0.25098, 1 )
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/Stock/Coffee/CoffeeMix/Icon"]
+anchor_top = 0.0194175
+anchor_right = 1.0
+anchor_bottom = 0.951456
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 16 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Milk" type="HBoxContainer" parent="VBoxContainer/Stock/Coffee"]
+margin_top = 104.0
+margin_right = 116.0
+margin_bottom = 148.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Stock" type="ColorRect" parent="VBoxContainer/Stock/Coffee/Milk"]
+margin_right = 79.0
+margin_bottom = 44.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="Label" type="Label" parent="VBoxContainer/Stock/Coffee/Milk/Stock"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -1.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
+custom_fonts/font = SubResource( 10 )
+text = "Milk"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Icon" type="ColorRect" parent="VBoxContainer/Stock/Coffee/Milk"]
+margin_left = 83.0
+margin_right = 116.0
+margin_bottom = 44.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.25
+color = Color( 0.917647, 0.717647, 0.25098, 1 )
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/Stock/Coffee/Milk/Icon"]
+anchor_top = 0.0194175
+anchor_right = 1.0
+anchor_bottom = 0.951456
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 18 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="LemonadeBlock" type="TextureRect" parent="VBoxContainer/Stock"]
+margin_left = 584.0
+margin_right = 724.0
+margin_bottom = 148.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 19 )
+expand = true
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/Stock/LemonadeBlock"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_scale = Vector2( 0.99703, 0.994043 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 11 )
+text = "Unlocks on Day 7"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Lemonade" type="VBoxContainer" parent="VBoxContainer/Stock"]
+visible = false
+margin_left = 312.0
+margin_right = 411.0
+margin_bottom = 148.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 5
+
+[node name="Meal" type="ColorRect" parent="VBoxContainer/Stock/Lemonade"]
+margin_right = 99.0
+margin_bottom = 51.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.2
+color = Color( 0.917647, 0.717647, 0.25098, 1 )
+
+[node name="MealLabel" type="Label" parent="VBoxContainer/Stock/Lemonade/Meal"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Lemonade"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Lemon" type="HBoxContainer" parent="VBoxContainer/Stock/Lemonade"]
+margin_top = 56.0
+margin_right = 99.0
+margin_bottom = 99.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Stock" type="ColorRect" parent="VBoxContainer/Stock/Lemonade/Lemon"]
+margin_right = 67.0
+margin_bottom = 43.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="Label" type="Label" parent="VBoxContainer/Stock/Lemonade/Lemon/Stock"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -1.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
+custom_fonts/font = SubResource( 10 )
+text = "Lemon"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Icon" type="ColorRect" parent="VBoxContainer/Stock/Lemonade/Lemon"]
+margin_left = 71.0
+margin_right = 99.0
+margin_bottom = 43.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.25
+color = Color( 0.917647, 0.717647, 0.25098, 1 )
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/Stock/Lemonade/Lemon/Icon"]
+anchor_top = 0.0194175
+anchor_right = 1.0
+anchor_bottom = 0.951456
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Cucumber" type="HBoxContainer" parent="VBoxContainer/Stock/Lemonade"]
+margin_top = 104.0
+margin_right = 99.0
+margin_bottom = 148.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Stock" type="ColorRect" parent="VBoxContainer/Stock/Lemonade/Cucumber"]
+margin_right = 67.0
+margin_bottom = 44.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="Label" type="Label" parent="VBoxContainer/Stock/Lemonade/Cucumber/Stock"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -1.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_colors/font_color = Color( 0.168627, 0.168627, 0.168627, 1 )
+custom_fonts/font = SubResource( 10 )
+text = "Cucumber"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Icon" type="ColorRect" parent="VBoxContainer/Stock/Lemonade/Cucumber"]
+margin_left = 71.0
+margin_right = 99.0
+margin_bottom = 44.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.25
+color = Color( 0.917647, 0.717647, 0.25098, 1 )
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/Stock/Lemonade/Cucumber/Icon"]
+anchor_top = 0.0194175
+anchor_right = 1.0
+anchor_bottom = 0.951456
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 14 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
