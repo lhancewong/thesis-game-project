@@ -129,7 +129,20 @@ func init_game():
 		lemonade = 0,
 		coffee = 0,
 	}
-	ingredients_ordered = {}
+	ingredients_ordered = {
+		"chicken": 10,
+		"beef": 0,
+		"pork": 0,
+		"curry_stock": 10,
+		"potato": 0,
+		"spinach": 0,
+		"eggplant": 0,
+		"cheese": 0,
+		"lemon": 0,
+		"cucumber": 0,
+		"coffee_mix": 0,
+		"milk": 0,
+	}
 	stats_per_day = {}
 	transaction_receipts = {}
 	strategy_receipts = {}

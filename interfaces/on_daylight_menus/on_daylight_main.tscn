@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://scripts/guis/on_daylight_main.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/pixelated.ttf" type="DynamicFontData" id=2]
@@ -8,44 +8,24 @@
 [ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/statistics.tscn" type="PackedScene" id=6]
 [ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/live_updates.tscn" type="PackedScene" id=7]
 [ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/order_ingredients.tscn" type="PackedScene" id=8]
-[ext_resource path="res://entities/npcs/Rob.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/images/icons/coffee.png" type="Texture" id=9]
 [ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/tech_upgrades.tscn" type="PackedScene" id=10]
 [ext_resource path="res://interfaces/on_daylight_menus/sub_scenes/management_main.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/images/harvey.png" type="Texture" id=12]
-[ext_resource path="res://entities/npcs/Sam.tscn" type="PackedScene" id=13]
-[ext_resource path="res://entities/npcs/Mary.tscn" type="PackedScene" id=14]
-[ext_resource path="res://entities/npcs/Ken.tscn" type="PackedScene" id=15]
-[ext_resource path="res://entities/npcs/Amy.tscn" type="PackedScene" id=16]
+[ext_resource path="res://assets/images/icons/beef_curry.png" type="Texture" id=13]
+[ext_resource path="res://assets/images/icons/chicken_curry.png" type="Texture" id=14]
+[ext_resource path="res://assets/images/icons/pork_curry.png" type="Texture" id=15]
+[ext_resource path="res://assets/images/icons/lemonade.png" type="Texture" id=16]
 [ext_resource path="res://themes/curry/curry.tres" type="Theme" id=17]
 [ext_resource path="res://themes/curry/green.tres" type="Theme" id=18]
 [ext_resource path="res://themes/curry/red.tres" type="Theme" id=19]
 [ext_resource path="res://assets/images/icons/restaurant_level.png" type="Texture" id=20]
-[ext_resource path="res://scripts/entities/spawner.gd" type="Script" id=21]
-[ext_resource path="res://entities/npcs/Tyrone.tscn" type="PackedScene" id=22]
-[ext_resource path="res://entities/npcs/jerome.tscn" type="PackedScene" id=23]
-[ext_resource path="res://entities/npcs/matt.tscn" type="PackedScene" id=24]
-[ext_resource path="res://entities/npcs/hugh.tscn" type="PackedScene" id=25]
-[ext_resource path="res://entities/npcs/tessa.tscn" type="PackedScene" id=26]
-[ext_resource path="res://entities/npcs/harry.tscn" type="PackedScene" id=27]
-[ext_resource path="res://entities/npcs/layla.tscn" type="PackedScene" id=28]
-[ext_resource path="res://entities/npcs/ted.tscn" type="PackedScene" id=29]
-[ext_resource path="res://entities/npcs/james.tscn" type="PackedScene" id=30]
-[ext_resource path="res://entities/npcs/john.tscn" type="PackedScene" id=31]
-[ext_resource path="res://entities/npcs/mona.tscn" type="PackedScene" id=32]
-[ext_resource path="res://entities/npcs/lisa.tscn" type="PackedScene" id=33]
-[ext_resource path="res://entities/npcs/chris.tscn" type="PackedScene" id=34]
-[ext_resource path="res://entities/npcs/jared.tscn" type="PackedScene" id=35]
-[ext_resource path="res://entities/npcs/steve.tscn" type="PackedScene" id=36]
-[ext_resource path="res://entities/npcs/justine.tscn" type="PackedScene" id=37]
-[ext_resource path="res://entities/npcs/dorothea.tscn" type="PackedScene" id=38]
-[ext_resource path="res://entities/npcs/alan.tscn" type="PackedScene" id=39]
-[ext_resource path="res://entities/npcs/carmella.tscn" type="PackedScene" id=40]
-[ext_resource path="res://entities/npcs/serena.tscn" type="PackedScene" id=41]
+[ext_resource path="res://interfaces/on_daylight_menus/restaurant_view.tscn" type="PackedScene" id=21]
+[ext_resource path="res://interfaces/custom_gui/NPCs.tscn" type="PackedScene" id=22]
 [ext_resource path="res://assets/images/icons/money.png" type="Texture" id=42]
 [ext_resource path="res://assets/images/icons/waste.png" type="Texture" id=43]
 [ext_resource path="res://assets/images/icons/day.png" type="Texture" id=44]
 [ext_resource path="res://assets/images/icons/satisfaction.png" type="Texture" id=45]
-[ext_resource path="res://assets/images/restaurant_view.png" type="Texture" id=46]
 [ext_resource path="res://assets/images/icons/beef.png" type="Texture" id=47]
 [ext_resource path="res://assets/images/icons/pork.png" type="Texture" id=48]
 [ext_resource path="res://assets/images/icons/curry_stock.png" type="Texture" id=49]
@@ -60,7 +40,6 @@
 [ext_resource path="res://assets/sprites/king_cry_sprite.png" type="Texture" id=58]
 [ext_resource path="res://assets/images/icons/discount_buff.png" type="Texture" id=59]
 [ext_resource path="res://assets/images/icons/compost_debuff.png" type="Texture" id=60]
-[ext_resource path="res://entities/NPCs/Him.tscn" type="PackedScene" id=61]
 
 [sub_resource type="DynamicFont" id=4]
 size = 19
@@ -72,14 +51,16 @@ font_data = ExtResource( 5 )
 size = 12
 font_data = ExtResource( 5 )
 
+[sub_resource type="DynamicFont" id=8]
+font_data = ExtResource( 5 )
+
 [sub_resource type="DynamicFont" id=2]
 size = 28
 font_data = ExtResource( 2 )
 
-[sub_resource type="Curve2D" id=6]
-_data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 837.022, 519.095, 0, 0, 0, 0, 1079.31, 463.152, 0, 0, 0, 0, 1324.56, 517.824 )
-}
+[sub_resource type="DynamicFont" id=9]
+size = 15
+font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=5]
 size = 48
@@ -453,7 +434,7 @@ align = 1
 valign = 1
 autowrap = true
 
-[node name="FoodIcons" type="ColorRect" parent="VBoxContainer/ButtonsNIcons"]
+[node name="MealIcons" type="ColorRect" parent="VBoxContainer/ButtonsNIcons"]
 margin_left = 775.0
 margin_right = 1326.0
 margin_bottom = 118.0
@@ -462,213 +443,144 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.43
 color = Color( 0.980392, 0.929412, 0.803922, 1 )
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ButtonsNIcons/FoodIcons"]
-anchor_left = 0.011
-anchor_right = 0.993
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ButtonsNIcons/MealIcons"]
+anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -0.0610003
-margin_right = -0.143005
+margin_left = 10.0
+margin_right = -10.0
+
+[node name="Label" type="Label" parent="VBoxContainer/ButtonsNIcons/MealIcons/VBoxContainer"]
+margin_right = 531.0
+margin_bottom = 27.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Prepared Meals for today:"
+align = 1
+valign = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/ButtonsNIcons/MealIcons/VBoxContainer"]
+margin_top = 31.0
+margin_right = 531.0
+margin_bottom = 72.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 alignment = 1
 
-[node name="MealIcons" type="HBoxContainer" parent="VBoxContainer/ButtonsNIcons/FoodIcons/VBoxContainer"]
-margin_right = 541.0
-margin_bottom = 57.0
+[node name="ChknCurry" type="TextureRect" parent="VBoxContainer/ButtonsNIcons/MealIcons/VBoxContainer/HBoxContainer2"]
+margin_right = 85.0
+margin_bottom = 41.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource( 17 )
-custom_constants/separation = 5
-alignment = 1
-
-[node name="ChickenIcon" type="TextureRect" parent="VBoxContainer/ButtonsNIcons/FoodIcons/VBoxContainer/MealIcons"]
-margin_right = 58.0
-margin_bottom = 57.0
-rect_pivot_offset = Vector2( -477, -156 )
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource( 50 )
+texture = ExtResource( 14 )
 expand = true
 stretch_mode = 6
 
-[node name="StockChicken" type="Label" parent="VBoxContainer/ButtonsNIcons/FoodIcons/VBoxContainer/MealIcons"]
+[node name="ChknCurryLabel" type="Label" parent="VBoxContainer/ButtonsNIcons/MealIcons/VBoxContainer/HBoxContainer2"]
 unique_name_in_owner = true
-margin_left = 63.0
-margin_top = 15.0
-margin_right = 150.0
-margin_bottom = 42.0
-size_flags_horizontal = 3
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 4 )
-text = "Chicken"
-valign = 1
-
-[node name="BeefIcon" type="TextureRect" parent="VBoxContainer/ButtonsNIcons/FoodIcons/VBoxContainer/MealIcons"]
-margin_left = 155.0
-margin_right = 213.0
-margin_bottom = 57.0
-rect_pivot_offset = Vector2( -477, -156 )
+margin_left = 89.0
+margin_right = 174.0
+margin_bottom = 41.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource( 47 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 8 )
+text = "0"
+valign = 1
+
+[node name="PorkCurry" type="TextureRect" parent="VBoxContainer/ButtonsNIcons/MealIcons/VBoxContainer/HBoxContainer2"]
+margin_left = 178.0
+margin_right = 263.0
+margin_bottom = 41.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 15 )
 expand = true
 stretch_mode = 6
 
-[node name="StockBeef" type="Label" parent="VBoxContainer/ButtonsNIcons/FoodIcons/VBoxContainer/MealIcons"]
+[node name="PorkCurryLabel" type="Label" parent="VBoxContainer/ButtonsNIcons/MealIcons/VBoxContainer/HBoxContainer2"]
 unique_name_in_owner = true
-margin_left = 218.0
-margin_top = 15.0
-margin_right = 276.0
-margin_bottom = 42.0
-size_flags_horizontal = 3
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 4 )
-text = "Beef"
-valign = 1
-
-[node name="PorkIcon" type="TextureRect" parent="VBoxContainer/ButtonsNIcons/FoodIcons/VBoxContainer/MealIcons"]
-margin_left = 281.0
-margin_right = 339.0
-margin_bottom = 57.0
-rect_pivot_offset = Vector2( -477, -156 )
+margin_left = 267.0
+margin_right = 352.0
+margin_bottom = 41.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource( 48 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 8 )
+text = "0"
+valign = 1
+
+[node name="BeefCurry" type="TextureRect" parent="VBoxContainer/ButtonsNIcons/MealIcons/VBoxContainer/HBoxContainer2"]
+margin_left = 356.0
+margin_right = 441.0
+margin_bottom = 41.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 13 )
 expand = true
 stretch_mode = 6
 
-[node name="StockPork" type="Label" parent="VBoxContainer/ButtonsNIcons/FoodIcons/VBoxContainer/MealIcons"]
+[node name="BeefCurryLabel" type="Label" parent="VBoxContainer/ButtonsNIcons/MealIcons/VBoxContainer/HBoxContainer2"]
 unique_name_in_owner = true
-margin_left = 344.0
-margin_top = 15.0
-margin_right = 402.0
-margin_bottom = 42.0
-size_flags_horizontal = 3
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 4 )
-text = "Pork"
-valign = 1
-
-[node name="CurryIcon" type="TextureRect" parent="VBoxContainer/ButtonsNIcons/FoodIcons/VBoxContainer/MealIcons"]
-margin_left = 407.0
-margin_right = 466.0
-margin_bottom = 57.0
-rect_pivot_offset = Vector2( -477, -156 )
+margin_left = 445.0
+margin_right = 531.0
+margin_bottom = 41.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource( 49 )
-expand = true
-stretch_mode = 6
-
-[node name="StockCurry" type="Label" parent="VBoxContainer/ButtonsNIcons/FoodIcons/VBoxContainer/MealIcons"]
-unique_name_in_owner = true
-margin_left = 471.0
-margin_top = 15.0
-margin_right = 541.0
-margin_bottom = 42.0
-size_flags_horizontal = 3
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 4 )
-text = "Curry"
+custom_fonts/font = SubResource( 8 )
+text = "0"
 valign = 1
 
-[node name="DrinkIcons" type="HBoxContainer" parent="VBoxContainer/ButtonsNIcons/FoodIcons/VBoxContainer"]
-margin_top = 61.0
-margin_right = 541.0
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ButtonsNIcons/MealIcons/VBoxContainer"]
+margin_top = 76.0
+margin_right = 531.0
 margin_bottom = 118.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource( 17 )
-custom_constants/separation = 5
 alignment = 1
 
-[node name="LemonIcon" type="TextureRect" parent="VBoxContainer/ButtonsNIcons/FoodIcons/VBoxContainer/DrinkIcons"]
-margin_right = 48.0
-margin_bottom = 57.0
-rect_pivot_offset = Vector2( -477, -156 )
+[node name="Lemonade" type="TextureRect" parent="VBoxContainer/ButtonsNIcons/MealIcons/VBoxContainer/HBoxContainer"]
+margin_right = 129.0
+margin_bottom = 42.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource( 56 )
+texture = ExtResource( 16 )
 expand = true
 stretch_mode = 6
 
-[node name="StockLemon" type="Label" parent="VBoxContainer/ButtonsNIcons/FoodIcons/VBoxContainer/DrinkIcons"]
+[node name="LemonadeLabel" type="Label" parent="VBoxContainer/ButtonsNIcons/MealIcons/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
-margin_left = 53.0
-margin_top = 15.0
-margin_right = 123.0
+margin_left = 133.0
+margin_right = 263.0
 margin_bottom = 42.0
 size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 4 )
-text = "Lemon"
+custom_fonts/font = SubResource( 8 )
+text = "0"
 valign = 1
 
-[node name="CucumberIcon" type="TextureRect" parent="VBoxContainer/ButtonsNIcons/FoodIcons/VBoxContainer/DrinkIcons"]
-margin_left = 128.0
-margin_right = 177.0
-margin_bottom = 57.0
-rect_pivot_offset = Vector2( -477, -156 )
+[node name="Coffee" type="TextureRect" parent="VBoxContainer/ButtonsNIcons/MealIcons/VBoxContainer/HBoxContainer"]
+margin_left = 267.0
+margin_right = 397.0
+margin_bottom = 42.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource( 54 )
+texture = ExtResource( 9 )
 expand = true
 stretch_mode = 6
 
-[node name="StockCucumber" type="Label" parent="VBoxContainer/ButtonsNIcons/FoodIcons/VBoxContainer/DrinkIcons"]
+[node name="CoffeeLabel" type="Label" parent="VBoxContainer/ButtonsNIcons/MealIcons/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
-margin_left = 182.0
-margin_top = 15.0
-margin_right = 294.0
+margin_left = 401.0
+margin_right = 531.0
 margin_bottom = 42.0
-size_flags_horizontal = 3
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 4 )
-text = "Cucumber"
-valign = 1
-
-[node name="CoffeeIcon" type="TextureRect" parent="VBoxContainer/ButtonsNIcons/FoodIcons/VBoxContainer/DrinkIcons"]
-margin_left = 299.0
-margin_right = 348.0
-margin_bottom = 57.0
-rect_pivot_offset = Vector2( -477, -156 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource( 55 )
-expand = true
-stretch_mode = 6
-
-[node name="StockCoffee" type="Label" parent="VBoxContainer/ButtonsNIcons/FoodIcons/VBoxContainer/DrinkIcons"]
-unique_name_in_owner = true
-margin_left = 353.0
-margin_top = 15.0
-margin_right = 433.0
-margin_bottom = 42.0
-size_flags_horizontal = 3
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 4 )
-text = "Coffee"
-valign = 1
-
-[node name="MilkIcon" type="TextureRect" parent="VBoxContainer/ButtonsNIcons/FoodIcons/VBoxContainer/DrinkIcons"]
-margin_left = 438.0
-margin_right = 487.0
-margin_bottom = 57.0
-rect_pivot_offset = Vector2( -477, -156 )
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource( 53 )
-expand = true
-stretch_mode = 6
-
-[node name="StockMilk" type="Label" parent="VBoxContainer/ButtonsNIcons/FoodIcons/VBoxContainer/DrinkIcons"]
-unique_name_in_owner = true
-margin_left = 492.0
-margin_top = 15.0
-margin_right = 541.0
-margin_bottom = 42.0
-size_flags_horizontal = 3
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 4 )
-text = "Milk"
+custom_fonts/font = SubResource( 8 )
+text = "0"
 valign = 1
 
 [node name="MainPanelNResto" type="HBoxContainer" parent="VBoxContainer"]
@@ -816,34 +728,482 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.43
 custom_constants/separation = 20
 
+[node name="IngredNow" type="ColorRect" parent="VBoxContainer/MainPanelNResto/Restaurant"]
+margin_right = 551.0
+margin_bottom = 104.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.43
+color = Color( 0.980392, 0.929412, 0.803922, 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MainPanelNResto/Restaurant/IngredNow"]
+anchor_left = 0.011
+anchor_right = 0.993
+anchor_bottom = 1.0
+margin_left = -0.0610003
+margin_right = -0.143005
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/MainPanelNResto/Restaurant/IngredNow/VBoxContainer"]
+margin_right = 541.0
+margin_bottom = 22.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 9 )
+text = "Ingredients for today:"
+align = 1
+valign = 1
+
+[node name="MealIcons" type="HBoxContainer" parent="VBoxContainer/MainPanelNResto/Restaurant/IngredNow/VBoxContainer"]
+margin_top = 26.0
+margin_right = 541.0
+margin_bottom = 63.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 17 )
+custom_constants/separation = 5
+alignment = 1
+
+[node name="ChickenIcon" type="TextureRect" parent="VBoxContainer/MainPanelNResto/Restaurant/IngredNow/VBoxContainer/MealIcons"]
+margin_right = 58.0
+margin_bottom = 37.0
+rect_pivot_offset = Vector2( -477, -156 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 50 )
+expand = true
+stretch_mode = 6
+
+[node name="StockChicken" type="Label" parent="VBoxContainer/MainPanelNResto/Restaurant/IngredNow/VBoxContainer/MealIcons"]
+unique_name_in_owner = true
+margin_left = 63.0
+margin_top = 5.0
+margin_right = 150.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Chicken"
+valign = 1
+
+[node name="BeefIcon" type="TextureRect" parent="VBoxContainer/MainPanelNResto/Restaurant/IngredNow/VBoxContainer/MealIcons"]
+margin_left = 155.0
+margin_right = 213.0
+margin_bottom = 37.0
+rect_pivot_offset = Vector2( -477, -156 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 47 )
+expand = true
+stretch_mode = 6
+
+[node name="StockBeef" type="Label" parent="VBoxContainer/MainPanelNResto/Restaurant/IngredNow/VBoxContainer/MealIcons"]
+unique_name_in_owner = true
+margin_left = 218.0
+margin_top = 5.0
+margin_right = 276.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Beef"
+valign = 1
+
+[node name="PorkIcon" type="TextureRect" parent="VBoxContainer/MainPanelNResto/Restaurant/IngredNow/VBoxContainer/MealIcons"]
+margin_left = 281.0
+margin_right = 339.0
+margin_bottom = 37.0
+rect_pivot_offset = Vector2( -477, -156 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 48 )
+expand = true
+stretch_mode = 6
+
+[node name="StockPork" type="Label" parent="VBoxContainer/MainPanelNResto/Restaurant/IngredNow/VBoxContainer/MealIcons"]
+unique_name_in_owner = true
+margin_left = 344.0
+margin_top = 5.0
+margin_right = 402.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Pork"
+valign = 1
+
+[node name="CurryIcon" type="TextureRect" parent="VBoxContainer/MainPanelNResto/Restaurant/IngredNow/VBoxContainer/MealIcons"]
+margin_left = 407.0
+margin_right = 466.0
+margin_bottom = 37.0
+rect_pivot_offset = Vector2( -477, -156 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 49 )
+expand = true
+stretch_mode = 6
+
+[node name="StockCurry" type="Label" parent="VBoxContainer/MainPanelNResto/Restaurant/IngredNow/VBoxContainer/MealIcons"]
+unique_name_in_owner = true
+margin_left = 471.0
+margin_top = 5.0
+margin_right = 541.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Curry"
+valign = 1
+
+[node name="DrinkIcons" type="HBoxContainer" parent="VBoxContainer/MainPanelNResto/Restaurant/IngredNow/VBoxContainer"]
+margin_top = 67.0
+margin_right = 541.0
+margin_bottom = 104.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 17 )
+custom_constants/separation = 5
+alignment = 1
+
+[node name="LemonIcon" type="TextureRect" parent="VBoxContainer/MainPanelNResto/Restaurant/IngredNow/VBoxContainer/DrinkIcons"]
+margin_right = 48.0
+margin_bottom = 37.0
+rect_pivot_offset = Vector2( -477, -156 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 56 )
+expand = true
+stretch_mode = 6
+
+[node name="StockLemon" type="Label" parent="VBoxContainer/MainPanelNResto/Restaurant/IngredNow/VBoxContainer/DrinkIcons"]
+unique_name_in_owner = true
+margin_left = 53.0
+margin_top = 5.0
+margin_right = 123.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Lemon"
+valign = 1
+
+[node name="CucumberIcon" type="TextureRect" parent="VBoxContainer/MainPanelNResto/Restaurant/IngredNow/VBoxContainer/DrinkIcons"]
+margin_left = 128.0
+margin_right = 177.0
+margin_bottom = 37.0
+rect_pivot_offset = Vector2( -477, -156 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 54 )
+expand = true
+stretch_mode = 6
+
+[node name="StockCucumber" type="Label" parent="VBoxContainer/MainPanelNResto/Restaurant/IngredNow/VBoxContainer/DrinkIcons"]
+unique_name_in_owner = true
+margin_left = 182.0
+margin_top = 5.0
+margin_right = 294.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Cucumber"
+valign = 1
+
+[node name="CoffeeIcon" type="TextureRect" parent="VBoxContainer/MainPanelNResto/Restaurant/IngredNow/VBoxContainer/DrinkIcons"]
+margin_left = 299.0
+margin_right = 348.0
+margin_bottom = 37.0
+rect_pivot_offset = Vector2( -477, -156 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 55 )
+expand = true
+stretch_mode = 6
+
+[node name="StockCoffee" type="Label" parent="VBoxContainer/MainPanelNResto/Restaurant/IngredNow/VBoxContainer/DrinkIcons"]
+unique_name_in_owner = true
+margin_left = 353.0
+margin_top = 5.0
+margin_right = 433.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Coffee"
+valign = 1
+
+[node name="MilkIcon" type="TextureRect" parent="VBoxContainer/MainPanelNResto/Restaurant/IngredNow/VBoxContainer/DrinkIcons"]
+margin_left = 438.0
+margin_right = 487.0
+margin_bottom = 37.0
+rect_pivot_offset = Vector2( -477, -156 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 53 )
+expand = true
+stretch_mode = 6
+
+[node name="StockMilk" type="Label" parent="VBoxContainer/MainPanelNResto/Restaurant/IngredNow/VBoxContainer/DrinkIcons"]
+unique_name_in_owner = true
+margin_left = 492.0
+margin_top = 5.0
+margin_right = 541.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Milk"
+valign = 1
+
+[node name="IngredTom" type="ColorRect" parent="VBoxContainer/MainPanelNResto/Restaurant"]
+margin_top = 124.0
+margin_right = 551.0
+margin_bottom = 229.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.43
+color = Color( 0.980392, 0.929412, 0.803922, 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MainPanelNResto/Restaurant/IngredTom"]
+anchor_left = 0.011
+anchor_right = 0.993
+anchor_bottom = 1.0
+margin_left = -0.0610003
+margin_right = -0.143005
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/MainPanelNResto/Restaurant/IngredTom/VBoxContainer"]
+margin_right = 541.0
+margin_bottom = 22.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 9 )
+text = "Ordered ingredients for tomorrow:"
+align = 1
+valign = 1
+
+[node name="MealIcons" type="HBoxContainer" parent="VBoxContainer/MainPanelNResto/Restaurant/IngredTom/VBoxContainer"]
+margin_top = 26.0
+margin_right = 541.0
+margin_bottom = 63.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 17 )
+custom_constants/separation = 5
+alignment = 1
+
+[node name="ChickenIcon" type="TextureRect" parent="VBoxContainer/MainPanelNResto/Restaurant/IngredTom/VBoxContainer/MealIcons"]
+margin_right = 58.0
+margin_bottom = 37.0
+rect_pivot_offset = Vector2( -477, -156 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 50 )
+expand = true
+stretch_mode = 6
+
+[node name="OrderChickenLabel" type="Label" parent="VBoxContainer/MainPanelNResto/Restaurant/IngredTom/VBoxContainer/MealIcons"]
+unique_name_in_owner = true
+margin_left = 63.0
+margin_top = 5.0
+margin_right = 150.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Chicken"
+valign = 1
+
+[node name="BeefIcon" type="TextureRect" parent="VBoxContainer/MainPanelNResto/Restaurant/IngredTom/VBoxContainer/MealIcons"]
+margin_left = 155.0
+margin_right = 213.0
+margin_bottom = 37.0
+rect_pivot_offset = Vector2( -477, -156 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 47 )
+expand = true
+stretch_mode = 6
+
+[node name="OrderBeefLabel" type="Label" parent="VBoxContainer/MainPanelNResto/Restaurant/IngredTom/VBoxContainer/MealIcons"]
+unique_name_in_owner = true
+margin_left = 218.0
+margin_top = 5.0
+margin_right = 276.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Beef"
+valign = 1
+
+[node name="PorkIcon" type="TextureRect" parent="VBoxContainer/MainPanelNResto/Restaurant/IngredTom/VBoxContainer/MealIcons"]
+margin_left = 281.0
+margin_right = 339.0
+margin_bottom = 37.0
+rect_pivot_offset = Vector2( -477, -156 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 48 )
+expand = true
+stretch_mode = 6
+
+[node name="OrderPorkLabel" type="Label" parent="VBoxContainer/MainPanelNResto/Restaurant/IngredTom/VBoxContainer/MealIcons"]
+unique_name_in_owner = true
+margin_left = 344.0
+margin_top = 5.0
+margin_right = 402.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Pork"
+valign = 1
+
+[node name="CurryIcon" type="TextureRect" parent="VBoxContainer/MainPanelNResto/Restaurant/IngredTom/VBoxContainer/MealIcons"]
+margin_left = 407.0
+margin_right = 466.0
+margin_bottom = 37.0
+rect_pivot_offset = Vector2( -477, -156 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 49 )
+expand = true
+stretch_mode = 6
+
+[node name="OrderCurryLabel" type="Label" parent="VBoxContainer/MainPanelNResto/Restaurant/IngredTom/VBoxContainer/MealIcons"]
+unique_name_in_owner = true
+margin_left = 471.0
+margin_top = 5.0
+margin_right = 541.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Curry"
+valign = 1
+
+[node name="DrinkIcons" type="HBoxContainer" parent="VBoxContainer/MainPanelNResto/Restaurant/IngredTom/VBoxContainer"]
+margin_top = 67.0
+margin_right = 541.0
+margin_bottom = 105.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 17 )
+custom_constants/separation = 5
+alignment = 1
+
+[node name="LemonIcon" type="TextureRect" parent="VBoxContainer/MainPanelNResto/Restaurant/IngredTom/VBoxContainer/DrinkIcons"]
+margin_right = 48.0
+margin_bottom = 38.0
+rect_pivot_offset = Vector2( -477, -156 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 56 )
+expand = true
+stretch_mode = 6
+
+[node name="OrderLemonLabel" type="Label" parent="VBoxContainer/MainPanelNResto/Restaurant/IngredTom/VBoxContainer/DrinkIcons"]
+unique_name_in_owner = true
+margin_left = 53.0
+margin_top = 5.0
+margin_right = 123.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Lemon"
+valign = 1
+
+[node name="CucumberIcon" type="TextureRect" parent="VBoxContainer/MainPanelNResto/Restaurant/IngredTom/VBoxContainer/DrinkIcons"]
+margin_left = 128.0
+margin_right = 177.0
+margin_bottom = 38.0
+rect_pivot_offset = Vector2( -477, -156 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 54 )
+expand = true
+stretch_mode = 6
+
+[node name="OrderCucumberLabel" type="Label" parent="VBoxContainer/MainPanelNResto/Restaurant/IngredTom/VBoxContainer/DrinkIcons"]
+unique_name_in_owner = true
+margin_left = 182.0
+margin_top = 5.0
+margin_right = 294.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Cucumber"
+valign = 1
+
+[node name="CoffeeIcon" type="TextureRect" parent="VBoxContainer/MainPanelNResto/Restaurant/IngredTom/VBoxContainer/DrinkIcons"]
+margin_left = 299.0
+margin_right = 348.0
+margin_bottom = 38.0
+rect_pivot_offset = Vector2( -477, -156 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 55 )
+expand = true
+stretch_mode = 6
+
+[node name="OrderCoffeeLabel" type="Label" parent="VBoxContainer/MainPanelNResto/Restaurant/IngredTom/VBoxContainer/DrinkIcons"]
+unique_name_in_owner = true
+margin_left = 353.0
+margin_top = 5.0
+margin_right = 433.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Coffee"
+valign = 1
+
+[node name="MilkIcon" type="TextureRect" parent="VBoxContainer/MainPanelNResto/Restaurant/IngredTom/VBoxContainer/DrinkIcons"]
+margin_left = 438.0
+margin_right = 487.0
+margin_bottom = 38.0
+rect_pivot_offset = Vector2( -477, -156 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 53 )
+expand = true
+stretch_mode = 6
+
+[node name="OrderMilkLabel" type="Label" parent="VBoxContainer/MainPanelNResto/Restaurant/IngredTom/VBoxContainer/DrinkIcons"]
+unique_name_in_owner = true
+margin_left = 492.0
+margin_top = 5.0
+margin_right = 541.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Milk"
+valign = 1
+
 [node name="GameConsole" parent="VBoxContainer/MainPanelNResto/Restaurant" groups=["Debug"] instance=ExtResource( 3 )]
 unique_name_in_owner = true
-visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 0.0
-margin_top = 0.0
+margin_top = 249.0
 margin_right = 551.0
-margin_bottom = 445.0
+margin_bottom = 443.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-
-[node name="RestaurantView" type="TextureRect" parent="VBoxContainer/MainPanelNResto/Restaurant"]
-unique_name_in_owner = true
-margin_right = 551.0
-margin_bottom = 445.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource( 46 )
-expand = true
+size_flags_stretch_ratio = 0.8
 
 [node name="StatusEffects" type="ColorRect" parent="VBoxContainer/MainPanelNResto/Restaurant"]
-margin_top = 465.0
+margin_top = 463.0
 margin_right = 551.0
 margin_bottom = 515.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.11
+size_flags_stretch_ratio = 0.21
 color = Color( 0.980392, 0.929412, 0.803922, 1 )
 
 [node name="EffectIcons" type="HBoxContainer" parent="VBoxContainer/MainPanelNResto/Restaurant/StatusEffects"]
@@ -899,145 +1259,6 @@ size_flags_vertical = 3
 texture = ExtResource( 59 )
 expand = true
 stretch_mode = 6
-
-[node name="NPCs" type="Node2D" parent="."]
-pause_mode = 2
-
-[node name="Spawner" type="Path2D" parent="NPCs"]
-position = Vector2( -26.8365, -737.831 )
-scale = Vector2( 1.01531, 2.35955 )
-curve = SubResource( 6 )
-script = ExtResource( 21 )
-
-[node name="Tyrone" parent="NPCs/Spawner" instance=ExtResource( 22 )]
-visible = false
-position = Vector2( 837.022, 519.095 )
-rotation = -0.226916
-
-[node name="Jerome" parent="NPCs/Spawner" instance=ExtResource( 23 )]
-visible = false
-position = Vector2( 837.022, 519.095 )
-rotation = -0.226916
-
-[node name="Matt" parent="NPCs/Spawner" instance=ExtResource( 24 )]
-visible = false
-position = Vector2( 837.022, 519.095 )
-rotation = -0.226916
-
-[node name="Layla" parent="NPCs/Spawner" instance=ExtResource( 28 )]
-visible = false
-position = Vector2( 837.022, 519.095 )
-rotation = -0.226916
-
-[node name="Harry" parent="NPCs/Spawner" instance=ExtResource( 27 )]
-visible = false
-position = Vector2( 837.022, 519.095 )
-rotation = -0.226916
-
-[node name="Tessa" parent="NPCs/Spawner" instance=ExtResource( 26 )]
-visible = false
-position = Vector2( 837.022, 519.095 )
-rotation = -0.226916
-
-[node name="Hugh" parent="NPCs/Spawner" instance=ExtResource( 25 )]
-visible = false
-position = Vector2( 837.022, 519.095 )
-rotation = -0.226916
-
-[node name="John" parent="NPCs/Spawner" instance=ExtResource( 31 )]
-visible = false
-position = Vector2( 837.022, 519.095 )
-rotation = -0.226916
-
-[node name="Chris" parent="NPCs/Spawner" instance=ExtResource( 34 )]
-visible = false
-position = Vector2( 837.022, 519.095 )
-rotation = -0.226916
-
-[node name="James" parent="NPCs/Spawner" instance=ExtResource( 30 )]
-visible = false
-position = Vector2( 837.022, 519.095 )
-rotation = -0.226916
-
-[node name="Jared" parent="NPCs/Spawner" instance=ExtResource( 35 )]
-visible = false
-position = Vector2( 837.022, 519.095 )
-rotation = -0.226916
-
-[node name="Ted" parent="NPCs/Spawner" instance=ExtResource( 29 )]
-visible = false
-position = Vector2( 837.022, 519.095 )
-rotation = -0.226916
-
-[node name="Steve" parent="NPCs/Spawner" instance=ExtResource( 36 )]
-visible = false
-position = Vector2( 837.022, 519.095 )
-rotation = -0.226916
-
-[node name="Mona" parent="NPCs/Spawner" instance=ExtResource( 32 )]
-visible = false
-position = Vector2( 837.022, 519.095 )
-rotation = -0.226916
-
-[node name="Lisa" parent="NPCs/Spawner" instance=ExtResource( 33 )]
-visible = false
-position = Vector2( 837.022, 519.095 )
-rotation = -0.226916
-
-[node name="Rob" parent="NPCs/Spawner" instance=ExtResource( 9 )]
-visible = false
-position = Vector2( 837.022, 519.095 )
-rotation = -0.226916
-
-[node name="Mary" parent="NPCs/Spawner" instance=ExtResource( 14 )]
-visible = false
-position = Vector2( 837.022, 519.095 )
-rotation = -0.226916
-
-[node name="Ken" parent="NPCs/Spawner" instance=ExtResource( 15 )]
-visible = false
-position = Vector2( 837.022, 519.095 )
-rotation = -0.226916
-
-[node name="Alan" parent="NPCs/Spawner" instance=ExtResource( 39 )]
-visible = false
-position = Vector2( 837.022, 519.095 )
-rotation = -0.226916
-
-[node name="Justine" parent="NPCs/Spawner" instance=ExtResource( 37 )]
-visible = false
-position = Vector2( 837.022, 519.095 )
-rotation = -0.226916
-
-[node name="Dorothea" parent="NPCs/Spawner" instance=ExtResource( 38 )]
-visible = false
-position = Vector2( 837.022, 519.095 )
-rotation = -0.226916
-
-[node name="Him" parent="NPCs/Spawner" instance=ExtResource( 61 )]
-visible = false
-position = Vector2( 837.022, 519.095 )
-rotation = -0.226916
-
-[node name="Carmella" parent="NPCs/Spawner" instance=ExtResource( 40 )]
-visible = false
-position = Vector2( 837.022, 519.095 )
-rotation = -0.226916
-
-[node name="Sam" parent="NPCs/Spawner" instance=ExtResource( 13 )]
-visible = false
-position = Vector2( 837.022, 519.095 )
-rotation = -0.226916
-
-[node name="Amy" parent="NPCs/Spawner" instance=ExtResource( 16 )]
-visible = false
-position = Vector2( 837.022, 519.095 )
-rotation = -0.226916
-
-[node name="Serena" parent="NPCs/Spawner" instance=ExtResource( 41 )]
-visible = false
-position = Vector2( 837.022, 519.095 )
-rotation = -0.226916
 
 [node name="PauseFrame" type="ColorRect" parent="."]
 visible = false
@@ -1102,6 +1323,11 @@ frame = 10
 [node name="AnimationPlayer" type="AnimationPlayer" parent="KingReactions"]
 pause_mode = 2
 anims/king_emotes = SubResource( 7 )
+
+[node name="RestaurantView" parent="." instance=ExtResource( 21 )]
+visible = false
+
+[node name="NPCs" parent="." instance=ExtResource( 22 )]
 
 [connection signal="pressed" from="VBoxContainer/ButtonsNIcons/MainPanelButtons/HBoxContainer/LiveUpdatingStats" to="." method="_on_LiveUpdatingStats_pressed"]
 [connection signal="pressed" from="VBoxContainer/ButtonsNIcons/MainPanelButtons/HBoxContainer/OrderIngredients" to="." method="_on_OrderIngredients_pressed"]

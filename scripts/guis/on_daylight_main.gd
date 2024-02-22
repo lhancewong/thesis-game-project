@@ -41,6 +41,23 @@ onready var stock_cucumber = $"%StockCucumber"
 onready var stock_coffee = $"%StockCoffee"
 onready var stock_milk = $"%StockMilk"
 
+# MealIcon Labels
+onready var chkn_curry_label = $"%ChknCurryLabel"
+onready var pork_curry_label = $"%PorkCurryLabel"
+onready var beef_curry_label = $"%BeefCurryLabel"
+onready var lemonade_label = $"%LemonadeLabel"
+onready var coffee_label = $"%CoffeeLabel"
+
+# OrderIcon Labels
+onready var order_chicken_label = $"%OrderChickenLabel"
+onready var order_beef_label = $"%OrderBeefLabel"
+onready var order_pork_label = $"%OrderPorkLabel"
+onready var order_curry_label = $"%OrderCurryLabel"
+onready var order_lemon_label = $"%OrderLemonLabel"
+onready var order_cucumber_label = $"%OrderCucumberLabel"
+onready var order_coffee_label = $"%OrderCoffeeLabel"
+onready var order_milk_label = $"%OrderMilkLabel"
+
 
 func _ready():
 	_toggle_show_sub_scene(live_updates)
@@ -50,11 +67,15 @@ func _ready():
 	$PauseFrame/SteveHarvey.hide()
 	set_physics_process(true)
 	Game.day_hndlr.init_daylight_main()
+	
+	$RestaurantView.visible = false
 
 
 func _process(delta):
 	_update_labels()
 	animated_sprite.play("king_emotes")
+	
+	$KingReactions.visible = false
 
 
 func _update_labels():
@@ -74,6 +95,25 @@ func _update_labels():
 	stock_cucumber.text = str(stockpile["cucumber"])
 	stock_coffee.text = str(stockpile["coffee_mix"])
 	stock_milk.text = str(stockpile["milk"])
+	
+	var prepped_meals = Game.cookable_food
+	
+	chkn_curry_label.text = str(prepped_meals["chicken_curry"])
+	pork_curry_label.text = str(prepped_meals["pork_curry"])
+	beef_curry_label.text = str(prepped_meals["beef_curry"])
+	lemonade_label.text = str(prepped_meals["lemonade"])
+	coffee_label.text = str(prepped_meals["coffee"])
+	
+	var ordered_ingreds = Game.ingredients_ordered
+	
+	order_chicken_label.text = str(ordered_ingreds["chicken"])
+	order_pork_label.text = str(ordered_ingreds["pork"])
+	order_beef_label.text = str(ordered_ingreds["beef"])
+	order_curry_label.text = str(ordered_ingreds["curry_stock"])
+	order_lemon_label.text = str(ordered_ingreds["lemon"])
+	order_cucumber_label.text = str(ordered_ingreds["cucumber"])
+	order_coffee_label.text = str(ordered_ingreds["coffee_mix"])
+	order_milk_label.text = str(ordered_ingreds["milk"])
 
 
 # Hides every sub_scene then shows the desired sub scene
@@ -92,7 +132,7 @@ func _toggle_show_sub_scene(sub_scene_name):
 # Button Signals
 func _on_Debug_pressed():
 	SoundHandler.button_click.play()
-	restaurant_view.visible = !restaurant_view.visible
+	#restaurant_view.visible = !restaurant_view.visible
 	game_console.visible = !game_console.visible
 
 	game_console.add_text(str(Game.cookable_food))
@@ -109,6 +149,7 @@ func _on_StartDay_pressed():
 	SoundHandler.button_click.play()
 	game_console.add_text("")
 	game_console.add_text("Day %s Started!" % str(Game.day))
+	$RestaurantView.visible = true
 	_on_pause_button_pressed()
 	yield(Game.day_hndlr.start_day_cycle(), "completed")
 	_on_pause_popup_close_pressed()
@@ -119,6 +160,7 @@ func _on_StartDay_pressed():
 func _on_StartDev_pressed():
 	game_console.add_text("")
 	game_console.add_text("Day %s Started!" % str(Game.day))
+	$RestaurantView.visible = true
 	SoundHandler.vine_boom.play()
 	Game.day_hndlr.start_dev_cycle()
 	game_console.add_text("Day %s Finished!" % str(Game.day))

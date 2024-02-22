@@ -81,3 +81,19 @@ func set_coffee_visibility():
 
 func _on_ChickenPrepare_pressed():
 	Game.food_hndlr.pre_prepare_meal("chicken_curry", 1)
+
+
+func _on_PorkPrepare_pressed():
+	Game.food_hndlr.pre_prepare_meal("pork_curry", 1)
+
+
+func _on_BeefPrepare_pressed():
+	Game.food_hndlr.pre_prepare_meal("beef_curry", 1)
+
+
+func _on_CoffeePrepare_pressed():
+	Game.food_hndlr.pre_prepare_meal("coffee", 1)
+
+
+func _on_LemonadePrepare_pressed():
+	Game.food_hndlr.pre_prepare_meal("lemonade", 1)
