@@ -1,0 +1,226 @@
+[gd_scene load_steps=30 format=2]
+
+[ext_resource path="res://scripts/entities/NPC.gd" type="Script" id=1]
+[ext_resource path="res://entities/NPCs/Him.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/entities/spawner.gd" type="Script" id=3]
+[ext_resource path="res://entities/npcs/chris.tscn" type="PackedScene" id=4]
+[ext_resource path="res://entities/npcs/Tyrone.tscn" type="PackedScene" id=5]
+[ext_resource path="res://entities/npcs/jerome.tscn" type="PackedScene" id=6]
+[ext_resource path="res://entities/npcs/matt.tscn" type="PackedScene" id=7]
+[ext_resource path="res://entities/npcs/layla.tscn" type="PackedScene" id=8]
+[ext_resource path="res://entities/npcs/harry.tscn" type="PackedScene" id=9]
+[ext_resource path="res://entities/npcs/tessa.tscn" type="PackedScene" id=10]
+[ext_resource path="res://entities/npcs/hugh.tscn" type="PackedScene" id=11]
+[ext_resource path="res://entities/npcs/john.tscn" type="PackedScene" id=12]
+[ext_resource path="res://entities/npcs/james.tscn" type="PackedScene" id=13]
+[ext_resource path="res://entities/npcs/jared.tscn" type="PackedScene" id=14]
+[ext_resource path="res://entities/npcs/ted.tscn" type="PackedScene" id=15]
+[ext_resource path="res://entities/npcs/steve.tscn" type="PackedScene" id=16]
+[ext_resource path="res://entities/npcs/mona.tscn" type="PackedScene" id=17]
+[ext_resource path="res://entities/npcs/lisa.tscn" type="PackedScene" id=18]
+[ext_resource path="res://entities/npcs/Rob.tscn" type="PackedScene" id=19]
+[ext_resource path="res://entities/npcs/Mary.tscn" type="PackedScene" id=20]
+[ext_resource path="res://entities/npcs/Ken.tscn" type="PackedScene" id=21]
+[ext_resource path="res://entities/npcs/alan.tscn" type="PackedScene" id=22]
+[ext_resource path="res://entities/npcs/justine.tscn" type="PackedScene" id=23]
+[ext_resource path="res://entities/npcs/dorothea.tscn" type="PackedScene" id=24]
+[ext_resource path="res://entities/npcs/carmella.tscn" type="PackedScene" id=25]
+[ext_resource path="res://entities/npcs/Sam.tscn" type="PackedScene" id=26]
+[ext_resource path="res://entities/npcs/Amy.tscn" type="PackedScene" id=27]
+[ext_resource path="res://entities/npcs/serena.tscn" type="PackedScene" id=28]
+
+[sub_resource type="Curve2D" id=6]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 837.022, 519.095, 0, 0, 0, 0, 1079.31, 463.152, 0, 0, 0, 0, 1324.56, 517.824 )
+}
+
+[node name="NPCs" type="Node2D"]
+pause_mode = 2
+
+[node name="Spawner" type="Path2D" parent="."]
+position = Vector2( -26.8365, -737.831 )
+scale = Vector2( 1.01531, 2.35955 )
+curve = SubResource( 6 )
+script = ExtResource( 3 )
+
+[node name="Tyrone" type="PathFollow2D" parent="Spawner" instance=ExtResource( 5 )]
+visible = false
+position = Vector2( 837.022, 519.095 )
+rotation = -0.226916
+loop = false
+script = ExtResource( 1 )
+
+[node name="Jerome" type="PathFollow2D" parent="Spawner" instance=ExtResource( 6 )]
+visible = false
+position = Vector2( 837.022, 519.095 )
+rotation = -0.226916
+loop = false
+script = ExtResource( 1 )
+
+[node name="Matt" type="PathFollow2D" parent="Spawner" instance=ExtResource( 7 )]
+visible = false
+position = Vector2( 837.022, 519.095 )
+rotation = -0.226916
+loop = false
+script = ExtResource( 1 )
+
+[node name="Layla" type="PathFollow2D" parent="Spawner" instance=ExtResource( 8 )]
+visible = false
+position = Vector2( 837.022, 519.095 )
+rotation = -0.226916
+loop = false
+script = ExtResource( 1 )
+
+[node name="Harry" type="PathFollow2D" parent="Spawner" instance=ExtResource( 9 )]
+visible = false
+position = Vector2( 837.022, 519.095 )
+rotation = -0.226916
+loop = false
+script = ExtResource( 1 )
+
+[node name="Tessa" type="PathFollow2D" parent="Spawner" instance=ExtResource( 10 )]
+visible = false
+position = Vector2( 837.022, 519.095 )
+rotation = -0.226916
+loop = false
+script = ExtResource( 1 )
+
+[node name="Hugh" type="PathFollow2D" parent="Spawner" instance=ExtResource( 11 )]
+visible = false
+position = Vector2( 837.022, 519.095 )
+rotation = -0.226916
+loop = false
+script = ExtResource( 1 )
+
+[node name="John" type="PathFollow2D" parent="Spawner" instance=ExtResource( 12 )]
+visible = false
+position = Vector2( 837.022, 519.095 )
+rotation = -0.226916
+loop = false
+script = ExtResource( 1 )
+
+[node name="Chris" type="PathFollow2D" parent="Spawner" instance=ExtResource( 4 )]
+visible = false
+position = Vector2( 837.022, 519.095 )
+rotation = -0.226916
+loop = false
+script = ExtResource( 1 )
+
+[node name="James" type="PathFollow2D" parent="Spawner" instance=ExtResource( 13 )]
+visible = false
+position = Vector2( 837.022, 519.095 )
+rotation = -0.226916
+loop = false
+script = ExtResource( 1 )
+
+[node name="Jared" type="PathFollow2D" parent="Spawner" instance=ExtResource( 14 )]
+visible = false
+position = Vector2( 837.022, 519.095 )
+rotation = -0.226916
+loop = false
+script = ExtResource( 1 )
+
+[node name="Ted" type="PathFollow2D" parent="Spawner" instance=ExtResource( 15 )]
+visible = false
+position = Vector2( 837.022, 519.095 )
+rotation = -0.226916
+loop = false
+script = ExtResource( 1 )
+
+[node name="Steve" type="PathFollow2D" parent="Spawner" instance=ExtResource( 16 )]
+visible = false
+position = Vector2( 837.022, 519.095 )
+rotation = -0.226916
+loop = false
+script = ExtResource( 1 )
+
+[node name="Mona" type="PathFollow2D" parent="Spawner" instance=ExtResource( 17 )]
+visible = false
+position = Vector2( 837.022, 519.095 )
+rotation = -0.226916
+loop = false
+script = ExtResource( 1 )
+
+[node name="Lisa" type="PathFollow2D" parent="Spawner" instance=ExtResource( 18 )]
+visible = false
+position = Vector2( 837.022, 519.095 )
+rotation = -0.226916
+loop = false
+script = ExtResource( 1 )
+
+[node name="Rob" type="PathFollow2D" parent="Spawner" instance=ExtResource( 19 )]
+visible = false
+position = Vector2( 837.022, 519.095 )
+rotation = -0.226916
+loop = false
+script = ExtResource( 1 )
+
+[node name="Mary" type="PathFollow2D" parent="Spawner" instance=ExtResource( 20 )]
+visible = false
+position = Vector2( 837.022, 519.095 )
+rotation = -0.226916
+loop = false
+script = ExtResource( 1 )
+
+[node name="Ken" type="PathFollow2D" parent="Spawner" instance=ExtResource( 21 )]
+visible = false
+position = Vector2( 837.022, 519.095 )
+rotation = -0.226916
+loop = false
+script = ExtResource( 1 )
+
+[node name="Alan" type="PathFollow2D" parent="Spawner" instance=ExtResource( 22 )]
+visible = false
+position = Vector2( 837.022, 519.095 )
+rotation = -0.226916
+loop = false
+script = ExtResource( 1 )
+
+[node name="Justine" type="PathFollow2D" parent="Spawner" instance=ExtResource( 23 )]
+visible = false
+position = Vector2( 837.022, 519.095 )
+rotation = -0.226916
+loop = false
+script = ExtResource( 1 )
+
+[node name="Dorothea" type="PathFollow2D" parent="Spawner" instance=ExtResource( 24 )]
+visible = false
+position = Vector2( 837.022, 519.095 )
+rotation = -0.226916
+loop = false
+script = ExtResource( 1 )
+
+[node name="Him" type="PathFollow2D" parent="Spawner" instance=ExtResource( 2 )]
+visible = false
+position = Vector2( 837.022, 519.095 )
+rotation = -0.226916
+loop = false
+script = ExtResource( 1 )
+
+[node name="Carmella" type="PathFollow2D" parent="Spawner" instance=ExtResource( 25 )]
+visible = false
+position = Vector2( 837.022, 519.095 )
+rotation = -0.226916
+loop = false
+script = ExtResource( 1 )
+
+[node name="Sam" type="PathFollow2D" parent="Spawner" instance=ExtResource( 26 )]
+visible = false
+position = Vector2( 837.022, 519.095 )
+rotation = -0.226916
+loop = false
+script = ExtResource( 1 )
+
+[node name="Amy" type="PathFollow2D" parent="Spawner" instance=ExtResource( 27 )]
+visible = false
+position = Vector2( 837.022, 519.095 )
+rotation = -0.226916
+loop = false
+script = ExtResource( 1 )
+
+[node name="Serena" type="PathFollow2D" parent="Spawner" instance=ExtResource( 28 )]
+visible = false
+position = Vector2( 837.022, 519.095 )
+rotation = -0.226916
+loop = false
+script = ExtResource( 1 )

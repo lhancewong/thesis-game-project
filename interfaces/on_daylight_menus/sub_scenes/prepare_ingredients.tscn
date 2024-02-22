@@ -1389,3 +1389,8 @@ expand = true
 __meta__ = {
 "_edit_use_anchors_": true
 }
+
+[connection signal="pressed" from="VBoxContainer/Meal/Beef/BeefPrepare" to="." method="_on_BeefPrepare_pressed"]
+[connection signal="pressed" from="VBoxContainer/Meal/Pork/PorkPrepare" to="." method="_on_PorkPrepare_pressed"]
+[connection signal="pressed" from="VBoxContainer/Meal/Coffee/CoffeePrepare" to="." method="_on_CoffeePrepare_pressed"]
+[connection signal="pressed" from="VBoxContainer/Meal/Lemonade/LemonadePrepare" to="." method="_on_LemonadePrepare_pressed"]
