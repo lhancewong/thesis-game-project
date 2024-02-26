@@ -1,5 +1,8 @@
 .vscode
 
+# Environment
+myenv/
+
 # MacOS things
 .DS_Store
 

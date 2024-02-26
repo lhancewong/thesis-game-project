@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://assets/images/restaurant_view_title.png" type="Texture" id=1]
 [ext_resource path="res://assets/images/steveharvey.png" type="Texture" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://assets/images/icons/waste.png" type="Texture" id=10]
 [ext_resource path="res://assets/images/icons/money.png" type="Texture" id=11]
 [ext_resource path="res://scripts/guis/restaurant_view.gd" type="Script" id=12]
+[ext_resource path="res://assets/fonts/thin_pixelated.ttf" type="DynamicFontData" id=13]
 
 [sub_resource type="DynamicFont" id=1]
 size = 36
@@ -24,6 +25,10 @@ font_data = ExtResource( 3 )
 [sub_resource type="DynamicFont" id=3]
 size = 47
 font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 20
+font_data = ExtResource( 13 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 36
@@ -376,8 +381,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 2 )
-text = "Edible Waste
-Produced:"
+text = "Edible Waste:"
 valign = 1
 
 [node name="InedibleLabel" type="Label" parent="Background/MarginContainer/HBoxContainer/Background2/MarginContainer/HBoxContainer/Stats/Waste/HBoxContainer/GridContainer"]
@@ -389,8 +393,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 2 )
-text = "Inedible Waste
-Produced:"
+text = "Inedible Waste:"
 valign = 1
 
 [node name="Resto" type="Panel" parent="Background/MarginContainer/HBoxContainer/Background2/MarginContainer/HBoxContainer"]
@@ -416,26 +419,61 @@ texture = ExtResource( 1 )
 expand = true
 stretch_mode = 7
 
-[node name="Label" type="Label" parent="Background/MarginContainer/HBoxContainer/Background2/MarginContainer/HBoxContainer/Resto/MarginContainer"]
+[node name="DayLabel" type="Label" parent="Background/MarginContainer/HBoxContainer/Background2/MarginContainer/HBoxContainer/Resto/MarginContainer"]
+unique_name_in_owner = true
 margin_right = 495.0
 margin_bottom = 44.0
 size_flags_vertical = 2
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
-text = "Restaurant View"
-align = 1
+text = " Restaurant View"
 
-[node name="ReturnButton" type="Button" parent="Background/MarginContainer/HBoxContainer/Background2/MarginContainer/HBoxContainer/Resto/MarginContainer"]
+[node name="QuickStats" type="Panel" parent="Background/MarginContainer/HBoxContainer/Background2/MarginContainer/HBoxContainer/Resto"]
 unique_name_in_owner = true
 visible = false
-margin_left = 171.0
-margin_top = 315.0
-margin_right = 322.324
-margin_bottom = 372.251
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -150.0
+margin_top = -185.0
+margin_right = 150.0
+margin_bottom = 185.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="PerformanceLabel" type="Label" parent="Background/MarginContainer/HBoxContainer/Background2/MarginContainer/HBoxContainer/Resto/QuickStats"]
+unique_name_in_owner = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -150.0
+margin_top = -135.0
+margin_right = 146.0
+margin_bottom = 65.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 5 )
+text = " TODAY'S PERFORMANCE
+
+Profits:
+Customer: 
+Waste:"
+align = 1
+valign = 1
+
+[node name="ReturnButton" type="Button" parent="Background/MarginContainer/HBoxContainer/Background2/MarginContainer/HBoxContainer/Resto/QuickStats"]
+anchor_left = 0.5
+anchor_top = 0.9
+anchor_right = 0.5
+anchor_bottom = 0.95
+margin_left = -75.6621
+margin_top = -57.251
+margin_right = 75.6621
 size_flags_horizontal = 4
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 4 )
 text = "Return"
 
-[connection signal="pressed" from="Background/MarginContainer/HBoxContainer/Background2/MarginContainer/HBoxContainer/Resto/MarginContainer/ReturnButton" to="." method="_on_ReturnButton_pressed"]
+[connection signal="pressed" from="Background/MarginContainer/HBoxContainer/Background2/MarginContainer/HBoxContainer/Resto/QuickStats/ReturnButton" to="." method="_on_ReturnButton_pressed"]

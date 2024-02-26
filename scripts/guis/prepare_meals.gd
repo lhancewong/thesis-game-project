@@ -115,7 +115,7 @@ func _on_Chicken_minus_pressed():
 		chicken_curry_amount = 0
 	chicken_curry_line_edit.text = str(chicken_curry_amount)
 
-	
+
 func _on_ChickenLineEdit_text_changed(new_text):
 	if regex.search(new_text):
 		chicken_old_text = str(new_text)
@@ -139,7 +139,7 @@ func _on_Beef_Plus_pressed():
 
 func _on_BeefPrepare_pressed():
 	Game.food_hndlr.pre_prepare_meal("beef_curry", beef_curry_amount)
-	
+
 
 func _on_BeefLineEdit_text_changed(new_text):
 	if regex.search(new_text):
@@ -148,8 +148,8 @@ func _on_BeefLineEdit_text_changed(new_text):
 	else:
 		beef_curry_line_edit.text = beef_old_text
 		beef_curry_line_edit.set_cursor_position(beef_curry_line_edit.text.length())
-	
-	
+
+
 func _on_Pork_Minus_pressed():
 	pork_curry_amount -= 1
 	if pork_curry_amount < 0:

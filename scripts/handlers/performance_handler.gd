@@ -63,8 +63,17 @@ func get_profit_performance(day):
 	return [profit_performance, money_earned, money_expected]
 
 
-func temp_func(day):
-	# print("waste= " + str(get_waste_performance(day)))
-	#print("profit= " + str(get_profit_performance(day)))
-	#print("customer= " + str(get_customer_performance(day)))
-	pass
+func get_day_performance(day):
+	var profit_performance = get_profit_performance(day)
+	var customer_performance = get_customer_performance(day)
+	var waste_performance = get_waste_performance(day)
+	
+	print("profit: %s" % str(profit_performance))
+	print("customer: %s" % str(customer_performance))
+	print("waste: %s" % str(waste_performance))
+	
+	return {
+		"profit": profit_performance, 
+		"customer": customer_performance,
+		"waste": waste_performance,
+	}

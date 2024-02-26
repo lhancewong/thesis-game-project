@@ -69,7 +69,7 @@ func init_game():
 	store_level = 0
 	skill_points = 0
 
-	compost_stack = []
+	compost_stack = [0]
 	last_compost_day = 0
 	total_animals_fed = 0
 

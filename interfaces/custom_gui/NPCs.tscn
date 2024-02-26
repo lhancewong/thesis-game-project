@@ -1,6 +1,5 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=29 format=2]
 
-[ext_resource path="res://scripts/entities/NPC.gd" type="Script" id=1]
 [ext_resource path="res://entities/NPCs/Him.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/entities/spawner.gd" type="Script" id=3]
 [ext_resource path="res://entities/npcs/chris.tscn" type="PackedScene" id=4]
@@ -31,196 +30,144 @@
 
 [sub_resource type="Curve2D" id=6]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 837.022, 519.095, 0, 0, 0, 0, 1079.31, 463.152, 0, 0, 0, 0, 1324.56, 517.824 )
+"points": PoolVector2Array( 0, 0, 0, 0, 855.735, 519.943, 0, 0, 0, 0, 1080.3, 461.881, 0, 0, 0, 0, 1324.56, 517.824 )
 }
 
 [node name="NPCs" type="Node2D"]
 pause_mode = 2
 
 [node name="Spawner" type="Path2D" parent="."]
-position = Vector2( -26.8365, -737.831 )
+position = Vector2( -26.837, -797.831 )
 scale = Vector2( 1.01531, 2.35955 )
 curve = SubResource( 6 )
 script = ExtResource( 3 )
 
-[node name="Tyrone" type="PathFollow2D" parent="Spawner" instance=ExtResource( 5 )]
+[node name="Tyrone" parent="Spawner" instance=ExtResource( 5 )]
 visible = false
-position = Vector2( 837.022, 519.095 )
-rotation = -0.226916
-loop = false
-script = ExtResource( 1 )
+position = Vector2( 855.735, 519.943 )
+rotation = -0.253006
 
-[node name="Jerome" type="PathFollow2D" parent="Spawner" instance=ExtResource( 6 )]
+[node name="Jerome" parent="Spawner" instance=ExtResource( 6 )]
 visible = false
-position = Vector2( 837.022, 519.095 )
-rotation = -0.226916
-loop = false
-script = ExtResource( 1 )
+position = Vector2( 855.735, 519.943 )
+rotation = -0.253006
 
-[node name="Matt" type="PathFollow2D" parent="Spawner" instance=ExtResource( 7 )]
+[node name="Matt" parent="Spawner" instance=ExtResource( 7 )]
 visible = false
-position = Vector2( 837.022, 519.095 )
-rotation = -0.226916
-loop = false
-script = ExtResource( 1 )
+position = Vector2( 855.735, 519.943 )
+rotation = -0.253006
 
-[node name="Layla" type="PathFollow2D" parent="Spawner" instance=ExtResource( 8 )]
+[node name="Layla" parent="Spawner" instance=ExtResource( 8 )]
 visible = false
-position = Vector2( 837.022, 519.095 )
-rotation = -0.226916
-loop = false
-script = ExtResource( 1 )
+position = Vector2( 855.735, 519.943 )
+rotation = -0.253006
 
-[node name="Harry" type="PathFollow2D" parent="Spawner" instance=ExtResource( 9 )]
+[node name="Harry" parent="Spawner" instance=ExtResource( 9 )]
 visible = false
-position = Vector2( 837.022, 519.095 )
-rotation = -0.226916
-loop = false
-script = ExtResource( 1 )
+position = Vector2( 855.735, 519.943 )
+rotation = -0.253006
 
-[node name="Tessa" type="PathFollow2D" parent="Spawner" instance=ExtResource( 10 )]
+[node name="Tessa" parent="Spawner" instance=ExtResource( 10 )]
 visible = false
-position = Vector2( 837.022, 519.095 )
-rotation = -0.226916
-loop = false
-script = ExtResource( 1 )
+position = Vector2( 855.735, 519.943 )
+rotation = -0.253006
 
-[node name="Hugh" type="PathFollow2D" parent="Spawner" instance=ExtResource( 11 )]
+[node name="Hugh" parent="Spawner" instance=ExtResource( 11 )]
 visible = false
-position = Vector2( 837.022, 519.095 )
-rotation = -0.226916
-loop = false
-script = ExtResource( 1 )
+position = Vector2( 855.735, 519.943 )
+rotation = -0.253006
 
-[node name="John" type="PathFollow2D" parent="Spawner" instance=ExtResource( 12 )]
+[node name="John" parent="Spawner" instance=ExtResource( 12 )]
 visible = false
-position = Vector2( 837.022, 519.095 )
-rotation = -0.226916
-loop = false
-script = ExtResource( 1 )
+position = Vector2( 855.735, 519.943 )
+rotation = -0.253006
 
-[node name="Chris" type="PathFollow2D" parent="Spawner" instance=ExtResource( 4 )]
+[node name="Chris" parent="Spawner" instance=ExtResource( 4 )]
 visible = false
-position = Vector2( 837.022, 519.095 )
-rotation = -0.226916
-loop = false
-script = ExtResource( 1 )
+position = Vector2( 855.735, 519.943 )
+rotation = -0.253006
 
-[node name="James" type="PathFollow2D" parent="Spawner" instance=ExtResource( 13 )]
+[node name="James" parent="Spawner" instance=ExtResource( 13 )]
 visible = false
-position = Vector2( 837.022, 519.095 )
-rotation = -0.226916
-loop = false
-script = ExtResource( 1 )
+position = Vector2( 855.735, 519.943 )
+rotation = -0.253006
 
-[node name="Jared" type="PathFollow2D" parent="Spawner" instance=ExtResource( 14 )]
+[node name="Jared" parent="Spawner" instance=ExtResource( 14 )]
 visible = false
-position = Vector2( 837.022, 519.095 )
-rotation = -0.226916
-loop = false
-script = ExtResource( 1 )
+position = Vector2( 855.735, 519.943 )
+rotation = -0.253006
 
-[node name="Ted" type="PathFollow2D" parent="Spawner" instance=ExtResource( 15 )]
+[node name="Ted" parent="Spawner" instance=ExtResource( 15 )]
 visible = false
-position = Vector2( 837.022, 519.095 )
-rotation = -0.226916
-loop = false
-script = ExtResource( 1 )
+position = Vector2( 855.735, 519.943 )
+rotation = -0.253006
 
-[node name="Steve" type="PathFollow2D" parent="Spawner" instance=ExtResource( 16 )]
+[node name="Steve" parent="Spawner" instance=ExtResource( 16 )]
 visible = false
-position = Vector2( 837.022, 519.095 )
-rotation = -0.226916
-loop = false
-script = ExtResource( 1 )
+position = Vector2( 855.735, 519.943 )
+rotation = -0.253006
 
-[node name="Mona" type="PathFollow2D" parent="Spawner" instance=ExtResource( 17 )]
+[node name="Mona" parent="Spawner" instance=ExtResource( 17 )]
 visible = false
-position = Vector2( 837.022, 519.095 )
-rotation = -0.226916
-loop = false
-script = ExtResource( 1 )
+position = Vector2( 855.735, 519.943 )
+rotation = -0.253006
 
-[node name="Lisa" type="PathFollow2D" parent="Spawner" instance=ExtResource( 18 )]
+[node name="Lisa" parent="Spawner" instance=ExtResource( 18 )]
 visible = false
-position = Vector2( 837.022, 519.095 )
-rotation = -0.226916
-loop = false
-script = ExtResource( 1 )
+position = Vector2( 855.735, 519.943 )
+rotation = -0.253006
 
-[node name="Rob" type="PathFollow2D" parent="Spawner" instance=ExtResource( 19 )]
+[node name="Rob" parent="Spawner" instance=ExtResource( 19 )]
 visible = false
-position = Vector2( 837.022, 519.095 )
-rotation = -0.226916
-loop = false
-script = ExtResource( 1 )
+position = Vector2( 855.735, 519.943 )
+rotation = -0.253006
 
-[node name="Mary" type="PathFollow2D" parent="Spawner" instance=ExtResource( 20 )]
+[node name="Mary" parent="Spawner" instance=ExtResource( 20 )]
 visible = false
-position = Vector2( 837.022, 519.095 )
-rotation = -0.226916
-loop = false
-script = ExtResource( 1 )
+position = Vector2( 855.735, 519.943 )
+rotation = -0.253006
 
-[node name="Ken" type="PathFollow2D" parent="Spawner" instance=ExtResource( 21 )]
+[node name="Ken" parent="Spawner" instance=ExtResource( 21 )]
 visible = false
-position = Vector2( 837.022, 519.095 )
-rotation = -0.226916
-loop = false
-script = ExtResource( 1 )
+position = Vector2( 855.735, 519.943 )
+rotation = -0.253006
 
-[node name="Alan" type="PathFollow2D" parent="Spawner" instance=ExtResource( 22 )]
+[node name="Alan" parent="Spawner" instance=ExtResource( 22 )]
 visible = false
-position = Vector2( 837.022, 519.095 )
-rotation = -0.226916
-loop = false
-script = ExtResource( 1 )
+position = Vector2( 855.735, 519.943 )
+rotation = -0.253006
 
-[node name="Justine" type="PathFollow2D" parent="Spawner" instance=ExtResource( 23 )]
+[node name="Justine" parent="Spawner" instance=ExtResource( 23 )]
 visible = false
-position = Vector2( 837.022, 519.095 )
-rotation = -0.226916
-loop = false
-script = ExtResource( 1 )
+position = Vector2( 855.735, 519.943 )
+rotation = -0.253006
 
-[node name="Dorothea" type="PathFollow2D" parent="Spawner" instance=ExtResource( 24 )]
+[node name="Dorothea" parent="Spawner" instance=ExtResource( 24 )]
 visible = false
-position = Vector2( 837.022, 519.095 )
-rotation = -0.226916
-loop = false
-script = ExtResource( 1 )
+position = Vector2( 855.735, 519.943 )
+rotation = -0.253006
 
-[node name="Him" type="PathFollow2D" parent="Spawner" instance=ExtResource( 2 )]
+[node name="Him" parent="Spawner" instance=ExtResource( 2 )]
 visible = false
-position = Vector2( 837.022, 519.095 )
-rotation = -0.226916
-loop = false
-script = ExtResource( 1 )
+position = Vector2( 855.735, 519.943 )
+rotation = -0.253006
 
-[node name="Carmella" type="PathFollow2D" parent="Spawner" instance=ExtResource( 25 )]
+[node name="Carmella" parent="Spawner" instance=ExtResource( 25 )]
 visible = false
-position = Vector2( 837.022, 519.095 )
-rotation = -0.226916
-loop = false
-script = ExtResource( 1 )
+position = Vector2( 855.735, 519.943 )
+rotation = -0.253006
 
-[node name="Sam" type="PathFollow2D" parent="Spawner" instance=ExtResource( 26 )]
+[node name="Sam" parent="Spawner" instance=ExtResource( 26 )]
 visible = false
-position = Vector2( 837.022, 519.095 )
-rotation = -0.226916
-loop = false
-script = ExtResource( 1 )
+position = Vector2( 855.735, 519.943 )
+rotation = -0.253006
 
-[node name="Amy" type="PathFollow2D" parent="Spawner" instance=ExtResource( 27 )]
+[node name="Amy" parent="Spawner" instance=ExtResource( 27 )]
 visible = false
-position = Vector2( 837.022, 519.095 )
-rotation = -0.226916
-loop = false
-script = ExtResource( 1 )
+position = Vector2( 855.735, 519.943 )
+rotation = -0.253006
 
-[node name="Serena" type="PathFollow2D" parent="Spawner" instance=ExtResource( 28 )]
+[node name="Serena" parent="Spawner" instance=ExtResource( 28 )]
 visible = false
-position = Vector2( 837.022, 519.095 )
-rotation = -0.226916
-loop = false
-script = ExtResource( 1 )
+position = Vector2( 855.735, 519.943 )
+rotation = -0.253006

@@ -1325,9 +1325,9 @@ pause_mode = 2
 anims/king_emotes = SubResource( 7 )
 
 [node name="RestaurantView" parent="." instance=ExtResource( 21 )]
-visible = false
 
 [node name="NPCs" parent="." instance=ExtResource( 22 )]
+position = Vector2( 1, 0 )
 
 [connection signal="pressed" from="VBoxContainer/ButtonsNIcons/MainPanelButtons/HBoxContainer/LiveUpdatingStats" to="." method="_on_LiveUpdatingStats_pressed"]
 [connection signal="pressed" from="VBoxContainer/ButtonsNIcons/MainPanelButtons/HBoxContainer/OrderIngredients" to="." method="_on_OrderIngredients_pressed"]
