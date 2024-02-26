@@ -197,6 +197,6 @@ func compost_stack_add(amount):
 		Game.compost_stack[-1] += amount
 	Game.compost_stack = Game.compost_stack.slice(-3, Game.compost_stack.size(), 1, true)
 
-	
+
 func _on_Waste_ewaste_produced(amount):
 	pass  # Replace with function body.

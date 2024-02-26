@@ -74,6 +74,3 @@ func _on_plus_pressed():
 	if compost_amount < Game.inedible_waste:
 		compost_amount += 1
 		action_line_edit.text = str(compost_amount)
-
-
-

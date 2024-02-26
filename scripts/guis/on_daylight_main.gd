@@ -67,14 +67,14 @@ func _ready():
 	$PauseFrame/SteveHarvey.hide()
 	set_physics_process(true)
 	Game.day_hndlr.init_daylight_main()
-	
+
 	$RestaurantView.visible = false
 
 
 func _process(delta):
 	_update_labels()
 	animated_sprite.play("king_emotes")
-	
+
 	$KingReactions.visible = false
 
 
@@ -95,17 +95,17 @@ func _update_labels():
 	stock_cucumber.text = str(stockpile["cucumber"])
 	stock_coffee.text = str(stockpile["coffee_mix"])
 	stock_milk.text = str(stockpile["milk"])
-	
+
 	var prepped_meals = Game.cookable_food
-	
+
 	chkn_curry_label.text = str(prepped_meals["chicken_curry"])
 	pork_curry_label.text = str(prepped_meals["pork_curry"])
 	beef_curry_label.text = str(prepped_meals["beef_curry"])
 	lemonade_label.text = str(prepped_meals["lemonade"])
 	coffee_label.text = str(prepped_meals["coffee"])
-	
+
 	var ordered_ingreds = Game.ingredients_ordered
-	
+
 	order_chicken_label.text = str(ordered_ingreds["chicken"])
 	order_pork_label.text = str(ordered_ingreds["pork"])
 	order_beef_label.text = str(ordered_ingreds["beef"])

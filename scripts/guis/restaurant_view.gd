@@ -13,14 +13,13 @@ onready var failed_label = $"%FailedLabel"
 onready var edible_label = $"%EdibleLabel"
 onready var inedible_label = $"%InedibleLabel"
 
-
-
 var money_earned: int
 var money_spent: int
 var txn_succeded: int
 var txn_failed: int
 var ewaste: int
 var iwaste: int
+
 
 func _ready():
 	init()
@@ -41,6 +40,7 @@ func init():
 
 func _process(delta):
 	_update_labels()
+
 
 func _connect_signals():
 	Game.day_hndlr.connect("day_ended", self, "_on_DayCycle_day_ended")
@@ -68,13 +68,14 @@ func _update_labels():
 func _set_performance_label():
 	var performance = Game.performance_hndlr.get_day_performance(Game.day)
 	$"%PerformanceLabel".text = (
-		""" 
+		(""" 
 		TODAY'S PERFORMANCE
 		Profits: %.0s%%
 		Customer: %.0s%%
 		Waste: %.0s%%
-		"""
-	) % [performance.profit[0], performance.customer[0], performance.waste]
+		""")
+		% [performance.profit[0], performance.customer[0], performance.waste]
+	)
 
 
 # Signals
