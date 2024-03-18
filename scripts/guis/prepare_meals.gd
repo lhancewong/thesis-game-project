@@ -213,7 +213,7 @@ func _on_Lemonade_Plus_pressed():
 
 
 func _on_LemonadePrepare_pressed():
-	Game.food_hndlr.pre_prepare_meal("beef_curry", lemonade_amount)
+	Game.food_hndlr.pre_prepare_meal("lemonade", lemonade_amount)
 
 
 func _on_LemonadeLineEdit_text_changed(new_text):
