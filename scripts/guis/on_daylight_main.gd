@@ -149,6 +149,7 @@ func _on_StartDay_pressed():
 	SoundHandler.button_click.play()
 	game_console.add_text("")
 	game_console.add_text("Day %s Started!" % str(Game.day))
+	$RestaurantView.init()
 	$RestaurantView.visible = true
 	_on_pause_button_pressed()
 	yield(Game.day_hndlr.start_day_cycle(), "completed")

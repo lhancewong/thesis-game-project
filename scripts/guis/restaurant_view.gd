@@ -17,8 +17,8 @@ var money_earned: int
 var money_spent: int
 var txn_succeded: int
 var txn_failed: int
-var ewaste: int
-var iwaste: int
+var ewaste_produced: int
+var iwaste_produced: int
 
 
 func _ready():
@@ -34,8 +34,8 @@ func init():
 	money_spent = 0
 	txn_succeded = 0
 	txn_failed = 0
-	ewaste = 0
-	iwaste = 0
+	iwaste_produced = 0
+	ewaste_produced = 0
 
 
 func _process(delta):
@@ -61,8 +61,8 @@ func _update_labels():
 	spent_label.text = "Spent: %s~" % str(money_spent)
 	succeded_label.text = "Succeded: %s~" % str(txn_succeded)
 	failed_label.text = "Failed: %s~" % str(txn_failed)
-	edible_label.text = "E Waste: %s~" % str(ewaste)
-	inedible_label.text = "I Waste: %s~" % str(iwaste)
+	edible_label.text = "E Waste: %s~" % str(ewaste_produced)
+	inedible_label.text = "I Waste: %s~" % str(iwaste_produced)
 
 
 func _set_performance_label():
@@ -70,11 +70,11 @@ func _set_performance_label():
 	$"%PerformanceLabel".text = (
 		(""" 
 		TODAY'S PERFORMANCE
-		Profits: %.0s%%
-		Customer: %.0s%%
-		Waste: %.0s%%
+		Profits: %s%%
+		Customer: %s%%
+		Waste: %s%%
 		""")
-		% [performance.profit[0], performance.customer[0], performance.waste]
+		% [int(performance.profit[0]), int(performance.customer[0]), int(performance.waste)]
 	)
 
 
@@ -87,18 +87,15 @@ func _on_DayCycle_day_ended():
 func _on_Purchase_transaction_succeded(meal, customer, payment, iwaste, satisfaction):
 	money_earned += int(payment)
 	txn_succeded += 1
+	iwaste_produced += iwaste
 
 
 func _on_Purchase_transaction_failed(type):
 	txn_failed += 1
 
 
-func _on_Waste_iwaste_produced(amount):
-	iwaste += int(amount)
-
-
 func _on_Waste_ewaste_produced(amount):
-	ewaste += int(amount)
+	ewaste_produced += int(amount)
 
 
 func _on_ReturnButton_pressed():

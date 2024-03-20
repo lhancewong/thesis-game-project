@@ -60,7 +60,7 @@ font_data = ExtResource( 2 )
 size = 15
 font_data = ExtResource( 1 )
 
-[node name="OrderDrinks" type="Control"]
+[node name="PrepareMeals" type="Control"]
 margin_right = 724.0
 margin_bottom = 424.0
 theme = ExtResource( 3 )

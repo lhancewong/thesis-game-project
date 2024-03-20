@@ -273,7 +273,7 @@ func _on_day_start():
 		king_laugh_sprite = get_node("/root/OnDaylight/KingReactions/KingLaughSprite")
 		king_cry_sprite = get_node("/root/OnDaylight/KingReactions/KingCrySprite")
 		game_console = get_node("/root/OnDaylight/%GameConsole")
-		npc_spawner = get_node("/root/OnDaylight/NPCs/Spawner")
+		npc_spawner = get_node("/root/OnDaylight/%RestaurantView/%NPCs/Spawner")
 
 
 func _day_start():

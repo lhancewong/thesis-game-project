@@ -37,7 +37,7 @@ _data = {
 pause_mode = 2
 
 [node name="Spawner" type="Path2D" parent="."]
-position = Vector2( -26.837, -797.831 )
+position = Vector2( -1096, -1086 )
 scale = Vector2( 1.01531, 2.35955 )
 curve = SubResource( 6 )
 script = ExtResource( 3 )
