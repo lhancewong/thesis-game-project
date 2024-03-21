@@ -10,14 +10,14 @@ onready var composted_amount = $VBoxContainer/HBoxContainer/Compost/Bottom/Strat
 
 
 func _ready():
-	inedible_waste_amnt.text = str(Game.inedible_waste)
+	inedible_waste_amnt.text = str("%.2f" % Game.inedible_waste)
 	action_line_edit.text = str(compost_amount)
 	composted_amount.text = str(Game.get_compost_stack_sum())
 	regex.compile("^[0-9]*$")
 
 
 func _physics_process(delta):
-	inedible_waste_amnt.text = str(Game.inedible_waste)
+	inedible_waste_amnt.text = str("%.2f" % Game.inedible_waste)
 
 
 # Calls manage_waste and resets value
@@ -49,7 +49,7 @@ func _on_LineEdit_text_changed(new_text):
 	if regex.search(new_text):
 		if int(new_text) > Game.inedible_waste:
 			print("overload")
-			new_text = Game.inedible_waste
+			new_text = floor(Game.inedible_waste)
 		old_text = str(new_text)
 		compost_amount = int(new_text)
 		action_line_edit.text = old_text

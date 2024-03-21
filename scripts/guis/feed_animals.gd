@@ -9,13 +9,13 @@ onready var inedible_waste_amnt = $VBoxContainer/HBoxContainer/LeftBlock/Waste/A
 
 
 func _ready():
-	inedible_waste_amnt.text = str(Game.edible_waste)
+	inedible_waste_amnt.text = str("%.2f" % Game.edible_waste)
 	action_line_edit.text = str(disposal_amount)
 	regex.compile("^[0-9]*$")
 
 
 func _physics_process(delta):
-	inedible_waste_amnt.text = str(Game.edible_waste)
+	inedible_waste_amnt.text = str("%.2f" % Game.edible_waste)
 	disposal_amount = int(action_line_edit.text)
 
 
