@@ -1,9 +1,8 @@
 [gd_scene load_steps=29 format=2]
 
-[ext_resource path="res://entities/NPCs/Him.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/entities/spawner.gd" type="Script" id=3]
 [ext_resource path="res://entities/npcs/chris.tscn" type="PackedScene" id=4]
-[ext_resource path="res://entities/npcs/Tyrone.tscn" type="PackedScene" id=5]
+[ext_resource path="res://entities/npcs/tyrone.tscn" type="PackedScene" id=5]
 [ext_resource path="res://entities/npcs/jerome.tscn" type="PackedScene" id=6]
 [ext_resource path="res://entities/npcs/matt.tscn" type="PackedScene" id=7]
 [ext_resource path="res://entities/npcs/layla.tscn" type="PackedScene" id=8]
@@ -17,15 +16,15 @@
 [ext_resource path="res://entities/npcs/steve.tscn" type="PackedScene" id=16]
 [ext_resource path="res://entities/npcs/mona.tscn" type="PackedScene" id=17]
 [ext_resource path="res://entities/npcs/lisa.tscn" type="PackedScene" id=18]
-[ext_resource path="res://entities/npcs/Rob.tscn" type="PackedScene" id=19]
-[ext_resource path="res://entities/npcs/Mary.tscn" type="PackedScene" id=20]
-[ext_resource path="res://entities/npcs/Ken.tscn" type="PackedScene" id=21]
+[ext_resource path="res://entities/npcs/rob.tscn" type="PackedScene" id=19]
+[ext_resource path="res://entities/npcs/mary.tscn" type="PackedScene" id=20]
+[ext_resource path="res://entities/npcs/ken.tscn" type="PackedScene" id=21]
 [ext_resource path="res://entities/npcs/alan.tscn" type="PackedScene" id=22]
 [ext_resource path="res://entities/npcs/justine.tscn" type="PackedScene" id=23]
 [ext_resource path="res://entities/npcs/dorothea.tscn" type="PackedScene" id=24]
 [ext_resource path="res://entities/npcs/carmella.tscn" type="PackedScene" id=25]
-[ext_resource path="res://entities/npcs/Sam.tscn" type="PackedScene" id=26]
-[ext_resource path="res://entities/npcs/Amy.tscn" type="PackedScene" id=27]
+[ext_resource path="res://entities/npcs/sam.tscn" type="PackedScene" id=26]
+[ext_resource path="res://entities/npcs/amy.tscn" type="PackedScene" id=27]
 [ext_resource path="res://entities/npcs/serena.tscn" type="PackedScene" id=28]
 
 [sub_resource type="Curve2D" id=6]
@@ -33,7 +32,7 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 855.735, 519.943, 0, 0, 0, 0, 1080.3, 461.881, 0, 0, 0, 0, 1324.56, 517.824 )
 }
 
-[node name="NPCs" type="Node2D"]
+[node name="npcs" type="Node2D"]
 pause_mode = 2
 
 [node name="Spawner" type="Path2D" parent="."]
@@ -143,11 +142,6 @@ position = Vector2( 855.735, 519.943 )
 rotation = -0.253006
 
 [node name="Dorothea" parent="Spawner" instance=ExtResource( 24 )]
-visible = false
-position = Vector2( 855.735, 519.943 )
-rotation = -0.253006
-
-[node name="Him" parent="Spawner" instance=ExtResource( 2 )]
 visible = false
 position = Vector2( 855.735, 519.943 )
 rotation = -0.253006

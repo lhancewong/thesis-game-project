@@ -20,10 +20,10 @@ pork = {
 "price": 60.0,
 "type": "pork"
 }
-curry_stock = {
+curry_powder = {
 "id": 3,
 "price": 120.0,
-"type": "curry_stock"
+"type": "curry_powder"
 }
 lemon = {
 "id": 8,

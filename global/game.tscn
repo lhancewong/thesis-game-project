@@ -23,7 +23,6 @@ MEAL = ExtResource( 3 )
 
 [node name="Waste" type="Node" parent="."]
 script = ExtResource( 2 )
-MEAL = ExtResource( 3 )
 
 [node name="Ingredient" type="Node" parent="."]
 script = ExtResource( 5 )
@@ -70,7 +69,6 @@ MEAL = ExtResource( 3 )
 [connection signal="money_spent" from="Ingredient" to="Database" method="_on_Ingredient_money_spent"]
 [connection signal="transaction_failed" from="Purchase" to="Database" method="_on_Purchase_transaction_failed"]
 [connection signal="transaction_succeded" from="Purchase" to="Database" method="_on_Purchase_transaction_succeded"]
-[connection signal="prepare_meal" from="Food" to="Database" method="_on_Food_prepare_meal"]
 [connection signal="day_ended" from="DayCycle" to="Database" method="_on_DayCycle_day_ended"]
 [connection signal="day_ended" from="DayCycle" to="Performance" method="_on_DayCycle_day_ended"]
 [connection signal="stats_leftover" from="DayCycle" to="Database" method="_on_DayCycle_stats_leftover"]
