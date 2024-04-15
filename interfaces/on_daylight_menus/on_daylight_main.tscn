@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://scripts/guis/on_daylight_main.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/pixelated.ttf" type="DynamicFontData" id=2]
@@ -21,7 +21,6 @@
 [ext_resource path="res://themes/curry/red.tres" type="Theme" id=19]
 [ext_resource path="res://assets/images/icons/restaurant_level.png" type="Texture" id=20]
 [ext_resource path="res://interfaces/on_daylight_menus/restaurant_view.tscn" type="PackedScene" id=21]
-[ext_resource path="res://interfaces/custom_gui/NPCs.tscn" type="PackedScene" id=22]
 [ext_resource path="res://assets/images/icons/money.png" type="Texture" id=42]
 [ext_resource path="res://assets/images/icons/waste.png" type="Texture" id=43]
 [ext_resource path="res://assets/images/icons/day.png" type="Texture" id=44]
@@ -1326,9 +1325,7 @@ pause_mode = 2
 anims/king_emotes = SubResource( 7 )
 
 [node name="RestaurantView" parent="." instance=ExtResource( 21 )]
-
-[node name="NPCs" parent="." instance=ExtResource( 22 )]
-position = Vector2( 1, 0 )
+unique_name_in_owner = true
 
 [connection signal="pressed" from="VBoxContainer/ButtonsNIcons/MainPanelButtons/HBoxContainer/LiveUpdatingStats" to="." method="_on_LiveUpdatingStats_pressed"]
 [connection signal="pressed" from="VBoxContainer/ButtonsNIcons/MainPanelButtons/HBoxContainer/OrderIngredients" to="." method="_on_OrderIngredients_pressed"]

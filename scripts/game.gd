@@ -146,7 +146,7 @@ func init_game():
 	stats_per_day = {}
 	transaction_receipts = {}
 	strategy_receipts = {}
-#	meal_stats = {}
+	waste_managed = []
 
 	save_file_num = -1
 

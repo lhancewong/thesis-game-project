@@ -318,8 +318,7 @@ margin_right = -20.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 5 )
 text = "TIP:
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-"
+To unlock new tech (waste management strategies) you must first reach 50 satisfaction points. Once this is achieved, you will get 1 store point. This can be consumed to unlock tech. For now try whichever one suits your fancy!"
 align = 3
 valign = 1
 autowrap = true

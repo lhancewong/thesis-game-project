@@ -104,12 +104,12 @@ func _on_ChickenPrepare_pressed():
 	Game.food_hndlr.pre_prepare_meal("chicken_curry", chicken_curry_amount)
 
 
-func _on_Chicken_plus_pressed():
+func _on_Chicken_Plus_pressed():
 	chicken_curry_amount += 1
 	chicken_curry_line_edit.text = str(chicken_curry_amount)
 
 
-func _on_Chicken_minus_pressed():
+func _on_Chicken_Minus_pressed():
 	chicken_curry_amount -= 1
 	if chicken_curry_amount < 0:
 		chicken_curry_amount = 0

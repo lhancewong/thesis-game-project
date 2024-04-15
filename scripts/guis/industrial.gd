@@ -10,14 +10,14 @@ onready var inedible_waste_amnt = $VBoxContainer/HBoxContainer/Industrial/Waste/
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	inedible_waste_amnt.text = str(Game.inedible_waste)
+	inedible_waste_amnt.text = str("%.2f" % Game.inedible_waste)
 	action_line_edit.text = str(disposal_amount)
 	regex.compile("^[0-9]*$")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	inedible_waste_amnt.text = str(Game.inedible_waste)
+	inedible_waste_amnt.text = str("%.2f" % Game.inedible_waste)
 
 
 # Calls manage_waste and resets value

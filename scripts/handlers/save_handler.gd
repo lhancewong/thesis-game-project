@@ -12,20 +12,23 @@ func save():
 		"max_day_len": Game.max_day_len,
 		"min_custo": Game.min_custo,
 		"max_custo": Game.max_custo,
+		"store_level": Game.store_level,
+		"skill_points": Game.skill_points,
+		"compost_stack": Game.compost_stack,
+		"last_compost_day": Game.last_compost_day,
+		"total_animals_fed": Game.total_animals_fed,
+		"strategy_use_tracker": Game.strategy_use_tracker,
+		"strategy_cap": Game.strategy_cap,
+		"unlocked_ingredients": Game.unlocked_ingredients,
+		"unlocked_tech": Game.unlocked_tech,
+		"meal_prices": Game.meal_prices,
 		"i_stockpile": Game.i_stockpile,
-		"waste_managed": Game.waste_managed,
+		"cookable_food": Game.cookable_food,
+		"ingredients_ordered": Game.ingredients_ordered,
 		"stats_per_day": Game.stats_per_day,
 		"transaction_receipts": Game.transaction_receipts,
 		"strategy_receipts": Game.strategy_receipts,
-		"compost_stack": Game.compost_stack,
-		"last_compost_day": Game.last_compost_day,
-		"unlocked_tech": Game.unlocked_tech,
-		"store_level": Game.store_level,
-		"skill_points": Game.skill_points,
-		"meal_prices": Game.meal_prices,
-		"total_animals_fed": Game.total_animals_fed,
-		"strategy_use_tracker": Game.strategy_use_tracker,
-		"strategy_cap": Game.strategy_cap
+		"waste_managed": Game.waste_managed,
 	}
 	return save_dict
 
@@ -72,36 +75,44 @@ func load_game():
 					Game.min_custo = data
 				"max_custo":
 					Game.max_custo = data
-				"i_stockpile":
-					Game.i_stockpile = data
-				"sold_food":
-					Game.sold_food = data
-				"waste_managed":
-					Game.waste_managed = data
-				"stats_per_day":
-					Game.stats_per_day = data
-				"compost_stack":
-					Game.compost_stack = data
-				"last_compost_day":
-					Game.last_compost_day = data
-				"unlocked_tech":
-					Game.unlocked_tech = data
-				"meal_prices":
-					Game.meal_prices = data
-				"total_animals_fed":
-					Game.total_animals_fed = data
+
 				"store_level":
 					Game.store_level = data
 				"skill_points":
 					Game.skill_points = data
+
+				"compost_stack":
+					Game.compost_stack = data
+				"last_compost_day":
+					Game.last_compost_day = data
+				"total_animals_fed":
+					Game.total_animals_fed = data
+
 				"strategy_use_tracker":
 					Game.strategy_use_tracker = data
 				"strategy_cap":
 					Game.strategy_cap = data
+				"unlocked_ingredients":
+					Game.unlocked_ingredients = data
+				"unlocked_tech":
+					Game.unlocked_tech = data
+				"meal_prices":
+					Game.meal_prices = data
+				"i_stockpile":
+					Game.i_stockpile = data
+				"cookable_food":
+					Game.cookable_food = data
+				"ingredients_ordered":
+					Game.ingredients_ordered = data
+				"stats_per_day":
+					Game.stats_per_day = data
 				"transaction_receipts":
 					Game.transaction_receipts = data
 				"strategy_receipts":
 					Game.strategy_receipts = data
+
+				"waste_managed":
+					Game.waste_managed = data
 
 	save_game.close()
 

@@ -24,9 +24,9 @@ func _physics_process(delta):
 
 
 func _update_labels():
-	inedible_waste_label.text = str(Game.inedible_waste)
-	edible_waste_label.text = str(Game.edible_waste)
-	total_waste_label.text = str(Game.inedible_waste + Game.edible_waste)
+	inedible_waste_label.text = str("%.2f" % Game.inedible_waste)
+	edible_waste_label.text = str("%.2f" % Game.edible_waste)
+	total_waste_label.text = str("%.2f" % (Game.inedible_waste + Game.edible_waste))
 
 
 func _on_TrashButton_pressed():
