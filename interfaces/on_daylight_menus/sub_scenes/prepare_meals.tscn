@@ -1390,4 +1390,23 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
+[connection signal="pressed" from="VBoxContainer/Meal/Chicken/HBoxContainer/minus" to="." method="_on_Chicken_minus_pressed"]
+[connection signal="text_changed" from="VBoxContainer/Meal/Chicken/HBoxContainer/LineEdit" to="." method="_on_ChickenLineEdit_text_changed"]
+[connection signal="pressed" from="VBoxContainer/Meal/Chicken/HBoxContainer/plus" to="." method="_on_Chicken_plus_pressed"]
 [connection signal="pressed" from="VBoxContainer/Meal/Chicken/ChickenPrepare" to="." method="_on_ChickenPrepare_pressed"]
+[connection signal="pressed" from="VBoxContainer/Meal/Beef/HBoxContainer/Minus" to="." method="_on_Beef_Minus_pressed"]
+[connection signal="text_changed" from="VBoxContainer/Meal/Beef/HBoxContainer/LineEdit" to="." method="_on_BeefLineEdit_text_changed"]
+[connection signal="pressed" from="VBoxContainer/Meal/Beef/HBoxContainer/Plus" to="." method="_on_Beef_Plus_pressed"]
+[connection signal="pressed" from="VBoxContainer/Meal/Beef/BeefPrepare" to="." method="_on_BeefPrepare_pressed"]
+[connection signal="pressed" from="VBoxContainer/Meal/Pork/HBoxContainer/Minus" to="." method="_on_Pork_Minus_pressed"]
+[connection signal="text_changed" from="VBoxContainer/Meal/Pork/HBoxContainer/LineEdit" to="." method="_on_PorkLineEdit_text_changed"]
+[connection signal="pressed" from="VBoxContainer/Meal/Pork/HBoxContainer/Plus" to="." method="_on_Pork_Plus_pressed"]
+[connection signal="pressed" from="VBoxContainer/Meal/Pork/PorkPrepare" to="." method="_on_PorkPrepare_pressed"]
+[connection signal="pressed" from="VBoxContainer/Meal/Coffee/HBoxContainer/Minus" to="." method="_on_Coffee_Minus_pressed"]
+[connection signal="text_changed" from="VBoxContainer/Meal/Coffee/HBoxContainer/LineEdit" to="." method="_on_CoffeeLineEdit_text_changed"]
+[connection signal="pressed" from="VBoxContainer/Meal/Coffee/HBoxContainer/Plus" to="." method="_on_Coffee_Plus_pressed"]
+[connection signal="pressed" from="VBoxContainer/Meal/Coffee/CoffeePrepare" to="." method="_on_CoffeePrepare_pressed"]
+[connection signal="pressed" from="VBoxContainer/Meal/Lemonade/HBoxContainer/Minus" to="." method="_on_Lemonade_Minus_pressed"]
+[connection signal="text_changed" from="VBoxContainer/Meal/Lemonade/HBoxContainer/LineEdit" to="." method="_on_LemonadeLineEdit_text_changed"]
+[connection signal="pressed" from="VBoxContainer/Meal/Lemonade/HBoxContainer/Plus" to="." method="_on_Lemonade_Plus_pressed"]
+[connection signal="pressed" from="VBoxContainer/Meal/Lemonade/LemonadePrepare" to="." method="_on_LemonadePrepare_pressed"]

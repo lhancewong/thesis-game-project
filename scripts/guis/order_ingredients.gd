@@ -119,12 +119,12 @@ func _on_ChickenLine_text_changed(new_text):
 
 
 func _on_BeefBuy_pressed():
-	SoundHandler.progress_fill.play()
 	Game.ingred_hndlr.buy_ingredients("Beef", beef_amount)
 	beef_line_edit.text = str(beef_amount)
 
 
 func _on_Beef_minus_pressed():
+	SoundHandler.value_change.play()
 	beef_amount -= 1
 	if beef_amount < 0:
 		beef_amount = 0

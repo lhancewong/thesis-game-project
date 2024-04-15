@@ -30,7 +30,7 @@
 
 [sub_resource type="Curve2D" id=6]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 855.735, 519.943, 0, 0, 0, 0, 1080.3, 461.881, 0, 0, 0, 0, 1324.56, 517.824 )
+"points": PoolVector2Array( 0, 0, 0, 0, 852.781, 517.4, 0, 0, 0, 0, 1084.24, 456.371, 0, 0, 0, 0, 1328.5, 515.281 )
 }
 
 [node name="NPCs" type="Node2D"]
@@ -44,130 +44,130 @@ script = ExtResource( 3 )
 
 [node name="Tyrone" parent="Spawner" instance=ExtResource( 5 )]
 visible = false
-position = Vector2( 855.735, 519.943 )
-rotation = -0.253006
+position = Vector2( 852.781, 517.4 )
+rotation = -0.257784
 
 [node name="Jerome" parent="Spawner" instance=ExtResource( 6 )]
 visible = false
-position = Vector2( 855.735, 519.943 )
-rotation = -0.253006
+position = Vector2( 852.781, 517.4 )
+rotation = -0.257784
 
 [node name="Matt" parent="Spawner" instance=ExtResource( 7 )]
 visible = false
-position = Vector2( 855.735, 519.943 )
-rotation = -0.253006
+position = Vector2( 852.781, 517.4 )
+rotation = -0.257784
 
 [node name="Layla" parent="Spawner" instance=ExtResource( 8 )]
 visible = false
-position = Vector2( 855.735, 519.943 )
-rotation = -0.253006
+position = Vector2( 852.781, 517.4 )
+rotation = -0.257784
 
 [node name="Harry" parent="Spawner" instance=ExtResource( 9 )]
 visible = false
-position = Vector2( 855.735, 519.943 )
-rotation = -0.253006
+position = Vector2( 852.781, 517.4 )
+rotation = -0.257784
 
 [node name="Tessa" parent="Spawner" instance=ExtResource( 10 )]
 visible = false
-position = Vector2( 855.735, 519.943 )
-rotation = -0.253006
+position = Vector2( 852.781, 517.4 )
+rotation = -0.257784
 
 [node name="Hugh" parent="Spawner" instance=ExtResource( 11 )]
 visible = false
-position = Vector2( 855.735, 519.943 )
-rotation = -0.253006
+position = Vector2( 852.781, 517.4 )
+rotation = -0.257784
 
 [node name="John" parent="Spawner" instance=ExtResource( 12 )]
 visible = false
-position = Vector2( 855.735, 519.943 )
-rotation = -0.253006
+position = Vector2( 852.781, 517.4 )
+rotation = -0.257784
 
 [node name="Chris" parent="Spawner" instance=ExtResource( 4 )]
 visible = false
-position = Vector2( 855.735, 519.943 )
-rotation = -0.253006
+position = Vector2( 852.781, 517.4 )
+rotation = -0.257784
 
 [node name="James" parent="Spawner" instance=ExtResource( 13 )]
 visible = false
-position = Vector2( 855.735, 519.943 )
-rotation = -0.253006
+position = Vector2( 852.781, 517.4 )
+rotation = -0.257784
 
 [node name="Jared" parent="Spawner" instance=ExtResource( 14 )]
 visible = false
-position = Vector2( 855.735, 519.943 )
-rotation = -0.253006
+position = Vector2( 852.781, 517.4 )
+rotation = -0.257784
 
 [node name="Ted" parent="Spawner" instance=ExtResource( 15 )]
 visible = false
-position = Vector2( 855.735, 519.943 )
-rotation = -0.253006
+position = Vector2( 852.781, 517.4 )
+rotation = -0.257784
 
 [node name="Steve" parent="Spawner" instance=ExtResource( 16 )]
 visible = false
-position = Vector2( 855.735, 519.943 )
-rotation = -0.253006
+position = Vector2( 852.781, 517.4 )
+rotation = -0.257784
 
 [node name="Mona" parent="Spawner" instance=ExtResource( 17 )]
 visible = false
-position = Vector2( 855.735, 519.943 )
-rotation = -0.253006
+position = Vector2( 852.781, 517.4 )
+rotation = -0.257784
 
 [node name="Lisa" parent="Spawner" instance=ExtResource( 18 )]
 visible = false
-position = Vector2( 855.735, 519.943 )
-rotation = -0.253006
+position = Vector2( 852.781, 517.4 )
+rotation = -0.257784
 
 [node name="Rob" parent="Spawner" instance=ExtResource( 19 )]
 visible = false
-position = Vector2( 855.735, 519.943 )
-rotation = -0.253006
+position = Vector2( 852.781, 517.4 )
+rotation = -0.257784
 
 [node name="Mary" parent="Spawner" instance=ExtResource( 20 )]
 visible = false
-position = Vector2( 855.735, 519.943 )
-rotation = -0.253006
+position = Vector2( 852.781, 517.4 )
+rotation = -0.257784
 
 [node name="Ken" parent="Spawner" instance=ExtResource( 21 )]
 visible = false
-position = Vector2( 855.735, 519.943 )
-rotation = -0.253006
+position = Vector2( 852.781, 517.4 )
+rotation = -0.257784
 
 [node name="Alan" parent="Spawner" instance=ExtResource( 22 )]
 visible = false
-position = Vector2( 855.735, 519.943 )
-rotation = -0.253006
+position = Vector2( 852.781, 517.4 )
+rotation = -0.257784
 
 [node name="Justine" parent="Spawner" instance=ExtResource( 23 )]
 visible = false
-position = Vector2( 855.735, 519.943 )
-rotation = -0.253006
+position = Vector2( 852.781, 517.4 )
+rotation = -0.257784
 
 [node name="Dorothea" parent="Spawner" instance=ExtResource( 24 )]
 visible = false
-position = Vector2( 855.735, 519.943 )
-rotation = -0.253006
+position = Vector2( 852.781, 517.4 )
+rotation = -0.257784
 
 [node name="Him" parent="Spawner" instance=ExtResource( 2 )]
 visible = false
-position = Vector2( 855.735, 519.943 )
-rotation = -0.253006
+position = Vector2( 852.781, 517.4 )
+rotation = -0.257784
 
 [node name="Carmella" parent="Spawner" instance=ExtResource( 25 )]
 visible = false
-position = Vector2( 855.735, 519.943 )
-rotation = -0.253006
+position = Vector2( 852.781, 517.4 )
+rotation = -0.257784
 
 [node name="Sam" parent="Spawner" instance=ExtResource( 26 )]
 visible = false
-position = Vector2( 855.735, 519.943 )
-rotation = -0.253006
+position = Vector2( 852.781, 517.4 )
+rotation = -0.257784
 
 [node name="Amy" parent="Spawner" instance=ExtResource( 27 )]
 visible = false
-position = Vector2( 855.735, 519.943 )
-rotation = -0.253006
+position = Vector2( 852.781, 517.4 )
+rotation = -0.257784
 
 [node name="Serena" parent="Spawner" instance=ExtResource( 28 )]
 visible = false
-position = Vector2( 855.735, 519.943 )
-rotation = -0.253006
+position = Vector2( 852.781, 517.4 )
+rotation = -0.257784

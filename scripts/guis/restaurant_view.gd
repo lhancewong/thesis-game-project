@@ -59,7 +59,7 @@ func _update_labels():
 
 	earned_label.text = "Earned: %s~" % str(money_earned)
 	spent_label.text = "Spent: %s~" % str(money_spent)
-	succeded_label.text = "Succeded: %s~" % str(txn_succeded)
+	succeded_label.text = "Succeeded: %s~" % str(txn_succeded)
 	failed_label.text = "Failed: %s~" % str(txn_failed)
 	edible_label.text = "E Waste: %s~" % str(ewaste)
 	inedible_label.text = "I Waste: %s~" % str(iwaste)
@@ -102,4 +102,5 @@ func _on_Waste_ewaste_produced(amount):
 
 
 func _on_ReturnButton_pressed():
+	$"%QuickStats".visible = false
 	visible = false

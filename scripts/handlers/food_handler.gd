@@ -34,9 +34,11 @@ func pre_prepare_meal(meal_type: String, amount: int):
 	var needed_ingredients = []
 	for ingredient in meal["ingredients"]:
 		if Game.i_stockpile[ingredient] < amount:
+			SoundHandler.angry_noise.play()
 			print("not enough ingredients!")
 			return
 		else:
+			SoundHandler.progress_fill.play()
 			needed_ingredients.append(ingredient)
 
 	Game.cookable_food[meal_type] += amount

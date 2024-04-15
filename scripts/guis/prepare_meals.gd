@@ -105,11 +105,13 @@ func _on_ChickenPrepare_pressed():
 
 
 func _on_Chicken_plus_pressed():
+	SoundHandler.value_change.play()
 	chicken_curry_amount += 1
 	chicken_curry_line_edit.text = str(chicken_curry_amount)
 
 
 func _on_Chicken_minus_pressed():
+	SoundHandler.value_change.play()
 	chicken_curry_amount -= 1
 	if chicken_curry_amount < 0:
 		chicken_curry_amount = 0
@@ -126,6 +128,7 @@ func _on_ChickenLineEdit_text_changed(new_text):
 
 
 func _on_Beef_Minus_pressed():
+	SoundHandler.value_change.play()
 	beef_curry_amount -= 1
 	if beef_curry_amount < 0:
 		beef_curry_amount = 0
@@ -133,6 +136,7 @@ func _on_Beef_Minus_pressed():
 
 
 func _on_Beef_Plus_pressed():
+	SoundHandler.value_change.play()
 	beef_curry_amount += 1
 	beef_curry_line_edit.text = str(beef_curry_amount)
 
@@ -151,6 +155,7 @@ func _on_BeefLineEdit_text_changed(new_text):
 
 
 func _on_Pork_Minus_pressed():
+	SoundHandler.value_change.play()
 	pork_curry_amount -= 1
 	if pork_curry_amount < 0:
 		pork_curry_amount = 0
@@ -158,6 +163,7 @@ func _on_Pork_Minus_pressed():
 
 
 func _on_Pork_Plus_pressed():
+	SoundHandler.value_change.play()
 	pork_curry_amount += 1
 	pork_curry_line_edit.text = str(pork_curry_amount)
 
@@ -176,6 +182,7 @@ func _on_PorkLineEdit_text_changed(new_text):
 
 
 func _on_Coffee_Minus_pressed():
+	SoundHandler.value_change.play()
 	coffee_amount -= 1
 	if coffee_amount < 0:
 		coffee_amount = 0
@@ -183,6 +190,7 @@ func _on_Coffee_Minus_pressed():
 
 
 func _on_Coffee_Plus_pressed():
+	SoundHandler.value_change.play()
 	coffee_amount += 1
 	coffee_line_edit.text = str(coffee_amount)
 
@@ -201,6 +209,7 @@ func _on_CoffeeLineEdit_text_changed(new_text):
 
 
 func _on_Lemonade_Minus_pressed():
+	SoundHandler.value_change.play()
 	lemonade_amount -= 1
 	if lemonade_amount < 0:
 		lemonade_amount = 0
@@ -208,6 +217,7 @@ func _on_Lemonade_Minus_pressed():
 
 
 func _on_Lemonade_Plus_pressed():
+	SoundHandler.value_change.play()
 	lemonade_amount += 1
 	lemonade_line_edit.text = str(lemonade_amount)
 
