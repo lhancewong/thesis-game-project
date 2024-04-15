@@ -18,6 +18,7 @@ func _ready():
 
 func _physics_process(delta):
 	inedible_waste_amnt.text = str("%.2f" % Game.inedible_waste)
+	composted_amount.text = str(Game.get_compost_stack_sum())
 
 
 # Calls manage_waste and resets value

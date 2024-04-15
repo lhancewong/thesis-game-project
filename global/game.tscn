@@ -23,6 +23,7 @@ MEAL = ExtResource( 3 )
 
 [node name="Waste" type="Node" parent="."]
 script = ExtResource( 2 )
+MEAL = ExtResource( 3 )
 
 [node name="Ingredient" type="Node" parent="."]
 script = ExtResource( 5 )

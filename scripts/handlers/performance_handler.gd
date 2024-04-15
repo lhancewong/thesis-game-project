@@ -12,7 +12,7 @@ func get_waste_performance(day):
 	)
 	var waste_managed = float(Game.database_hndlr.get_waste_managed(day))
 
-	if waste_managed == 0:
+	if waste_managed == 0 or waste_produced == 0:
 		return 0
 
 	var waste_performance = (waste_managed / waste_produced) * 100
