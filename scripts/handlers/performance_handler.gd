@@ -5,14 +5,17 @@ export(Resource) var MEAL
 
 func get_waste_performance(day):
 	var waste_produced = float(
-		Game.database_hndlr.get_ewaste_produced(day) + Game.database_hndlr.get_iwaste_produced(day)
+		(
+			Game.database_hndlr.get_ewaste_produced(day - 1)
+			+ Game.database_hndlr.get_iwaste_produced(day - 1)
+		)
 	)
 	var waste_managed = float(Game.database_hndlr.get_waste_managed(day))
 
 	if waste_managed == 0:
 		return 0
 
-	var waste_performance = (waste_produced / waste_managed) * 100
+	var waste_performance = (waste_managed / waste_produced) * 100
 
 	return clamp(waste_performance, 0, 100)
 
@@ -29,7 +32,7 @@ func get_customer_performance(day):
 	)
 
 	if transactions_total_count == 0:
-		return 0
+		return [0]
 
 	var customer_performance = (transactions_succeded_count / transactions_total_count) * 100
 
@@ -56,7 +59,7 @@ func get_profit_performance(day):
 				money_expected += quantity * MEAL.menu.lemonade["base_price"]
 
 	if money_expected == 0:
-		return 0
+		return [0]
 
 	var profit_performance = (money_earned / money_expected) * 100
 
@@ -66,7 +69,10 @@ func get_profit_performance(day):
 func get_day_performance(day):
 	var profit_performance = get_profit_performance(day)
 	var customer_performance = get_customer_performance(day)
-	var waste_performance = get_waste_performance(day)
+	var waste_performance = 420
+
+	if day > 0:
+		waste_performance = get_waste_performance(day)
 
 	print("profit: %s" % str(profit_performance))
 	print("customer: %s" % str(customer_performance))
