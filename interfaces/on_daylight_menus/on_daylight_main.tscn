@@ -40,7 +40,6 @@
 [ext_resource path="res://assets/images/icons/discount_buff.png" type="Texture" id=59]
 [ext_resource path="res://assets/images/icons/compost_debuff.png" type="Texture" id=60]
 
-
 [sub_resource type="DynamicFont" id=4]
 size = 19
 font_data = ExtResource( 5 )
@@ -676,7 +675,8 @@ custom_constants/separation = 20
 alignment = 2
 
 [node name="StartDev" type="Button" parent="VBoxContainer/MainPanelNResto/MainPanel/Buttons"]
-margin_right = 167.0
+visible = false
+margin_right = 184.0
 margin_bottom = 50.251
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -686,30 +686,29 @@ text = "Start Dev"
 expand_icon = true
 
 [node name="Debug" type="Button" parent="VBoxContainer/MainPanelNResto/MainPanel/Buttons" groups=["Debug"]]
-margin_left = 187.0
-margin_right = 293.324
+margin_right = 197.324
 margin_bottom = 50.251
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.4
 theme = ExtResource( 19 )
 custom_fonts/font = SubResource( 2 )
-text = "Debug"
+text = "Toggle info"
 expand_icon = true
 
 [node name="ToTitleScreen" type="Button" parent="VBoxContainer/MainPanelNResto/MainPanel/Buttons"]
-margin_left = 313.0
-margin_right = 567.324
+margin_left = 217.0
+margin_right = 476.0
 margin_bottom = 50.251
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 19 )
 custom_fonts/font = SubResource( 2 )
-text = "To Title Screen"
+text = "Save and Quit"
 expand_icon = true
 
 [node name="StartDay" type="Button" parent="VBoxContainer/MainPanelNResto/MainPanel/Buttons"]
-margin_left = 587.0
+margin_left = 496.0
 margin_right = 755.0
 margin_bottom = 50.251
 size_flags_horizontal = 3
@@ -1220,8 +1219,8 @@ alignment = 1
 
 [node name="CompostDebuff" type="TextureRect" parent="VBoxContainer/MainPanelNResto/Restaurant/StatusEffects/EffectIcons"]
 visible = false
-margin_right = 131.0
-margin_bottom = 50.0
+margin_right = 541.0
+margin_bottom = 52.0
 rect_pivot_offset = Vector2( -477, -156 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1231,8 +1230,8 @@ stretch_mode = 6
 
 [node name="Cucumber" type="TextureRect" parent="VBoxContainer/MainPanelNResto/Restaurant/StatusEffects/EffectIcons"]
 visible = false
-margin_right = 177.0
-margin_bottom = 50.0
+margin_right = 541.0
+margin_bottom = 52.0
 rect_pivot_offset = Vector2( -477, -156 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1241,8 +1240,8 @@ stretch_mode = 6
 
 [node name="Coffee" type="TextureRect" parent="VBoxContainer/MainPanelNResto/Restaurant/StatusEffects/EffectIcons"]
 visible = false
-margin_right = 268.0
-margin_bottom = 50.0
+margin_right = 541.0
+margin_bottom = 52.0
 rect_pivot_offset = Vector2( -477, -156 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1251,8 +1250,9 @@ stretch_mode = 6
 
 [node name="DiscountBuff" type="TextureRect" parent="VBoxContainer/MainPanelNResto/Restaurant/StatusEffects/EffectIcons"]
 visible = false
+margin_left = 273.0
 margin_right = 541.0
-margin_bottom = 50.0
+margin_bottom = 52.0
 rect_pivot_offset = Vector2( -477, -156 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1326,6 +1326,7 @@ anims/king_emotes = SubResource( 7 )
 
 [node name="RestaurantView" parent="." instance=ExtResource( 21 )]
 unique_name_in_owner = true
+visible = false
 
 [connection signal="pressed" from="VBoxContainer/ButtonsNIcons/MainPanelButtons/HBoxContainer/LiveUpdatingStats" to="." method="_on_LiveUpdatingStats_pressed"]
 [connection signal="pressed" from="VBoxContainer/ButtonsNIcons/MainPanelButtons/HBoxContainer/OrderIngredients" to="." method="_on_OrderIngredients_pressed"]
